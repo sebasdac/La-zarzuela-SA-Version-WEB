@@ -55,6 +55,8 @@
 
             <div>
                 
+                <asp:Button ID="Button1" runat="server" Text="Aceptar" />
+                
             </div>
 
             <div>
