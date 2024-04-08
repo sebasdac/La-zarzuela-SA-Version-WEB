@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,11 +15,17 @@ namespace CapaDatos
 
 
 
-        private String String_Conexion = "Data Source=LAPTOP-M50THNEO;Initial Catalog=Productos;Integrated Security=True;";
+        //private String String_Conexion = "Data Source=LAPTOP-M50THNEO;Initial Catalog=Productos;Integrated Security=True;";
         //private String String_Conexion = "Data Source= tiusr19pl.cuc-carrera-ti.ac.cr\\MSSQLSERVER2019;" +
         //                          "User ID=EstudiantesIIC2023; Password=Estudi@ntes2023;" +  // seguridad
         //                           "Initial Catalog=tiusr19pl_Progra2;"; // bd
         //dataset
+
+
+        //string conexion base datos de la computadora
+        private String String_Conexion  = "Data Source=SebasDAC_PC;Initial Catalog = Proyecto II; Integrated Security = True; ";
+
+
         DataSet ds_resultados = new DataSet();
 
         #region "Propiedades"
