@@ -9,7 +9,7 @@
     <title></title>
 </head>
 <body>
-            <form id="form1" runat="server">
+      <form id="form1" runat="server">
                    <div class="form-container">
             <div class="form-group" style="display: inline-block; width: 50%;">
                 <asp:Label ID="Label8" runat="server" Text="Codigo:"></asp:Label>
@@ -50,7 +50,7 @@
             </div>
 
             <div class="form-group" style="display: inline-block; width: 100%;">
-                <asp:GridView ID="dgvProductos" runat="server">
+                <asp:GridView ID="dgvProductos" runat="server" CssClass="styled-gridview">
                 </asp:GridView>
             </div>
         </div>
