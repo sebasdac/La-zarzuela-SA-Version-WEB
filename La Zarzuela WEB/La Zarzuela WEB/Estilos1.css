@@ -17,4 +17,65 @@ body {
     margin: 4px 7px 2px 4px; /* Esto centrará el TextBox horizontalmente */
     display: block; /* Esto asegura que el TextBox sea tratado como un bloque */
 }
+.form-container {
+    width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
+.form-group {
+    margin-bottom: 15px;
+}
+
+    .form-group label {
+        display: inline-block;
+        width: 120px;
+        font-weight: bold;
+    }
+
+    .form-group input[type="text"] {
+        width: calc(100% - 120px);
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+.button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+    .button-container button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+        .button-container button:hover {
+            background-color: #0056b3;
+        }
+
+.styled-gridview {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+    .styled-gridview th, .styled-gridview td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    .styled-gridview th {
+        background-color: #007bff;
+        color: #fff;
+    }
