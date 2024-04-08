@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E1F810F3-2A3F-42C8-A1EC-F59F90A68CF0}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>La_zarzuela_SA</RootNamespace>
+    <AssemblyName>La zarzuela SA</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="frmAgregarInventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAgregarInventario.Designer.cs">
+      <DependentUpon>frmAgregarInventario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAgregarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAgregarCliente.Designer.cs">
+      <DependentUpon>frmAgregarCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAgregarProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAgregarProducto.Designer.cs">
+      <DependentUpon>frmAgregarProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAgregarProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAgregarProveedor.Designer.cs">
+      <DependentUpon>frmAgregarProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAgregarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAgregarUsuario.Designer.cs">
+      <DependentUpon>frmAgregarUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCambiarPin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCambiarPin.Designer.cs">
+      <DependentUpon>frmCambiarPin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmImpuestoMensualcs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmImpuestoMensualcs.Designer.cs">
+      <DependentUpon>frmImpuestoMensualcs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmVentaProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVentaProducto.Designer.cs">
+      <DependentUpon>frmVentaProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmVerFacturasCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVerFacturasCompra.Designer.cs">
+      <DependentUpon>frmVerFacturasCompra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmVerFacturaVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVerFacturaVenta.Designer.cs">
+      <DependentUpon>frmVerFacturaVenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmVerMas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVerMas.Designer.cs">
+      <DependentUpon>frmVerMas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmVerUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVerUsuarios.Designer.cs">
+      <DependentUpon>frmVerUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAgregarCliente.resx">
+      <DependentUpon>frmAgregarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAgregarInventario.resx">
+      <DependentUpon>frmAgregarInventario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAgregarProducto.resx">
+      <DependentUpon>frmAgregarProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAgregarProveedor.resx">
+      <DependentUpon>frmAgregarProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAgregarUsuario.resx">
+      <DependentUpon>frmAgregarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCambiarPin.resx">
+      <DependentUpon>frmCambiarPin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmImpuestoMensualcs.resx">
+      <DependentUpon>frmImpuestoMensualcs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVentaProducto.resx">
+      <DependentUpon>frmVentaProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVerFacturasCompra.resx">
+      <DependentUpon>frmVerFacturasCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVerFacturaVenta.resx">
+      <DependentUpon>frmVerFacturaVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVerMas.resx">
+      <DependentUpon>frmVerMas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVerUsuarios.resx">
+      <DependentUpon>frmVerUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CapaNegocio\CapaNegocio.csproj">
+      <Project>{eca649e7-2f1a-4640-a6f7-aed2cd03b66c}</Project>
+      <Name>CapaNegocio</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\key.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

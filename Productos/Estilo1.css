@@ -1,0 +1,17 @@
+﻿body {
+    background-color:darkgray;
+}
+.Titulo1 {
+}
+
+.Titulo2 {
+}
+
+.error {
+    color: red;
+}
+
+.centro {
+    margin: 4px 7px 2px 4px; /* Esto centrará el TextBox horizontalmente */
+    display: block; /* Esto asegura que el TextBox sea tratado como un bloque */
+}
