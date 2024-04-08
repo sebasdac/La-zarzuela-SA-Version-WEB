@@ -15,13 +15,22 @@ namespace CapaDatos
 
 
         private String String_Conexion = "Data Source=LAPTOP-M50THNEO;Initial Catalog=Productos;Integrated Security=True;";
-
+        //private String String_Conexion = "Data Source= tiusr19pl.cuc-carrera-ti.ac.cr\\MSSQLSERVER2019;" +
+        //                          "User ID=EstudiantesIIC2023; Password=Estudi@ntes2023;" +  // seguridad
+        //                           "Initial Catalog=tiusr19pl_Progra2;"; // bd
         //dataset
         DataSet ds_resultados = new DataSet();
+
+        #region "Propiedades"
+        public DataTable TablaProductos { get => ds_resultados.Tables[0]; }
+
+        #endregion
 
 
         //objeto connection
         private SqlConnection conexion;
+
+        
 
         #region "Metodos"
         private void AbrirConexion()
@@ -72,7 +81,7 @@ namespace CapaDatos
             AbrirConexion();
 
             instruccionSQL = new SqlCommand("select*from productos" , conexion);
-
+            ds_resultados.Clear();//limpia el dataset
             try
             {
                 sqlDA = new SqlDataAdapter(instruccionSQL);
@@ -82,6 +91,7 @@ namespace CapaDatos
             {
                 throw new SystemException("Error cargando los datos: "+ ex.Message);
             }
+            CerrarConexion();
         }
 
 

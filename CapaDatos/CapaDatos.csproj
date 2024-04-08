@@ -50,7 +50,6 @@
     <Compile Include="ClaseLeeVerMas.cs" />
     <Compile Include="ClaseProductos_BD.cs" />
     <Compile Include="ClaseTablaCliente.cs" />
-    <Compile Include="ClaseTablaProducto.cs" />
     <Compile Include="ClaseTablaProveedor.cs" />
     <Compile Include="ClaseTablaUsuario.cs" />
     <Compile Include="EscribeFacturaCompraXML.cs" />

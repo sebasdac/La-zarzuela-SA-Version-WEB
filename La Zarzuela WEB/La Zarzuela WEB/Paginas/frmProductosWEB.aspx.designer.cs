@@ -7,11 +7,11 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Productos
+namespace La_Zarzuela_WEB
 {
 
 
-    public partial class Productos
+    public partial class frmProductosWEB
     {
 
         /// <summary>
@@ -24,22 +24,22 @@ namespace Productos
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Control Label1.
+        /// Control Label8.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label Label8;
 
         /// <summary>
-        /// Control TextBox1.
+        /// Control txtCodigo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox txtCodigo;
 
         /// <summary>
         /// Control Label3.
@@ -51,13 +51,13 @@ namespace Productos
         protected global::System.Web.UI.WebControls.Label Label3;
 
         /// <summary>
-        /// Control TextBox2.
+        /// Control txtNombre.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.TextBox txtNombre;
 
         /// <summary>
         /// Control Label4.
@@ -69,13 +69,13 @@ namespace Productos
         protected global::System.Web.UI.WebControls.Label Label4;
 
         /// <summary>
-        /// Control TextBox3.
+        /// Control txtPrecio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox3;
+        protected global::System.Web.UI.WebControls.TextBox txtPrecio;
 
         /// <summary>
         /// Control Label6.
@@ -87,13 +87,13 @@ namespace Productos
         protected global::System.Web.UI.WebControls.Label Label6;
 
         /// <summary>
-        /// Control TextBox4.
+        /// Control txtCantidad.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox4;
+        protected global::System.Web.UI.WebControls.TextBox txtCantidad;
 
         /// <summary>
         /// Control Label5.
@@ -105,13 +105,13 @@ namespace Productos
         protected global::System.Web.UI.WebControls.Label Label5;
 
         /// <summary>
-        /// Control lblIVAMostrar.
+        /// Control lblImpuestoMostrar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIVAMostrar;
+        protected global::System.Web.UI.WebControls.Label lblImpuestoMostrar;
 
         /// <summary>
         /// Control Label7.
@@ -123,22 +123,22 @@ namespace Productos
         protected global::System.Web.UI.WebControls.Label Label7;
 
         /// <summary>
-        /// Control Label8.
+        /// Control lblTotalMostrar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label8;
+        protected global::System.Web.UI.WebControls.Label lblTotalMostrar;
 
         /// <summary>
-        /// Control Label2.
+        /// Control lblError.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.Label lblError;
 
         /// <summary>
         /// Control Button1.
@@ -150,12 +150,12 @@ namespace Productos
         protected global::System.Web.UI.WebControls.Button Button1;
 
         /// <summary>
-        /// Control GridView1.
+        /// Control dgvProductos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.GridView dgvProductos;
     }
 }

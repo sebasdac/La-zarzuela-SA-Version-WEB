@@ -29,11 +29,20 @@ namespace CapaNegocio
         #endregion
 
         //llama el constructor
-        private ClaseTablaProducto Datos_Productos = new ClaseTablaProducto();//linea nueva
+        //private ClaseTablaProducto Datos_Productos = new ClaseTablaProducto();//linea nueva
 
-        public DataTable Tabla_Productos { get => Datos_Productos.Tabla_productos; }
+        // public DataTable Tabla_Productos { get => Datos_Productos.Tabla_productos; }
         ClaseLeeProductoXML obj_codigo = new ClaseLeeProductoXML();
         EscribeXMFacturaCompra obj_productocompra = new EscribeXMFacturaCompra();
+
+
+        //base de datos 
+        ClaseProductos_BD obj_productosBD = new ClaseProductos_BD();
+        public DataTable Tabla_Productos { get => obj_productosBD.TablaProductos; }
+
+
+
+
         #region "Propiedades"
         public int Codigo { get => _codigo; set => _codigo = value; }
         public string Nombre { get => _nombre; set => _nombre = value; }
@@ -82,27 +91,10 @@ namespace CapaNegocio
             _totalImpuesto = _total + _impuesto;
         }//fin CalcularTotal
 
-        //public void EscribrXML()
-        //{
-
-        //    try
-        //    {
-        //        EscribirXMLProductos mi_XML = new EscribirXMLProductos();
-
-        //        mi_XML.AbrirXML();
-        //        mi_XML.CrearEncabezado();
-        //        mi_XML.EscribeProducto(_codigo, _nombre, _cantidad, _precio, _impuesto, _totalImpuesto);
-        //        mi_XML.Cerrar();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw new Exception("Error" + ex.Message);
-        //    }
-
-        //}
+      
         public void EscribeProductoDT()
         {
-            Datos_Productos.AgregarProducto(_codigo, _nombre, _cantidad, _precio, _impuesto, _totalImpuesto);
+            //Datos_Productos.AgregarProducto(_codigo, _nombre, _cantidad, _precio, _impuesto, _totalImpuesto);
 
 
         }//fin EscribeProdutoDT
@@ -111,14 +103,22 @@ namespace CapaNegocio
         public void EscribeTablaalXML()
         {
 
-            Datos_Productos.EscribeTabla_en_XML();
+            //Datos_Productos.EscribeTabla_en_XML();
         }//fin EscribeTablaXML
 
         public void LeeTablaProducto()
         {
+            // Datos_Productos.LeeXML_a_TablaProductos();
+            obj_productosBD.LeerProducto();
 
-            Datos_Productos.LeeXML_a_TablaProductos();
+
+
+
         }//fin LeeTablaProducto
+
+
+
+
         public void CodigoRepetido()
         {
             obj_codigo.LeerCodigo(_codigo);
@@ -157,12 +157,14 @@ namespace CapaNegocio
                 Clickboton = true;
             }//fin if
         }//fin validar boton
+
+
         public void EscribeProductoBD()
         {
             ClaseProductos_BD Bd_productos = new ClaseProductos_BD();
 
             Bd_productos.InsertaProductoBD(_codigo, _nombre, _precio,
-                                    _cantidad, _impuesto, _total);
+                                    _cantidad, _impuesto, _totalImpuesto);
         } //fin EscribeProductoDT
 
         #endregion

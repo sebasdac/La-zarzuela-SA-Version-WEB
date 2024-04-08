@@ -65,20 +65,20 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Estilo1.css" />
+    <Content Include="Paginas\frmProductos.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="Paginas\Productos.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Paginas\Productos.aspx.cs">
-      <DependentUpon>Productos.aspx</DependentUpon>
+    <Compile Include="Paginas\frmProductos.aspx.cs">
+      <DependentUpon>frmProductos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Paginas\Productos.aspx.designer.cs">
-      <DependentUpon>Productos.aspx</DependentUpon>
+    <Compile Include="Paginas\frmProductos.aspx.designer.cs">
+      <DependentUpon>frmProductos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -93,6 +93,12 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CapaNegocio\CapaNegocio.csproj">
+      <Project>{eca649e7-2f1a-4640-a6f7-aed2cd03b66c}</Project>
+      <Name>CapaNegocio</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
