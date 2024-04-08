@@ -88,14 +88,14 @@ namespace La_zarzuela_SA
                 obj_facturacompra.Precio = double.Parse(txtPrecio.Text);
                 obj_facturacompra.Total = obj_productos.TotalImpuesto;
                 obj_facturacompra.EscribeFactura2();
-                
+                obj_productos.EscribeProductoDT();
 
 
 
 
                 obj_impuestos.CalcularImpuestoMensual();
                 
-                obj_productos.EscribeProductoDT();
+                obj_productos.EscribeProductoBD();
                 obj_productos.EscribeTablaalXML();
             }//fin try
             catch (Exception ex)

@@ -157,6 +157,13 @@ namespace CapaNegocio
                 Clickboton = true;
             }//fin if
         }//fin validar boton
+        public void EscribeProductoBD()
+        {
+            ClaseProductos_BD Bd_productos = new ClaseProductos_BD();
+
+            Bd_productos.InsertaProductoBD(_codigo, _nombre, _precio,
+                                    _cantidad, _impuesto, _total);
+        } //fin EscribeProductoDT
 
         #endregion
     }

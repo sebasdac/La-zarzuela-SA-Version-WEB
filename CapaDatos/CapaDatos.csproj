@@ -48,6 +48,7 @@
     <Compile Include="ClaseLeeProveedorXML.cs" />
     <Compile Include="ClaseLeeUsuarioXML.cs" />
     <Compile Include="ClaseLeeVerMas.cs" />
+    <Compile Include="ClaseProductos_BD.cs" />
     <Compile Include="ClaseTablaCliente.cs" />
     <Compile Include="ClaseTablaProducto.cs" />
     <Compile Include="ClaseTablaProveedor.cs" />
