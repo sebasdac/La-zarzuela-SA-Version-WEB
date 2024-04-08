@@ -35,6 +35,7 @@ namespace La_Zarzuela_WEB
                 lblImpuestoMostrar.Text = Convert.ToString(obj_productos.Impuesto);
                 lblTotalMostrar.Text = Convert.ToString(obj_productos.TotalImpuesto);
                 obj_productos.EscribeProductoBD();
+                lblError.Text = "";
 
             }
             catch(Exception ex)
