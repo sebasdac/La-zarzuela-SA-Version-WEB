@@ -68,11 +68,19 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Estilos1.css" />
+    <Content Include="Login.aspx" />
     <Content Include="Paginas\frmProductosWEB.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Paginas\frmProductosWEB.aspx.cs">
       <DependentUpon>frmProductosWEB.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
