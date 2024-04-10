@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Reflection;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,7 +20,9 @@ namespace CapaNegocio
         string _direccion;
         string _correo;
         string _provincia;
-
+        string _tipo;
+        string _estado;
+        ClaseProveedorBD obj_proveedor = new ClaseProveedorBD();
 
 
         #region "Propiedades"
@@ -30,6 +33,10 @@ namespace CapaNegocio
         public string Direccion { get => _direccion; set => _direccion = value; }
         public string Correo { get => _correo; set => _correo = value; }
         public string Provincia { get => _provincia; set => _provincia = value; }
+        public string Tipo { get => _tipo; set => _tipo = value; }
+        public string Estado { get => _estado; set => _estado = value; }
+
+        public DataTable TablaProveedor { get => obj_proveedor.TablaProveedor; }
         #endregion
 
         #region "Metodos"
@@ -85,19 +92,34 @@ namespace CapaNegocio
                 throw new ArgumentException("Escriba el nombre");
 
             }
+            if (string.IsNullOrEmpty(_tipo))
+            {
+                throw new ArgumentException("Escoja el tipo");
+            }//fin if
 
+            
 
 
 
 
         }//fin ValidarProducto
-       
+       public void LeerProveedoresBD()
+        {
+            obj_proveedor.LeerProveedor();
+
+        }
+        public void EscribeProveedorBD()
+        {
+           
+
+           obj_proveedor.InsertaProveedorBD(_codigo, _nombre, _tipo, _cedula, _direccion, Provincia, _telefono, _correo);
+        } //fin EscribeProductoDT
 
 
-       
 
-     
-       
+
+
+
 
         #endregion
     }

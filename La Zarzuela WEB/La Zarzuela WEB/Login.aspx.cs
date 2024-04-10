@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CapaNegocio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,6 +11,7 @@ namespace La_Zarzuela_WEB
 {
     public partial class Login : System.Web.UI.Page
     {
+        Usuarios obj_usuarios = new Usuarios();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -23,9 +25,15 @@ namespace La_Zarzuela_WEB
             String eticket;
             HttpCookie authCookie;
 
+
+            obj_usuarios.Usuario = LoginUsuario.UserName;
+            obj_usuarios.Contrasena= LoginUsuario.Password;
+            
+
             ////aca valida
-            if (LoginUsuario.UserName == "SebasDAC" && LoginUsuario.Password == "1212")
+            try 
             {
+                obj_usuarios.ValidarUsuario();
                 e.Authenticated = true;
                 authTicket = new FormsAuthenticationTicket(1, LoginUsuario.UserName, DateTime.Now,
                     DateTime.Now.AddMinutes(10), true, "1");
@@ -35,9 +43,11 @@ namespace La_Zarzuela_WEB
 
 
             }
-            else
-            {
-                e.Authenticated = false;
+            catch (Exception ex) 
+            { 
+              
+                LoginUsuario.FailureText= ex.Message;
+                
             }
 
 

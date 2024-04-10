@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -34,7 +35,7 @@ namespace CapaNegocio
 
 
 
-
+        public DataTable TablaUsuarios { get => obj_usuarios.TablaProductos; }
         public string Usuario { get => _usuario; set => _usuario = value; }
         public string Contrasena { get => _contrasena; set => _contrasena = value; }
         public object Pin { get => obj_usuarios.PIN1; }
@@ -58,6 +59,19 @@ namespace CapaNegocio
 
         }//fin validar estado
 
+        public void ValidarLogin()
+        {
+            if (string.IsNullOrWhiteSpace(_usuario))
+            {
+                throw new ArgumentException("Escriba el usuario");
+            }
+            if (string.IsNullOrWhiteSpace(_contrasena))
+            {
+                throw new ArgumentException("Escriba la contraseña");
+            }
+
+        }
+
         public void UsuarioIncorrecto()
         {
 
@@ -70,7 +84,28 @@ namespace CapaNegocio
             Bd_productos.InsertaUsuarioBD(_usuario, _nombre, _estado, _cedula, _contrasena);
         } //fin EscribeProductoDT
 
+        public void LeerUsuarios()
+        {
+            obj_usuarios.LeerUsuario();
 
+        }
+        public void ValidarUsuario()
+        {
+          
+             obj_usuarios.ValidarUsuario(_usuario,_contrasena);
+            if (!obj_usuarios.CredencialesValidas)
+            {
+                throw new ArgumentException("Usuario o contraseña incorrectos");
+            }
+
+
+        }
+
+        public void ActualizarEstado()
+        {
+            obj_usuarios.CambiarEstado(_estado,_usuario);
+
+        }
 
 
 

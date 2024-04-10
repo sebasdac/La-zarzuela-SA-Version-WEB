@@ -14,10 +14,11 @@ namespace CapaDatos
         //private String String_Conexion = "Data Source=SebasDAC_PC;Initial Catalog=\"Proyecto II\";Integrated Security=True;";
 
         DataSet ds_resultados = new DataSet();
-
+        bool credencialesValidas = false;
         #region "Propiedades"
         public DataTable TablaProductos { get => ds_resultados.Tables[0]; }
         public int PIN1 { get => PIN; set => PIN = value; }
+        public bool CredencialesValidas { get => credencialesValidas; set => credencialesValidas = value; }
 
 
         #endregion
@@ -77,7 +78,7 @@ namespace CapaDatos
 
             AbrirConexion();
 
-            instruccionSQL = new SqlCommand("select*from productos", conexion);
+            instruccionSQL = new SqlCommand("select*from usuarios", conexion);
             ds_resultados.Clear();//limpia el dataset
             try
             {
@@ -117,6 +118,52 @@ namespace CapaDatos
 
             
         }
+
+        public bool ValidarUsuario(string nombreUsuario, string contrasena)
+        {
+            
+            AbrirConexion();
+            // Consulta SQL para verificar las credenciales del usuario
+            string consultaSQL = "SELECT COUNT(*) FROM usuarios WHERE Usuario = @Usuario AND contrasena = @Contrasena AND estado = 'Activo'";
+
+            SqlCommand instruccionSQL = new SqlCommand(consultaSQL, conexion);
+            instruccionSQL.Parameters.AddWithValue("@Usuario", nombreUsuario);
+            instruccionSQL.Parameters.AddWithValue("@Contrasena", contrasena);
+
+            
+            try
+            {
+                int count = (int)instruccionSQL.ExecuteScalar();
+                // Si el conteo es mayor que cero, significa que las credenciales son válidas
+                CredencialesValidas = count > 0;
+            }
+            catch (Exception ex)
+            {
+                throw new SystemException("Error al verificar las credenciales del usuario: " + ex.Message);
+            }
+            finally
+            {
+                CerrarConexion();
+            }
+
+            return CredencialesValidas;
+        }
+
+        public void CambiarEstado(string nuevoestado, string usuario)
+        {
+            SqlCommand instruccionSQL;
+            AbrirConexion();
+
+            instruccionSQL = new SqlCommand("UPDATE Usuarios SET Estado = @NuevoEstado WHERE Usuario = @Usuario", conexion);
+            instruccionSQL.Parameters.AddWithValue("@NuevoEstado", nuevoestado);
+            instruccionSQL.Parameters.AddWithValue("@Usuario", usuario);
+
+            instruccionSQL.ExecuteNonQuery();
+
+            CerrarConexion();
+        }
+
+
 
 
 

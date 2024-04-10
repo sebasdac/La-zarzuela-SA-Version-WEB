@@ -32,10 +32,29 @@ namespace La_zarzuela_SA
             {
                 obj_usuario.Usuario = txtUsuario.Text;
                 obj_usuario.Contrasena = txtContrasena.Text;
-                
 
-               
-                obj_usuario.UsuarioIncorrecto();
+
+                obj_usuario.ValidarLogin();
+                obj_usuario.ValidarUsuario();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                 Form1 frm = new Form1();
                 frm.Show();

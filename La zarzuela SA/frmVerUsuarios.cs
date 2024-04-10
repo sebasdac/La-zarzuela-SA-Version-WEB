@@ -25,7 +25,8 @@ namespace La_zarzuela_SA
 
         private void frmVerUsuarios_Load(object sender, EventArgs e)
         {
-           
+            obj_usuario.LeerUsuarios();
+            dgvUsuarios.DataSource = obj_usuario.TablaUsuarios;
         }
 
         private void dgvUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -44,7 +45,7 @@ namespace La_zarzuela_SA
 
                 txtUsuario.Text = row.Cells[0].Value.ToString(); // Asignar el valor de la primera columna al 
                 txtContrasena.Text = row.Cells[1].Value.ToString(); // Asignar el valor de la segunda columna al 
-                cbEstado.Text = row.Cells[2].Value.ToString();
+                cbEstado.Text = row.Cells[4].Value.ToString();
             }
         }
 
@@ -90,21 +91,22 @@ namespace La_zarzuela_SA
                 {
                     
                     obj_usuario.Estado = cbEstado.Text;
+                    obj_usuario.Usuario = txtUsuario.Text;
 
 
                     obj_usuario.ValidarEstado();
 
-
+                    obj_usuario.ActualizarEstado();
 
 
 
                     
                     // Actualizar los valores de las celdas con los valores de los TextBox
-                    selectedRow.Cells[2].Value = cbEstado.Text;
-                    
+                    selectedRow.Cells[4].Value = cbEstado.Text;
+                    MessageBox.Show("Cambio realizado", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
-                   
+
                 }
             }
             catch (Exception ex)

@@ -24,7 +24,8 @@ namespace La_zarzuela_SA
 
         private void frmAgregarProveedor_Load(object sender, EventArgs e)
         {
-            
+            obj_proveedor.LeerProveedoresBD();
+            dgvProveedor.DataSource = obj_proveedor.TablaProveedor;
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -38,9 +39,11 @@ namespace La_zarzuela_SA
                 obj_proveedor.Correo = txtCorreo.Text;
                 obj_proveedor.Direccion = txtDireccion.Text;
                 obj_proveedor.Provincia = cbProvincia.Text;
+                obj_proveedor.Tipo = cbTipo.Text;
                 
 
                 obj_proveedor.ValidarProveedor();
+                obj_proveedor.EscribeProveedorBD();
 
                 //obj_proveedor.CodigoRepetido();
 

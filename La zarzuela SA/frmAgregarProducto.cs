@@ -38,6 +38,8 @@ namespace La_zarzuela_SA
         {
             obj_productos.LeeTablaProducto();
             dgvProductos.DataSource = obj_productos.Tabla_Productos;
+            obj_proveedor.LeerProveedoresBD();
+            dgvProveedor.DataSource = obj_proveedor.TablaProveedor;
 
 
         }
@@ -79,7 +81,10 @@ namespace La_zarzuela_SA
                 obj_facturacompra.Cantidad = int.Parse(txtCantidad.Text);
                 obj_facturacompra.Precio = double.Parse(txtPrecio.Text);
                 obj_facturacompra.Total = obj_productos.TotalImpuesto;
-                
+                dgvProductos.Rows.Add(obj_productos.Codigo, obj_productos.Nombre,
+                                      obj_productos.Precio, obj_productos.Cantidad,
+                                      obj_productos.Impuesto, obj_productos.Total);
+
                 obj_productos.EscribeProductoDT();
 
 

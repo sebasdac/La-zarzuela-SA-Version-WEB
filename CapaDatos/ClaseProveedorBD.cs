@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace CapaDatos
 {
-    public class ClaseClienteBD
+    public class ClaseProveedorBD
     {
         DataSet ds_resultados = new DataSet();
         private String String_Conexion = "Data Source=LAPTOP-M50THNEO;Initial Catalog=\"Proyecto II\";Integrated Security=True;";
 
         #region "Propiedades"
-        public DataTable TablaClientes { get => ds_resultados.Tables[0]; }
+        public DataTable TablaProveedor { get => ds_resultados.Tables[0]; }
 
         #endregion
 
@@ -46,13 +46,13 @@ namespace CapaDatos
             conexion.Close();
         }//fin cerrar conexion
 
-        public void InsertaClienteBD(int codigo, string nombre, string tipo, string cedula, string direccion, string provincia, string telefono, string correo)
+        public void InsertaProveedorBD(int codigo, string proveedor, string tipo, string cedula, string direccion, string provincia, string telefono, string correo)
         {
             SqlCommand instruccionSQL;
             AbrirConexion();
-            instruccionSQL = new SqlCommand("insert into Clientes (Codigo, Nombre, Tipo, Cedula, Direccion, Provincia, Telefono, Correo)values(@Codigo,@Nombre,@Tipo,@Cedula,@Direccion,@Provincia, @Telefono, @Correo)", conexion);
+            instruccionSQL = new SqlCommand("insert into Proveedores (Codigo, Proveedor, Tipo, Cedula, Direccion, Provincia, Telefono, Correo)values(@Codigo,@Proveedor,@Tipo,@Cedula,@Direccion,@Provincia, @Telefono, @Correo)", conexion);
             instruccionSQL.Parameters.AddWithValue("@Codigo", codigo);
-            instruccionSQL.Parameters.AddWithValue("@Nombre", nombre);
+            instruccionSQL.Parameters.AddWithValue("@Proveedor", proveedor);
             instruccionSQL.Parameters.AddWithValue("@Tipo", tipo);
 
             instruccionSQL.Parameters.AddWithValue("@Cedula", cedula);
@@ -60,14 +60,14 @@ namespace CapaDatos
             instruccionSQL.Parameters.AddWithValue("@Provincia", provincia);
             instruccionSQL.Parameters.AddWithValue("@Telefono", telefono);
             instruccionSQL.Parameters.AddWithValue("@Correo", correo);
-            
+
 
             instruccionSQL.ExecuteNonQuery();
 
             CerrarConexion();
         }//fin InsertaProducto
 
-        public void LeerCliente()
+        public void LeerProveedor()
         {
             SqlDataAdapter sqlDA;
 
@@ -75,7 +75,7 @@ namespace CapaDatos
 
             AbrirConexion();
 
-            instruccionSQL = new SqlCommand("select*from clientes", conexion);
+            instruccionSQL = new SqlCommand("select*from proveedores", conexion);
             ds_resultados.Clear();//limpia el dataset
             try
             {
@@ -88,14 +88,6 @@ namespace CapaDatos
             }
             CerrarConexion();
         }
-
-
-
-
-        #endregion
-
     }
-
-
+    #endregion
 }
-

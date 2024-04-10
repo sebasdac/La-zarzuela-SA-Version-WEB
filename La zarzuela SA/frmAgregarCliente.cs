@@ -79,15 +79,17 @@ namespace La_zarzuela_SA
 
                 
                 obj_clientes.VerificarCliente();
-                
+
+                obj_clientes.EscribeClienteBD();
 
                 
-                
-                
+
+
+
 
                 //dgvClientes.Rows.Add(obj_clientes.Codigo,obj_clientes.Tipo, obj_clientes.Nombre, obj_clientes.Cedula, obj_clientes.Provincia, obj_clientes.Telefono, obj_clientes.Correo, obj_clientes.Direccion);
 
-               
+
             }
             catch (Exception ex)
             {
@@ -122,7 +124,8 @@ namespace La_zarzuela_SA
 
         private void frmAgregarCliente_Load(object sender, EventArgs e)
         {
-           
+            obj_clientes.LeerClientes();
+            dgvClientes.DataSource = obj_clientes.TablaClientes;
         }
 
         private void frmAgregarCliente_FormClosing(object sender, FormClosingEventArgs e)

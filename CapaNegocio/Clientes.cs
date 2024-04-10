@@ -22,7 +22,7 @@ namespace CapaNegocio
         string _correo;
         string _telefono;
         string _direccion;
-
+        ClaseClienteBD obj_clientes = new ClaseClienteBD();
 
 
         #region "Propiedades"
@@ -34,6 +34,8 @@ namespace CapaNegocio
         public string Correo { get => _correo; set => _correo = value; }
         public string Telefono { get => _telefono; set => _telefono = value; }
         public string Direccion { get => _direccion; set => _direccion = value; }
+
+        public DataTable TablaClientes { get => obj_clientes.TablaClientes; }
         
 
        
@@ -87,16 +89,29 @@ namespace CapaNegocio
             }
 
         }//fin ValidarCliente
-       
 
-        
+        public void LeerClientes()
+        {
+            obj_clientes.LeerCliente();
 
-      
 
-        
+        }
+        public void EscribeClienteBD()
+        {
+            ClaseClienteBD Bd_productos = new ClaseClienteBD();
 
-        
-       
+            Bd_productos.InsertaClienteBD(_codigo, _nombre, _tipo, _cedula, _direccion, Provincia, _telefono, _correo);
+        } //fin EscribeProductoDT
+
+
+
+
+
+
+
+
+
+
         #endregion
     }
 }
