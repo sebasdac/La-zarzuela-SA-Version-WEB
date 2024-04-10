@@ -36,7 +36,8 @@ namespace La_zarzuela_SA
 
         private void frmAgregarProducto_Load(object sender, EventArgs e)
         {
-           
+            obj_productos.LeeTablaProducto();
+            dgvProductos.DataSource = obj_productos.Tabla_Productos;
 
 
         }
