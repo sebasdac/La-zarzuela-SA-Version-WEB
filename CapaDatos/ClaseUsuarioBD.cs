@@ -17,12 +17,14 @@ namespace CapaDatos
 
         #region "Propiedades"
         public DataTable TablaProductos { get => ds_resultados.Tables[0]; }
+        public object PIN1 { get => PIN; set => PIN = value; }
 
         #endregion
 
 
         //objeto connection
         private SqlConnection conexion;
+        object PIN = null;
 
 
 
@@ -87,6 +89,32 @@ namespace CapaDatos
             }
             CerrarConexion();
         }
+
+        public void ObtenerPIN()
+        {
+            SqlCommand instruccionSQL;
+           
+
+            AbrirConexion();
+
+            instruccionSQL = new SqlCommand("SELECT TOP 1 Nombre FROM productos", conexion);
+
+            try
+            {
+                PIN1 = instruccionSQL.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                throw new SystemException("Error obteniendo el dato único: " + ex.Message);
+            }
+            finally
+            {
+                CerrarConexion();
+            }
+
+            return valorUnico;
+        }
+
 
 
 
