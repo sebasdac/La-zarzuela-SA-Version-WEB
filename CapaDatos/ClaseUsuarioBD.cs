@@ -17,14 +17,15 @@ namespace CapaDatos
 
         #region "Propiedades"
         public DataTable TablaProductos { get => ds_resultados.Tables[0]; }
-        public object PIN1 { get => PIN; set => PIN = value; }
+        public int PIN1 { get => PIN; set => PIN = value; }
+
 
         #endregion
 
-
+        object pinobjeto = null;
         //objeto connection
         private SqlConnection conexion;
-        object PIN = null;
+        int PIN;
 
 
 
@@ -97,11 +98,12 @@ namespace CapaDatos
 
             AbrirConexion();
 
-            instruccionSQL = new SqlCommand("SELECT TOP 1 Nombre FROM productos", conexion);
+            instruccionSQL = new SqlCommand("SELECT TOP 1 Pin FROM Pin", conexion);
 
             try
             {
-                PIN1 = instruccionSQL.ExecuteScalar();
+                pinobjeto = instruccionSQL.ExecuteScalar();
+                PIN = Convert.ToInt32(pinobjeto.ToString());
             }
             catch (Exception ex)
             {
@@ -111,8 +113,9 @@ namespace CapaDatos
             {
                 CerrarConexion();
             }
+            
 
-            return valorUnico;
+            
         }
 
 

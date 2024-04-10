@@ -29,13 +29,13 @@ namespace La_zarzuela_SA
 
                 obj_usuario.Usuario = txtUsuario.Text;
                 obj_usuario.Contrasena = txtContrasena.Text;
-                obj_usuario.Pin = int.Parse(txtPin.Text);
+                obj_usuario.PinIngresado = int.Parse(txtPin.Text);
                 obj_usuario.Estado = cbEstado.Text;
                 obj_usuario.Cedula = txtCedula.Text;
                 obj_usuario.Nombre = txtNombre.Text;
 
-             
-                // obj_usuario.UsuarioRepetido();
+
+                obj_usuario.ValidarPIN();
 
                
                 obj_usuario.ValidarUsuarioRegistro();
@@ -74,6 +74,12 @@ namespace La_zarzuela_SA
         private void txtCedula_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            obj_usuario.ValidarPIN();
+            
         }
     }
 }

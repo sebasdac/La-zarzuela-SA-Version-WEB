@@ -29,9 +29,9 @@ namespace La_zarzuela_SA
         {
             try
             { 
-              obj_usuario.Pin = int.Parse(txtActual.Text);
+              //obj_usuario.Pin = int.Parse(txtActual.Text);
               
-              obj_usuario.Pin = int.Parse(txtNuevo.Text);
+              //obj_usuario.Pin = int.Parse(txtNuevo.Text);
 
                 
                 MessageBox.Show("Cambio de PIN realizado satisfactoriamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);

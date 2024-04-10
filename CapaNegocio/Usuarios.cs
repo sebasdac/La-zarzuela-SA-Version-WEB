@@ -16,6 +16,8 @@ namespace CapaNegocio
         string _contrasena;
         string _estado;
         int _pin;
+        int piningresado;
+        ClaseUsuarioBD obj_usuarios = new ClaseUsuarioBD();
 
 
         #region "Constructores"
@@ -35,15 +37,16 @@ namespace CapaNegocio
 
         public string Usuario { get => _usuario; set => _usuario = value; }
         public string Contrasena { get => _contrasena; set => _contrasena = value; }
-        public int Pin { get => _pin; set => _pin = value; }
+        public object Pin { get => obj_usuarios.PIN1; }
         public string Estado { get => _estado; set => _estado = value; }
         public string Cedula { get => _cedula; set => _cedula = value; }
         public string Nombre { get => _nombre; set => _nombre = value; }
+        public int PinIngresado { get => piningresado; set => piningresado = value; }
 
         #endregion
 
         #region "Metodos"
-      
+
 
         public void ValidarEstado()
         {
@@ -99,7 +102,16 @@ namespace CapaNegocio
         }//fin validar usuario registro
 
 
+        public void ValidarPIN()
+        {
+            obj_usuarios.ObtenerPIN();
+            if (piningresado!=int.Parse(Pin.ToString()))
+            {
+                throw new ArgumentException("Pin incorrecto");
 
+            }
+
+        }
 
 
         #endregion
