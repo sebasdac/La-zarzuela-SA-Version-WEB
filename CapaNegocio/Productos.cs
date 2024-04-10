@@ -28,12 +28,7 @@ namespace CapaNegocio
 
         #endregion
 
-        //llama el constructor
-        //private ClaseTablaProducto Datos_Productos = new ClaseTablaProducto();//linea nueva
-
-        // public DataTable Tabla_Productos { get => Datos_Productos.Tabla_productos; }
-        ClaseLeeProductoXML obj_codigo = new ClaseLeeProductoXML();
-        EscribeXMFacturaCompra obj_productocompra = new EscribeXMFacturaCompra();
+      
 
 
         //base de datos 
@@ -119,24 +114,8 @@ namespace CapaNegocio
 
 
 
-        public void CodigoRepetido()
-        {
-            obj_codigo.LeerCodigo(_codigo);
 
-            if (obj_codigo.CodigoRepetido1)
-            {
-                throw new ArgumentException("El codigo esta repetido");
-
-            }//fin if
-
-        }//fin codigo repetido
-
-        public void EscribeXMLFacturaCompra()
-        {
-            obj_productocompra.EscribeXMLFacturaCompra(_codigo, _nombre, _cantidad, _precio, _impuesto, _totalImpuesto, _codigoProveedor, _nombreProveedor, _fechacompra);
-
-        }//fin EscribeXMLFacturaCompra
-
+       
        
 
         public void ValidarCantidad()

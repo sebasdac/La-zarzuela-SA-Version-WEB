@@ -23,8 +23,7 @@ namespace La_zarzuela_SA
 
         private void frmVerFacturaVenta_Load(object sender, EventArgs e)
         {
-            obj_factura.LeeTablaFacturas();
-            dgvFacturasVenta.DataSource = obj_factura.Tabla_Facturas;
+            
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -39,7 +38,7 @@ namespace La_zarzuela_SA
                     {
 
                         dgvFacturasVenta.Rows.Remove(selectedRow);
-                        obj_factura.EscribeFacturaalXML();
+                        
 
                     }//fin if
                 }//fin try

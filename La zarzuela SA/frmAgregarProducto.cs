@@ -36,16 +36,7 @@ namespace La_zarzuela_SA
 
         private void frmAgregarProducto_Load(object sender, EventArgs e)
         {
-            obj_productos.LeeTablaProducto();
-            dgvProductos.DataSource = obj_productos.Tabla_Productos;
-
-            obj_proveedor.LeeTablaProveedor();
-            dgvProveedor.DataSource = obj_proveedor.Tabla_Prooveedor;
-
-            
-
-            // Deshabilitar el botón al inicio
-            btnAgregar.Enabled = false;
+           
 
 
         }
@@ -69,7 +60,7 @@ namespace La_zarzuela_SA
                 obj_productos.Fechacompra = DateTime.Parse(dtpFechaCompra.Text);
                 obj_productos.ValidarProducto();
                 obj_productos.CalcularTotal();
-                obj_productos.CodigoRepetido();
+               
                 lblImpuestoMostrar.Text = obj_productos.Impuesto.ToString();
                 lblTotalMostrar.Text =  obj_productos.TotalImpuesto.ToString();
                 
@@ -77,7 +68,7 @@ namespace La_zarzuela_SA
                 obj_impuestos.Impuestocontra = double.Parse(lblImpuestoMostrar.Text);//pasa el impuesto a favor
 
                 //factura compra
-                obj_productos.EscribeXMLFacturaCompra();
+                
                 obj_facturacompra.CodigoProveedor = int.Parse(txtCodigoProveedor.Text);
                 obj_facturacompra.NombreProveedor = txtProveedor.Text;
                 obj_facturacompra.Fecha = dtpFechaCompra.Text;
@@ -87,13 +78,13 @@ namespace La_zarzuela_SA
                 obj_facturacompra.Cantidad = int.Parse(txtCantidad.Text);
                 obj_facturacompra.Precio = double.Parse(txtPrecio.Text);
                 obj_facturacompra.Total = obj_productos.TotalImpuesto;
-                obj_facturacompra.EscribeFactura2();
+                
                 obj_productos.EscribeProductoDT();
 
 
 
 
-                obj_impuestos.CalcularImpuestoMensual();
+                
                 
                 obj_productos.EscribeProductoBD();
                 obj_productos.EscribeTablaalXML();
@@ -186,11 +177,7 @@ namespace La_zarzuela_SA
                     //lblTotalMostrar.Text = obj_productos.TotalImpuesto.ToString();
 
 
-                    if (txtCodigoProducto.Text != selectedRow.Cells[0].Value.ToString())
-                    {
-                        obj_productos.CodigoRepetido();
-                    }//fin if
-                    // Actualizar los valores de las celdas con los valores de los TextBox
+                    
                     selectedRow.Cells[0].Value = txtCodigoProducto.Text;
                     selectedRow.Cells[1].Value = txtNombre.Text;
                     selectedRow.Cells[2].Value = txtCantidad.Text;

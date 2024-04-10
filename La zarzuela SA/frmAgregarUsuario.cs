@@ -34,15 +34,17 @@ namespace La_zarzuela_SA
                 obj_usuario.Cedula = txtCedula.Text;
                 obj_usuario.Nombre = txtNombre.Text;
 
-                //obj_usuario.ValidarUsuario();
+             
                 // obj_usuario.UsuarioRepetido();
 
-                obj_usuario.ValidarPin();
+               
                 obj_usuario.ValidarUsuarioRegistro();
+
+                obj_usuario.EscribeUsuarioBD();
 
                 //agregar usuario
 
-                obj_usuario.EscribeUsuario2();
+              
 
                 MessageBox.Show("Registro exitoso", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

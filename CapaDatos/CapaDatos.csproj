@@ -43,29 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClaseLeeClienteXML.cs" />
-    <Compile Include="ClaseLeeProductoXML.cs" />
-    <Compile Include="ClaseLeeProveedorXML.cs" />
-    <Compile Include="ClaseLeeUsuarioXML.cs" />
+    <Compile Include="ClaseClienteBD.cs" />
     <Compile Include="ClaseLeeVerMas.cs" />
     <Compile Include="ClaseProductos_BD.cs" />
-    <Compile Include="ClaseTablaCliente.cs" />
-    <Compile Include="ClaseTablaProveedor.cs" />
-    <Compile Include="ClaseTablaUsuario.cs" />
-    <Compile Include="EscribeFacturaCompraXML.cs" />
-    <Compile Include="EscribeFacturaVentaXML.cs" />
-    <Compile Include="EscribeXMFacturaCompra.cs" />
-    <Compile Include="EscribeXMLFacturaVenta.cs" />
-    <Compile Include="EscribeXMLImpuestosMensuales.cs" />
-    <Compile Include="EscribeXMLUsuario.cs" />
-    <Compile Include="EscribeXMLCliente.cs" />
-    <Compile Include="EscribeXMLProveedor.cs" />
-    <Compile Include="EscribirXMLProductos.cs" />
-    <Compile Include="LeeFacturaCompra.cs" />
-    <Compile Include="LeeFacturaVenta.cs" />
+    <Compile Include="ClaseUsuarioBD.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TablaFacturaCompra.cs" />
-    <Compile Include="TablaFacturaVenta.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -21,9 +21,8 @@ namespace CapaNegocio
         double _Precio;
         double _Total;
 
-        TablaFacturaCompra obj_facturacompra = new TablaFacturaCompra();
-        EscribeFacturaCompraXML obj_facturacompraXML = new EscribeFacturaCompraXML();
-        public DataTable facturas { get => obj_facturacompra.Tabla_facturacompra; }
+        
+       
 
 
 
@@ -47,29 +46,9 @@ namespace CapaNegocio
         #region "Metodos"
 
 
-        public void EscribeFacturaDT()
-        {
-            obj_facturacompra.AgregarFactura(_CodigoProveedor, _NombreProveedor, _Fecha, _NumeroFactura, _CodigoProducto, _NombreProducto, _Cantidad, _Precio, _Total);
+  
 
 
-        }//fin EscribeProdutoDT
-
-        public void EscribeFacturaXML()
-        {
-            obj_facturacompra.EscribeTabla_en_XML();
-
-        }
-        public void LeeTablaFactura()
-        {
-
-            obj_facturacompra.LeeXML_a_TablaFactura();
-        }//fin LeeTablaUsuario
-
-        public void EscribeFactura2()
-        {
-            obj_facturacompraXML.EscribeFacturaAppend(_CodigoProveedor, _NombreProveedor, _Fecha,  _CodigoProducto,_NombreProducto, _Cantidad, _Precio, _Total);
-
-        }
 
 
 

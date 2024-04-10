@@ -65,9 +65,7 @@ namespace La_zarzuela_SA
 
                     obj_impuestos.Impuestofavor = double.Parse(txtImpuesto.Text);//manda impuesto a favor
                     obj_impuestos.Mes = DateTime.Parse(dtpFechaCompra.Text).Month;
-                    obj_impuestos.CalcularImpuestoMensual();
-
-                    obj_ventaproducto.EscribeFacturaVentaXML();
+                    
 
 
                     //venta
@@ -87,7 +85,7 @@ namespace La_zarzuela_SA
                     obj_facturaventa.Impuesto = double.Parse(txtImpuesto.Text);
                     ;
                     obj_facturaventa.TotalImpuesto = double.Parse(txtTotal.Text);
-                    obj_facturaventa.EscribeFacturaAppend();
+                   
 
 
 
@@ -125,8 +123,7 @@ namespace La_zarzuela_SA
             obj_productos.LeeTablaProducto();
             dgvProductos.DataSource = obj_productos.Tabla_Productos;
 
-            obj_cliente.LeeTablaCliente();
-            dgvClientes.DataSource = obj_cliente.Tabla_Clientes;
+           
         }//fin frmVentaProducto_Load
 
         private void dgvClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)

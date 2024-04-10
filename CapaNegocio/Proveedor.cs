@@ -21,10 +21,6 @@ namespace CapaNegocio
         string _provincia;
 
 
-        private ClaseTablaProveedor Datos_Proveedor = new ClaseTablaProveedor();//linea nueva
-
-        public DataTable Tabla_Prooveedor { get => Datos_Proveedor.Tabla_proveedor; }
-        ClaseLeeProveedorXML obj_codigo = new ClaseLeeProveedorXML();
 
         #region "Propiedades"
         public int Codigo { get => _codigo; set => _codigo = value; }
@@ -95,36 +91,13 @@ namespace CapaNegocio
 
 
         }//fin ValidarProducto
-        public void EscribeProveedorDT()
-        {
-            Datos_Proveedor.AgregarProveedor(_codigo, _nombre, _cedula, _provincia, _telefono, _correo, _direccion);
+       
 
 
-        }//fin EscribeProdutoDT
+       
 
-
-        public void EscribeProveedorXML()
-        {
-
-            Datos_Proveedor.EscribeTabla_en_XML();
-        }//fin EscribeProductoXML
-
-        public void LeeTablaProveedor()
-        {
-
-            Datos_Proveedor.LeeXML_a_TablaProveedor();
-        }//fin LeeTablaProveedor
-        public void CodigoRepetido()
-        {
-            obj_codigo.LeerCodigo(_codigo);
-
-            if (obj_codigo.CodigoRepetido1)
-            {
-                throw new ArgumentException("El codigo esta repetido");
-
-            }
-
-        }//fin codigo repetido
+     
+       
 
         #endregion
     }

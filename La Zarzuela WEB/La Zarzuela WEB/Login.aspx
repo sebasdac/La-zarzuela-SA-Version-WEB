@@ -4,15 +4,16 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+ <link href="Estilos1.css" rel="stylesheet" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
 </head>
 <body>
-    <form id="form1" runat="server">
+        <form id="form1" runat="server">
         <div>
-            <asp:Login ID="Login1" runat="server">
-            </asp:Login>
+          <asp:Login ID="LoginUsuario" runat="server" OnAuthenticate="Login1_Authenticate">
+          </asp:Login>
         </div>
-    </form>
+      </form>
 </body>
 </html>

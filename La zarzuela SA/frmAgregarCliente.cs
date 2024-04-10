@@ -79,7 +79,7 @@ namespace La_zarzuela_SA
 
                 
                 obj_clientes.VerificarCliente();
-                obj_clientes.CodigoRepetido();
+                
 
                 
                 
@@ -87,8 +87,7 @@ namespace La_zarzuela_SA
 
                 //dgvClientes.Rows.Add(obj_clientes.Codigo,obj_clientes.Tipo, obj_clientes.Nombre, obj_clientes.Cedula, obj_clientes.Provincia, obj_clientes.Telefono, obj_clientes.Correo, obj_clientes.Direccion);
 
-                obj_clientes.EscribeClienteDT();
-                obj_clientes.EscribeClienteXML();
+               
             }
             catch (Exception ex)
             {
@@ -123,13 +122,12 @@ namespace La_zarzuela_SA
 
         private void frmAgregarCliente_Load(object sender, EventArgs e)
         {
-            obj_clientes.LeeTablaCliente();//leer el archivo XML
-            dgvClientes.DataSource = obj_clientes.Tabla_Clientes;//mostrar en el datagridview
+           
         }
 
         private void frmAgregarCliente_FormClosing(object sender, FormClosingEventArgs e)
         {
-            obj_clientes.EscribeClienteXML();//escribir en el archivo XML
+            
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -144,7 +142,7 @@ namespace La_zarzuela_SA
                     {
 
                         dgvClientes.Rows.Remove(selectedRow);
-                        obj_clientes.EscribeClienteXML();
+                        
                     }
                 }
                 catch
@@ -208,7 +206,7 @@ namespace La_zarzuela_SA
                     obj_clientes.VerificarCliente();
                     if (txtCodigo.Text != selectedRow.Cells[0].Value.ToString())
                     {
-                        obj_clientes.CodigoRepetido();
+                        
                     }
                     // Actualizar los valores de las celdas con los valores de los TextBox
                     selectedRow.Cells[0].Value = txtCodigo.Text;
@@ -219,7 +217,7 @@ namespace La_zarzuela_SA
                     selectedRow.Cells[5].Value = txtCorreo.Text;
                     selectedRow.Cells[6].Value = txtTelefono.Text;
                     selectedRow.Cells[7].Value = txtDireccion.Text;
-                    obj_clientes.EscribeClienteXML();
+                    
                 }
             }//fin del try
             catch (Exception ex) 

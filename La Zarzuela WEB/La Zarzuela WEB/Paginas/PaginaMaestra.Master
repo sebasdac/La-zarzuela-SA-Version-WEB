@@ -1,0 +1,32 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="PaginaMaestra.master.cs" Inherits="La_Zarzuela_WEB.PaginaMaestra" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link href="../Estilos1.css" rel="stylesheet" />
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <asp:Label ID="Label1" runat="server" Text="La Zarzuela" CssClass="h1"></asp:Label>
+        &nbsp;
+            
+        </div>
+        <div>
+            <asp:Menu ID="Menu" runat="server" Orientation="Horizontal">
+            <Items>
+            <asp:MenuItem Text="Proveedores" Value="Productos"></asp:MenuItem>
+            <asp:MenuItem Text="Productos" Value="Productos"></asp:MenuItem>
+            </Items>
+            </asp:Menu>
+        </div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+    </form>
+</body>
+</html>

@@ -36,10 +36,7 @@ namespace CapaNegocio
         public string Direccion { get => _direccion; set => _direccion = value; }
         
 
-        public ClaseTablaCliente Dato_Cliente = new ClaseTablaCliente();
-        public DataTable Tabla_Clientes { get => Dato_Cliente.Tabla_clientes; }
-
-         ClaseLeeClienteXML obj_codigo = new ClaseLeeClienteXML();
+       
 
 
         #endregion
@@ -90,53 +87,15 @@ namespace CapaNegocio
             }
 
         }//fin ValidarCliente
-        public void EscribrXML()
-        {
+       
 
-            try
-            {
-                EscribeXMLCliente mi_XML = new EscribeXMLCliente();
+        
 
-                mi_XML.AbrirXML();
-                mi_XML.CrearEncabezado();
-                mi_XML.EscribeCliente(_codigo, _nombre, _cedula, _tipo, _provincia, _correo, _telefono, _direccion);
-                mi_XML.Cerrar();
-            }//fin try
-            catch (Exception ex)
-            {
-                throw new Exception("Error" + ex.Message);
-            }//fin catch
+      
 
-        }//fin escribirXML
+        
 
-        public void EscribeClienteDT()
-        {
-            Dato_Cliente.AgregarClientes(_codigo, _nombre, _cedula, _tipo, _provincia, _correo, _telefono, _direccion);
-        }//fin EscribeClienteDT
-
-        public void EscribeClienteXML()
-        {
-            Dato_Cliente.Clientes_en_XML();
-
-        }//fin EscribeClienteXML
-
-        public void LeeTablaCliente()
-        {
-
-            Dato_Cliente.LeeXMLaTablaClientes();
-        }//fin LeeTablaCliente
-
-        public void CodigoRepetido()
-        {
-            obj_codigo.LeerCodigo(_codigo);
-
-            if (obj_codigo.CodigoRepetido1)
-            {
-                throw new ArgumentException("El codigo esta repetido");
-
-            }
-
-        }//fin codigo repetido
+        
        
         #endregion
     }

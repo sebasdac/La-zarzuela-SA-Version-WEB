@@ -24,8 +24,7 @@ namespace La_zarzuela_SA
 
         private void frmAgregarProveedor_Load(object sender, EventArgs e)
         {
-            obj_proveedor.LeeTablaProveedor();
-            dgvProveedor.DataSource = obj_proveedor.Tabla_Prooveedor;
+            
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -46,10 +45,7 @@ namespace La_zarzuela_SA
                 //obj_proveedor.CodigoRepetido();
 
 
-                obj_proveedor.CodigoRepetido();
-
-                obj_proveedor.EscribeProveedorDT();
-                obj_proveedor.EscribeProveedorXML();
+                
             }//fin del try
             catch (Exception ex) 
             {
@@ -67,7 +63,7 @@ namespace La_zarzuela_SA
 
         private void frmAgregarProveedor_FormClosing(object sender, FormClosingEventArgs e)
         {
-            obj_proveedor.EscribeProveedorXML();
+            
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -82,7 +78,7 @@ namespace La_zarzuela_SA
                     {
 
                         dgvProveedor.Rows.Remove(selectedRow);
-                        obj_proveedor.EscribeProveedorXML();
+                        
                     }//fin if
                 }//fin try
                 catch
@@ -153,7 +149,7 @@ namespace La_zarzuela_SA
 
                     if (txtCodigo.Text != selectedRow.Cells[0].Value.ToString())
                     {
-                        obj_proveedor.CodigoRepetido();
+                       
                     }
                     // Actualizar los valores de las celdas con los valores de los TextBox
                     selectedRow.Cells[0].Value = txtCodigo.Text;
@@ -165,7 +161,7 @@ namespace La_zarzuela_SA
                     selectedRow.Cells[6].Value = txtDireccion.Text;
 
 
-                    obj_proveedor.EscribeProveedorXML(); ;
+                    
                 }
             }
             catch (Exception ex)

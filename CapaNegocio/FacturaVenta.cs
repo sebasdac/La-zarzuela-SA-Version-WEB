@@ -28,10 +28,7 @@ namespace CapaNegocio
         double _totalImpuesto;
 
 
-        TablaFacturaVenta TablaFacturaVenta = new TablaFacturaVenta();
-        EscribeFacturaVentaXML EscribeFacturaVentaXML = new EscribeFacturaVentaXML();
-
-        public DataTable Tabla_Facturas { get => TablaFacturaVenta.Tabla_facturaventa; }
+      
 
         #region "Propiedades"
 
@@ -53,25 +50,10 @@ namespace CapaNegocio
         #endregion
 
         #region "Metodos"
-        public void EscribeFacturaAppend()
-        {
-            EscribeFacturaVentaXML.EscribeFactura2(Codigocliente, Nombrecliente, Cedula, Tipo, Provincia, Correo, Telefono, Direccion, Codigoproducto, Nombreprodcuto, Cantidad, Precio, Impuesto, TotalImpuesto);
-
-        }
-        public void EscribeFacturaDT()
-        {
-            TablaFacturaVenta.AgregarFacturaVenta(Codigocliente, Nombrecliente, Cedula, Tipo, Provincia, Correo, Telefono, Direccion, Codigoproducto, Nombreprodcuto, Cantidad, Precio, Impuesto, TotalImpuesto);
-
-        }
-        public void EscribeFacturaalXML()
-        {
-            TablaFacturaVenta.Facturas_en_XML();
-        }
-
-        public void LeeTablaFacturas()
-        {
-            TablaFacturaVenta.LeeXMLaTablaFactura();
-        }
+        
+       
+        
+       
         #endregion
     }
 }

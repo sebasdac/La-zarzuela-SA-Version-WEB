@@ -7,21 +7,12 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace La_Zarzuela_WEB
+namespace La_Zarzuela_WEB.Paginas
 {
 
 
-    public partial class frmProductosWEB
+    public partial class Formulario_web1
     {
-
-        /// <summary>
-        /// Control form12.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form12;
 
         /// <summary>
         /// Control Label8.

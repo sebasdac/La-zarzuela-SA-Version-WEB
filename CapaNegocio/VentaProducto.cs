@@ -10,7 +10,7 @@ namespace CapaNegocio
     public class VentaProducto
     {
         //objetos
-        EscribeXMLFacturaVenta obj_factura = new EscribeXMLFacturaVenta();
+       
         #region"Variables de trabajo
         //variaables trabajo
         int _disponible;// no lo ocupo para XML
@@ -103,11 +103,7 @@ namespace CapaNegocio
             }//fin if
         }//fin validar boton
 
-        public void EscribeFacturaVentaXML()
-        {
-            obj_factura.EscribeFactura(CodigoCliente, _nombreUsuario, Cedula, Tipo, Provincia, Correo, Telefono, Direccion, CodigoProducto,_nombreProdcuto, _cantidadDeseada, _precio, _impuesto, _totalimpuesto, _fechaCompra);
-            
-        }//fin escribe factura venta XML
+       
         #endregion
     }//fin clase
 }//fin namespace

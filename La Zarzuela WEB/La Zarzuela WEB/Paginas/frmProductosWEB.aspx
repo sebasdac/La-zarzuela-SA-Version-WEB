@@ -9,7 +9,7 @@
     <title></title>
 </head>
 <body>
-      <form id="form1" runat="server">
+      <form id="form12"  runat="server">
                    <div class="form-container">
             <div class="form-group" style="display: inline-block; width: 50%;">
                 <asp:Label ID="Label8" runat="server" Text="Codigo:"></asp:Label>
@@ -49,7 +49,7 @@
                 <asp:Button ID="Button1" runat="server" Text="Aceptar" OnClick="Button1_Click" />
             </div>
 
-            <div class="form-group" style="display: inline-block; width: 100%;">
+            <div  id="contenedorGridView" class="form-group" style="display: inline-block; width: 100%;">
                 <asp:GridView ID="dgvProductos" runat="server" CssClass="styled-gridview">
                 </asp:GridView>
             </div>

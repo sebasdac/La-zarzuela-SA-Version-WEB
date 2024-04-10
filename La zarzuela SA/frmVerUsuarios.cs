@@ -25,8 +25,7 @@ namespace La_zarzuela_SA
 
         private void frmVerUsuarios_Load(object sender, EventArgs e)
         {
-            obj_usuario.LeeTablaUsuario();
-            dgvUsuarios.DataSource = obj_usuario.Tabla_Usuario;
+           
         }
 
         private void dgvUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -78,7 +77,7 @@ namespace La_zarzuela_SA
 
         private void frmVerUsuarios_FormClosing(object sender, FormClosingEventArgs e)
         {
-            obj_usuario.EscribeUsuarioXML();
+            
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -105,7 +104,7 @@ namespace La_zarzuela_SA
                     
 
 
-                    obj_usuario.EscribeUsuarioXML(); ;
+                   
                 }
             }
             catch (Exception ex)

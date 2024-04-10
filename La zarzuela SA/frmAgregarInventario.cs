@@ -28,14 +28,7 @@ namespace La_zarzuela_SA
 
         private void Agregar_inventario_Load(object sender, EventArgs e)
         {
-            obj_productos.LeeTablaProducto();//leer tabla
-            dgvProductos.DataSource = obj_productos.Tabla_Productos;//mostrar tabla
-
-            obj_proveedor.LeeTablaProveedor();//leer tabla
-            dgvProveedor.DataSource = obj_proveedor.Tabla_Prooveedor;// 
-
-           ;
-            dgvProveedor.RowHeaderMouseClick += dgvProveedor_RowHeaderMouseClick;//evento
+            
 
 
         }
@@ -179,13 +172,13 @@ namespace La_zarzuela_SA
                 lblImpuestoMostrar.Text = obj_productos.Impuesto.ToString();
                 lblTotalMostrar.Text = obj_productos.TotalImpuesto.ToString();
                 
-                obj_productos.EscribeXMLFacturaCompra();
+                
                 
                 obj_productos.EscribeTablaalXML();
 
                 obj_impuestos.Impuestocontra = double.Parse(lblImpuestoMostrar.Text);
                 obj_impuestos.Mes = DateTime.Parse(dtpFechaCompra.Text).Month;
-                obj_impuestos.CalcularImpuestoMensual();
+               
                 MessageBox.Show("Compra realizada", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 //factura
@@ -198,7 +191,7 @@ namespace La_zarzuela_SA
                 obj_facturacompra.CodigoProveedor = int.Parse(txtCodigoProveedor.Text);
                 obj_facturacompra.NombreProveedor = txtProveedor.Text;
                 obj_facturacompra.Fecha = dtpFechaCompra.Text;
-                obj_facturacompra.EscribeFactura2();
+             
 
 
 

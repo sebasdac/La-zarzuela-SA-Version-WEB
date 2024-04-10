@@ -20,14 +20,10 @@ namespace CapaNegocio
 
         #region "Constructores"
         //objeto
-        ClaseLeeUsuarioXML obj_usuario = new ClaseLeeUsuarioXML();
-
-        EscribeXMLUsuario obj_usuarioXML = new EscribeXMLUsuario();
-
-        private ClaseTablaUsuario Datos_Usuario = new ClaseTablaUsuario();//linea nueva
+       
 
         
-        public DataTable Tabla_Usuario { get => Datos_Usuario.Tabla_Usuarios; }
+        
         #endregion
 
 
@@ -47,26 +43,7 @@ namespace CapaNegocio
         #endregion
 
         #region "Metodos"
-        public void ValidarUsuario()
-        {
-            int i;
-
-            if (string.IsNullOrEmpty(Contrasena))
-            {
-                throw new ArgumentException("Escriba la contraseña");
-            }
-
-            if (string.IsNullOrEmpty(Usuario))
-            {
-                throw new ArgumentException("Escriba el usuario");
-            }
-
-            if (string.IsNullOrEmpty(_usuario))
-            {
-                throw new ArgumentException("Escriba el usuario");
-
-            }
-        }//fin validar usuario
+      
 
         public void ValidarEstado()
         {
@@ -78,81 +55,29 @@ namespace CapaNegocio
 
         }//fin validar estado
 
-        
-
-        public void UsuarioRepetido()
-        {
-            obj_usuario.LeerUsuarioRepetido(Usuario);
-
-            if (obj_usuario.UsuarioRepetido1)
-            {
-                throw new ArgumentException("El usuario esta repetido");
-
-            }//fin if
-
-        }//fin usuario repetido
-
         public void UsuarioIncorrecto()
         {
-            obj_usuario.VerificarLogin(Usuario,Contrasena);
 
-            if (!obj_usuario.UsuarioCorrecto1)
-            {
-                throw new ArgumentException("Usuario incorrecto o usuario inactivo");
+        }
 
-            }//fin if
-
-        }//fin usuario incorrecto
-
-        public void EscribeUsuarioDT()
+        public void EscribeUsuarioBD()
         {
-            Datos_Usuario.AgregarUsuario(Usuario, Contrasena,Estado, Cedula, Nombre);
+            ClaseUsuarioBD Bd_productos = new ClaseUsuarioBD();
 
-
-        }//fin EscribeProdutoDT
-
-
-        public void EscribeUsuarioXML()
-        {
-
-            Datos_Usuario.EscribeTabla_en_XML();
-        }//fin EscribeProductoXML
-
-        public void LeeTablaUsuario()
-        {
-
-            Datos_Usuario.LeeXML_a_TablaUsuario();
-        }//fin LeeTablaUsuario
-
-        public void ValidarPin()
-        {
-            obj_usuario.PinCorrecto(_pin);
-
-            if (!obj_usuario.Pincorrecto)
-            {
-                throw new ArgumentException("Pin incorrecto");
-
-            }
-
-        }//fin validar pin
-        public void EscribeUsuario2()
-        {
-            //llama a escibe usuarioXML
-            
-            
-            obj_usuarioXML.EscribeUsuario(_usuario, _contrasena, _estado, _cedula, _nombre);
-            
-
-        }//fin escribe usuario2
-
-        public void CambiarPINXML()
-        {
-
-            obj_usuario.CambiaPIN(_pin);
+            Bd_productos.InsertaUsuarioBD(_usuario, _nombre, _estado, _cedula, _contrasena);
+        } //fin EscribeProductoDT
 
 
 
-        }//fin cambiar pinXMl
+
+
+
+
+
+
+
+
+
 
         public void ValidarUsuarioRegistro()
         {

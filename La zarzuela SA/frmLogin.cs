@@ -34,7 +34,7 @@ namespace La_zarzuela_SA
                 obj_usuario.Contrasena = txtContrasena.Text;
                 
 
-                obj_usuario.ValidarUsuario();
+               
                 obj_usuario.UsuarioIncorrecto();
 
                 Form1 frm = new Form1();

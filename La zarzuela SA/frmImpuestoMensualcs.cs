@@ -37,7 +37,7 @@ namespace La_zarzuela_SA
             try
             {
                 obj_impuesto.Mes = int.Parse(txtNumeroMes.Text);
-                obj_impuesto.ImpuestosMensualesMostar();
+                
                 txtImpuestos.Text = obj_impuesto.Impuestosmensuales.ToString();
             }
             catch (Exception ex)

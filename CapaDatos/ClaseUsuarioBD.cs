@@ -1,30 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CapaDatos
 {
-    public class ClaseProductos_BD
+    public class ClaseUsuarioBD
     {
-        //formar string de conexion
-
-
-
         private String String_Conexion = "Data Source=LAPTOP-M50THNEO;Initial Catalog=\"Proyecto II\";Integrated Security=True;";
-        //private String String_Conexion = "Data Source= tiusr19pl.cuc-carrera-ti.ac.cr\\MSSQLSERVER2019;" +
-        //                          "User ID=EstudiantesIIC2023; Password=Estudi@ntes2023;" +  // seguridad
-        //                           "Initial Catalog=tiusr19pl_Progra2;"; // bd
-        //dataset
-
-
-        //string conexion base datos de la computadora
-        //private String String_Conexion  = "Data Source=SebasDAC_PC;Initial Catalog = Proyecto II; Integrated Security = True; ";
-
 
         DataSet ds_resultados = new DataSet();
 
@@ -37,7 +23,7 @@ namespace CapaDatos
         //objeto connection
         private SqlConnection conexion;
 
-        
+
 
         #region "Metodos"
         private void AbrirConexion()
@@ -61,25 +47,25 @@ namespace CapaDatos
             conexion.Close();
         }//fin cerrar conexion
 
-        public void InsertaProductoBD(int codigo, string nombre, int precio, int cantidad, double impuesto, double total)
+        public void InsertaUsuarioBD(string usuario, string nombre, string estado, string cedula, string contrasena)
         {
             SqlCommand instruccionSQL;
             AbrirConexion();
-            instruccionSQL = new SqlCommand("insert into Productos (Codigo, Nombre, Precio, Cantidad, Impuesto, Total)values(@Codigo,@Nombre,@Precio,@Cantidad,@Impuesto,@Total)", conexion);
-            instruccionSQL.Parameters.AddWithValue("@Codigo", codigo);
+            instruccionSQL = new SqlCommand("insert into Usuarios (Usuario, Nombre, Estado, Cedula, Contrasena)values(@Usuario,@Nombre,@Estado,@Cedula,@Contrasena)", conexion);
+            instruccionSQL.Parameters.AddWithValue("@Usuario", usuario);
             instruccionSQL.Parameters.AddWithValue("@Nombre", nombre);
-            instruccionSQL.Parameters.AddWithValue("@Precio", precio);
+            instruccionSQL.Parameters.AddWithValue("@Estado", estado);
 
-            instruccionSQL.Parameters.AddWithValue("@Cantidad", cantidad);
-            instruccionSQL.Parameters.AddWithValue("@Impuesto", impuesto);
-            instruccionSQL.Parameters.AddWithValue("@Total", total);
+            instruccionSQL.Parameters.AddWithValue("@Cedula", cedula);
+            instruccionSQL.Parameters.AddWithValue("@Contrasena", contrasena);
+           
 
             instruccionSQL.ExecuteNonQuery();
 
             CerrarConexion();
         }//fin InsertaProducto
 
-       public void LeerProducto()
+        public void LeerUsuario()
         {
             SqlDataAdapter sqlDA;
 
@@ -87,16 +73,16 @@ namespace CapaDatos
 
             AbrirConexion();
 
-            instruccionSQL = new SqlCommand("select*from productos" , conexion);
+            instruccionSQL = new SqlCommand("select*from productos", conexion);
             ds_resultados.Clear();//limpia el dataset
             try
             {
                 sqlDA = new SqlDataAdapter(instruccionSQL);
                 sqlDA.Fill(ds_resultados);
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
-                throw new SystemException("Error cargando los datos: "+ ex.Message);
+                throw new SystemException("Error cargando los datos: " + ex.Message);
             }
             CerrarConexion();
         }
@@ -107,7 +93,5 @@ namespace CapaDatos
         #endregion
 
     }
-
-
 }
 
