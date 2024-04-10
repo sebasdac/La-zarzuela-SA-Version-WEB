@@ -15,7 +15,7 @@ namespace CapaDatos
 
 
 
-        private String String_Conexion = "Data Source=LAPTOP-M50THNEO;Initial Catalog=\"Proyecto II\";Integrated Security=True;";
+        //private String String_Conexion = "Data Source=LAPTOP-M50THNEO;Initial Catalog=\"Proyecto II\";Integrated Security=True;";
         //private String String_Conexion = "Data Source= tiusr19pl.cuc-carrera-ti.ac.cr\\MSSQLSERVER2019;" +
         //                          "User ID=EstudiantesIIC2023; Password=Estudi@ntes2023;" +  // seguridad
         //                           "Initial Catalog=tiusr19pl_Progra2;"; // bd
@@ -23,7 +23,7 @@ namespace CapaDatos
 
 
         //string conexion base datos de la computadora
-        //private String String_Conexion  = "Data Source=SebasDAC_PC;Initial Catalog = Proyecto II; Integrated Security = True; ";
+        private String String_Conexion = "Data Source=SebasDAC_PC;Initial Catalog=\"Proyecto II\";Integrated Security=True;Encrypt=True;";
 
 
         DataSet ds_resultados = new DataSet();
