@@ -145,12 +145,10 @@ namespace La_zarzuela_SA
             {
                 try
                 {
-                    if (filaSeleccionada >= 0)
-                    {
-
-                        dgvClientes.Rows.Remove(selectedRow);
-                        
-                    }
+                    obj_clientes.Codigo = int.Parse(txtCodigo.Text);
+                    obj_clientes.EliminarCliente();
+                    obj_clientes.LeerClientes();
+                    dgvClientes.DataSource = obj_clientes.TablaClientes;
                 }
                 catch
                 {
@@ -210,23 +208,12 @@ namespace La_zarzuela_SA
                     }
                     obj_clientes.Cedula = txtCedula.Text;
                     obj_clientes.Direccion = txtDireccion.Text;
-
-
+                    obj_clientes.Contrasena = txtContrasena.Text;
                     obj_clientes.VerificarCliente();
-                    if (txtCodigo.Text != selectedRow.Cells[0].Value.ToString())
-                    {
-                        
-                    }
-                    // Actualizar los valores de las celdas con los valores de los TextBox
-                    selectedRow.Cells[0].Value = txtCodigo.Text;
-                    selectedRow.Cells[1].Value = txtNombre.Text;
-                    selectedRow.Cells[2].Value = txtCedula.Text;
-                    selectedRow.Cells[3].Value = cbTipoCliente.Text;
-                    selectedRow.Cells[4].Value = cbProvincia.Text;
-                    selectedRow.Cells[5].Value = txtCorreo.Text;
-                    selectedRow.Cells[6].Value = txtTelefono.Text;
-                    selectedRow.Cells[7].Value = txtDireccion.Text;
-                    
+                    obj_clientes.ActualizarCliente();
+                    obj_clientes.LeerClientes();
+                    dgvClientes.DataSource = obj_clientes.TablaClientes;
+
                 }
             }//fin del try
             catch (Exception ex) 

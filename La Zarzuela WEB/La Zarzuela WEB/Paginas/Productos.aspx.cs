@@ -13,6 +13,20 @@ namespace La_Zarzuela_WEB.Paginas
         Productos obj_productos = new Productos();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Usuario"] != null && Session["Usuario"].ToString() == "proveedor")
+            {
+                // Restringir acceso a la página para los proveedores
+                Response.Redirect("Accesodenegado.aspx");
+            }
+            else
+            {
+                // Redirigir a una página de acceso denegado o cualquier otra acción
+                
+            }
+
+
+
+
             obj_productos.LeeTablaProducto();
             dgvProductos.DataSource = obj_productos.Tabla_Productos;
             dgvProductos.DataBind();

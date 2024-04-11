@@ -112,9 +112,16 @@ namespace CapaNegocio
 
             Bd_productos.InsertaClienteBD(_codigo, _nombre, _tipo, _cedula, _direccion, Provincia, _telefono, _correo, _contrasena);
         } //fin EscribeProductoDT
+        public void ActualizarCliente()
+        {
 
+          obj_clientes.ActualizarPersona(_codigo, _nombre, _tipo, _cedula, _direccion, Provincia, _telefono, _correo, _contrasena);
+        }//fin ActualizarCliente
 
-
+        public void EliminarCliente()
+        {
+            obj_clientes.EliminarPersona(_codigo);
+        }//fin EliminarCliente
 
 
 

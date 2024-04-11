@@ -15,3 +15,10 @@
     margin-bottom: 10px; /* Margen inferior */
     margin-left: 50px;
 }
+.error{
+    color: red;
+    font-size: 1.5em;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
