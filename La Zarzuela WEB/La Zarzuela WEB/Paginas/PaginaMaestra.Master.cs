@@ -12,6 +12,13 @@ namespace La_Zarzuela_WEB
         protected void Page_Load(object sender, EventArgs e)
         {
 
+
+
+        }
+
+        protected void Menu_MenuItemClick(object sender, MenuEventArgs e)
+        {
+
         }
     }
 }

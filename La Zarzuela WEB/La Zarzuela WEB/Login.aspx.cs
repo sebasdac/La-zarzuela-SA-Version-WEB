@@ -27,12 +27,12 @@ namespace La_Zarzuela_WEB
             HttpCookie authCookie;
 
 
-            //obj_usuarios.Usuario = LoginUsuario.UserName;
-            //obj_usuarios.Contrasena= LoginUsuario.Password;
+            obj_usuarios.Usuario = LoginUsuario.UserName;
+            obj_usuarios.Contrasena = LoginUsuario.Password;
 
 
-            //////aca valida
-            //try 
+            ////aca valida
+            //try
             //{
             //    obj_usuarios.ValidarUsuario();
             //    e.Authenticated = true;
@@ -44,42 +44,26 @@ namespace La_Zarzuela_WEB
 
 
             //}
-            //catch (Exception ex) 
-            //{ 
+            //catch (Exception ex)
+            //{
 
-            //    LoginUsuario.FailureText= ex.Message;
+            //    LoginUsuario.FailureText = ex.Message;
 
             //}
+
+
             try
             {
                 obj_loginweb.Usuario = LoginUsuario.UserName;
                 obj_loginweb.Contrasena = LoginUsuario.Password;
-                obj_loginweb.AutenticarUsuario();
-
-                if (obj_loginweb.Esusuario)
-                {
-
-                    e.Authenticated = true;
-                    authTicket = new FormsAuthenticationTicket(1, LoginUsuario.UserName, DateTime.Now,
-                        DateTime.Now.AddMinutes(10), true, "1");
-                    eticket = FormsAuthentication.Encrypt(authTicket);
-                    authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, eticket);
-                    authCookie.Path = FormsAuthentication.FormsCookiePath;
-                    Server.Transfer("Paginas/frmProductosWEB.aspx");
-
-                }
-                if (obj_loginweb.Esproveedor)
-                {
-
-                    e.Authenticated = true;
-                    authTicket = new FormsAuthenticationTicket(1, LoginUsuario.UserName, DateTime.Now,
-                        DateTime.Now.AddMinutes(10), true, "1");
-                    eticket = FormsAuthentication.Encrypt(authTicket);
-                    authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, eticket);
-                    authCookie.Path = FormsAuthentication.FormsCookiePath;
-                    Server.Transfer("Paginas/Formularioweb1.aspx");
-
-                }
+                obj_loginweb.AutenticarUsuario();          
+                e.Authenticated = true;
+                authTicket = new FormsAuthenticationTicket(1, LoginUsuario.UserName, DateTime.Now,
+                DateTime.Now.AddMinutes(10), true, "1");
+                eticket = FormsAuthentication.Encrypt(authTicket);
+                authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, eticket);
+                authCookie.Path = FormsAuthentication.FormsCookiePath;
+                    
             }
             catch (Exception ex)
             {

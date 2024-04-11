@@ -21,11 +21,15 @@ namespace CapaDatos
             string password = contrasena;
 
             // Realizar la autenticación en la tabla de Usuarios
-            string userConnectionString = "Data Source=SebasDAC_PC;Initial Catalog=\"Proyecto II\";Integrated Security=True;";
+            // string userConnectionString = "Data Source=SebasDAC_PC;Initial Catalog=\"Proyecto II\";Integrated Security=True;";
+               string userConnectionString = "Data Source=LAPTOP-M50THNEO;Initial Catalog=\"Proyecto II\";Integrated Security=True;";
+
+
             string userQuery = "SELECT * FROM Usuarios WHERE Usuario = @Username AND Contrasena = @Password";
 
             // Realizar la autenticación en la tabla de Proveedores
-            string providerConnectionString = "Data Source=SebasDAC_PC;Initial Catalog=\"Proyecto II\";Integrated Security=True;";
+            //string providerConnectionString = "Data Source=SebasDAC_PC;Initial Catalog=\"Proyecto II\";Integrated Security=True;";
+            string providerConnectionString = "Data Source=LAPTOP-M50THNEO;Initial Catalog=\"Proyecto II\";Integrated Security=True;";
             string providerQuery = "SELECT * FROM Proveedores WHERE Correo = @Username AND Codigo = @Password";
 
             using (SqlConnection userConnection = new SqlConnection(userConnectionString))

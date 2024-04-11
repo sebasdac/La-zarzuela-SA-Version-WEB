@@ -11,7 +11,7 @@ namespace CapaNegocio
     {
         string usuario;
         string contrasena;
-
+        
 
 
 
@@ -24,6 +24,12 @@ namespace CapaNegocio
         public void AutenticarUsuario()
         {
             obj_login.AutenticarUsuario(Usuario, Contrasena);
+            if(!obj_login.Esproveedor1&&!obj_login.Esusuario1)
+            {
+                throw new ArgumentException("Usuario no encontrado");
+            }
+
+            
         }
 
 
