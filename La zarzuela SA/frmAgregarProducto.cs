@@ -85,7 +85,7 @@ namespace La_zarzuela_SA
                                       obj_productos.Precio, obj_productos.Cantidad,
                                       obj_productos.Impuesto, obj_productos.Total);
 
-                obj_productos.EscribeProductoDT();
+                
 
 
 
@@ -93,7 +93,9 @@ namespace La_zarzuela_SA
                 
                 
                 obj_productos.EscribeProductoBD();
-                obj_productos.EscribeTablaalXML();
+                obj_productos.LeeTablaProducto();
+                dgvProductos.DataSource = obj_productos.Tabla_Productos;
+                
             }//fin try
             catch (Exception ex)
             {

@@ -52,15 +52,18 @@ namespace La_zarzuela_SA
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
+            this.txtContrasena = new System.Windows.Forms.TextBox();
+            this.lblContrasena = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.SuspendLayout();
             // 
             // lblCodigo
             // 
             this.lblCodigo.AutoSize = true;
-            this.lblCodigo.Location = new System.Drawing.Point(30, 32);
+            this.lblCodigo.Location = new System.Drawing.Point(40, 39);
+            this.lblCodigo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCodigo.Name = "lblCodigo";
-            this.lblCodigo.Size = new System.Drawing.Size(40, 13);
+            this.lblCodigo.Size = new System.Drawing.Size(51, 16);
             this.lblCodigo.TabIndex = 0;
             this.lblCodigo.Text = "Codigo";
             this.lblCodigo.Click += new System.EventHandler(this.label1_Click);
@@ -68,17 +71,19 @@ namespace La_zarzuela_SA
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(30, 81);
+            this.label2.Location = new System.Drawing.Point(40, 100);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 13);
+            this.label2.Size = new System.Drawing.Size(0, 16);
             this.label2.TabIndex = 1;
             // 
             // lblDireccion
             // 
             this.lblDireccion.AutoSize = true;
-            this.lblDireccion.Location = new System.Drawing.Point(30, 220);
+            this.lblDireccion.Location = new System.Drawing.Point(40, 271);
+            this.lblDireccion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDireccion.Name = "lblDireccion";
-            this.lblDireccion.Size = new System.Drawing.Size(51, 13);
+            this.lblDireccion.Size = new System.Drawing.Size(63, 16);
             this.lblDireccion.TabIndex = 2;
             this.lblDireccion.Text = "Provincia";
             this.lblDireccion.Click += new System.EventHandler(this.lblDireccion_Click);
@@ -86,27 +91,30 @@ namespace La_zarzuela_SA
             // lblTelefono
             // 
             this.lblTelefono.AutoSize = true;
-            this.lblTelefono.Location = new System.Drawing.Point(30, 267);
+            this.lblTelefono.Location = new System.Drawing.Point(40, 329);
+            this.lblTelefono.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTelefono.Name = "lblTelefono";
-            this.lblTelefono.Size = new System.Drawing.Size(49, 13);
+            this.lblTelefono.Size = new System.Drawing.Size(61, 16);
             this.lblTelefono.TabIndex = 3;
             this.lblTelefono.Text = "Telefono";
             // 
             // lblCorreo
             // 
             this.lblCorreo.AutoSize = true;
-            this.lblCorreo.Location = new System.Drawing.Point(30, 307);
+            this.lblCorreo.Location = new System.Drawing.Point(40, 378);
+            this.lblCorreo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCorreo.Name = "lblCorreo";
-            this.lblCorreo.Size = new System.Drawing.Size(96, 13);
+            this.lblCorreo.Size = new System.Drawing.Size(120, 16);
             this.lblCorreo.TabIndex = 4;
             this.lblCorreo.Text = "Correo electronico ";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(246, 252);
+            this.label8.Location = new System.Drawing.Point(328, 310);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(0, 13);
+            this.label8.Size = new System.Drawing.Size(0, 16);
             this.label8.TabIndex = 7;
             // 
             // cbTipoCliente
@@ -117,47 +125,53 @@ namespace La_zarzuela_SA
             this.cbTipoCliente.Items.AddRange(new object[] {
             "Fisico",
             "Juridico"});
-            this.cbTipoCliente.Location = new System.Drawing.Point(132, 77);
+            this.cbTipoCliente.Location = new System.Drawing.Point(176, 95);
+            this.cbTipoCliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbTipoCliente.Name = "cbTipoCliente";
-            this.cbTipoCliente.Size = new System.Drawing.Size(100, 21);
+            this.cbTipoCliente.Size = new System.Drawing.Size(132, 24);
             this.cbTipoCliente.TabIndex = 8;
             this.cbTipoCliente.SelectedIndexChanged += new System.EventHandler(this.cbTipoCliente_SelectedIndexChanged);
             // 
             // lblTipoCliente
             // 
             this.lblTipoCliente.AutoSize = true;
-            this.lblTipoCliente.Location = new System.Drawing.Point(30, 79);
+            this.lblTipoCliente.Location = new System.Drawing.Point(40, 97);
+            this.lblTipoCliente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTipoCliente.Name = "lblTipoCliente";
-            this.lblTipoCliente.Size = new System.Drawing.Size(77, 13);
+            this.lblTipoCliente.Size = new System.Drawing.Size(96, 16);
             this.lblTipoCliente.TabIndex = 9;
             this.lblTipoCliente.Text = "Tipo de cliente";
             // 
             // txtCodigo
             // 
-            this.txtCodigo.Location = new System.Drawing.Point(132, 32);
+            this.txtCodigo.Location = new System.Drawing.Point(176, 39);
+            this.txtCodigo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(100, 20);
+            this.txtCodigo.Size = new System.Drawing.Size(132, 22);
             this.txtCodigo.TabIndex = 10;
             // 
             // txtTelefono
             // 
-            this.txtTelefono.Location = new System.Drawing.Point(132, 259);
+            this.txtTelefono.Location = new System.Drawing.Point(176, 319);
+            this.txtTelefono.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(100, 20);
+            this.txtTelefono.Size = new System.Drawing.Size(132, 22);
             this.txtTelefono.TabIndex = 12;
             // 
             // txtCorreo
             // 
-            this.txtCorreo.Location = new System.Drawing.Point(132, 304);
+            this.txtCorreo.Location = new System.Drawing.Point(176, 374);
+            this.txtCorreo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtCorreo.Name = "txtCorreo";
-            this.txtCorreo.Size = new System.Drawing.Size(100, 20);
+            this.txtCorreo.Size = new System.Drawing.Size(132, 22);
             this.txtCorreo.TabIndex = 13;
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(362, 347);
+            this.btnAgregar.Location = new System.Drawing.Point(483, 427);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(104, 42);
+            this.btnAgregar.Size = new System.Drawing.Size(139, 52);
             this.btnAgregar.TabIndex = 14;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
@@ -166,45 +180,51 @@ namespace La_zarzuela_SA
             // dgvClientes
             // 
             this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvClientes.Location = new System.Drawing.Point(327, 32);
+            this.dgvClientes.Location = new System.Drawing.Point(436, 39);
+            this.dgvClientes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvClientes.Name = "dgvClientes";
-            this.dgvClientes.Size = new System.Drawing.Size(750, 298);
+            this.dgvClientes.RowHeadersWidth = 51;
+            this.dgvClientes.Size = new System.Drawing.Size(1000, 367);
             this.dgvClientes.TabIndex = 15;
             this.dgvClientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientes_CellClick);
             this.dgvClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientes_CellContentClick);
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(132, 123);
+            this.txtNombre.Location = new System.Drawing.Point(176, 151);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(100, 20);
+            this.txtNombre.Size = new System.Drawing.Size(132, 22);
             this.txtNombre.TabIndex = 17;
             this.txtNombre.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(30, 126);
+            this.lblNombre.Location = new System.Drawing.Point(40, 155);
+            this.lblNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(44, 13);
+            this.lblNombre.Size = new System.Drawing.Size(56, 16);
             this.lblNombre.TabIndex = 16;
             this.lblNombre.Text = "Nombre";
             this.lblNombre.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // txtCedula
             // 
-            this.txtCedula.Location = new System.Drawing.Point(132, 168);
+            this.txtCedula.Location = new System.Drawing.Point(176, 207);
+            this.txtCedula.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtCedula.Name = "txtCedula";
-            this.txtCedula.Size = new System.Drawing.Size(100, 20);
+            this.txtCedula.Size = new System.Drawing.Size(132, 22);
             this.txtCedula.TabIndex = 19;
             this.txtCedula.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             // 
             // lblCedula
             // 
             this.lblCedula.AutoSize = true;
-            this.lblCedula.Location = new System.Drawing.Point(30, 173);
+            this.lblCedula.Location = new System.Drawing.Point(40, 213);
+            this.lblCedula.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCedula.Name = "lblCedula";
-            this.lblCedula.Size = new System.Drawing.Size(40, 13);
+            this.lblCedula.Size = new System.Drawing.Size(50, 16);
             this.lblCedula.TabIndex = 18;
             this.lblCedula.Text = "Cédula";
             this.lblCedula.Click += new System.EventHandler(this.label1_Click_2);
@@ -221,35 +241,39 @@ namespace La_zarzuela_SA
             "Limón",
             "Puntarenas",
             "Guanacaste"});
-            this.cbProvincia.Location = new System.Drawing.Point(132, 213);
+            this.cbProvincia.Location = new System.Drawing.Point(176, 262);
+            this.cbProvincia.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbProvincia.Name = "cbProvincia";
-            this.cbProvincia.Size = new System.Drawing.Size(100, 21);
+            this.cbProvincia.Size = new System.Drawing.Size(132, 24);
             this.cbProvincia.TabIndex = 20;
             this.cbProvincia.SelectedIndexChanged += new System.EventHandler(this.cbProvincia_SelectedIndexChanged);
             // 
             // lbldire
             // 
             this.lbldire.AutoSize = true;
-            this.lbldire.Location = new System.Drawing.Point(33, 362);
+            this.lbldire.Location = new System.Drawing.Point(44, 496);
+            this.lbldire.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbldire.Name = "lbldire";
-            this.lbldire.Size = new System.Drawing.Size(52, 13);
+            this.lbldire.Size = new System.Drawing.Size(64, 16);
             this.lbldire.TabIndex = 21;
             this.lbldire.Text = "Dirección";
             // 
             // txtDireccion
             // 
-            this.txtDireccion.Location = new System.Drawing.Point(132, 345);
+            this.txtDireccion.Location = new System.Drawing.Point(176, 475);
+            this.txtDireccion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtDireccion.Multiline = true;
             this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(187, 98);
+            this.txtDireccion.Size = new System.Drawing.Size(248, 120);
             this.txtDireccion.TabIndex = 22;
             this.txtDireccion.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(362, 404);
+            this.btnEliminar.Location = new System.Drawing.Point(483, 497);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(104, 42);
+            this.btnEliminar.Size = new System.Drawing.Size(139, 52);
             this.btnEliminar.TabIndex = 23;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
@@ -257,19 +281,40 @@ namespace La_zarzuela_SA
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(472, 347);
+            this.btnEditar.Location = new System.Drawing.Point(629, 427);
+            this.btnEditar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(104, 42);
+            this.btnEditar.Size = new System.Drawing.Size(139, 52);
             this.btnEditar.TabIndex = 24;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
             this.btnEditar.Click += new System.EventHandler(this.button1_Click);
             // 
+            // txtContrasena
+            // 
+            this.txtContrasena.Location = new System.Drawing.Point(176, 427);
+            this.txtContrasena.Margin = new System.Windows.Forms.Padding(4);
+            this.txtContrasena.Name = "txtContrasena";
+            this.txtContrasena.Size = new System.Drawing.Size(132, 22);
+            this.txtContrasena.TabIndex = 26;
+            // 
+            // lblContrasena
+            // 
+            this.lblContrasena.AutoSize = true;
+            this.lblContrasena.Location = new System.Drawing.Point(40, 431);
+            this.lblContrasena.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblContrasena.Name = "lblContrasena";
+            this.lblContrasena.Size = new System.Drawing.Size(76, 16);
+            this.lblContrasena.TabIndex = 25;
+            this.lblContrasena.Text = "Contraseña";
+            // 
             // frmAgregarCliente
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1105, 458);
+            this.ClientSize = new System.Drawing.Size(1473, 643);
+            this.Controls.Add(this.txtContrasena);
+            this.Controls.Add(this.lblContrasena);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.txtDireccion);
@@ -292,6 +337,7 @@ namespace La_zarzuela_SA
             this.Controls.Add(this.lblDireccion);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblCodigo);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmAgregarCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Clientes";
@@ -327,5 +373,7 @@ namespace La_zarzuela_SA
         private System.Windows.Forms.TextBox txtDireccion;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnEditar;
+        private TextBox txtContrasena;
+        private Label lblContrasena;
     }
 }

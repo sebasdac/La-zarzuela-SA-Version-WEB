@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CapaDatos;
 using System.Data;
+using System.Text.RegularExpressions;
 
 
 namespace CapaNegocio
@@ -22,6 +23,7 @@ namespace CapaNegocio
         string _correo;
         string _telefono;
         string _direccion;
+        string _contrasena;
         ClaseClienteBD obj_clientes = new ClaseClienteBD();
 
 
@@ -36,9 +38,10 @@ namespace CapaNegocio
         public string Direccion { get => _direccion; set => _direccion = value; }
 
         public DataTable TablaClientes { get => obj_clientes.TablaClientes; }
-        
+        public string Contrasena { get => _contrasena; set => _contrasena = value; }
 
-       
+
+
 
 
         #endregion
@@ -77,15 +80,22 @@ namespace CapaNegocio
             {
                 throw new ArgumentException("El telefono debe de contener 8 digitos");
             }
-            if (!_correo.Contains("@"))
-            {
-                throw new ArgumentException("EL correo debe de contener un @");
-
-            }
+            
             if (string.IsNullOrEmpty(_nombre))
             {
                 throw new ArgumentException("Escriba el nombre");
                 
+            }
+            string pattern = @"(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$";
+            if (!Regex.IsMatch(_contrasena, pattern))
+            { 
+              throw new ArgumentException("La contraseña debe de contener al menos una letra mayuscula, una minuscula, un numero y un caracter especial, no puede contener espacion en blanco y debe tener una longitud de 8-16 caracteres");
+            }
+            string pattern2 = @"^(([^<>()\[\]\\.,;:\s@”]+(\.[^<>()\[\]\\.,;:\s@”]+)*)|(“.+”))@((\[[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}\.[0–
+                9]{1,3}])|(([a-zA-Z\-0–9]+\.)+[a-zA-Z]{2,}))$";
+            if (!Regex.IsMatch(_correo, pattern2))
+            {
+                throw new ArgumentException("Por favor, asegúrate de que tu dirección de correo electrónico tenga un formato válido. Debe contener un nombre de usuario seguido de '@' y un dominio válido, como 'ejemplo@dominio.com'.");
             }
 
         }//fin ValidarCliente
@@ -100,7 +110,7 @@ namespace CapaNegocio
         {
             ClaseClienteBD Bd_productos = new ClaseClienteBD();
 
-            Bd_productos.InsertaClienteBD(_codigo, _nombre, _tipo, _cedula, _direccion, Provincia, _telefono, _correo);
+            Bd_productos.InsertaClienteBD(_codigo, _nombre, _tipo, _cedula, _direccion, Provincia, _telefono, _correo, _contrasena);
         } //fin EscribeProductoDT
 
 

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace CapaNegocio
@@ -22,6 +23,7 @@ namespace CapaNegocio
         string _provincia;
         string _tipo;
         string _estado;
+        string _contrasena;
         ClaseProveedorBD obj_proveedor = new ClaseProveedorBD();
 
 
@@ -37,6 +39,7 @@ namespace CapaNegocio
         public string Estado { get => _estado; set => _estado = value; }
 
         public DataTable TablaProveedor { get => obj_proveedor.TablaProveedor; }
+        public string Contrasena { get => _contrasena; set => _contrasena = value; }
         #endregion
 
         #region "Metodos"
@@ -82,10 +85,13 @@ namespace CapaNegocio
             {
                 throw new ArgumentException("El telefono debe de contener 8 digitos");
             }
-            if (!_correo.Contains("@"))
-            {
-                throw new ArgumentException("EL correo debe de contener un @");
 
+
+            string pattern = @"^(([^<>()\[\]\\.,;:\s@”]+(\.[^<>()\[\]\\.,;:\s@”]+)*)|(“.+”))@((\[[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}\.[0–
+                9]{1,3}])|(([a-zA-Z\-0–9]+\.)+[a-zA-Z]{2,}))$";
+            if (!Regex.IsMatch(_correo, pattern))
+            {
+                throw new ArgumentException("Por favor, asegúrate de que tu dirección de correo electrónico tenga un formato válido. Debe contener un nombre de usuario seguido de '@' y un dominio válido, como 'ejemplo@dominio.com'.");
             }
             if (string.IsNullOrEmpty(_nombre))
             {
@@ -96,8 +102,13 @@ namespace CapaNegocio
             {
                 throw new ArgumentException("Escoja el tipo");
             }//fin if
+            string pattern2 = @"(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$";
+            if (!Regex.IsMatch(_contrasena, pattern2))
+            {
+                throw new ArgumentException("La contraseña debe de contener al menos una letra mayuscula, una minuscula, un numero y un caracter especial, no puede contener espacion en blanco y debe tener una longitud de 8-16 caracteres");
+            }
 
-            
+
 
 
 
@@ -112,7 +123,7 @@ namespace CapaNegocio
         {
            
 
-           obj_proveedor.InsertaProveedorBD(_codigo, _nombre, _tipo, _cedula, _direccion, Provincia, _telefono, _correo);
+           obj_proveedor.InsertaProveedorBD(_codigo, _nombre, _tipo, _cedula, _direccion, Provincia, _telefono, _correo, _contrasena);
         } //fin EscribeProductoDT
 
 

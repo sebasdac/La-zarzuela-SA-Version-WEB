@@ -40,6 +40,7 @@ namespace La_zarzuela_SA
                 obj_proveedor.Direccion = txtDireccion.Text;
                 obj_proveedor.Provincia = cbProvincia.Text;
                 obj_proveedor.Tipo = cbTipo.Text;
+                obj_proveedor.Contrasena = txtContrasena.Text;
                 
 
                 obj_proveedor.ValidarProveedor();

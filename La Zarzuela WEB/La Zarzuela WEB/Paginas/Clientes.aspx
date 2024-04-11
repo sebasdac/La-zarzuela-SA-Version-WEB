@@ -16,7 +16,10 @@
 
         <div class="form-group" style="display: inline-block; width: 50%;">
             <asp:Label ID="Label4" runat="server" Text="Tipo:"></asp:Label>
-            <asp:TextBox ID="txtTipo" runat="server" CssClass="centro"></asp:TextBox>
+            <asp:DropDownList ID="cbTipo" runat="server">
+                <asp:ListItem>Físico</asp:ListItem>
+                <asp:ListItem>Jurídico</asp:ListItem>    
+            </asp:DropDownList>
         </div>
 
         <div class="form-group" style="display: inline-block; width: 50%;">
@@ -31,7 +34,15 @@
 
         <div class="form-group" style="display: inline-block; width: 50%;">
             <asp:Label ID="Label7" runat="server" Text="Provincia:"></asp:Label>
-            <asp:TextBox ID="txtProvincia" CssClass="centro" runat="server"></asp:TextBox>
+            <asp:DropDownList ID="cbProvincia" runat="server">
+                <asp:ListItem>Cartago</asp:ListItem>
+                <asp:ListItem>San José</asp:ListItem>
+                <asp:ListItem>Heredia</asp:ListItem>
+                <asp:ListItem>Guanacaste</asp:ListItem>
+                <asp:ListItem>Límon</asp:ListItem>
+                <asp:ListItem>Puntarenas</asp:ListItem>
+                <asp:ListItem>Alajuela</asp:ListItem>
+            </asp:DropDownList>
         </div>
 
         <div class="form-group" style="display: inline-block; width: 50%;">
@@ -41,6 +52,11 @@
         <div class="form-group" style="display: inline-block; width: 50%;">
             <asp:Label ID="Label2" runat="server" Text="Correo:"></asp:Label>
             <asp:TextBox ID="txtCorreo" CssClass="centro" runat="server" OnTextChanged="txtCorreo_TextChanged"></asp:TextBox>
+        </div>
+
+        <div class="form-group" style="display: inline-block; width: 50%;">
+            <asp:Label ID="Label9" runat="server" Text="Contraseña:"></asp:Label>
+            <asp:TextBox ID="txtContrasena" CssClass="centro" runat="server" OnTextChanged="txtCorreo_TextChanged"></asp:TextBox>
         </div>
 
         <div class="form-group" style="display: inline-block; width: 50%;">

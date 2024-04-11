@@ -76,13 +76,25 @@ namespace La_zarzuela_SA
                 }
                 obj_clientes.Cedula = txtCedula.Text;
                 obj_clientes.Direccion = txtDireccion.Text;
+                obj_clientes.Contrasena = txtContrasena.Text;
 
                 
                 obj_clientes.VerificarCliente();
 
                 obj_clientes.EscribeClienteBD();
 
-                
+                txtCedula.Text = "";
+                txtCodigo.Text = "";
+                txtCorreo.Text = "";
+                txtDireccion.Text = "";
+                txtNombre.Text = "";
+                cbProvincia.SelectedIndex = -1;
+                cbTipoCliente.SelectedIndex = -1;
+                cbTipoCliente.Text = "";
+                txtTelefono.Text = "";
+                txtContrasena.Text = "";
+                obj_clientes.LeerClientes();    
+                dgvClientes.DataSource = obj_clientes.TablaClientes;
 
 
 
@@ -95,15 +107,7 @@ namespace La_zarzuela_SA
             {
                 MessageBox.Show("Error " + ex.Message, " Error de datos ", MessageBoxButtons.OK);
             }
-            txtCedula.Text = "";
-            txtCodigo.Text = "";
-            txtCorreo.Text = "";
-            txtDireccion.Text = "";
-            txtNombre.Text = "";
-            cbProvincia.SelectedIndex = -1;
-            cbTipoCliente.SelectedIndex = -1;
-            cbTipoCliente.Text = "";
-            txtTelefono.Text = "";
+            
 
         }
 
@@ -171,13 +175,15 @@ namespace La_zarzuela_SA
                 DataGridViewRow row = dgvClientes.Rows[e.RowIndex];
 
                 txtCodigo.Text = row.Cells[0].Value.ToString(); // Asignar el valor de la primera columna al textBoxNombre
-                txtNombre.Text = row.Cells[1].Value.ToString(); // Asignar el valor de la segunda columna al textBoxEdad
-                txtCedula.Text = row.Cells[2].Value.ToString(); // Asignar el valor de la tercera columna al textBoxCorreo
-                cbTipoCliente.Text = row.Cells[3].Value.ToString();
-                cbProvincia.Text = row.Cells[4].Value.ToString();
-                txtCorreo.Text = row.Cells[5].Value.ToString();
+                txtNombre.Text = row.Cells[1].Value.ToString();
+                cbTipoCliente.Text = row.Cells[2].Value.ToString();// Asignar el valor de la segunda columna al textBoxEdad
+                txtCedula.Text = row.Cells[3].Value.ToString(); // Asignar el valor de la tercera columna al textBoxCorreo
+                txtDireccion.Text = row.Cells[4].Value.ToString();
+                cbProvincia.Text = row.Cells[5].Value.ToString();
                 txtTelefono.Text = row.Cells[6].Value.ToString();
-                txtDireccion.Text = row.Cells[7].Value.ToString();
+                txtCorreo.Text = row.Cells[7].Value.ToString();
+                txtContrasena.Text = row.Cells[8].Value.ToString();
+
             }
         }
 

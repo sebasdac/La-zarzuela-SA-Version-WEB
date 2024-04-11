@@ -20,10 +20,32 @@ namespace La_Zarzuela_WEB.Paginas
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            obj_clientes.Codigo = Convert.ToInt16(txtCodigo.Text);
-            obj_clientes.Cedula = txtCedula.Text;
-            
+            try 
+            {
+                obj_clientes.Codigo = Convert.ToInt16(txtCodigo.Text);
+                obj_clientes.Cedula = txtCedula.Text;
+                obj_clientes.Nombre = txtNombre.Text;
+                obj_clientes.Telefono = txtTelefono.Text;
+                obj_clientes.Direccion = txtDireccion.Text;
+                obj_clientes.Correo = txtCorreo.Text;
+                obj_clientes.Tipo = cbTipo.Text;
+                obj_clientes.Provincia = cbProvincia.Text;
+                obj_clientes.Contrasena = txtContrasena.Text;
+                obj_clientes.VerificarCliente();
+                obj_clientes.EscribeClienteBD();
+                obj_clientes.LeerClientes();
+                dgvClientes.DataSource = obj_clientes.TablaClientes;
+                dgvClientes.DataBind();
+                lblError.Text = "";
 
+
+            }
+            catch (Exception ex)
+            {
+                lblError.Text = ex.Message;
+                lblError.Visible = true;
+            }
+            
 
         }
 

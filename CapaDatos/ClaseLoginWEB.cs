@@ -30,7 +30,7 @@ namespace CapaDatos
             // Realizar la autenticación en la tabla de Proveedores
             //string providerConnectionString = "Data Source=SebasDAC_PC;Initial Catalog=\"Proyecto II\";Integrated Security=True;";
             string providerConnectionString = "Data Source=LAPTOP-M50THNEO;Initial Catalog=\"Proyecto II\";Integrated Security=True;";
-            string providerQuery = "SELECT * FROM Proveedores WHERE Correo = @Username AND Codigo = @Password";
+            string providerQuery = "SELECT * FROM Proveedores WHERE Correo = @Username AND Contrasena = @Password";
 
             using (SqlConnection userConnection = new SqlConnection(userConnectionString))
             {

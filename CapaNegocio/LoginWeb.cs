@@ -16,6 +16,7 @@ namespace CapaNegocio
 
 
 
+
         ClaseLoginWEB obj_login = new ClaseLoginWEB();
         public bool Esproveedor { get => obj_login.Esproveedor1; }
         public bool Esusuario{ get => obj_login.Esusuario1; }

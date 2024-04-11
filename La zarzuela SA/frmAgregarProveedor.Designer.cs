@@ -48,6 +48,8 @@
             this.lblDireccion = new System.Windows.Forms.Label();
             this.cbTipo = new System.Windows.Forms.ComboBox();
             this.lblTipo = new System.Windows.Forms.Label();
+            this.txtContrasena = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProveedor)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,7 +76,7 @@
             // txtCodigo
             // 
             this.txtCodigo.Location = new System.Drawing.Point(120, 39);
-            this.txtCodigo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCodigo.Margin = new System.Windows.Forms.Padding(4);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(132, 22);
             this.txtCodigo.TabIndex = 2;
@@ -82,7 +84,7 @@
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(123, 91);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(132, 22);
             this.txtNombre.TabIndex = 3;
@@ -90,8 +92,8 @@
             // dgvProveedor
             // 
             this.dgvProveedor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProveedor.Location = new System.Drawing.Point(13, 487);
-            this.dgvProveedor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvProveedor.Location = new System.Drawing.Point(13, 534);
+            this.dgvProveedor.Margin = new System.Windows.Forms.Padding(4);
             this.dgvProveedor.Name = "dgvProveedor";
             this.dgvProveedor.RowHeadersWidth = 51;
             this.dgvProveedor.Size = new System.Drawing.Size(695, 262);
@@ -102,7 +104,7 @@
             // btnAgregar
             // 
             this.btnAgregar.Location = new System.Drawing.Point(297, 31);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(101, 41);
             this.btnAgregar.TabIndex = 5;
@@ -113,7 +115,7 @@
             // btnEliminar
             // 
             this.btnEliminar.Location = new System.Drawing.Point(297, 89);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(101, 41);
             this.btnEliminar.TabIndex = 6;
@@ -124,7 +126,7 @@
             // btnEditar
             // 
             this.btnEditar.Location = new System.Drawing.Point(407, 89);
-            this.btnEditar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEditar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(101, 41);
             this.btnEditar.TabIndex = 7;
@@ -134,8 +136,8 @@
             // 
             // txtDireccion
             // 
-            this.txtDireccion.Location = new System.Drawing.Point(149, 358);
-            this.txtDireccion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDireccion.Location = new System.Drawing.Point(151, 429);
+            this.txtDireccion.Margin = new System.Windows.Forms.Padding(4);
             this.txtDireccion.Multiline = true;
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(357, 78);
@@ -144,7 +146,7 @@
             // lbldire
             // 
             this.lbldire.AutoSize = true;
-            this.lbldire.Location = new System.Drawing.Point(35, 383);
+            this.lbldire.Location = new System.Drawing.Point(37, 454);
             this.lbldire.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbldire.Name = "lbldire";
             this.lbldire.Size = new System.Drawing.Size(64, 16);
@@ -164,7 +166,7 @@
             "Puntarenas",
             "Guanacaste"});
             this.cbProvincia.Location = new System.Drawing.Point(123, 190);
-            this.cbProvincia.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbProvincia.Margin = new System.Windows.Forms.Padding(4);
             this.cbProvincia.Name = "cbProvincia";
             this.cbProvincia.Size = new System.Drawing.Size(132, 24);
             this.cbProvincia.TabIndex = 32;
@@ -172,7 +174,7 @@
             // txtCedula
             // 
             this.txtCedula.Location = new System.Drawing.Point(123, 139);
-            this.txtCedula.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCedula.Margin = new System.Windows.Forms.Padding(4);
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(132, 22);
             this.txtCedula.TabIndex = 31;
@@ -190,7 +192,7 @@
             // txtCorreo
             // 
             this.txtCorreo.Location = new System.Drawing.Point(171, 327);
-            this.txtCorreo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCorreo.Margin = new System.Windows.Forms.Padding(4);
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(132, 22);
             this.txtCorreo.TabIndex = 27;
@@ -198,7 +200,7 @@
             // txtTelefono
             // 
             this.txtTelefono.Location = new System.Drawing.Point(123, 276);
-            this.txtTelefono.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTelefono.Margin = new System.Windows.Forms.Padding(4);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(132, 22);
             this.txtTelefono.TabIndex = 26;
@@ -256,11 +258,31 @@
             this.lblTipo.TabIndex = 35;
             this.lblTipo.Text = "Tipo";
             // 
+            // txtContrasena
+            // 
+            this.txtContrasena.Location = new System.Drawing.Point(171, 384);
+            this.txtContrasena.Margin = new System.Windows.Forms.Padding(4);
+            this.txtContrasena.Name = "txtContrasena";
+            this.txtContrasena.Size = new System.Drawing.Size(132, 22);
+            this.txtContrasena.TabIndex = 38;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(35, 389);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(79, 16);
+            this.label1.TabIndex = 37;
+            this.label1.Text = "Contraseña:";
+            // 
             // frmAgregarProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(728, 809);
+            this.Controls.Add(this.txtContrasena);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.cbTipo);
             this.Controls.Add(this.lblTipo);
             this.Controls.Add(this.txtDireccion);
@@ -281,7 +303,7 @@
             this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.lblCodigo);
             this.Controls.Add(this.lblProveedor);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmAgregarProveedor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Proveedor";
@@ -315,5 +337,7 @@
         private System.Windows.Forms.Label lblDireccion;
         private System.Windows.Forms.ComboBox cbTipo;
         private System.Windows.Forms.Label lblTipo;
+        private System.Windows.Forms.TextBox txtContrasena;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -47,11 +47,11 @@ namespace CapaDatos
             conexion.Close();
         }//fin cerrar conexion
 
-        public void InsertaProveedorBD(int codigo, string proveedor, string tipo, string cedula, string direccion, string provincia, string telefono, string correo)
+        public void InsertaProveedorBD(int codigo, string proveedor, string tipo, string cedula, string direccion, string provincia, string telefono, string correo, string contrasena)
         {
             SqlCommand instruccionSQL;
             AbrirConexion();
-            instruccionSQL = new SqlCommand("insert into Proveedores (Codigo, Proveedor, Tipo, Cedula, Direccion, Provincia, Telefono, Correo)values(@Codigo,@Proveedor,@Tipo,@Cedula,@Direccion,@Provincia, @Telefono, @Correo)", conexion);
+            instruccionSQL = new SqlCommand("insert into Proveedores (Codigo, Proveedor, Tipo, Cedula, Direccion, Provincia, Telefono, Correo, Contrasena)values(@Codigo,@Proveedor,@Tipo,@Cedula,@Direccion,@Provincia, @Telefono, @Correo, @Contrasena)", conexion);
             instruccionSQL.Parameters.AddWithValue("@Codigo", codigo);
             instruccionSQL.Parameters.AddWithValue("@Proveedor", proveedor);
             instruccionSQL.Parameters.AddWithValue("@Tipo", tipo);
@@ -61,7 +61,7 @@ namespace CapaDatos
             instruccionSQL.Parameters.AddWithValue("@Provincia", provincia);
             instruccionSQL.Parameters.AddWithValue("@Telefono", telefono);
             instruccionSQL.Parameters.AddWithValue("@Correo", correo);
-
+            instruccionSQL.Parameters.AddWithValue("@Contrasena", contrasena);
 
             instruccionSQL.ExecuteNonQuery();
 

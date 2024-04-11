@@ -47,11 +47,11 @@ namespace CapaDatos
             conexion.Close();
         }//fin cerrar conexion
 
-        public void InsertaClienteBD(int codigo, string nombre, string tipo, string cedula, string direccion, string provincia, string telefono, string correo)
+        public void InsertaClienteBD(int codigo, string nombre, string tipo, string cedula, string direccion, string provincia, string telefono, string correo, string contrasena)
         {
             SqlCommand instruccionSQL;
             AbrirConexion();
-            instruccionSQL = new SqlCommand("insert into Clientes (Codigo, Nombre, Tipo, Cedula, Direccion, Provincia, Telefono, Correo)values(@Codigo,@Nombre,@Tipo,@Cedula,@Direccion,@Provincia, @Telefono, @Correo)", conexion);
+            instruccionSQL = new SqlCommand("insert into Clientes (Codigo, Nombre, Tipo, Cedula, Direccion, Provincia, Telefono, Correo, Contrasena)values(@Codigo,@Nombre,@Tipo,@Cedula,@Direccion,@Provincia, @Telefono, @Correo, @Contrasena)", conexion);
             instruccionSQL.Parameters.AddWithValue("@Codigo", codigo);
             instruccionSQL.Parameters.AddWithValue("@Nombre", nombre);
             instruccionSQL.Parameters.AddWithValue("@Tipo", tipo);
@@ -61,7 +61,7 @@ namespace CapaDatos
             instruccionSQL.Parameters.AddWithValue("@Provincia", provincia);
             instruccionSQL.Parameters.AddWithValue("@Telefono", telefono);
             instruccionSQL.Parameters.AddWithValue("@Correo", correo);
-            
+            instruccionSQL.Parameters.AddWithValue("@Contrasena", contrasena);
 
             instruccionSQL.ExecuteNonQuery();
 
