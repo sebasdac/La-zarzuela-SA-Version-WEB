@@ -114,5 +114,10 @@ namespace La_zarzuela_SA
             frmVerFacturaVenta frm = new frmVerFacturaVenta();
             frm.Show();
         }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
     }
 }
