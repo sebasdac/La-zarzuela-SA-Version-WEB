@@ -5,7 +5,8 @@
 <html>
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <link href="../Estilos1.css" rel="stylesheet" />
+    
+    <link href="../Css/Estilos2.css" rel="stylesheet" />
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -18,14 +19,17 @@
             
         </div>
         <div>
-            <asp:Menu ID="Menu" runat="server" Orientation="Horizontal" OnMenuItemClick="Menu_MenuItemClick">
+            <asp:Menu ID="MenuProveedor" runat="server" Orientation="Horizontal" Visible="False">
             <Items>
-            <asp:MenuItem Text="Proveedores" Value="Productos"></asp:MenuItem>
-            <asp:MenuItem Text="Productos" Value="Productos"></asp:MenuItem>
-                <asp:MenuItem Text="Usuarios" Value="Usuarios"></asp:MenuItem>
-                <asp:MenuItem Text="Clientes" Value="Clientes"></asp:MenuItem>
-                <asp:MenuItem Text="Impuestos mensuales" Value="Impuestos mensuales"></asp:MenuItem>
+            <asp:MenuItem Text="Proveedor" Value="Productos"></asp:MenuItem>
             </Items>
+            </asp:Menu>
+            <asp:Menu ID="MenuUsuario" runat="server" OnMenuItemClick="MenuUsuario_MenuItemClick" Orientation="Horizontal" Visible="False">
+                <Items>
+                    <asp:MenuItem Text="Clientes" Value="Clientes" NavigateUrl="~/Paginas/Clientes.aspx"></asp:MenuItem>
+                    <asp:MenuItem Text="Usuarios" Value="Usuarios"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/Paginas/Productos.aspx" Text="Productos" Value="Productos"></asp:MenuItem>
+                </Items>
             </asp:Menu>
         </div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">

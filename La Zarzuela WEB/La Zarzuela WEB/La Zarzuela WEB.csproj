@@ -67,10 +67,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Estilos1.css" />
+    <Content Include="Css\Estilos1.css" />
+    <Content Include="Css\Estilos2.css" />
     <Content Include="Login.aspx" />
-    <Content Include="Paginas\Formularioweb1.aspx" />
-    <Content Include="Paginas\frmProductosWEB.aspx" />
+    <Content Include="Paginas\Clientes.aspx" />
+    <Content Include="Paginas\PaginaPrincipal.aspx" />
+    <Content Include="Paginas\Productos.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -82,12 +84,26 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Paginas\Formularioweb1.aspx.cs">
-      <DependentUpon>Formularioweb1.aspx</DependentUpon>
+    <Compile Include="Paginas\Clientes.aspx.cs">
+      <DependentUpon>Clientes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Paginas\Formularioweb1.aspx.designer.cs">
-      <DependentUpon>Formularioweb1.aspx</DependentUpon>
+    <Compile Include="Paginas\Clientes.aspx.designer.cs">
+      <DependentUpon>Clientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Paginas\PaginaPrincipal.aspx.cs">
+      <DependentUpon>PaginaPrincipal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\PaginaPrincipal.aspx.designer.cs">
+      <DependentUpon>PaginaPrincipal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Paginas\Productos.aspx.cs">
+      <DependentUpon>Productos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\Productos.aspx.designer.cs">
+      <DependentUpon>Productos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Paginas\PaginaMaestra.Master.cs">
       <DependentUpon>PaginaMaestra.Master</DependentUpon>
@@ -95,13 +111,6 @@
     </Compile>
     <Compile Include="Paginas\PaginaMaestra.Master.designer.cs">
       <DependentUpon>PaginaMaestra.Master</DependentUpon>
-    </Compile>
-    <Compile Include="Paginas\frmProductosWEB.aspx.cs">
-      <DependentUpon>frmProductosWEB.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Paginas\frmProductosWEB.aspx.designer.cs">
-      <DependentUpon>frmProductosWEB.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

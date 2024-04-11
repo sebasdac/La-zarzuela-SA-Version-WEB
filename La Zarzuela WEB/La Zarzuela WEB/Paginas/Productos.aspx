@@ -1,8 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Paginas/PaginaMaestra.Master" AutoEventWireup="true" CodeBehind="Formularioweb1.aspx.cs" Inherits="La_Zarzuela_WEB.Paginas.Formulario_web1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Paginas/PaginaMaestra.Master" AutoEventWireup="true" CodeBehind="Productos.aspx.cs" Inherits="La_Zarzuela_WEB.Paginas.Formulario_web1" %>
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     
+    <link href="../Css/Estilos1.css" rel="stylesheet" />
                <div class="form-container">
         <div class="form-group" style="display: inline-block; width: 50%;">
             <asp:Label ID="Label8" runat="server" Text="Codigo:"></asp:Label>

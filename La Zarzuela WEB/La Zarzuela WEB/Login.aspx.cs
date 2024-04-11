@@ -1,6 +1,7 @@
 ﻿using CapaNegocio;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
@@ -56,10 +57,25 @@ namespace La_Zarzuela_WEB
             {
                 obj_loginweb.Usuario = LoginUsuario.UserName;
                 obj_loginweb.Contrasena = LoginUsuario.Password;
-                obj_loginweb.AutenticarUsuario();          
+                obj_loginweb.AutenticarUsuario();
+                
+                // En el código detrás de tu página ASPX (archivo .aspx.cs)
+                if (obj_loginweb.Esusuario)
+                {
+                    
+                    Session["Usuario"] = "usuario";
+
+                }
+                if (obj_loginweb.Esproveedor)
+                {
+
+                    Session["Usuario"] = "proveedor";
+
+                }
+
                 e.Authenticated = true;
                 authTicket = new FormsAuthenticationTicket(1, LoginUsuario.UserName, DateTime.Now,
-                DateTime.Now.AddMinutes(10), true, "1");
+                DateTime.Now.AddMinutes(1), true, "1");
                 eticket = FormsAuthentication.Encrypt(authTicket);
                 authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, eticket);
                 authCookie.Path = FormsAuthentication.FormsCookiePath;
