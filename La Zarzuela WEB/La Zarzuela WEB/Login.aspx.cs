@@ -57,6 +57,7 @@ namespace La_Zarzuela_WEB
             {
                 obj_loginweb.Usuario = LoginUsuario.UserName;
                 obj_loginweb.Contrasena = LoginUsuario.Password;
+                obj_usuarios.ValidarUsuario();
                 obj_loginweb.AutenticarUsuario();
                 
                 // En el código detrás de tu página ASPX (archivo .aspx.cs)

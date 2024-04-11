@@ -95,7 +95,7 @@ namespace CapaNegocio
              obj_usuarios.ValidarUsuario(_usuario,_contrasena);
             if (!obj_usuarios.CredencialesValidas)
             {
-                throw new ArgumentException("Usuario o contraseña incorrectos");
+                throw new ArgumentException("Usuario, contraseña incorrectos o usuario inactivo");
             }
 
 
@@ -103,7 +103,7 @@ namespace CapaNegocio
 
         public void ActualizarEstado()
         {
-            obj_usuarios.CambiarEstado(_estado,_usuario);
+            obj_usuarios.ActualizarUsuario(_cedula,_nombre,_usuario,_contrasena,_estado);
 
         }
 

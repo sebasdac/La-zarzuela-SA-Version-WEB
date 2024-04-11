@@ -57,5 +57,22 @@ namespace La_Zarzuela_WEB.Paginas
             dgvProductos.DataSource = obj_productos.Tabla_Productos;
             dgvProductos.DataBind();
         }
+
+        protected void dgvProductos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (dgvProductos.SelectedIndex >= 0)
+            {
+                GridViewRow row = dgvProductos.SelectedRow;
+
+                txtCodigo.Text = row.Cells[1].Text;
+                txtNombre.Text = row.Cells[2].Text;
+                txtCantidad.Text = row.Cells[3].Text;
+                txtPrecio.Text = row.Cells[4].Text;
+                lblImpuestoMostrar.Text = row.Cells[5].Text;
+                lblTotalMostrar.Text = row.Cells[6].Text;
+
+                // Puedes añadir más acciones aquí si lo necesitas
+            }
+        }
     }
 }

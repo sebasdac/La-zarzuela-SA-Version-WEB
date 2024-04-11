@@ -27,7 +27,7 @@
             <asp:Menu ID="MenuUsuario" runat="server" OnMenuItemClick="MenuUsuario_MenuItemClick" Orientation="Horizontal" Visible="False">
                 <Items>
                     <asp:MenuItem Text="Clientes" Value="Clientes" NavigateUrl="~/Paginas/Clientes.aspx"></asp:MenuItem>
-                    <asp:MenuItem Text="Usuarios" Value="Usuarios"></asp:MenuItem>
+                    <asp:MenuItem Text="Usuarios" Value="Usuarios" NavigateUrl="~/Paginas/Usuarios.aspx"></asp:MenuItem>
                     <asp:MenuItem NavigateUrl="~/Paginas/Productos.aspx" Text="Productos" Value="Productos"></asp:MenuItem>
                 </Items>
             </asp:Menu>

@@ -149,14 +149,31 @@ namespace CapaDatos
             return CredencialesValidas;
         }
 
-        public void CambiarEstado(string nuevoestado, string usuario)
+        //public void CambiarEstado(string nuevoestado, string usuario)
+        //{
+        //    SqlCommand instruccionSQL;
+        //    AbrirConexion();
+
+        //    instruccionSQL = new SqlCommand("UPDATE Usuarios SET Estado = @NuevoEstado WHERE Usuario = @Usuario", conexion);
+        //    instruccionSQL.Parameters.AddWithValue("@NuevoEstado", nuevoestado);
+        //    instruccionSQL.Parameters.AddWithValue("@Usuario", usuario);
+
+        //    instruccionSQL.ExecuteNonQuery();
+
+        //    CerrarConexion();
+        //}
+        public void ActualizarUsuario(string cedula, string nombre, string usuario, string ccontrasena, string estado)
         {
             SqlCommand instruccionSQL;
             AbrirConexion();
 
-            instruccionSQL = new SqlCommand("UPDATE Usuarios SET Estado = @NuevoEstado WHERE Usuario = @Usuario", conexion);
-            instruccionSQL.Parameters.AddWithValue("@NuevoEstado", nuevoestado);
+            instruccionSQL = new SqlCommand("UPDATE Usuarios SET Cedula = @Cedula, Nombre = @Nombre, Usuario = @Usuario, Contrasena = @Contrasena, Estado = @Estado WHERE Usuario = @Usuario", conexion);
+            instruccionSQL.Parameters.AddWithValue("@Cedula", cedula);
+            instruccionSQL.Parameters.AddWithValue("@Nombre", nombre);
             instruccionSQL.Parameters.AddWithValue("@Usuario", usuario);
+            instruccionSQL.Parameters.AddWithValue("@Contrasena", ccontrasena);
+            instruccionSQL.Parameters.AddWithValue("@Estado", estado);
+            
 
             instruccionSQL.ExecuteNonQuery();
 

@@ -43,7 +43,7 @@
         </div>
 
         <div  id="contenedorGridView" class="form-group" style="display: inline-block; width: 100%;">
-            <asp:GridView ID="dgvProductos" runat="server" CssClass="styled-gridview">
+            <asp:GridView ID="dgvProductos" runat="server" AutoGenerateSelectButton="true" CssClass="styled-gridview" OnSelectedIndexChanged="dgvProductos_SelectedIndexChanged">
             </asp:GridView>
         </div>
     </div>
