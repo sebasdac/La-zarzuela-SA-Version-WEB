@@ -25,6 +25,7 @@ namespace CapaNegocio
         bool _clickboton;
         DateTime _fechacompra;
         int _indice;
+        int _cantidadDeseada;
 
         #endregion
 
@@ -51,7 +52,8 @@ namespace CapaNegocio
         public string NombreProveedor { get => _nombreProveedor; set => _nombreProveedor = value; }
         public DateTime Fechacompra { get => _fechacompra; set => _fechacompra = value; }
         public bool Clickboton { get => _clickboton; set => _clickboton = value; }
-   
+        public int CantidadDeseada { get => _cantidadDeseada; set => _cantidadDeseada = value; }
+
         #endregion
 
         #region "Metodos"
@@ -111,7 +113,13 @@ namespace CapaNegocio
 
         }//fin LeeTablaProducto
 
-
+        public void ValidarStock()
+        {
+            if(_cantidad<_cantidadDeseada)
+            {
+                throw new ArgumentException("No hay suficiente stock");
+            }
+        }
 
 
 

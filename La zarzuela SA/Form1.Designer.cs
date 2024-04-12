@@ -46,7 +46,7 @@
             this.verMasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menutitulo = new System.Windows.Forms.MenuStrip();
             this.lblIstsema = new System.Windows.Forms.Label();
-            this.Contenedor = new System.Windows.Forms.Panel();
+            this.panelContenedor = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,7 +62,7 @@
             this.verMasToolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 88);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1019, 40);
+            this.menuStrip1.Size = new System.Drawing.Size(1205, 60);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -72,8 +72,9 @@
             this.salirToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("salirToolStripMenuItem.Image")));
             this.salirToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(84, 36);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(52, 56);
             this.salirToolStripMenuItem.Text = "Salir";
+            this.salirToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // agregarProductoToolStripMenuItem
@@ -89,8 +90,9 @@
             this.facturasVentaToolStripMenuItem});
             this.agregarProductoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("agregarProductoToolStripMenuItem.Image")));
             this.agregarProductoToolStripMenuItem.Name = "agregarProductoToolStripMenuItem";
-            this.agregarProductoToolStripMenuItem.Size = new System.Drawing.Size(64, 36);
+            this.agregarProductoToolStripMenuItem.Size = new System.Drawing.Size(44, 56);
             this.agregarProductoToolStripMenuItem.Text = "Ver";
+            this.agregarProductoToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.agregarProductoToolStripMenuItem.Click += new System.EventHandler(this.agregarProductoToolStripMenuItem_Click);
             // 
             // agregarProductoToolStripMenuItem1
@@ -153,32 +155,36 @@
             // 
             this.agregarUsuarioToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("agregarUsuarioToolStripMenuItem.Image")));
             this.agregarUsuarioToolStripMenuItem.Name = "agregarUsuarioToolStripMenuItem";
-            this.agregarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(149, 36);
+            this.agregarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(129, 56);
             this.agregarUsuarioToolStripMenuItem.Text = "Agregar usuario";
+            this.agregarUsuarioToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.agregarUsuarioToolStripMenuItem.Click += new System.EventHandler(this.agregarUsuarioToolStripMenuItem_Click);
             // 
             // cambiarPinToolStripMenuItem
             // 
             this.cambiarPinToolStripMenuItem.Image = global::La_zarzuela_SA.Properties.Resources.key;
             this.cambiarPinToolStripMenuItem.Name = "cambiarPinToolStripMenuItem";
-            this.cambiarPinToolStripMenuItem.Size = new System.Drawing.Size(124, 36);
+            this.cambiarPinToolStripMenuItem.Size = new System.Drawing.Size(104, 56);
             this.cambiarPinToolStripMenuItem.Text = "Cambiar pin";
+            this.cambiarPinToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.cambiarPinToolStripMenuItem.Click += new System.EventHandler(this.cambiarPinToolStripMenuItem_Click);
             // 
             // compraToolStripMenuItem
             // 
             this.compraToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("compraToolStripMenuItem.Image")));
             this.compraToolStripMenuItem.Name = "compraToolStripMenuItem";
-            this.compraToolStripMenuItem.Size = new System.Drawing.Size(145, 36);
+            this.compraToolStripMenuItem.Size = new System.Drawing.Size(125, 56);
             this.compraToolStripMenuItem.Text = "Venta producto";
+            this.compraToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.compraToolStripMenuItem.Click += new System.EventHandler(this.compraToolStripMenuItem_Click);
             // 
             // verMasToolStripMenuItem1
             // 
             this.verMasToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("verMasToolStripMenuItem1.Image")));
             this.verMasToolStripMenuItem1.Name = "verMasToolStripMenuItem1";
-            this.verMasToolStripMenuItem1.Size = new System.Drawing.Size(95, 36);
+            this.verMasToolStripMenuItem1.Size = new System.Drawing.Size(75, 56);
             this.verMasToolStripMenuItem1.Text = "Ver mas";
+            this.verMasToolStripMenuItem1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.verMasToolStripMenuItem1.Click += new System.EventHandler(this.verMasToolStripMenuItem1_Click);
             // 
             // menutitulo
@@ -189,7 +195,7 @@
             this.menutitulo.Location = new System.Drawing.Point(0, 0);
             this.menutitulo.Name = "menutitulo";
             this.menutitulo.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.menutitulo.Size = new System.Drawing.Size(1019, 88);
+            this.menutitulo.Size = new System.Drawing.Size(1205, 88);
             this.menutitulo.TabIndex = 1;
             this.menutitulo.Text = "menuStrip2";
             // 
@@ -205,25 +211,25 @@
             this.lblIstsema.TabIndex = 2;
             this.lblIstsema.Text = "Sistema de ventas";
             // 
-            // Contenedor
+            // panelContenedor
             // 
-            this.Contenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Contenedor.Location = new System.Drawing.Point(0, 128);
-            this.Contenedor.Name = "Contenedor";
-            this.Contenedor.Size = new System.Drawing.Size(1019, 553);
-            this.Contenedor.TabIndex = 3;
+            this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContenedor.Location = new System.Drawing.Point(0, 148);
+            this.panelContenedor.Name = "panelContenedor";
+            this.panelContenedor.Size = new System.Drawing.Size(1205, 477);
+            this.panelContenedor.TabIndex = 3;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1019, 681);
-            this.Controls.Add(this.Contenedor);
+            this.ClientSize = new System.Drawing.Size(1205, 625);
+            this.Controls.Add(this.panelContenedor);
             this.Controls.Add(this.lblIstsema);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.menutitulo);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";
@@ -255,7 +261,7 @@
         private System.Windows.Forms.ToolStripMenuItem facturasVentaToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menutitulo;
         private System.Windows.Forms.Label lblIstsema;
-        private System.Windows.Forms.Panel Contenedor;
+        private System.Windows.Forms.Panel panelContenedor;
     }
 }
 

@@ -28,6 +28,9 @@ namespace La_zarzuela_SA
         public frmVentaProducto()
         {
             InitializeComponent();
+            
+
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -49,10 +52,7 @@ namespace La_zarzuela_SA
                     obj_ventaproducto.NombreUsuario = txtNombreCliente.Text;
                     obj_ventaproducto.Cedula = txtCedula.Text;
                     obj_ventaproducto.Tipo = txtTipo.Text;
-                    obj_ventaproducto.Provincia = txtProvincia.Text;
-                    obj_ventaproducto.Correo = txtCorreo.Text;
-                    obj_ventaproducto.Telefono = txtTelefono.Text;
-                    obj_ventaproducto.Direccion = txtDireccion.Text;
+                   
                     obj_ventaproducto.FechaCompra = DateTime.Parse(dtpFechaCompra.Text);
                     //producto
                     obj_ventaproducto.CodigoProducto = int.Parse(txtCodigoProducto.Text);
@@ -74,10 +74,7 @@ namespace La_zarzuela_SA
                     obj_facturaventa.Nombrecliente = txtNombreCliente.Text;
                     obj_facturaventa.Cedula = txtCedula.Text;
                     obj_facturaventa.Tipo = txtTipo.Text;
-                    obj_facturaventa.Provincia = txtProvincia.Text;
-                    obj_facturaventa.Correo = txtCorreo.Text;
-                    obj_facturaventa.Telefono = txtTelefono.Text;
-                    obj_facturaventa.Direccion = txtDireccion.Text;
+                    
                     obj_facturaventa.Codigoproducto = int.Parse(txtCodigoProducto.Text);
                     obj_facturaventa.Nombreprodcuto = txtNombreProducto.Text;
                     obj_facturaventa.Cantidad = int.Parse(txtCantidadDeseada.Text);
@@ -120,11 +117,26 @@ namespace La_zarzuela_SA
 
         private void frmVentaProducto_Load(object sender, EventArgs e)
         {
-            obj_productos.LeeTablaProducto();
-            dgvProductos.DataSource = obj_productos.Tabla_Productos;
+            
 
            
         }//fin frmVentaProducto_Load
+
+        public void RecibirDatos(string codigo, string nombre, string cantidad, string precio )
+        {
+            Console.WriteLine("Nombre: "+nombre+ " Codigo: " +codigo);
+            
+                txtNombreProducto.Text = nombre;
+                txtCodigoProducto.Text = codigo;
+                txtDisponible.Text = cantidad;
+                txtPrecio.Text = precio;
+            
+            
+
+
+
+        }
+        
 
         private void dgvClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -152,19 +164,7 @@ namespace La_zarzuela_SA
 
         private void dgvClientes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow row = dgvClientes.Rows[e.RowIndex];
-
-                txtCodigoCliente.Text = row.Cells[0].Value.ToString(); // Asignar el valor de la primera columna al textBoxNombre
-                txtNombreCliente.Text = row.Cells[1].Value.ToString(); // Asignar el valor de la segunda columna al textBoxEdad
-                txtCedula.Text = row.Cells[2].Value.ToString(); // Asignar el valor de la tercera columna al textBoxCorreo
-                txtTipo.Text = row.Cells[3].Value.ToString();
-                txtProvincia.Text = row.Cells[4].Value.ToString();
-                txtCorreo.Text = row.Cells[5].Value.ToString();
-                txtTelefono.Text = row.Cells[6].Value.ToString();
-                txtDireccion.Text = row.Cells[7].Value.ToString();
-            }
+            
         }//fin dgvClientes_CellClick
 
         private void btnCalcular_Click(object sender, EventArgs e)
@@ -236,6 +236,56 @@ namespace La_zarzuela_SA
         private void button1_Click_1(object sender, EventArgs e)
         {
            
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            frmBuscarProducto frm = new frmBuscarProducto();
+            frm.Show();
+
+
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            frmBuscarProducto frm = new frmBuscarProducto();
+            frm.Show();
+        }
+
+        private void button1_Click_3(object sender, EventArgs e)
+        {
+            txtNombreProducto.Text="Porque nu funicona";
+        }
+
+        private void iconButton2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                obj_productos.Cantidad = int.Parse(txtDisponible.Text);
+                obj_productos.CantidadDeseada = int.Parse(txtCantidadDeseada.Text);
+                obj_productos.ValidarStock();
+                
+                obj_productos.Precio= int.Parse(txtPrecio.Text);
+                obj_productos.Cantidad= int.Parse(txtCantidadDeseada.Text);
+                obj_productos.CalcularTotal();
+
+                dgvProductos.Rows.Add(txtCodigoProducto.Text, txtNombreProducto.Text, txtCantidadDeseada.Text, txtPrecio.Text, obj_productos.Impuesto.ToString(), obj_productos.Total.ToString(), obj_productos.TotalImpuesto.ToString());
+                txtDisponible.Text = "";
+                txtCantidadDeseada.Text = "";
+                txtNombreProducto.Text = "";
+                txtCodigoProducto.Text = "";
+                txtPrecio.Text = "";
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); ;
+            }
         }
     }
 }

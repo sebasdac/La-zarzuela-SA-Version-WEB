@@ -12,6 +12,7 @@ namespace La_zarzuela_SA
 {
     public partial class Form1 : Form
     {
+        frmAgregarProducto frmAgregarProducto = new frmAgregarProducto();
         public Form1()
         {
             InitializeComponent();
@@ -29,8 +30,20 @@ namespace La_zarzuela_SA
 
         private void agregarProductoToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            frmAgregarProducto frm = new frmAgregarProducto();
-            frm.Show();
+            // Crear una instancia del formulario que deseas mostrar
+            frmAgregarProducto formularioSecundario = new frmAgregarProducto();
+
+            //// Establecer el formulario como no principal
+            //formularioSecundario.TopLevel = false;
+
+            //// Establecer el padre del formulario como el panel
+            //panelContenedor.Controls.Add(formularioSecundario);
+
+            //// Ajustar el tamaño del formulario para que se ajuste al tamaño del panel
+            //formularioSecundario.Size = panelContenedor.Size;
+
+            //// Mostrar el formulario
+            formularioSecundario.Show();
         }
 
         private void agregarClienteToolStripMenuItem_Click(object sender, EventArgs e)
@@ -116,6 +129,11 @@ namespace La_zarzuela_SA
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void Contenedor_Paint(object sender, PaintEventArgs e)
         {
 
         }
