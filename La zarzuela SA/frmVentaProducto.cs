@@ -23,20 +23,20 @@ namespace La_zarzuela_SA
 
         Clientes obj_cliente = new Clientes();
         Productos obj_productos = new Productos();
-        VentaProducto obj_ventaproducto = new VentaProducto();  
+        VentaProducto obj_ventaproducto = new VentaProducto();
         ImpuestoMensual obj_impuestos = new ImpuestoMensual();
-        
+
         public frmVentaProducto()
         {
             InitializeComponent();
-            
+
 
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+
             try
             {
                 DataGridViewRow selectedRow = dgvProductos.CurrentRow;
@@ -53,7 +53,7 @@ namespace La_zarzuela_SA
                     obj_ventaproducto.NombreUsuario = txtNombreCliente.Text;
                     obj_ventaproducto.Cedula = txtCedula.Text;
                     obj_ventaproducto.Tipo = txtTipo.Text;
-                   
+
                     obj_ventaproducto.FechaCompra = DateTime.Parse(dtpFechaCompra.Text);
                     //producto
                     obj_ventaproducto.CodigoProducto = int.Parse(txtCodigoProducto.Text);
@@ -66,7 +66,7 @@ namespace La_zarzuela_SA
 
                     obj_impuestos.Impuestofavor = double.Parse(txtImpuesto.Text);//manda impuesto a favor
                     obj_impuestos.Mes = DateTime.Parse(dtpFechaCompra.Text).Month;
-                    
+
 
 
                     //venta
@@ -75,7 +75,7 @@ namespace La_zarzuela_SA
                     obj_facturaventa.Nombrecliente = txtNombreCliente.Text;
                     obj_facturaventa.Cedula = txtCedula.Text;
                     obj_facturaventa.Tipo = txtTipo.Text;
-                    
+
                     obj_facturaventa.Codigoproducto = int.Parse(txtCodigoProducto.Text);
                     obj_facturaventa.Nombreprodcuto = txtNombreProducto.Text;
                     obj_facturaventa.Cantidad = int.Parse(txtCantidadDeseada.Text);
@@ -83,7 +83,7 @@ namespace La_zarzuela_SA
                     obj_facturaventa.Impuesto = double.Parse(txtImpuesto.Text);
                     ;
                     obj_facturaventa.TotalImpuesto = double.Parse(txtTotal.Text);
-                   
+
 
 
 
@@ -110,7 +110,7 @@ namespace La_zarzuela_SA
             txtTotal.Text = "";
             p.Text = "";
             btnCompra.Enabled = false;
-            
+
 
 
 
@@ -118,28 +118,28 @@ namespace La_zarzuela_SA
 
         private void frmVentaProducto_Load(object sender, EventArgs e)
         {
-            
 
-           
+
+
         }//fin frmVentaProducto_Load
 
-        public void RecibirDatos(string codigo, string nombre, string cantidad, string precio )
+        public void RecibirDatos(string codigo, string nombre, string cantidad, string precio)
         {
-            Console.WriteLine("Nombre: "+nombre+ " Codigo: " +codigo);
-            
-                txtNombreProducto.Text = nombre;
-                txtCodigoProducto.Text = codigo;
-                txtDisponible.Text = cantidad;
-                txtPrecio.Text = precio;
-            
-            
+            Console.WriteLine("Nombre: " + nombre + " Codigo: " + codigo);
+
+            txtNombreProducto.Text = nombre;
+            txtCodigoProducto.Text = codigo;
+            txtDisponible.Text = cantidad;
+            txtPrecio.Text = precio;
+
+
 
 
 
         }
         public void RecibirDatosClientes(string codigo, string nombre, string tipo, string cedula)
         {
-            
+
 
             txtNombreCliente.Text = nombre;
             txtCodigoCliente.Text = codigo;
@@ -155,7 +155,7 @@ namespace La_zarzuela_SA
 
         private void dgvClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
         }
 
         private void dgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -173,13 +173,13 @@ namespace La_zarzuela_SA
                 txtNombreProducto.Text = row.Cells[1].Value.ToString(); // Asignar el valor de la segunda columna al textBoxEdad
                 txtDisponible.Text = row.Cells[2].Value.ToString(); // Asignar el valor de la tercera columna al textBoxCorreo
                 txtPrecio.Text = row.Cells[3].Value.ToString();
-                
+
             }
         }//fin dgvProductos_CellClick
 
         private void dgvClientes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
         }//fin dgvClientes_CellClick
 
         private void btnCalcular_Click(object sender, EventArgs e)
@@ -209,19 +209,19 @@ namespace La_zarzuela_SA
                     btnCompra.Enabled = true;
 
                 }
-                btnCalcular.Enabled = false;
+                //btnCalcular.Enabled = false;
 
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
-                MessageBox.Show("Error: " +ex.Message) ;
-            
+                MessageBox.Show("Error: " + ex.Message);
+
             }
-            
+
 
         }//fin btnCalcular
 
-        
+
 
         private void textBox14_TextChanged(object sender, EventArgs e)
         {
@@ -250,7 +250,7 @@ namespace La_zarzuela_SA
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-           
+
         }
 
         private void button1_Click_2(object sender, EventArgs e)
@@ -274,7 +274,7 @@ namespace La_zarzuela_SA
 
         private void button1_Click_3(object sender, EventArgs e)
         {
-            txtNombreProducto.Text="Porque nu funicona";
+            txtNombreProducto.Text = "Porque nu funicona";
         }
 
         private void iconButton2_Click(object sender, EventArgs e)
@@ -284,9 +284,9 @@ namespace La_zarzuela_SA
                 obj_productos.Cantidad = int.Parse(txtDisponible.Text);
                 obj_productos.CantidadDeseada = int.Parse(txtCantidadDeseada.Text);
                 obj_productos.ValidarStock();
-                
-                obj_productos.Precio= int.Parse(txtPrecio.Text);
-                obj_productos.Cantidad= int.Parse(txtCantidadDeseada.Text);
+
+                obj_productos.Precio = int.Parse(txtPrecio.Text);
+                obj_productos.Cantidad = int.Parse(txtCantidadDeseada.Text);
                 obj_productos.CalcularTotal();
 
                 dgvProductos.Rows.Add(txtCodigoProducto.Text, txtNombreProducto.Text, txtCantidadDeseada.Text, txtPrecio.Text, obj_productos.Impuesto.ToString(), obj_productos.Total.ToString(), obj_productos.TotalImpuesto.ToString());
@@ -306,7 +306,7 @@ namespace La_zarzuela_SA
         private void btnBuscar_Click_1(object sender, EventArgs e)
         {
             frmBuscarCliente frm = new frmBuscarCliente();
-            frm.Show(); 
+            frm.Show();
 
 
 
@@ -335,5 +335,128 @@ namespace La_zarzuela_SA
                 }//fin catch
             }
         }
+
+        private void iconButton3_Click(object sender, EventArgs e)
+        {
+            //Obtener los datos de la factura desde el DataGridView
+            int clienteID = ObtenerClienteIDDesdeDataGridView(); // Por ejemplo, aquí obtienes el ID del cliente desde el DataGridView
+            DateTime fecha = ObtenerFechaDesdeDataGridView(); // Por ejemplo, aquí obtienes la fecha desde el DataGridView
+            decimal total = ObtenerTotalDesdeDataGridView(); // Por ejemplo, aquí obtienes el total desde el DataGridView
+
+            // Obtener los detalles de la factura desde el DataGridView
+            int[] productoIDs = ObtenerProductoIDsDesdeDataGridView();
+            int[] cantidades = ObtenerCantidadesDesdeDataGridView();
+            decimal[] precios = ObtenerPreciosDesdeDataGridView();
+            decimal[] totalesProductos = ObtenerTotalesProductosDesdeDataGridView();
+
+            // Llamar al método de la capa de negocio para registrar la factura
+            int facturaID = facturaBL.RegistrarFactura(clienteID, fecha, total, productoIDs, cantidades, precios, totalesProductos);
+
+            MessageBox.Show("La factura se registró con éxito con el ID: " + facturaID);
+        }
+        // Métodos para obtener los datos de la factura desde el DataGridView
+        private int[] ObtenerProductoIDsDesdeDataGridView()
+        {
+            List<int> productoIDs = new List<int>();
+
+            // Recorre todas las filas del DataGridView
+            foreach (DataGridViewRow fila in dgvProductos.Rows)
+            {
+                // Obtén el ID del producto de la columna correspondiente
+                int productoID = Convert.ToInt32(fila.Cells["ProductoID"].Value);
+                // Agrega el ID del producto a la lista
+                productoIDs.Add(productoID);
+            }
+
+            // Convierte la lista de IDs de productos a un array y retórnala
+            return productoIDs.ToArray();
+        }
+
+        private int[] ObtenerCantidadesDesdeDataGridView()
+        {
+            List<int> cantidades = new List<int>();
+
+            // Recorre todas las filas del DataGridView
+            foreach (DataGridViewRow fila in dgvProductos.Rows)
+            {
+                // Obtén la cantidad del producto de la columna correspondiente
+                int cantidad = Convert.ToInt32(fila.Cells["Cantidad"].Value);
+                // Agrega la cantidad a la lista
+                cantidades.Add(cantidad);
+            }
+
+            // Convierte la lista de cantidades a un array y retórnala
+            return cantidades.ToArray();
+        }
+
+        private decimal[] ObtenerPreciosDesdeDataGridView()
+        {
+            List<decimal> precios = new List<decimal>();
+
+            // Recorre todas las filas del DataGridView
+            foreach (DataGridViewRow fila in dgvProductos.Rows)
+            {
+                // Obtén el precio del producto de la columna correspondiente
+                decimal precio = Convert.ToDecimal(fila.Cells["Precio"].Value);
+                // Agrega el precio a la lista
+                precios.Add(precio);
+            }
+
+            // Convierte la lista de precios a un array y retórnala
+            return precios.ToArray();
+        }
+
+        private decimal[] ObtenerImpuestosDesdeDataGridView()
+        {
+            List<decimal> impuestos = new List<decimal>();
+
+            // Recorre todas las filas del DataGridView
+            foreach (DataGridViewRow fila in dgvProductos.Rows)
+            {
+                // Obtén el impuesto del producto de la columna correspondiente
+                decimal impuesto = Convert.ToDecimal(fila.Cells["Impuesto"].Value);
+                // Agrega el impuesto a la lista
+                impuestos.Add(impuesto);
+            }
+
+            // Convierte la lista de impuestos a un array y retórnala
+            return impuestos.ToArray();
+        }
+
+        private decimal[] ObtenerSubtotalesDesdeDataGridView()
+        {
+            List<decimal> subtotales = new List<decimal>();
+
+            // Recorre todas las filas del DataGridView
+            foreach (DataGridViewRow fila in dgvProductos.Rows)
+            {
+                // Obtén el subtotal del producto de la columna correspondiente
+                decimal subtotal = Convert.ToDecimal(fila.Cells["SubTotal"].Value);
+                // Agrega el subtotal a la lista
+                subtotales.Add(subtotal);
+            }
+
+            // Convierte la lista de subtotales a un array y retórnala
+            return subtotales.ToArray();
+        }
+
+        private decimal[] ObtenerTotalesProductosDesdeDataGridView()
+        {
+            List<decimal> totalesProductos = new List<decimal>();
+
+            // Recorre todas las filas del DataGridView
+            foreach (DataGridViewRow fila in dgvProductos.Rows)
+            {
+                // Obtén el total del producto de la columna correspondiente
+                decimal totalProducto = Convert.ToDecimal(fila.Cells["TotalProducto"].Value);
+                // Agrega el total del producto a la lista
+                totalesProductos.Add(totalProducto);
+            }
+
+            // Convierte la lista de totales de productos a un array y retórnala
+            return totalesProductos.ToArray();
+        }
+
+       
     }
 }

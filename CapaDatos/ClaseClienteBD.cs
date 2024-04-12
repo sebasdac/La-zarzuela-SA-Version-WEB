@@ -49,23 +49,35 @@ namespace CapaDatos
 
         public void InsertaClienteBD(int codigo, string nombre, string tipo, string cedula, string direccion, string provincia, string telefono, string correo, string contrasena)
         {
-            SqlCommand instruccionSQL;
-            AbrirConexion();
-            instruccionSQL = new SqlCommand("insert into Clientes (Codigo, Nombre, Tipo, Cedula, Direccion, Provincia, Telefono, Correo, Contrasena)values(@Codigo,@Nombre,@Tipo,@Cedula,@Direccion,@Provincia, @Telefono, @Correo, @Contrasena)", conexion);
-            instruccionSQL.Parameters.AddWithValue("@Codigo", codigo);
-            instruccionSQL.Parameters.AddWithValue("@Nombre", nombre);
-            instruccionSQL.Parameters.AddWithValue("@Tipo", tipo);
+            using (SqlConnection connection = new SqlConnection(String_Conexion))
+            {
+                using (SqlCommand command = new SqlCommand("InsertarCliente", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
 
-            instruccionSQL.Parameters.AddWithValue("@Cedula", cedula);
-            instruccionSQL.Parameters.AddWithValue("@Direccion", direccion);
-            instruccionSQL.Parameters.AddWithValue("@Provincia", provincia);
-            instruccionSQL.Parameters.AddWithValue("@Telefono", telefono);
-            instruccionSQL.Parameters.AddWithValue("@Correo", correo);
-            instruccionSQL.Parameters.AddWithValue("@Contrasena", contrasena);
+                    command.Parameters.AddWithValue("@Codigo", codigo);
+                    command.Parameters.AddWithValue("@Nombre", nombre);
 
-            instruccionSQL.ExecuteNonQuery();
+                    command.Parameters.AddWithValue("@Tipo", tipo);
 
-            CerrarConexion();
+                    command.Parameters.AddWithValue("@Cedula", cedula);
+
+                    command.Parameters.AddWithValue("@Direccion", direccion);
+
+                    command.Parameters.AddWithValue("@Provincia", provincia);
+
+
+                      command.Parameters.AddWithValue("@Telefono",telefono);
+
+                    command.Parameters.AddWithValue("@Correo", correo);
+
+                    command.Parameters.AddWithValue("@Contrasena", contrasena);
+                    // Agrega otros parámetros si es necesario
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+            }
         }//fin InsertaProducto
 
         public void LeerCliente()
