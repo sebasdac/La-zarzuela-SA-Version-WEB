@@ -11,36 +11,34 @@ using System.Windows.Forms;
 
 namespace La_zarzuela_SA
 {
-    public partial class frmBuscarProducto : Form
+    public partial class frmBuscarCliente : Form
     {
-        Productos obj_productos = new Productos();
-        frmVentaProducto form2 = new frmVentaProducto();
-        public frmBuscarProducto()
+        Clientes obj_clientes = new Clientes();
+        public frmBuscarCliente()
         {
             InitializeComponent();
-            dgvProductos.SelectionChanged += dgvProductos_SelectionChanged;
+            dgvClientes.SelectionChanged += dgvClientes_SelectionChanged;
         }
 
-        private void frmBuscarProducto_Load(object sender, EventArgs e)
+        private void frmBuscarCliente_Load(object sender, EventArgs e)
         {
-            obj_productos.LeeTablaProducto();
-            dgvProductos.DataSource = obj_productos.Tabla_Productos;
+            obj_clientes.LeerClientes();
+            dgvClientes.DataSource = obj_clientes.TablaClientes;
         }
-        
-        private void dgvProductos_SelectionChanged(object sender, EventArgs e)
+        private void dgvClientes_SelectionChanged(object sender, EventArgs e)
         {
             // Verifica si hay una fila seleccionada
-            if (dgvProductos.SelectedRows.Count > 0)
+            if (dgvClientes.SelectedRows.Count > 0)
             {
                 // Obtiene la fila seleccionada
-                DataGridViewRow row = dgvProductos.SelectedRows[0];
+                DataGridViewRow row = dgvClientes.SelectedRows[0];
 
                 // Obtiene los valores de las celdas
                 string valorColumna1 = row.Cells["Codigo"].Value.ToString();
                 string valorColumna2 = row.Cells["Nombre"].Value.ToString();
-                string valorColumna3 = row.Cells["Cantidad"].Value.ToString();
-                string valorColumna4 = row.Cells["Precio"].Value.ToString();
-                
+                string valorColumna3 = row.Cells["Tipo"].Value.ToString();
+                string valorColumna4 = row.Cells["Cedula"].Value.ToString();
+
                 // Continúa obteniendo valores para todas las columnas necesarias
 
                 // Abre Form2 y pasa los valores al constructor
@@ -52,27 +50,20 @@ namespace La_zarzuela_SA
                 if (ventaProducto != null)
                 {
                     // Actualizar los datos en frmVentaProducto
-                    ventaProducto.RecibirDatos(valorColumna1, valorColumna2, valorColumna3, valorColumna4);
+                    ventaProducto.RecibirDatosClientes(valorColumna1, valorColumna2, valorColumna3, valorColumna4);
                     this.Close();
                 }
 
 
-                
+
 
             }
 
         }
 
-        
-
-        private void dgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
-        }
 
-        private void dgvProductos_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
         }
     }
 }

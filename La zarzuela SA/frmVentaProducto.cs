@@ -16,6 +16,7 @@ namespace La_zarzuela_SA
         int filaSeleccionadaClientes;
         int filaSeleccionadaProductos;
         int totalProductos;
+        int filaSeleccionada;
 
         FacturaVenta obj_facturaventa = new FacturaVenta();
         //objetos
@@ -136,7 +137,21 @@ namespace La_zarzuela_SA
 
 
         }
-        
+        public void RecibirDatosClientes(string codigo, string nombre, string tipo, string cedula)
+        {
+            
+
+            txtNombreCliente.Text = nombre;
+            txtCodigoCliente.Text = codigo;
+            txtTipo.Text = tipo;
+            txtCedula.Text = cedula;
+
+
+
+
+
+        }
+
 
         private void dgvClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -285,6 +300,39 @@ namespace La_zarzuela_SA
             {
 
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); ;
+            }
+        }
+
+        private void btnBuscar_Click_1(object sender, EventArgs e)
+        {
+            frmBuscarCliente frm = new frmBuscarCliente();
+            frm.Show(); 
+
+
+
+
+
+        }
+
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow selectedRow = dgvProductos.CurrentRow;
+            DialogResult result = MessageBox.Show("¿Seguro que quieres eliminar esta fila?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    if (filaSeleccionada >= 0)
+                    {
+
+                        dgvProductos.Rows.Remove(selectedRow);
+                        obj_productos.EscribeTablaalXML();
+                    }//fin if
+                }//fin try
+                catch
+                {
+                    MessageBox.Show("No se ha seleccionado ninguna fila");
+                }//fin catch
             }
         }
     }

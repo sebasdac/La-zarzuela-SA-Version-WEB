@@ -67,9 +67,10 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtNombreProducto = new System.Windows.Forms.TextBox();
             this.txtCodigoProducto = new System.Windows.Forms.TextBox();
-            this.btnBuscar = new FontAwesome.Sharp.IconButton();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.btnBuscar = new FontAwesome.Sharp.IconButton();
+            this.btnBorrar = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -304,6 +305,7 @@
             this.txtCedula.Location = new System.Drawing.Point(85, 52);
             this.txtCedula.Margin = new System.Windows.Forms.Padding(4);
             this.txtCedula.Name = "txtCedula";
+            this.txtCedula.ReadOnly = true;
             this.txtCedula.Size = new System.Drawing.Size(132, 22);
             this.txtCedula.TabIndex = 23;
             // 
@@ -433,6 +435,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnBorrar);
             this.groupBox2.Controls.Add(this.iconButton2);
             this.groupBox2.Controls.Add(this.txtNombreProducto);
             this.groupBox2.Controls.Add(this.txtCodigoProducto);
@@ -458,6 +461,7 @@
             // 
             this.txtNombreProducto.Location = new System.Drawing.Point(319, 37);
             this.txtNombreProducto.Name = "txtNombreProducto";
+            this.txtNombreProducto.ReadOnly = true;
             this.txtNombreProducto.Size = new System.Drawing.Size(100, 22);
             this.txtNombreProducto.TabIndex = 38;
             // 
@@ -465,20 +469,23 @@
             // 
             this.txtCodigoProducto.Location = new System.Drawing.Point(85, 38);
             this.txtCodigoProducto.Name = "txtCodigoProducto";
+            this.txtCodigoProducto.ReadOnly = true;
             this.txtCodigoProducto.Size = new System.Drawing.Size(100, 22);
             this.txtCodigoProducto.TabIndex = 37;
             // 
-            // btnBuscar
+            // iconButton2
             // 
-            this.btnBuscar.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
-            this.btnBuscar.IconColor = System.Drawing.Color.Black;
-            this.btnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnBuscar.IconSize = 28;
-            this.btnBuscar.Location = new System.Drawing.Point(224, 48);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(34, 29);
-            this.btnBuscar.TabIndex = 26;
-            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Add;
+            this.iconButton2.IconColor = System.Drawing.Color.Black;
+            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton2.Location = new System.Drawing.Point(475, 122);
+            this.iconButton2.Name = "iconButton2";
+            this.iconButton2.Size = new System.Drawing.Size(66, 75);
+            this.iconButton2.TabIndex = 39;
+            this.iconButton2.Text = "Agregar";
+            this.iconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.iconButton2.UseVisualStyleBackColor = true;
+            this.iconButton2.Click += new System.EventHandler(this.iconButton2_Click);
             // 
             // iconButton1
             // 
@@ -493,19 +500,32 @@
             this.iconButton1.UseVisualStyleBackColor = true;
             this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
             // 
-            // iconButton2
+            // btnBuscar
             // 
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Add;
-            this.iconButton2.IconColor = System.Drawing.Color.Black;
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.Location = new System.Drawing.Point(441, 122);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(83, 64);
-            this.iconButton2.TabIndex = 39;
-            this.iconButton2.Text = "Agregar";
-            this.iconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.iconButton2.UseVisualStyleBackColor = true;
-            this.iconButton2.Click += new System.EventHandler(this.iconButton2_Click);
+            this.btnBuscar.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
+            this.btnBuscar.IconColor = System.Drawing.Color.Black;
+            this.btnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnBuscar.IconSize = 28;
+            this.btnBuscar.Location = new System.Drawing.Point(224, 48);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(34, 29);
+            this.btnBuscar.TabIndex = 26;
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click_1);
+            // 
+            // btnBorrar
+            // 
+            this.btnBorrar.IconChar = FontAwesome.Sharp.IconChar.Trash;
+            this.btnBorrar.IconColor = System.Drawing.Color.Black;
+            this.btnBorrar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnBorrar.Location = new System.Drawing.Point(385, 122);
+            this.btnBorrar.Name = "btnBorrar";
+            this.btnBorrar.Size = new System.Drawing.Size(71, 75);
+            this.btnBorrar.TabIndex = 40;
+            this.btnBorrar.Text = "Borrar";
+            this.btnBorrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnBorrar.UseVisualStyleBackColor = true;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
             // frmVentaProducto
             // 
@@ -582,5 +602,6 @@
         private FontAwesome.Sharp.IconButton btnBuscar;
         private FontAwesome.Sharp.IconButton iconButton1;
         private FontAwesome.Sharp.IconButton iconButton2;
+        private FontAwesome.Sharp.IconButton btnBorrar;
     }
 }
