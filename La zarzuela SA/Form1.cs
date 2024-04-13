@@ -137,5 +137,10 @@ namespace La_zarzuela_SA
         {
 
         }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

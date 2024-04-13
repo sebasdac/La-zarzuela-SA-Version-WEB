@@ -33,17 +33,18 @@
             this.lblContrasena = new System.Windows.Forms.Label();
             this.txtContrasena = new System.Windows.Forms.TextBox();
             this.txtUsuario = new System.Windows.Forms.TextBox();
-            this.btnAcceder = new System.Windows.Forms.Button();
             this.lbEresNuevo = new System.Windows.Forms.LinkLabel();
+            this.btnAcceder = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblLaZarzuela
             // 
             this.lblLaZarzuela.AutoSize = true;
             this.lblLaZarzuela.Font = new System.Drawing.Font("Rockwell", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLaZarzuela.Location = new System.Drawing.Point(148, 34);
+            this.lblLaZarzuela.Location = new System.Drawing.Point(197, 42);
+            this.lblLaZarzuela.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLaZarzuela.Name = "lblLaZarzuela";
-            this.lblLaZarzuela.Size = new System.Drawing.Size(164, 25);
+            this.lblLaZarzuela.Size = new System.Drawing.Size(212, 33);
             this.lblLaZarzuela.TabIndex = 0;
             this.lblLaZarzuela.Text = "La Zarzuela SA";
             // 
@@ -51,9 +52,10 @@
             // 
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.Location = new System.Drawing.Point(194, 95);
+            this.lblUsuario.Location = new System.Drawing.Point(259, 117);
+            this.lblUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(68, 20);
+            this.lblUsuario.Size = new System.Drawing.Size(85, 25);
             this.lblUsuario.TabIndex = 1;
             this.lblUsuario.Text = "Usuario:";
             // 
@@ -61,54 +63,60 @@
             // 
             this.lblContrasena.AutoSize = true;
             this.lblContrasena.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContrasena.Location = new System.Drawing.Point(180, 207);
+            this.lblContrasena.Location = new System.Drawing.Point(240, 255);
+            this.lblContrasena.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblContrasena.Name = "lblContrasena";
-            this.lblContrasena.Size = new System.Drawing.Size(96, 20);
+            this.lblContrasena.Size = new System.Drawing.Size(120, 25);
             this.lblContrasena.TabIndex = 2;
             this.lblContrasena.Text = "Contraseña:";
             // 
             // txtContrasena
             // 
-            this.txtContrasena.Location = new System.Drawing.Point(145, 263);
+            this.txtContrasena.Location = new System.Drawing.Point(193, 324);
+            this.txtContrasena.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtContrasena.Name = "txtContrasena";
-            this.txtContrasena.Size = new System.Drawing.Size(167, 20);
+            this.txtContrasena.Size = new System.Drawing.Size(221, 22);
             this.txtContrasena.TabIndex = 3;
+            this.txtContrasena.UseSystemPasswordChar = true;
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(145, 151);
+            this.txtUsuario.Location = new System.Drawing.Point(193, 186);
+            this.txtUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(167, 20);
+            this.txtUsuario.Size = new System.Drawing.Size(221, 22);
             this.txtUsuario.TabIndex = 4;
             this.txtUsuario.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
-            // 
-            // btnAcceder
-            // 
-            this.btnAcceder.ForeColor = System.Drawing.Color.Black;
-            this.btnAcceder.Location = new System.Drawing.Point(179, 316);
-            this.btnAcceder.Name = "btnAcceder";
-            this.btnAcceder.Size = new System.Drawing.Size(98, 42);
-            this.btnAcceder.TabIndex = 5;
-            this.btnAcceder.Text = "Acceder";
-            this.btnAcceder.UseVisualStyleBackColor = true;
-            this.btnAcceder.Click += new System.EventHandler(this.btnAcceder_Click);
             // 
             // lbEresNuevo
             // 
             this.lbEresNuevo.AutoSize = true;
-            this.lbEresNuevo.Location = new System.Drawing.Point(342, 345);
+            this.lbEresNuevo.Location = new System.Drawing.Point(456, 425);
+            this.lbEresNuevo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbEresNuevo.Name = "lbEresNuevo";
-            this.lbEresNuevo.Size = new System.Drawing.Size(67, 13);
+            this.lbEresNuevo.Size = new System.Drawing.Size(82, 16);
             this.lbEresNuevo.TabIndex = 7;
             this.lbEresNuevo.TabStop = true;
             this.lbEresNuevo.Text = "Eres nuevo?";
             this.lbEresNuevo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
+            // btnAcceder
+            // 
+            this.btnAcceder.ForeColor = System.Drawing.Color.Black;
+            this.btnAcceder.Location = new System.Drawing.Point(239, 389);
+            this.btnAcceder.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAcceder.Name = "btnAcceder";
+            this.btnAcceder.Size = new System.Drawing.Size(131, 52);
+            this.btnAcceder.TabIndex = 5;
+            this.btnAcceder.Text = "Acceder";
+            this.btnAcceder.UseVisualStyleBackColor = true;
+            this.btnAcceder.Click += new System.EventHandler(this.btnAcceder_Click);
+            // 
             // frmLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(494, 398);
+            this.ClientSize = new System.Drawing.Size(659, 490);
             this.Controls.Add(this.lbEresNuevo);
             this.Controls.Add(this.btnAcceder);
             this.Controls.Add(this.txtUsuario);
@@ -116,6 +124,7 @@
             this.Controls.Add(this.lblContrasena);
             this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.lblLaZarzuela);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Iniciar secion";
@@ -133,7 +142,7 @@
         private System.Windows.Forms.Label lblContrasena;
         private System.Windows.Forms.TextBox txtContrasena;
         private System.Windows.Forms.TextBox txtUsuario;
-        private System.Windows.Forms.Button btnAcceder;
         private System.Windows.Forms.LinkLabel lbEresNuevo;
+        private System.Windows.Forms.Button btnAcceder;
     }
 }

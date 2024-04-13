@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agregarProductoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agregarProductoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.agregarClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,6 +46,7 @@
             this.menutitulo = new System.Windows.Forms.MenuStrip();
             this.lblIstsema = new System.Windows.Forms.Label();
             this.panelContenedor = new System.Windows.Forms.Panel();
+            this.btnSalir = new FontAwesome.Sharp.IconMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,7 +54,7 @@
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.salirToolStripMenuItem,
+            this.btnSalir,
             this.agregarProductoToolStripMenuItem,
             this.agregarUsuarioToolStripMenuItem,
             this.cambiarPinToolStripMenuItem,
@@ -62,20 +62,10 @@
             this.verMasToolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 88);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1205, 60);
+            this.menuStrip1.Size = new System.Drawing.Size(1205, 53);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
-            // 
-            // salirToolStripMenuItem
-            // 
-            this.salirToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("salirToolStripMenuItem.Image")));
-            this.salirToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(52, 56);
-            this.salirToolStripMenuItem.Text = "Salir";
-            this.salirToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // agregarProductoToolStripMenuItem
             // 
@@ -90,7 +80,7 @@
             this.facturasVentaToolStripMenuItem});
             this.agregarProductoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("agregarProductoToolStripMenuItem.Image")));
             this.agregarProductoToolStripMenuItem.Name = "agregarProductoToolStripMenuItem";
-            this.agregarProductoToolStripMenuItem.Size = new System.Drawing.Size(44, 56);
+            this.agregarProductoToolStripMenuItem.Size = new System.Drawing.Size(44, 49);
             this.agregarProductoToolStripMenuItem.Text = "Ver";
             this.agregarProductoToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.agregarProductoToolStripMenuItem.Click += new System.EventHandler(this.agregarProductoToolStripMenuItem_Click);
@@ -155,7 +145,7 @@
             // 
             this.agregarUsuarioToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("agregarUsuarioToolStripMenuItem.Image")));
             this.agregarUsuarioToolStripMenuItem.Name = "agregarUsuarioToolStripMenuItem";
-            this.agregarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(129, 56);
+            this.agregarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(129, 49);
             this.agregarUsuarioToolStripMenuItem.Text = "Agregar usuario";
             this.agregarUsuarioToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.agregarUsuarioToolStripMenuItem.Click += new System.EventHandler(this.agregarUsuarioToolStripMenuItem_Click);
@@ -164,7 +154,7 @@
             // 
             this.cambiarPinToolStripMenuItem.Image = global::La_zarzuela_SA.Properties.Resources.key;
             this.cambiarPinToolStripMenuItem.Name = "cambiarPinToolStripMenuItem";
-            this.cambiarPinToolStripMenuItem.Size = new System.Drawing.Size(104, 56);
+            this.cambiarPinToolStripMenuItem.Size = new System.Drawing.Size(104, 49);
             this.cambiarPinToolStripMenuItem.Text = "Cambiar pin";
             this.cambiarPinToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.cambiarPinToolStripMenuItem.Click += new System.EventHandler(this.cambiarPinToolStripMenuItem_Click);
@@ -173,7 +163,7 @@
             // 
             this.compraToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("compraToolStripMenuItem.Image")));
             this.compraToolStripMenuItem.Name = "compraToolStripMenuItem";
-            this.compraToolStripMenuItem.Size = new System.Drawing.Size(125, 56);
+            this.compraToolStripMenuItem.Size = new System.Drawing.Size(125, 49);
             this.compraToolStripMenuItem.Text = "Venta producto";
             this.compraToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.compraToolStripMenuItem.Click += new System.EventHandler(this.compraToolStripMenuItem_Click);
@@ -182,7 +172,7 @@
             // 
             this.verMasToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("verMasToolStripMenuItem1.Image")));
             this.verMasToolStripMenuItem1.Name = "verMasToolStripMenuItem1";
-            this.verMasToolStripMenuItem1.Size = new System.Drawing.Size(75, 56);
+            this.verMasToolStripMenuItem1.Size = new System.Drawing.Size(75, 49);
             this.verMasToolStripMenuItem1.Text = "Ver mas";
             this.verMasToolStripMenuItem1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.verMasToolStripMenuItem1.Click += new System.EventHandler(this.verMasToolStripMenuItem1_Click);
@@ -214,10 +204,23 @@
             // panelContenedor
             // 
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContenedor.Location = new System.Drawing.Point(0, 148);
+            this.panelContenedor.Location = new System.Drawing.Point(0, 141);
             this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(1205, 477);
+            this.panelContenedor.Size = new System.Drawing.Size(1205, 484);
             this.panelContenedor.TabIndex = 3;
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
+            this.btnSalir.IconColor = System.Drawing.Color.Black;
+            this.btnSalir.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSalir.IconSize = 25;
+            this.btnSalir.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(52, 49);
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // Form1
             // 
@@ -245,7 +248,6 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem agregarProductoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem agregarProductoToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem agregarClienteToolStripMenuItem;
@@ -262,6 +264,7 @@
         private System.Windows.Forms.MenuStrip menutitulo;
         private System.Windows.Forms.Label lblIstsema;
         private System.Windows.Forms.Panel panelContenedor;
+        private FontAwesome.Sharp.IconMenuItem btnSalir;
     }
 }
 

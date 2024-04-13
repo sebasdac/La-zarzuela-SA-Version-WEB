@@ -9,10 +9,11 @@ namespace CapaDatos
 {
     public class ClaseFacturas
     {
-        private string connectionString = "tu_cadena_de_conexión";
+        private string connectionString = "Data Source=LAPTOP-M50THNEO;Initial Catalog=\"Proyecto II\";Integrated Security=True;";
 
-        public int InsertarFactura(int clienteID, string nombrecliente, string cedula,string tipocliente,
-            DateTime fecha, decimal total)
+       
+
+        public int InsertarFactura(int clienteID, string nombre, string cedula, string tipo, DateTime fecha, decimal total)
         {
             int facturaID = 0;
 
@@ -20,19 +21,16 @@ namespace CapaDatos
             {
                 connection.Open();
 
-                // Insertar la factura
-                string insertFacturaQuery = "INSERT INTO Facturas (FacturaID, ClienteID, NombreCliente, CedulaCliente," +
-                    "TipoCliente, Fecha, Total) VALUES (@ClienteID, @Fecha, @Total); SELECT SCOPE_IDENTITY();";
-                using (SqlCommand command = new SqlCommand(insertFacturaQuery, connection))
+                string query = "INSERT INTO Factura (ClienteID, NombreCliente, CedulaCliente, TipoCliente, Fecha, Total) VALUES (@ClienteID, @Nombre, @Cedula,@Tipo, @Fecha, @Total); SELECT SCOPE_IDENTITY();";
+                using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@FacturaID", facturaID);
                     command.Parameters.AddWithValue("@ClienteID", clienteID);
-                    command.Parameters.AddWithValue("@NombreCliente", nombrecliente);
-                    command.Parameters.AddWithValue("@CedulaCliente", cedula);
-                    command.Parameters.AddWithValue("@TipoCliente", tipocliente);
-
+                    command.Parameters.AddWithValue("@Nombre", nombre);
+                    command.Parameters.AddWithValue("@Cedula", cedula);
+                    command.Parameters.AddWithValue("@Tipo", tipo);
                     command.Parameters.AddWithValue("@Fecha", fecha);
                     command.Parameters.AddWithValue("@Total", total);
+                    
                     facturaID = Convert.ToInt32(command.ExecuteScalar());
                 }
             }
@@ -40,26 +38,28 @@ namespace CapaDatos
             return facturaID;
         }
 
-        public void InsertarDetalleFactura(int facturaID, int productoID, int cantidad, decimal precio, decimal subtotal, decimal totalProducto)
+        public void InsertarDetalleFactura(int facturaID, int productoID, int cantidad, decimal precio, decimal impuesto, decimal subtotal, decimal totalProducto,string nombreproducto)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
-                // Insertar el detalle de la factura
-                string insertDetalleQuery = "INSERT INTO DetallesFactura (FacturaID, ProductoID, Cantidad, Precio, SubTotal, TotalProducto) VALUES (@FacturaID, @ProductoID, @Cantidad, @Precio,@SubTotal, @TotalProducto);";
-                using (SqlCommand command = new SqlCommand(insertDetalleQuery, connection))
+                string query = "INSERT INTO DetallesFactura (FacturaID, ProductoID, Cantidad, Precio, Impuesto, Subtotal, TotalProducto, ProductoNombre) VALUES (@FacturaID, @ProductoID, @Cantidad, @Precio, @Impuesto, @Subtotal, @TotalProducto,@NombreProducto);";
+                using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@FacturaID", facturaID);
                     command.Parameters.AddWithValue("@ProductoID", productoID);
                     command.Parameters.AddWithValue("@Cantidad", cantidad);
                     command.Parameters.AddWithValue("@Precio", precio);
-                    command.Parameters.AddWithValue("@SubTotal", subtotal);
-
+                    command.Parameters.AddWithValue("@Impuesto", impuesto);
+                    command.Parameters.AddWithValue("@Subtotal", subtotal);
                     command.Parameters.AddWithValue("@TotalProducto", totalProducto);
+                    command.Parameters.AddWithValue("@NombreProducto", nombreproducto);
                     command.ExecuteNonQuery();
                 }
             }
         }
     }
 }
+    
+

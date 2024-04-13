@@ -93,7 +93,7 @@ namespace La_zarzuela_SA
 
                     obj_productos.EscribeTablaalXML();
                     MessageBox.Show("Compra realizada", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    btnCalcular.Enabled = true;
+                    //btnCalcular.Enabled = true;
 
                 }
             }
@@ -335,22 +335,28 @@ namespace La_zarzuela_SA
                 }//fin catch
             }
         }
-
+        
         private void iconButton3_Click(object sender, EventArgs e)
         {
             //Obtener los datos de la factura desde el DataGridView
-            int clienteID = ObtenerClienteIDDesdeDataGridView(); // Por ejemplo, aquí obtienes el ID del cliente desde el DataGridView
-            DateTime fecha = ObtenerFechaDesdeDataGridView(); // Por ejemplo, aquí obtienes la fecha desde el DataGridView
+            int clienteID = int.Parse(txtCodigoCliente.Text); // Por ejemplo, aquí obtienes el ID del cliente desde el DataGridView
+            DateTime fecha = DateTime.Parse(dtpFechaCompra.Text); // Por ejemplo, aquí obtienes la fecha desde el DataGridView
             decimal total = ObtenerTotalDesdeDataGridView(); // Por ejemplo, aquí obtienes el total desde el DataGridView
+            string nombre = txtNombreCliente.Text;
+            string cedula = txtCedula.Text;
+            string tipo = txtTipo.Text;
 
             // Obtener los detalles de la factura desde el DataGridView
+            string[] NombreProductos = ObtenerProductoNombreIDsDesdeDataGridView();
             int[] productoIDs = ObtenerProductoIDsDesdeDataGridView();
             int[] cantidades = ObtenerCantidadesDesdeDataGridView();
             decimal[] precios = ObtenerPreciosDesdeDataGridView();
+            decimal[] impuestos = ObtenerImpuestosDesdeDataGridView();
+            decimal[] subtotales = ObtenerSubtotalesDesdeDataGridView();
             decimal[] totalesProductos = ObtenerTotalesProductosDesdeDataGridView();
 
             // Llamar al método de la capa de negocio para registrar la factura
-            int facturaID = facturaBL.RegistrarFactura(clienteID, fecha, total, productoIDs, cantidades, precios, totalesProductos);
+            int facturaID = obj_facturaventa.RegistrarFactura(clienteID,nombre,cedula,tipo, fecha, total, productoIDs, cantidades, precios,impuestos,subtotales, totalesProductos, NombreProductos);
 
             MessageBox.Show("La factura se registró con éxito con el ID: " + facturaID);
         }
@@ -363,13 +369,30 @@ namespace La_zarzuela_SA
             foreach (DataGridViewRow fila in dgvProductos.Rows)
             {
                 // Obtén el ID del producto de la columna correspondiente
-                int productoID = Convert.ToInt32(fila.Cells["ProductoID"].Value);
+                int productoID = Convert.ToInt32(fila.Cells["colCodigo"].Value);
                 // Agrega el ID del producto a la lista
                 productoIDs.Add(productoID);
             }
 
             // Convierte la lista de IDs de productos a un array y retórnala
             return productoIDs.ToArray();
+        }
+
+        private string[] ObtenerProductoNombreIDsDesdeDataGridView()
+        {
+            List<string> productoNombres = new List<string>();
+
+            // Recorre todas las filas del DataGridView
+            foreach (DataGridViewRow fila in dgvProductos.Rows)
+            {
+                // Obtén el ID del producto de la columna correspondiente
+                string productonombre = fila.Cells["colProducto"].Value.ToString();
+                // Agrega el ID del producto a la lista
+                productoNombres.Add(productonombre);
+            }
+
+            // Convierte la lista de IDs de productos a un array y retórnala
+            return productoNombres.ToArray();
         }
 
         private int[] ObtenerCantidadesDesdeDataGridView()
@@ -380,7 +403,7 @@ namespace La_zarzuela_SA
             foreach (DataGridViewRow fila in dgvProductos.Rows)
             {
                 // Obtén la cantidad del producto de la columna correspondiente
-                int cantidad = Convert.ToInt32(fila.Cells["Cantidad"].Value);
+                int cantidad = Convert.ToInt32(fila.Cells["colCantidad"].Value);
                 // Agrega la cantidad a la lista
                 cantidades.Add(cantidad);
             }
@@ -397,7 +420,7 @@ namespace La_zarzuela_SA
             foreach (DataGridViewRow fila in dgvProductos.Rows)
             {
                 // Obtén el precio del producto de la columna correspondiente
-                decimal precio = Convert.ToDecimal(fila.Cells["Precio"].Value);
+                decimal precio = Convert.ToDecimal(fila.Cells["colPrecio"].Value);
                 // Agrega el precio a la lista
                 precios.Add(precio);
             }
@@ -414,7 +437,7 @@ namespace La_zarzuela_SA
             foreach (DataGridViewRow fila in dgvProductos.Rows)
             {
                 // Obtén el impuesto del producto de la columna correspondiente
-                decimal impuesto = Convert.ToDecimal(fila.Cells["Impuesto"].Value);
+                decimal impuesto = Convert.ToDecimal(fila.Cells["colImpuesto"].Value);
                 // Agrega el impuesto a la lista
                 impuestos.Add(impuesto);
             }
@@ -431,7 +454,7 @@ namespace La_zarzuela_SA
             foreach (DataGridViewRow fila in dgvProductos.Rows)
             {
                 // Obtén el subtotal del producto de la columna correspondiente
-                decimal subtotal = Convert.ToDecimal(fila.Cells["SubTotal"].Value);
+                decimal subtotal = Convert.ToDecimal(fila.Cells["colSubtotal"].Value);
                 // Agrega el subtotal a la lista
                 subtotales.Add(subtotal);
             }
@@ -448,7 +471,7 @@ namespace La_zarzuela_SA
             foreach (DataGridViewRow fila in dgvProductos.Rows)
             {
                 // Obtén el total del producto de la columna correspondiente
-                decimal totalProducto = Convert.ToDecimal(fila.Cells["TotalProducto"].Value);
+                decimal totalProducto = Convert.ToDecimal(fila.Cells["colTotal"].Value);
                 // Agrega el total del producto a la lista
                 totalesProductos.Add(totalProducto);
             }
@@ -456,7 +479,23 @@ namespace La_zarzuela_SA
             // Convierte la lista de totales de productos a un array y retórnala
             return totalesProductos.ToArray();
         }
+        private decimal ObtenerTotalDesdeDataGridView()
+        {
+            decimal total = 0;
 
-       
+            // Recorre todas las filas del DataGridView
+            foreach (DataGridViewRow fila in dgvProductos.Rows)
+            {
+                // Obtén el total de la fila actual
+                decimal totalFila = Convert.ToDecimal(fila.Cells["colTotal"].Value);
+                // Suma el total de la fila al total general
+                total += totalFila;
+            }
+
+            return total;
+        }
+
+
+
     }
 }

@@ -26,45 +26,7 @@ namespace La_zarzuela_SA
 
         }
 
-        private void btnAcceder_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                obj_usuario.Usuario = txtUsuario.Text;
-                obj_usuario.Contrasena = txtContrasena.Text;
-
-
-                obj_usuario.ValidarLogin();
-                obj_usuario.ValidarUsuario();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                Form1 frm = new Form1();
-                frm.Show();
-                this.Hide();
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }//fin del metodo
+       
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
@@ -81,6 +43,32 @@ namespace La_zarzuela_SA
         {
             Environment.Exit(0);//cerrar la aplicacion
 
+        }
+
+        private void btnEntrar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAcceder_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                obj_usuario.Usuario = txtUsuario.Text;
+                obj_usuario.Contrasena = txtContrasena.Text;
+
+
+                obj_usuario.ValidarLogin();
+                obj_usuario.ValidarUsuario();
+
+                Form1 frm = new Form1();
+                frm.Show();
+                this.Hide();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
