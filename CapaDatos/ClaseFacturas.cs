@@ -116,7 +116,7 @@ namespace CapaDatos
                 SqlCommand instruccionSQL = new SqlCommand("select*from DetallesFactura WHERE FacturaID=@FacturaID", conexion);
                 instruccionSQL.Parameters.AddWithValue("@FacturaID", codigo);
 
-                ds_resultados.Clear(); // Limpia el dataset antes de llenarlo.
+                ds_detalles.Clear(); // Limpia el dataset antes de llenarlo.
 
                 try
                 {
@@ -133,6 +133,8 @@ namespace CapaDatos
             }
 
         }
+
+
 
     }
 }

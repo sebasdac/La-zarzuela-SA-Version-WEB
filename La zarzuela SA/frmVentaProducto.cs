@@ -283,6 +283,8 @@ namespace La_zarzuela_SA
             {
                 obj_productos.Cantidad = int.Parse(txtDisponible.Text);
                 obj_productos.CantidadDeseada = int.Parse(txtCantidadDeseada.Text);
+                obj_facturaventa.Cantidad = int.Parse(txtCantidadDeseada.Text);
+                obj_facturaventa.ValidarProducto();
                 obj_productos.ValidarStock();
 
                 obj_productos.Precio = int.Parse(txtPrecio.Text);

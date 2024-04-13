@@ -86,22 +86,13 @@ namespace CapaNegocio
         }
         public void ValidarProducto()
         {
-            if (string.IsNullOrEmpty(_nombreprodcuto))
-            {
-                throw new ArgumentException("El nombre del producto es requerido");
-            }
-
-        }
-        public void ValidarDataGridViewVacio(DataTable dataTable)
-        {
-            if (dataTable == null)
-            {
-                throw new ArgumentException("No se han agregado productos a la factura");
-            }
-            
           
-            
+            if (_cantidad <= 0)
+            {
+                throw new ArgumentException("La cantidad no puede ser 0");
+            }
         }
+      
         public void LeerFactura()
         {
             obj_facturas.LeerFactura(FacturaID.ToString());

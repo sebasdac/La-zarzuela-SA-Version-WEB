@@ -120,6 +120,7 @@ namespace CapaNegocio
                 throw new ArgumentException("No hay suficiente stock");
             }
         }
+       
 
 
 

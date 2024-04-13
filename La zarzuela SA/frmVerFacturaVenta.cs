@@ -33,9 +33,14 @@ namespace La_zarzuela_SA
             
             obj_factura.FacturaID1 = Convert.ToInt32(txtNumeroFactura.Text);
             obj_factura.LeerFactura();
-            obj_factura.LeerDetalles();
             dgvFacturaCompra.DataSource = obj_factura.Tabla_Facturas;
+            obj_factura.FacturaID1 = Convert.ToInt32(txtNumeroFactura.Text);
+            obj_factura.LeerDetalles();
+            
             dgvDetalles.DataSource = obj_factura.Tabla_Detalles;
+            txtNumeroFactura.Text = "";
+            
+             
 
 
 
