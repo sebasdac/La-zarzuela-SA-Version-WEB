@@ -55,7 +55,6 @@
             this.txtTipo = new System.Windows.Forms.TextBox();
             this.txtDisponible = new System.Windows.Forms.TextBox();
             this.txtPrecio = new System.Windows.Forms.TextBox();
-            this.txtCantidadDeseada = new System.Windows.Forms.TextBox();
             this.txtImpuesto = new System.Windows.Forms.TextBox();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.dtpFechaCompra = new System.Windows.Forms.DateTimePicker();
@@ -71,9 +70,11 @@
             this.txtCodigoProducto = new System.Windows.Forms.TextBox();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
+            this.txtCantidadDeseada = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCantidadDeseada)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvProductos
@@ -337,15 +338,6 @@
             this.txtPrecio.Size = new System.Drawing.Size(132, 22);
             this.txtPrecio.TabIndex = 32;
             // 
-            // txtCantidadDeseada
-            // 
-            this.txtCantidadDeseada.Location = new System.Drawing.Point(141, 117);
-            this.txtCantidadDeseada.Margin = new System.Windows.Forms.Padding(4);
-            this.txtCantidadDeseada.Name = "txtCantidadDeseada";
-            this.txtCantidadDeseada.Size = new System.Drawing.Size(92, 22);
-            this.txtCantidadDeseada.TabIndex = 33;
-            this.txtCantidadDeseada.TextChanged += new System.EventHandler(this.txtCantidadDeseada_TextChanged);
-            // 
             // txtImpuesto
             // 
             this.txtImpuesto.Location = new System.Drawing.Point(125, 636);
@@ -438,6 +430,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txtCantidadDeseada);
             this.groupBox2.Controls.Add(this.btnBorrar);
             this.groupBox2.Controls.Add(this.iconButton2);
             this.groupBox2.Controls.Add(this.txtNombreProducto);
@@ -450,7 +443,6 @@
             this.groupBox2.Controls.Add(this.dtpFechaCompra);
             this.groupBox2.Controls.Add(this.txtDisponible);
             this.groupBox2.Controls.Add(this.txtPrecio);
-            this.groupBox2.Controls.Add(this.txtCantidadDeseada);
             this.groupBox2.Controls.Add(this.lblCantidadDeseada);
             this.groupBox2.Controls.Add(this.lblFechaCompra);
             this.groupBox2.Location = new System.Drawing.Point(492, 54);
@@ -531,6 +523,13 @@
             this.iconButton3.UseVisualStyleBackColor = true;
             this.iconButton3.Click += new System.EventHandler(this.iconButton3_Click);
             // 
+            // txtCantidadDeseada
+            // 
+            this.txtCantidadDeseada.Location = new System.Drawing.Point(141, 120);
+            this.txtCantidadDeseada.Name = "txtCantidadDeseada";
+            this.txtCantidadDeseada.Size = new System.Drawing.Size(49, 22);
+            this.txtCantidadDeseada.TabIndex = 41;
+            // 
             // frmVentaProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -558,6 +557,7 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCantidadDeseada)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -584,7 +584,6 @@
         private System.Windows.Forms.TextBox txtTipo;
         private System.Windows.Forms.TextBox txtDisponible;
         private System.Windows.Forms.TextBox txtPrecio;
-        private System.Windows.Forms.TextBox txtCantidadDeseada;
         private System.Windows.Forms.TextBox txtImpuesto;
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.DateTimePicker dtpFechaCompra;
@@ -607,5 +606,6 @@
         private FontAwesome.Sharp.IconButton iconButton2;
         private FontAwesome.Sharp.IconButton btnBorrar;
         private FontAwesome.Sharp.IconButton iconButton3;
+        private System.Windows.Forms.NumericUpDown txtCantidadDeseada;
     }
 }

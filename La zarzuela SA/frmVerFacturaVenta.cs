@@ -23,30 +23,22 @@ namespace La_zarzuela_SA
 
         private void frmVerFacturaVenta_Load(object sender, EventArgs e)
         {
-            
+           
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
+       
+
+        private void btnBuscarporFactura_Click(object sender, EventArgs e)
         {
-            DataGridViewRow selectedRow = dgvFacturasVenta.CurrentRow;
-            DialogResult result = MessageBox.Show("¿Seguro que quieres eliminar esta fila?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                try
-                {
-                    if (filaSeleccionada >= 0)
-                    {
+            
+            obj_factura.FacturaID1 = Convert.ToInt32(txtNumeroFactura.Text);
+            obj_factura.LeerFactura();
+            obj_factura.LeerDetalles();
+            dgvFacturaCompra.DataSource = obj_factura.Tabla_Facturas;
+            dgvDetalles.DataSource = obj_factura.Tabla_Detalles;
 
-                        dgvFacturasVenta.Rows.Remove(selectedRow);
-                        
 
-                    }//fin if
-                }//fin try
-                catch
-                {
-                    MessageBox.Show("No se ha seleccionado ninguna fila");
-                }//fin catch
-            }
+
         }
     }
 }

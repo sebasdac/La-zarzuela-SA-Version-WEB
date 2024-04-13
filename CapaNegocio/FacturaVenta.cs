@@ -18,6 +18,7 @@ namespace CapaNegocio
         string _correo;
         string _telefono;
         string _direccion;
+        int FacturaID;
 
         int _codigoproducto;
         string _nombreprodcuto;
@@ -27,8 +28,10 @@ namespace CapaNegocio
         double _total;
         double _totalImpuesto;
 
+        ClaseFacturas obj_facturas = new ClaseFacturas();
+        public DataTable Tabla_Facturas { get => obj_facturas.TablaFacturas; }
+        public DataTable Tabla_Detalles { get => obj_facturas.TablaDetalles; }
 
-      
 
         #region "Propiedades"
 
@@ -47,6 +50,7 @@ namespace CapaNegocio
         public double Impuesto { get => _impuesto; set => _impuesto = value; }
         public double Total { get => _total; set => _total = value; }
         public double TotalImpuesto { get => _totalImpuesto; set => _totalImpuesto = value; }
+        public int FacturaID1 { get => FacturaID; set => FacturaID = value; }
         #endregion
 
         #region "Metodos"
@@ -64,6 +68,49 @@ namespace CapaNegocio
             }
 
             return facturaID;
+        }
+        public void ActualizarInventario(string codigoProducto, int cantidad)
+        {
+            ClaseProductos_BD productoDAL = new ClaseProductos_BD(); // Instancia de la capa de datos
+            // Llama al método de la capa de datos para actualizar el inventario
+            productoDAL.ActualizarInventario(codigoProducto, cantidad);
+        }
+
+        public void ValidarCliente()
+        {
+            if (string.IsNullOrEmpty(_nombrecliente))
+            {
+                throw new ArgumentException("El nombre del cliente es requerido");
+            }
+            
+        }
+        public void ValidarProducto()
+        {
+            if (string.IsNullOrEmpty(_nombreprodcuto))
+            {
+                throw new ArgumentException("El nombre del producto es requerido");
+            }
+
+        }
+        public void ValidarDataGridViewVacio(DataTable dataTable)
+        {
+            if (dataTable == null)
+            {
+                throw new ArgumentException("No se han agregado productos a la factura");
+            }
+            
+          
+            
+        }
+        public void LeerFactura()
+        {
+            obj_facturas.LeerFactura(FacturaID.ToString());
+            
+        }
+
+        public void LeerDetalles()
+        {
+            obj_facturas.LeerDetalles(FacturaID.ToString());
         }
 
 

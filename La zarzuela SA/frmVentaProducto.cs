@@ -327,6 +327,12 @@ namespace La_zarzuela_SA
 
                         dgvProductos.Rows.Remove(selectedRow);
                         obj_productos.EscribeTablaalXML();
+                        txtCantidadDeseada.Text = "";
+                        txtDisponible.Text = "";
+                        txtNombreProducto.Text = "";
+                        txtCodigoProducto.Text = "";
+                        txtPrecio.Text = "";
+
                     }//fin if
                 }//fin try
                 catch
@@ -335,30 +341,72 @@ namespace La_zarzuela_SA
                 }//fin catch
             }
         }
-        
+        public void ActualizarInventarioDesdeUI()
+        {
+            // Itera sobre cada fila del DataGridView
+            foreach (DataGridViewRow row in dgvProductos.Rows)
+            {
+                if (!row.IsNewRow)
+                {
+                    // Obtiene el código y la cantidad de la fila actual
+                    string codigoProducto = row.Cells["ColCodigo"].Value.ToString();
+                    int cantidad = Convert.ToInt32(row.Cells["ColCantidad"].Value);
+
+                    // Llama al método de la capa de negocio para actualizar el inventario
+                    obj_facturaventa.ActualizarInventario(codigoProducto, cantidad);
+                }
+            }
+        }
+
         private void iconButton3_Click(object sender, EventArgs e)
         {
-            //Obtener los datos de la factura desde el DataGridView
-            int clienteID = int.Parse(txtCodigoCliente.Text); // Por ejemplo, aquí obtienes el ID del cliente desde el DataGridView
-            DateTime fecha = DateTime.Parse(dtpFechaCompra.Text); // Por ejemplo, aquí obtienes la fecha desde el DataGridView
-            decimal total = ObtenerTotalDesdeDataGridView(); // Por ejemplo, aquí obtienes el total desde el DataGridView
-            string nombre = txtNombreCliente.Text;
-            string cedula = txtCedula.Text;
-            string tipo = txtTipo.Text;
+            try
+            {
+                if (dgvProductos.Rows.Count == 0)
+                {
+                    // El DataGridView está vacío
+                   throw new Exception("No se han agregado productos a la factura");
+                }
 
-            // Obtener los detalles de la factura desde el DataGridView
-            string[] NombreProductos = ObtenerProductoNombreIDsDesdeDataGridView();
-            int[] productoIDs = ObtenerProductoIDsDesdeDataGridView();
-            int[] cantidades = ObtenerCantidadesDesdeDataGridView();
-            decimal[] precios = ObtenerPreciosDesdeDataGridView();
-            decimal[] impuestos = ObtenerImpuestosDesdeDataGridView();
-            decimal[] subtotales = ObtenerSubtotalesDesdeDataGridView();
-            decimal[] totalesProductos = ObtenerTotalesProductosDesdeDataGridView();
 
-            // Llamar al método de la capa de negocio para registrar la factura
-            int facturaID = obj_facturaventa.RegistrarFactura(clienteID,nombre,cedula,tipo, fecha, total, productoIDs, cantidades, precios,impuestos,subtotales, totalesProductos, NombreProductos);
+                obj_facturaventa.Nombrecliente = txtNombreCliente.Text;
+                obj_facturaventa.ValidarCliente();
+                
 
-            MessageBox.Show("La factura se registró con éxito con el ID: " + facturaID);
+                //Obtener los datos de la factura desde el DataGridView
+                int clienteID = int.Parse(txtCodigoCliente.Text); // Por ejemplo, aquí obtienes el ID del cliente desde el DataGridView
+                DateTime fecha = DateTime.Parse(dtpFechaCompra.Text); // Por ejemplo, aquí obtienes la fecha desde el DataGridView
+                decimal total = ObtenerTotalDesdeDataGridView(); // Por ejemplo, aquí obtienes el total desde el DataGridView
+                string nombre = txtNombreCliente.Text;
+                string cedula = txtCedula.Text;
+                string tipo = txtTipo.Text;
+                
+
+                // Obtener los detalles de la factura desde el DataGridView
+                string[] NombreProductos = ObtenerProductoNombreIDsDesdeDataGridView();
+                int[] productoIDs = ObtenerProductoIDsDesdeDataGridView();
+                int[] cantidades = ObtenerCantidadesDesdeDataGridView();
+                decimal[] precios = ObtenerPreciosDesdeDataGridView();
+                decimal[] impuestos = ObtenerImpuestosDesdeDataGridView();
+                decimal[] subtotales = ObtenerSubtotalesDesdeDataGridView();
+                decimal[] totalesProductos = ObtenerTotalesProductosDesdeDataGridView();
+
+                // Llamar al método de la capa de negocio para registrar la factura
+                int facturaID = obj_facturaventa.RegistrarFactura(clienteID, nombre, cedula, tipo, fecha, total, productoIDs, cantidades, precios, impuestos, subtotales, totalesProductos, NombreProductos);
+                ActualizarInventarioDesdeUI();
+                dgvProductos.Rows.Clear();
+                txtCodigoCliente.Text = "";
+                txtNombreCliente.Text = "";
+                txtCedula.Text = "";
+                txtTipo.Text = "";
+
+
+                MessageBox.Show("La factura se registró con éxito con el ID: " + facturaID);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al registrar la factura: " + ex.Message);
+            }
         }
         // Métodos para obtener los datos de la factura desde el DataGridView
         private int[] ObtenerProductoIDsDesdeDataGridView()
@@ -495,7 +543,9 @@ namespace La_zarzuela_SA
             return total;
         }
 
+        private void domainUpDown1_SelectedItemChanged(object sender, EventArgs e)
+        {
 
-
+        }
     }
 }

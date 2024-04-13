@@ -101,6 +101,22 @@ namespace CapaDatos
             CerrarConexion();
         }
 
+        public void ActualizarInventario(string codigoProducto, int cantidad)
+        {
+            // Conexión a la base de datos
+            using (SqlConnection connection = new SqlConnection(String_Conexion))
+            {
+                connection.Open();
+                // Consulta SQL para actualizar el inventario
+                string query = "UPDATE Productos SET Cantidad = Cantidad - @cantidad WHERE Codigo = @codigo";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@cantidad", cantidad);
+                command.Parameters.AddWithValue("@codigo", codigoProducto);
+                command.ExecuteNonQuery();
+            }
+        }
+
+
 
 
 

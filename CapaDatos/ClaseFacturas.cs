@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -10,8 +11,32 @@ namespace CapaDatos
     public class ClaseFacturas
     {
         private string connectionString = "Data Source=LAPTOP-M50THNEO;Initial Catalog=\"Proyecto II\";Integrated Security=True;";
+        private string String_Conexion = "Data Source=LAPTOP-M50THNEO;Initial Catalog=\"Proyecto II\";Integrated Security=True;";
+        private SqlConnection conexion;
+        DataSet ds_resultados = new DataSet();
+        public DataTable TablaFacturas { get => ds_resultados.Tables[0]; }
+        DataSet ds_detalles = new DataSet();
+        public DataTable TablaDetalles { get => ds_detalles.Tables[0]; }
+        private void AbrirConexion()
+        {
+            try
+            {
+                conexion = new SqlConnection(String_Conexion);
+                conexion.Open();
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException("Error al abrir conexion: " + ex.Message);
+            }
 
-       
+
+
+        }//fin abrir conexion
+
+        private void CerrarConexion()
+        {
+            conexion.Close();
+        }//fin cerrar conexion
 
         public int InsertarFactura(int clienteID, string nombre, string cedula, string tipo, DateTime fecha, decimal total)
         {
@@ -59,6 +84,56 @@ namespace CapaDatos
                 }
             }
         }
+
+        public void LeerFactura(string codigo)
+        {
+            using (SqlConnection conexion = new SqlConnection(String_Conexion))
+            {
+                SqlCommand instruccionSQL = new SqlCommand("select*from Factura WHERE FacturaID=@FacturaID", conexion);
+                instruccionSQL.Parameters.AddWithValue("@FacturaID", codigo);
+
+                ds_resultados.Clear(); // Limpia el dataset antes de llenarlo.
+
+                try
+                {
+                    conexion.Open();
+                    using (SqlDataAdapter sqlDA = new SqlDataAdapter(instruccionSQL))
+                    {
+                        sqlDA.Fill(ds_resultados);
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    throw new SystemException("Error de SQL al cargar los datos: " + ex.Message);
+                }
+            } // La conexión se cerrará automáticamente al salir del bloque using.
+        }
+
+        public void LeerDetalles(string codigo)
+        {
+            using (SqlConnection conexion = new SqlConnection(String_Conexion))
+            {
+                SqlCommand instruccionSQL = new SqlCommand("select*from DetallesFactura WHERE FacturaID=@FacturaID", conexion);
+                instruccionSQL.Parameters.AddWithValue("@FacturaID", codigo);
+
+                ds_resultados.Clear(); // Limpia el dataset antes de llenarlo.
+
+                try
+                {
+                    conexion.Open();
+                    using (SqlDataAdapter sqlDA = new SqlDataAdapter(instruccionSQL))
+                    {
+                        sqlDA.Fill(ds_detalles);
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    throw new SystemException("Error de SQL al cargar los datos: " + ex.Message);
+                }
+            }
+
+        }
+
     }
 }
     
