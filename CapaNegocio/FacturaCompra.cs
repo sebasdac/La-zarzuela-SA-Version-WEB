@@ -20,7 +20,7 @@ namespace CapaNegocio
         int _Cantidad;
         double _Precio;
         double _Total;
-
+        ClaseFacturaCompra facturaDAL = new ClaseFacturaCompra(); // Instancia de la capa de datos
         
        
 
@@ -45,8 +45,31 @@ namespace CapaNegocio
 
         #region "Metodos"
 
+        public int RegistrarFactura(int clienteID, string nombre, string cedula, string tipo, DateTime fecha, decimal total, int[] productoIDs, int[] cantidades, decimal[] precios, decimal[] impuestos, decimal[] subtotales, decimal[] totalesProductos, string[] nombreproducto)
+        {
+            // Insertar la factura
+            int facturaID = facturaDAL.InsertarFactura(clienteID, nombre, cedula, tipo, fecha, total);
 
-  
+            // Insertar los detalles de la factura
+            for (int i = 0; i < productoIDs.Length; i++)
+            {
+                facturaDAL.InsertarDetalleFactura(facturaID, productoIDs[i], cantidades[i], precios[i], impuestos[i], subtotales[i], totalesProductos[i], nombreproducto[i]);
+            }
+
+            return facturaID;
+        }
+
+        public void ValidarProveedor()
+        {
+
+            if(string.IsNullOrEmpty(_NombreProveedor))
+            {
+                throw new ArgumentException("El nombre del proveedor no puede estar vacio");
+            }
+        }
+
+
+
 
 
 

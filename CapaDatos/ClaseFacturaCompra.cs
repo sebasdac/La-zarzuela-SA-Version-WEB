@@ -28,12 +28,13 @@ namespace CapaDatos
             {
                 connection.Open();
 
-                string query = "INSERT INTO Factura (ProveedorID, NombreCliente, CedulaCliente, TipoCliente, Fecha, Total) VALUES (@ClienteID, @Nombre, @Cedula,@Tipo, @Fecha, @Total); SELECT SCOPE_IDENTITY();";
+                string query = "INSERT INTO FacturaCompra (ProveedorID, NombreProveedor, CedulaProveedor, Tipo, Fecha, Total) VALUES (@ProveedorID," +
+                    " @NombreProveedor, @CedulaProveedor,@Tipo, @Fecha, @Total); SELECT SCOPE_IDENTITY();";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@ClienteID", clienteID);
-                    command.Parameters.AddWithValue("@Nombre", nombre);
-                    command.Parameters.AddWithValue("@Cedula", cedula);
+                    command.Parameters.AddWithValue("@ProveedorID", clienteID);
+                    command.Parameters.AddWithValue("@NombreProveedor", nombre);
+                    command.Parameters.AddWithValue("@CedulaProveedor", cedula);
                     command.Parameters.AddWithValue("@Tipo", tipo);
                     command.Parameters.AddWithValue("@Fecha", fecha);
                     command.Parameters.AddWithValue("@Total", total);
@@ -51,7 +52,7 @@ namespace CapaDatos
             {
                 connection.Open();
 
-                string query = "INSERT INTO DetallesFactura (FacturaID, ProductoID, Cantidad, Precio, Impuesto, Subtotal, TotalProducto, ProductoNombre) VALUES (@FacturaID, @ProductoID, @Cantidad, @Precio, @Impuesto, @Subtotal, @TotalProducto,@NombreProducto);";
+                string query = "INSERT INTO DetallesFacturaCompra (FacturaID, ProductoID, Cantidad, Precio, Impuesto, Subtotal, TotalProducto, ProductoNombre) VALUES (@FacturaID, @ProductoID, @Cantidad, @Precio, @Impuesto, @Subtotal, @TotalProducto,@NombreProducto);";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@FacturaID", facturaID);
@@ -66,6 +67,14 @@ namespace CapaDatos
                 }
             }
         }
+
+
+
+
+
+
+
+
 
         public void LeerFactura(string codigo)
         {

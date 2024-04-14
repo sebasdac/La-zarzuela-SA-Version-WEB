@@ -26,10 +26,11 @@ namespace CapaNegocio
         DateTime _fechacompra;
         int _indice;
         int _cantidadDeseada;
+        FacturaVenta facturaDAL = new FacturaVenta(); // Instancia de la capa de datos
 
         #endregion
 
-      
+
 
 
         //base de datos 
@@ -154,6 +155,21 @@ namespace CapaNegocio
             Bd_productos.InsertaProductoBD(_codigo, _nombre, _precio,
                                     _cantidad, _impuesto, _totalImpuesto);
         } //fin EscribeProductoDT
+        
+
+        public void InsertarProducto( int[] productoIDs, int[] cantidades, decimal[] precios, decimal[] impuestos,  decimal[] totalesProductos, string[] nombreproducto)
+        {
+            
+
+            // Insertar los detalles de la factura
+            for (int i = 0; i < productoIDs.Length; i++)
+            {
+                obj_productosBD.InsertaProductoBD(productoIDs[i], nombreproducto[i], int.Parse(precios[i].ToString()),cantidades[1],double.Parse(impuestos[i].ToString()), double.Parse(totalesProductos[i].ToString()));
+            }
+
+            
+        }
+        
 
         #endregion
     }

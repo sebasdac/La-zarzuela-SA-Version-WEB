@@ -79,7 +79,35 @@ namespace CapaDatos
             CerrarConexion();
         }//fin InsertaProducto
 
-       public void LeerProducto()
+        public void InsertarProducto(int facturaID, int productoID, int cantidad, decimal precio, decimal impuesto, decimal totalProducto, string nombreproducto)
+        {
+            using (SqlConnection connection = new SqlConnection(String_Conexion))
+            {
+                connection.Open();
+
+                string query = "INSERT INTO Productos (Codigo,Nombre, Cantidad, Precio, Impuesto, TotalProducto) VALUES (@FacturaID, @NombreProducto @Cantidad, @Precio, @Impuesto, @TotalProducto);";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    
+                    command.Parameters.AddWithValue("@ProductoID", productoID);
+                    command.Parameters.AddWithValue("@Cantidad", cantidad);
+                    command.Parameters.AddWithValue("@Precio", precio);
+                    command.Parameters.AddWithValue("@Impuesto", impuesto);
+                    
+                    command.Parameters.AddWithValue("@TotalProducto", totalProducto);
+                    command.Parameters.AddWithValue("@NombreProducto", nombreproducto);
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+
+
+
+
+
+
+        public void LeerProducto()
         {
             SqlDataAdapter sqlDA;
 
