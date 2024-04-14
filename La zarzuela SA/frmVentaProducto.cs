@@ -46,7 +46,7 @@ namespace La_zarzuela_SA
 
 
                     // Actualizar los valores de las celdas con los valores de los TextBox
-                    selectedRow.Cells[2].Value = p.Text;
+                    
 
                     //cliente
                     obj_ventaproducto.CodigoCliente = int.Parse(txtCodigoCliente.Text);
@@ -60,11 +60,10 @@ namespace La_zarzuela_SA
                     obj_ventaproducto.NombreProdcuto = txtNombreProducto.Text;
                     obj_ventaproducto.CantidadDeseada = double.Parse(txtCantidadDeseada.Text);
                     obj_ventaproducto.Disponible = int.Parse(txtDisponible.Text);
-                    obj_ventaproducto.Impuesto = double.Parse(txtImpuesto.Text);
-                    obj_ventaproducto.Total = double.Parse(txtTotal.Text);
+                    
 
 
-                    obj_impuestos.Impuestofavor = double.Parse(txtImpuesto.Text);//manda impuesto a favor
+                    
                     obj_impuestos.Mes = DateTime.Parse(dtpFechaCompra.Text).Month;
 
 
@@ -80,9 +79,7 @@ namespace La_zarzuela_SA
                     obj_facturaventa.Nombreprodcuto = txtNombreProducto.Text;
                     obj_facturaventa.Cantidad = int.Parse(txtCantidadDeseada.Text);
                     obj_facturaventa.Precio = int.Parse(txtPrecio.Text);
-                    obj_facturaventa.Impuesto = double.Parse(txtImpuesto.Text);
-                    ;
-                    obj_facturaventa.TotalImpuesto = double.Parse(txtTotal.Text);
+                 
 
 
 
@@ -106,10 +103,8 @@ namespace La_zarzuela_SA
             txtDisponible.Text = "";
             txtPrecio.Text = "";
             txtCantidadDeseada.Text = "";
-            txtImpuesto.Text = "";
-            txtTotal.Text = "";
-            p.Text = "";
-            btnCompra.Enabled = false;
+            
+           
 
 
 
@@ -182,44 +177,7 @@ namespace La_zarzuela_SA
 
         }//fin dgvClientes_CellClick
 
-        private void btnCalcular_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                obj_ventaproducto.NombreUsuario = txtNombreCliente.Text;
-                obj_ventaproducto.CantidadDeseada = int.Parse(txtCantidadDeseada.Text);
-                obj_ventaproducto.Disponible = int.Parse(txtDisponible.Text);
-                obj_ventaproducto.Precio = int.Parse(txtPrecio.Text);
-                obj_ventaproducto.ValidarDisponiblidad();
-                obj_ventaproducto.CalcularPrecio();
-                p.Text = obj_ventaproducto.TotalProductos.ToString();
-                txtImpuesto.Text = obj_ventaproducto.Impuesto.ToString();
-                txtTotal.Text = obj_ventaproducto.Totalimpuesto.ToString();
-
-
-
-
-
-                obj_ventaproducto.ValidarBoton();
-
-
-
-                if (obj_ventaproducto.Clickboton)
-                {
-                    btnCompra.Enabled = true;
-
-                }
-                //btnCalcular.Enabled = false;
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-
-            }
-
-
-        }//fin btnCalcular
+        
 
 
 

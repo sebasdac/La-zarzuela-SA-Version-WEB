@@ -36,15 +36,22 @@ namespace La_zarzuela_SA
 
         private void frmAgregarProducto_Load(object sender, EventArgs e)
         {
-            obj_productos.LeeTablaProducto();
-            dgvProductos.DataSource = obj_productos.Tabla_Productos;
-            obj_proveedor.LeerProveedoresBD();
-            dgvProveedor.DataSource = obj_proveedor.TablaProveedor;
+            
 
 
         }
-       
-       
+        public void RecibirDatos(string codigo, string nombre, string cantidad, string cedula)
+        {
+            Console.WriteLine("Nombre: " + nombre + " Codigo: " + codigo);
+
+            txtCodigoProveedor.Text = codigo;
+            txtProveedor.Text = nombre;
+            txtTipo.Text = cantidad;
+            textBox1.Text = cedula;
+
+        }
+
+
 
 
 
@@ -196,29 +203,6 @@ namespace La_zarzuela_SA
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow row = dgvProveedor.Rows[e.RowIndex];
-
-                txtCodigoProveedor.Text = row.Cells[0].Value.ToString(); // Asignar el valor de la primera columna al 
-                txtProveedor.Text = row.Cells[1].Value.ToString(); // Asignar el valor de la segunda columna al 
-
-            }//fin if
-            // Verifica si se ha hecho clic en una fila válida
-            if (e.RowIndex >= 0 && e.RowIndex < dgvProveedor.Rows.Count)
-            {
-                DataGridViewRow row = dgvProveedor.Rows[e.RowIndex];
-
-                // Verifica si la fila seleccionada está llena
-                if (!EsFilaVacia(row))
-                {
-                    btnAgregar.Enabled = true; // Habilita el botón
-                }// fin if
-                else
-                {
-                    btnAgregar.Enabled = false; // Deshabilita el botón
-                }//fin else
-            }//fin if
         }
         private bool EsFilaVacia(DataGridViewRow row)
         {
@@ -301,6 +285,18 @@ namespace La_zarzuela_SA
         {
 
         }
+
+        private void gbProveedor_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBuscarporFactura_Click(object sender, EventArgs e)
+        {
+            frmVerProveedores frm = new frmVerProveedores();
+            frm.Show();
+        }
+
 
         //private void dgvProductos_SelectionChanged(object sender, EventArgs e)
         //{

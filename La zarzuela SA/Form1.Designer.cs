@@ -28,154 +28,49 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.agregarProductoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.agregarProductoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.agregarClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.proveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.impuestosMensualesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.agregarInvetarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.facturasCompraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.facturasVentaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.agregarUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cambiarPinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.compraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.verMasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.menu = new System.Windows.Forms.MenuStrip();
             this.menutitulo = new System.Windows.Forms.MenuStrip();
             this.lblIstsema = new System.Windows.Forms.Label();
             this.panelContenedor = new System.Windows.Forms.Panel();
+            this.btnVentaProducto = new FontAwesome.Sharp.IconMenuItem();
             this.btnSalir = new FontAwesome.Sharp.IconMenuItem();
-            this.menuStrip1.SuspendLayout();
+            this.btnAgregarUsuario = new FontAwesome.Sharp.IconMenuItem();
+            this.btnCambiarPin = new FontAwesome.Sharp.IconMenuItem();
+            this.btnVerMas = new FontAwesome.Sharp.IconMenuItem();
+            this.btnProductos = new FontAwesome.Sharp.IconMenuItem();
+            this.btnClientes = new FontAwesome.Sharp.IconMenuItem();
+            this.iconMenuItem1 = new FontAwesome.Sharp.IconMenuItem();
+            this.iconMenuItem2 = new FontAwesome.Sharp.IconMenuItem();
+            this.btnFacutras = new FontAwesome.Sharp.IconMenuItem();
+            this.bbtnReciboVenta = new FontAwesome.Sharp.IconMenuItem();
+            this.btnReciboCOmpra = new FontAwesome.Sharp.IconMenuItem();
+            this.btnImpuestos = new FontAwesome.Sharp.IconMenuItem();
+            this.iconMenuItem3 = new FontAwesome.Sharp.IconMenuItem();
+            this.iconMenuItem4 = new FontAwesome.Sharp.IconMenuItem();
+            this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // menu
             // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menu.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnSalir,
-            this.agregarProductoToolStripMenuItem,
-            this.agregarUsuarioToolStripMenuItem,
-            this.cambiarPinToolStripMenuItem,
-            this.compraToolStripMenuItem,
-            this.verMasToolStripMenuItem1});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 88);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1205, 53);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
-            // 
-            // agregarProductoToolStripMenuItem
-            // 
-            this.agregarProductoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.agregarProductoToolStripMenuItem1,
-            this.agregarClienteToolStripMenuItem,
-            this.proveedoresToolStripMenuItem,
-            this.usuariosToolStripMenuItem,
-            this.impuestosMensualesToolStripMenuItem,
-            this.agregarInvetarioToolStripMenuItem,
-            this.facturasCompraToolStripMenuItem,
-            this.facturasVentaToolStripMenuItem});
-            this.agregarProductoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("agregarProductoToolStripMenuItem.Image")));
-            this.agregarProductoToolStripMenuItem.Name = "agregarProductoToolStripMenuItem";
-            this.agregarProductoToolStripMenuItem.Size = new System.Drawing.Size(44, 49);
-            this.agregarProductoToolStripMenuItem.Text = "Ver";
-            this.agregarProductoToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.agregarProductoToolStripMenuItem.Click += new System.EventHandler(this.agregarProductoToolStripMenuItem_Click);
-            // 
-            // agregarProductoToolStripMenuItem1
-            // 
-            this.agregarProductoToolStripMenuItem1.Name = "agregarProductoToolStripMenuItem1";
-            this.agregarProductoToolStripMenuItem1.Size = new System.Drawing.Size(233, 26);
-            this.agregarProductoToolStripMenuItem1.Text = "Productos";
-            this.agregarProductoToolStripMenuItem1.Click += new System.EventHandler(this.agregarProductoToolStripMenuItem1_Click);
-            // 
-            // agregarClienteToolStripMenuItem
-            // 
-            this.agregarClienteToolStripMenuItem.Name = "agregarClienteToolStripMenuItem";
-            this.agregarClienteToolStripMenuItem.Size = new System.Drawing.Size(233, 26);
-            this.agregarClienteToolStripMenuItem.Text = "Clientes";
-            this.agregarClienteToolStripMenuItem.Click += new System.EventHandler(this.agregarClienteToolStripMenuItem_Click);
-            // 
-            // proveedoresToolStripMenuItem
-            // 
-            this.proveedoresToolStripMenuItem.Name = "proveedoresToolStripMenuItem";
-            this.proveedoresToolStripMenuItem.Size = new System.Drawing.Size(233, 26);
-            this.proveedoresToolStripMenuItem.Text = "Proveedores";
-            this.proveedoresToolStripMenuItem.Click += new System.EventHandler(this.proveedoresToolStripMenuItem_Click);
-            // 
-            // usuariosToolStripMenuItem
-            // 
-            this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(233, 26);
-            this.usuariosToolStripMenuItem.Text = "Usuarios";
-            this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
-            // 
-            // impuestosMensualesToolStripMenuItem
-            // 
-            this.impuestosMensualesToolStripMenuItem.Name = "impuestosMensualesToolStripMenuItem";
-            this.impuestosMensualesToolStripMenuItem.Size = new System.Drawing.Size(233, 26);
-            this.impuestosMensualesToolStripMenuItem.Text = "Impuestos mensuales";
-            this.impuestosMensualesToolStripMenuItem.Click += new System.EventHandler(this.impuestosMensualesToolStripMenuItem_Click);
-            // 
-            // agregarInvetarioToolStripMenuItem
-            // 
-            this.agregarInvetarioToolStripMenuItem.Name = "agregarInvetarioToolStripMenuItem";
-            this.agregarInvetarioToolStripMenuItem.Size = new System.Drawing.Size(233, 26);
-            this.agregarInvetarioToolStripMenuItem.Text = "Agregar inventario";
-            this.agregarInvetarioToolStripMenuItem.Click += new System.EventHandler(this.agregarInvetarioToolStripMenuItem_Click);
-            // 
-            // facturasCompraToolStripMenuItem
-            // 
-            this.facturasCompraToolStripMenuItem.Name = "facturasCompraToolStripMenuItem";
-            this.facturasCompraToolStripMenuItem.Size = new System.Drawing.Size(233, 26);
-            this.facturasCompraToolStripMenuItem.Text = "Facturas compra";
-            this.facturasCompraToolStripMenuItem.Click += new System.EventHandler(this.facturasCompraToolStripMenuItem_Click);
-            // 
-            // facturasVentaToolStripMenuItem
-            // 
-            this.facturasVentaToolStripMenuItem.Name = "facturasVentaToolStripMenuItem";
-            this.facturasVentaToolStripMenuItem.Size = new System.Drawing.Size(233, 26);
-            this.facturasVentaToolStripMenuItem.Text = "Facturas venta";
-            this.facturasVentaToolStripMenuItem.Click += new System.EventHandler(this.facturasVentaToolStripMenuItem_Click);
-            // 
-            // agregarUsuarioToolStripMenuItem
-            // 
-            this.agregarUsuarioToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("agregarUsuarioToolStripMenuItem.Image")));
-            this.agregarUsuarioToolStripMenuItem.Name = "agregarUsuarioToolStripMenuItem";
-            this.agregarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(129, 49);
-            this.agregarUsuarioToolStripMenuItem.Text = "Agregar usuario";
-            this.agregarUsuarioToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.agregarUsuarioToolStripMenuItem.Click += new System.EventHandler(this.agregarUsuarioToolStripMenuItem_Click);
-            // 
-            // cambiarPinToolStripMenuItem
-            // 
-            this.cambiarPinToolStripMenuItem.Image = global::La_zarzuela_SA.Properties.Resources.key;
-            this.cambiarPinToolStripMenuItem.Name = "cambiarPinToolStripMenuItem";
-            this.cambiarPinToolStripMenuItem.Size = new System.Drawing.Size(104, 49);
-            this.cambiarPinToolStripMenuItem.Text = "Cambiar pin";
-            this.cambiarPinToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.cambiarPinToolStripMenuItem.Click += new System.EventHandler(this.cambiarPinToolStripMenuItem_Click);
-            // 
-            // compraToolStripMenuItem
-            // 
-            this.compraToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("compraToolStripMenuItem.Image")));
-            this.compraToolStripMenuItem.Name = "compraToolStripMenuItem";
-            this.compraToolStripMenuItem.Size = new System.Drawing.Size(125, 49);
-            this.compraToolStripMenuItem.Text = "Venta producto";
-            this.compraToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.compraToolStripMenuItem.Click += new System.EventHandler(this.compraToolStripMenuItem_Click);
-            // 
-            // verMasToolStripMenuItem1
-            // 
-            this.verMasToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("verMasToolStripMenuItem1.Image")));
-            this.verMasToolStripMenuItem1.Name = "verMasToolStripMenuItem1";
-            this.verMasToolStripMenuItem1.Size = new System.Drawing.Size(75, 49);
-            this.verMasToolStripMenuItem1.Text = "Ver mas";
-            this.verMasToolStripMenuItem1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.verMasToolStripMenuItem1.Click += new System.EventHandler(this.verMasToolStripMenuItem1_Click);
+            this.btnAgregarUsuario,
+            this.btnProductos,
+            this.iconMenuItem1,
+            this.btnCambiarPin,
+            this.btnClientes,
+            this.btnVentaProducto,
+            this.iconMenuItem2,
+            this.btnFacutras,
+            this.btnImpuestos,
+            this.btnVerMas});
+            this.menu.Location = new System.Drawing.Point(0, 88);
+            this.menu.Name = "menu";
+            this.menu.Size = new System.Drawing.Size(1205, 76);
+            this.menu.TabIndex = 0;
+            this.menu.Text = "menuStrip1";
+            this.menu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // menutitulo
             // 
@@ -204,42 +99,207 @@
             // panelContenedor
             // 
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContenedor.Location = new System.Drawing.Point(0, 141);
+            this.panelContenedor.Location = new System.Drawing.Point(0, 164);
             this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(1205, 484);
+            this.panelContenedor.Size = new System.Drawing.Size(1205, 732);
             this.panelContenedor.TabIndex = 3;
+            // 
+            // btnVentaProducto
+            // 
+            this.btnVentaProducto.IconChar = FontAwesome.Sharp.IconChar.ShoppingCart;
+            this.btnVentaProducto.IconColor = System.Drawing.Color.Black;
+            this.btnVentaProducto.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnVentaProducto.IconSize = 45;
+            this.btnVentaProducto.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btnVentaProducto.Name = "btnVentaProducto";
+            this.btnVentaProducto.Size = new System.Drawing.Size(125, 72);
+            this.btnVentaProducto.Text = "Venta producto";
+            this.btnVentaProducto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnVentaProducto.Click += new System.EventHandler(this.btnVentaProducto_Click);
             // 
             // btnSalir
             // 
             this.btnSalir.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
             this.btnSalir.IconColor = System.Drawing.Color.Black;
             this.btnSalir.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnSalir.IconSize = 25;
             this.btnSalir.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(52, 49);
+            this.btnSalir.Size = new System.Drawing.Size(62, 72);
             this.btnSalir.Text = "Salir";
             this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click_1);
+            // 
+            // btnAgregarUsuario
+            // 
+            this.btnAgregarUsuario.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.iconMenuItem3,
+            this.iconMenuItem4});
+            this.btnAgregarUsuario.IconChar = FontAwesome.Sharp.IconChar.PersonCircleCheck;
+            this.btnAgregarUsuario.IconColor = System.Drawing.Color.Black;
+            this.btnAgregarUsuario.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnAgregarUsuario.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btnAgregarUsuario.Name = "btnAgregarUsuario";
+            this.btnAgregarUsuario.Size = new System.Drawing.Size(129, 72);
+            this.btnAgregarUsuario.Text = "Agregar usuario";
+            this.btnAgregarUsuario.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnAgregarUsuario.Click += new System.EventHandler(this.btnAgregarUsuario_Click);
+            // 
+            // btnCambiarPin
+            // 
+            this.btnCambiarPin.IconChar = FontAwesome.Sharp.IconChar.Key;
+            this.btnCambiarPin.IconColor = System.Drawing.Color.Black;
+            this.btnCambiarPin.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnCambiarPin.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btnCambiarPin.Name = "btnCambiarPin";
+            this.btnCambiarPin.Size = new System.Drawing.Size(104, 72);
+            this.btnCambiarPin.Text = "Cambiar pin";
+            this.btnCambiarPin.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnCambiarPin.Click += new System.EventHandler(this.btnCambiarPin_Click);
+            // 
+            // btnVerMas
+            // 
+            this.btnVerMas.IconChar = FontAwesome.Sharp.IconChar.Info;
+            this.btnVerMas.IconColor = System.Drawing.Color.Black;
+            this.btnVerMas.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnVerMas.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btnVerMas.Name = "btnVerMas";
+            this.btnVerMas.Size = new System.Drawing.Size(75, 72);
+            this.btnVerMas.Text = "Ver mas";
+            this.btnVerMas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // btnProductos
+            // 
+            this.btnProductos.IconChar = FontAwesome.Sharp.IconChar.Shop;
+            this.btnProductos.IconColor = System.Drawing.Color.Black;
+            this.btnProductos.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnProductos.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btnProductos.Name = "btnProductos";
+            this.btnProductos.Size = new System.Drawing.Size(89, 72);
+            this.btnProductos.Text = "Productos";
+            this.btnProductos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnProductos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnProductos.Click += new System.EventHandler(this.btnProductos_Click);
+            // 
+            // btnClientes
+            // 
+            this.btnClientes.IconChar = FontAwesome.Sharp.IconChar.User;
+            this.btnClientes.IconColor = System.Drawing.Color.Black;
+            this.btnClientes.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnClientes.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btnClientes.Name = "btnClientes";
+            this.btnClientes.Size = new System.Drawing.Size(75, 72);
+            this.btnClientes.Text = "Clientes";
+            this.btnClientes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
+            // 
+            // iconMenuItem1
+            // 
+            this.iconMenuItem1.IconChar = FontAwesome.Sharp.IconChar.Car;
+            this.iconMenuItem1.IconColor = System.Drawing.Color.Black;
+            this.iconMenuItem1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.iconMenuItem1.Name = "iconMenuItem1";
+            this.iconMenuItem1.Size = new System.Drawing.Size(105, 72);
+            this.iconMenuItem1.Text = "Proveedores";
+            this.iconMenuItem1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.iconMenuItem1.Click += new System.EventHandler(this.iconMenuItem1_Click);
+            // 
+            // iconMenuItem2
+            // 
+            this.iconMenuItem2.IconChar = FontAwesome.Sharp.IconChar.ProductHunt;
+            this.iconMenuItem2.IconColor = System.Drawing.Color.Black;
+            this.iconMenuItem2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconMenuItem2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.iconMenuItem2.Name = "iconMenuItem2";
+            this.iconMenuItem2.Size = new System.Drawing.Size(147, 72);
+            this.iconMenuItem2.Text = "Agregar inventario";
+            this.iconMenuItem2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.iconMenuItem2.Click += new System.EventHandler(this.iconMenuItem2_Click_1);
+            // 
+            // btnFacutras
+            // 
+            this.btnFacutras.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bbtnReciboVenta,
+            this.btnReciboCOmpra});
+            this.btnFacutras.IconChar = FontAwesome.Sharp.IconChar.Receipt;
+            this.btnFacutras.IconColor = System.Drawing.Color.Black;
+            this.btnFacutras.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnFacutras.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btnFacutras.Name = "btnFacutras";
+            this.btnFacutras.Size = new System.Drawing.Size(76, 72);
+            this.btnFacutras.Text = "Facturas";
+            this.btnFacutras.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnFacutras.Click += new System.EventHandler(this.btnFacutras_Click);
+            // 
+            // bbtnReciboVenta
+            // 
+            this.bbtnReciboVenta.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.bbtnReciboVenta.IconColor = System.Drawing.Color.Black;
+            this.bbtnReciboVenta.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.bbtnReciboVenta.Name = "bbtnReciboVenta";
+            this.bbtnReciboVenta.Size = new System.Drawing.Size(224, 26);
+            this.bbtnReciboVenta.Text = "Recibos de venta";
+            this.bbtnReciboVenta.Click += new System.EventHandler(this.bbtnReciboVenta_Click);
+            // 
+            // btnReciboCOmpra
+            // 
+            this.btnReciboCOmpra.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btnReciboCOmpra.IconColor = System.Drawing.Color.Black;
+            this.btnReciboCOmpra.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnReciboCOmpra.Name = "btnReciboCOmpra";
+            this.btnReciboCOmpra.Size = new System.Drawing.Size(224, 26);
+            this.btnReciboCOmpra.Text = "Recibos de compra";
+            // 
+            // btnImpuestos
+            // 
+            this.btnImpuestos.IconChar = FontAwesome.Sharp.IconChar.Tag;
+            this.btnImpuestos.IconColor = System.Drawing.Color.Black;
+            this.btnImpuestos.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnImpuestos.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btnImpuestos.Name = "btnImpuestos";
+            this.btnImpuestos.Size = new System.Drawing.Size(91, 72);
+            this.btnImpuestos.Text = "Impuestos";
+            this.btnImpuestos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnImpuestos.Click += new System.EventHandler(this.btnImpuestos_Click);
+            // 
+            // iconMenuItem3
+            // 
+            this.iconMenuItem3.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconMenuItem3.IconColor = System.Drawing.Color.Black;
+            this.iconMenuItem3.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconMenuItem3.Name = "iconMenuItem3";
+            this.iconMenuItem3.Size = new System.Drawing.Size(224, 26);
+            this.iconMenuItem3.Text = "Ver usuarios";
+            this.iconMenuItem3.Click += new System.EventHandler(this.iconMenuItem3_Click);
+            // 
+            // iconMenuItem4
+            // 
+            this.iconMenuItem4.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconMenuItem4.IconColor = System.Drawing.Color.Black;
+            this.iconMenuItem4.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconMenuItem4.Name = "iconMenuItem4";
+            this.iconMenuItem4.Size = new System.Drawing.Size(224, 26);
+            this.iconMenuItem4.Text = "Agregar usuario";
+            this.iconMenuItem4.Click += new System.EventHandler(this.iconMenuItem4_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1205, 625);
+            this.ClientSize = new System.Drawing.Size(1205, 896);
             this.Controls.Add(this.panelContenedor);
             this.Controls.Add(this.lblIstsema);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.menu);
             this.Controls.Add(this.menutitulo);
-            this.MainMenuStrip = this.menuStrip1;
+            this.MainMenuStrip = this.menu;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.menu.ResumeLayout(false);
+            this.menu.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -247,24 +307,25 @@
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem agregarProductoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem agregarProductoToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem agregarClienteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem verMasToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem proveedoresToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem agregarUsuarioToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cambiarPinToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem compraToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem impuestosMensualesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem agregarInvetarioToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem facturasCompraToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem facturasVentaToolStripMenuItem;
+        private System.Windows.Forms.MenuStrip menu;
         private System.Windows.Forms.MenuStrip menutitulo;
         private System.Windows.Forms.Label lblIstsema;
         private System.Windows.Forms.Panel panelContenedor;
+        private FontAwesome.Sharp.IconMenuItem btnVentaProducto;
         private FontAwesome.Sharp.IconMenuItem btnSalir;
+        private FontAwesome.Sharp.IconMenuItem btnAgregarUsuario;
+        private FontAwesome.Sharp.IconMenuItem btnCambiarPin;
+        private FontAwesome.Sharp.IconMenuItem btnVerMas;
+        private FontAwesome.Sharp.IconMenuItem btnProductos;
+        private FontAwesome.Sharp.IconMenuItem iconMenuItem1;
+        private FontAwesome.Sharp.IconMenuItem btnClientes;
+        private FontAwesome.Sharp.IconMenuItem iconMenuItem2;
+        private FontAwesome.Sharp.IconMenuItem btnFacutras;
+        private FontAwesome.Sharp.IconMenuItem bbtnReciboVenta;
+        private FontAwesome.Sharp.IconMenuItem btnReciboCOmpra;
+        private FontAwesome.Sharp.IconMenuItem btnImpuestos;
+        private FontAwesome.Sharp.IconMenuItem iconMenuItem3;
+        private FontAwesome.Sharp.IconMenuItem iconMenuItem4;
     }
 }
 

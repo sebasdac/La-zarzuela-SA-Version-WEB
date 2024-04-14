@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FontAwesome.Sharp;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,8 @@ namespace La_zarzuela_SA
     public partial class Form1 : Form
     {
         frmAgregarProducto frmAgregarProducto = new frmAgregarProducto();
+        private static  IconMenuItem MenuActivo=null;
+        private static Form FormularioActivo = null;
         public Form1()
         {
             InitializeComponent();
@@ -30,20 +33,16 @@ namespace La_zarzuela_SA
 
         private void agregarProductoToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            // Crear una instancia del formulario que deseas mostrar
-            frmAgregarProducto formularioSecundario = new frmAgregarProducto();
+            panelContenedor.Controls.Clear();
+            frmAgregarProducto frm = new frmAgregarProducto();
+            frm.TopLevel = false;
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+            frm.BackColor = Color.DarkSlateBlue;
+            panelContenedor.Controls.Add(frm);
 
-            //// Establecer el formulario como no principal
-            //formularioSecundario.TopLevel = false;
 
-            //// Establecer el padre del formulario como el panel
-            //panelContenedor.Controls.Add(formularioSecundario);
-
-            //// Ajustar el tamaño del formulario para que se ajuste al tamaño del panel
-            //formularioSecundario.Size = panelContenedor.Size;
-
-            //// Mostrar el formulario
-            formularioSecundario.Show();
+            frm.Show();
         }
 
         private void agregarClienteToolStripMenuItem_Click(object sender, EventArgs e)
@@ -83,14 +82,49 @@ namespace La_zarzuela_SA
 
         private void cambiarPinToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmCambiarPin frmCambiarPin = new frmCambiarPin();
-            frmCambiarPin.Show();
+            panelContenedor.Controls.Clear();
+            frmCambiarPin frm = new frmCambiarPin();
+            frm.TopLevel = false;
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+            frm.BackColor = Color.DarkSlateBlue;
+            panelContenedor.Controls.Add(frm);
+
+
+            frm.Show();
         }
+
+        private void AbrirFormulario(IconMenuItem menuItem, Form formulario)
+        {
+            if (FormularioActivo != null)
+            {
+                FormularioActivo.Close();
+            }
+            //MenuActivo = menu;
+            if (MenuActivo != null)
+            {
+                //MenuActivo.BackColor = Color.FromArgb(31, 30, 68);
+            }
+            FormularioActivo = formulario;
+            MenuActivo = menuItem;
+            //MenuActivo.BackColor = Color.FromArgb(37, 36, 81);
+            formulario.TopLevel = false;
+            formulario.FormBorderStyle = FormBorderStyle.None;
+            formulario.Dock = DockStyle.Fill;
+            panelContenedor.Controls.Add(formulario);
+            panelContenedor.Tag = formulario;
+            formulario.Show();
+        }
+
+
 
         private void compraToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmVentaProducto frm = new frmVentaProducto();
-            frm.Show();
+
+           AbrirFormulario((IconMenuItem)sender, new frmVentaProducto());
+
+
+     
         }
 
         private void impuestosMensualesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -119,7 +153,7 @@ namespace La_zarzuela_SA
 
         private void agregarProductoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            AbrirFormulario((IconMenuItem)sender, new frmAgregarProducto());
         }
 
         private void facturasVentaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -139,6 +173,76 @@ namespace La_zarzuela_SA
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnVentaProducto_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario((IconMenuItem)sender, new frmVentaProducto());
+        }
+
+        private void iconMenuItem2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAgregarUsuario_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnProductos_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario((IconMenuItem)sender, new frmAgregarProducto());
+        }
+
+        private void iconMenuItem1_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario((IconMenuItem)sender, new frmAgregarProveedor());
+        }
+
+        private void btnCambiarPin_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario((IconMenuItem)sender, new frmCambiarPin());
+        }
+
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario((IconMenuItem)sender, new frmAgregarCliente());
+        }
+
+        private void iconMenuItem2_Click_1(object sender, EventArgs e)
+        {
+            AbrirFormulario((IconMenuItem)sender, new Agregar_inventario());
+        }
+
+        private void btnFacutras_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bbtnReciboVenta_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario((IconMenuItem)sender, new frmVerFacturaVenta());
+        }
+
+        private void btnImpuestos_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario((IconMenuItem)sender, new frmImpuestoMensualcs());
+        }
+
+        private void iconMenuItem3_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario((IconMenuItem)sender, new frmVerUsuarios());
+        }
+
+        private void iconMenuItem4_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario((IconMenuItem)sender, new frmAgregarUsuario());
+        }
+
+        private void btnSalir_Click_1(object sender, EventArgs e)
         {
             this.Close();
         }

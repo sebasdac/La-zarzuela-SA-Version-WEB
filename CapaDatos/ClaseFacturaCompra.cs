@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.SqlClient;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CapaDatos
 {
-    public class ClaseFacturas
+    public class ClaseFacturaCompra
     {
+
         private string connectionString = "Data Source=LAPTOP-M50THNEO;Initial Catalog=\"Proyecto II\";Integrated Security=True;";
         private string String_Conexion = "Data Source=LAPTOP-M50THNEO;Initial Catalog=\"Proyecto II\";Integrated Security=True;";
         private SqlConnection conexion;
@@ -17,7 +18,7 @@ namespace CapaDatos
         public DataTable TablaFacturas { get => ds_resultados.Tables[0]; }
         DataSet ds_detalles = new DataSet();
         public DataTable TablaDetalles { get => ds_detalles.Tables[0]; }
-        
+
 
         public int InsertarFactura(int clienteID, string nombre, string cedula, string tipo, DateTime fecha, decimal total)
         {
@@ -27,7 +28,7 @@ namespace CapaDatos
             {
                 connection.Open();
 
-                string query = "INSERT INTO Factura (ClienteID, NombreCliente, CedulaCliente, TipoCliente, Fecha, Total) VALUES (@ClienteID, @Nombre, @Cedula,@Tipo, @Fecha, @Total); SELECT SCOPE_IDENTITY();";
+                string query = "INSERT INTO Factura (ProveedorID, NombreCliente, CedulaCliente, TipoCliente, Fecha, Total) VALUES (@ClienteID, @Nombre, @Cedula,@Tipo, @Fecha, @Total); SELECT SCOPE_IDENTITY();";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@ClienteID", clienteID);
@@ -36,7 +37,7 @@ namespace CapaDatos
                     command.Parameters.AddWithValue("@Tipo", tipo);
                     command.Parameters.AddWithValue("@Fecha", fecha);
                     command.Parameters.AddWithValue("@Total", total);
-                    
+
                     facturaID = Convert.ToInt32(command.ExecuteScalar());
                 }
             }
@@ -44,7 +45,7 @@ namespace CapaDatos
             return facturaID;
         }
 
-        public void InsertarDetalleFactura(int facturaID, int productoID, int cantidad, decimal precio, decimal impuesto, decimal subtotal, decimal totalProducto,string nombreproducto)
+        public void InsertarDetalleFactura(int facturaID, int productoID, int cantidad, decimal precio, decimal impuesto, decimal subtotal, decimal totalProducto, string nombreproducto)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -114,10 +115,5 @@ namespace CapaDatos
             }
 
         }
-
-
-
     }
 }
-    
-

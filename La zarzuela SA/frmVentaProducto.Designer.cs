@@ -46,8 +46,6 @@
             this.lblPrecio = new System.Windows.Forms.Label();
             this.lblCantidadDeseada = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.lblImpuesto = new System.Windows.Forms.Label();
-            this.lblTotal = new System.Windows.Forms.Label();
             this.lblFechaCompra = new System.Windows.Forms.Label();
             this.txtCodigoCliente = new System.Windows.Forms.TextBox();
             this.txtNombreCliente = new System.Windows.Forms.TextBox();
@@ -55,22 +53,17 @@
             this.txtTipo = new System.Windows.Forms.TextBox();
             this.txtDisponible = new System.Windows.Forms.TextBox();
             this.txtPrecio = new System.Windows.Forms.TextBox();
-            this.txtImpuesto = new System.Windows.Forms.TextBox();
-            this.txtTotal = new System.Windows.Forms.TextBox();
             this.dtpFechaCompra = new System.Windows.Forms.DateTimePicker();
-            this.btnCompra = new System.Windows.Forms.Button();
-            this.lblNuevoDisponible = new System.Windows.Forms.Label();
-            this.p = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnBuscar = new FontAwesome.Sharp.IconButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtCantidadDeseada = new System.Windows.Forms.NumericUpDown();
             this.btnBorrar = new FontAwesome.Sharp.IconButton();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.txtNombreProducto = new System.Windows.Forms.TextBox();
             this.txtCodigoProducto = new System.Windows.Forms.TextBox();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
-            this.txtCantidadDeseada = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -89,11 +82,11 @@
             this.colImpuesto,
             this.colSubTotal,
             this.colTotal});
-            this.dgvProductos.Location = new System.Drawing.Point(88, 277);
+            this.dgvProductos.Location = new System.Drawing.Point(125, 277);
             this.dgvProductos.Margin = new System.Windows.Forms.Padding(4);
             this.dgvProductos.Name = "dgvProductos";
             this.dgvProductos.RowHeadersWidth = 51;
-            this.dgvProductos.Size = new System.Drawing.Size(928, 342);
+            this.dgvProductos.Size = new System.Drawing.Size(930, 342);
             this.dgvProductos.TabIndex = 1;
             this.dgvProductos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellClick);
             this.dgvProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellContentClick);
@@ -253,26 +246,6 @@
             this.label16.Size = new System.Drawing.Size(0, 16);
             this.label16.TabIndex = 17;
             // 
-            // lblImpuesto
-            // 
-            this.lblImpuesto.AutoSize = true;
-            this.lblImpuesto.Location = new System.Drawing.Point(44, 636);
-            this.lblImpuesto.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblImpuesto.Name = "lblImpuesto";
-            this.lblImpuesto.Size = new System.Drawing.Size(65, 16);
-            this.lblImpuesto.TabIndex = 18;
-            this.lblImpuesto.Text = "Impuesto:";
-            // 
-            // lblTotal
-            // 
-            this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(45, 683);
-            this.lblTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(41, 16);
-            this.lblTotal.TabIndex = 19;
-            this.lblTotal.Text = "Total:";
-            // 
             // lblFechaCompra
             // 
             this.lblFechaCompra.AutoSize = true;
@@ -338,25 +311,6 @@
             this.txtPrecio.Size = new System.Drawing.Size(132, 22);
             this.txtPrecio.TabIndex = 32;
             // 
-            // txtImpuesto
-            // 
-            this.txtImpuesto.Location = new System.Drawing.Point(125, 636);
-            this.txtImpuesto.Margin = new System.Windows.Forms.Padding(4);
-            this.txtImpuesto.Name = "txtImpuesto";
-            this.txtImpuesto.ReadOnly = true;
-            this.txtImpuesto.Size = new System.Drawing.Size(132, 22);
-            this.txtImpuesto.TabIndex = 34;
-            this.txtImpuesto.TextChanged += new System.EventHandler(this.textBox14_TextChanged);
-            // 
-            // txtTotal
-            // 
-            this.txtTotal.Location = new System.Drawing.Point(125, 680);
-            this.txtTotal.Margin = new System.Windows.Forms.Padding(4);
-            this.txtTotal.Name = "txtTotal";
-            this.txtTotal.ReadOnly = true;
-            this.txtTotal.Size = new System.Drawing.Size(132, 22);
-            this.txtTotal.TabIndex = 35;
-            // 
             // dtpFechaCompra
             // 
             this.dtpFechaCompra.Location = new System.Drawing.Point(141, 164);
@@ -365,37 +319,6 @@
             this.dtpFechaCompra.Size = new System.Drawing.Size(81, 22);
             this.dtpFechaCompra.TabIndex = 36;
             this.dtpFechaCompra.ValueChanged += new System.EventHandler(this.dtpFechaCompra_ValueChanged);
-            // 
-            // btnCompra
-            // 
-            this.btnCompra.Enabled = false;
-            this.btnCompra.Location = new System.Drawing.Point(489, 650);
-            this.btnCompra.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCompra.Name = "btnCompra";
-            this.btnCompra.Size = new System.Drawing.Size(140, 85);
-            this.btnCompra.TabIndex = 37;
-            this.btnCompra.Text = "Generar compra";
-            this.btnCompra.UseVisualStyleBackColor = true;
-            this.btnCompra.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // lblNuevoDisponible
-            // 
-            this.lblNuevoDisponible.AutoSize = true;
-            this.lblNuevoDisponible.Location = new System.Drawing.Point(47, 725);
-            this.lblNuevoDisponible.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblNuevoDisponible.Name = "lblNuevoDisponible";
-            this.lblNuevoDisponible.Size = new System.Drawing.Size(116, 16);
-            this.lblNuevoDisponible.TabIndex = 39;
-            this.lblNuevoDisponible.Text = "Nuevo disponible:";
-            // 
-            // p
-            // 
-            this.p.Location = new System.Drawing.Point(181, 721);
-            this.p.Margin = new System.Windows.Forms.Padding(4);
-            this.p.Name = "p";
-            this.p.ReadOnly = true;
-            this.p.Size = new System.Drawing.Size(132, 22);
-            this.p.TabIndex = 40;
             // 
             // groupBox1
             // 
@@ -430,6 +353,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.iconButton3);
             this.groupBox2.Controls.Add(this.txtCantidadDeseada);
             this.groupBox2.Controls.Add(this.btnBorrar);
             this.groupBox2.Controls.Add(this.iconButton2);
@@ -451,6 +375,13 @@
             this.groupBox2.TabIndex = 42;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Producto";
+            // 
+            // txtCantidadDeseada
+            // 
+            this.txtCantidadDeseada.Location = new System.Drawing.Point(141, 120);
+            this.txtCantidadDeseada.Name = "txtCantidadDeseada";
+            this.txtCantidadDeseada.Size = new System.Drawing.Size(49, 22);
+            this.txtCantidadDeseada.TabIndex = 41;
             // 
             // btnBorrar
             // 
@@ -514,37 +445,22 @@
             this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.ShoppingBag;
             this.iconButton3.IconColor = System.Drawing.Color.Black;
             this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton3.Location = new System.Drawing.Point(647, 650);
+            this.iconButton3.Location = new System.Drawing.Point(270, 110);
             this.iconButton3.Name = "iconButton3";
             this.iconButton3.Size = new System.Drawing.Size(139, 82);
             this.iconButton3.TabIndex = 43;
-            this.iconButton3.Text = "Generar factura";
+            this.iconButton3.Text = "Generar compra";
             this.iconButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.iconButton3.UseVisualStyleBackColor = true;
             this.iconButton3.Click += new System.EventHandler(this.iconButton3_Click);
-            // 
-            // txtCantidadDeseada
-            // 
-            this.txtCantidadDeseada.Location = new System.Drawing.Point(141, 120);
-            this.txtCantidadDeseada.Name = "txtCantidadDeseada";
-            this.txtCantidadDeseada.Size = new System.Drawing.Size(49, 22);
-            this.txtCantidadDeseada.TabIndex = 41;
             // 
             // frmVentaProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1165, 757);
-            this.Controls.Add(this.iconButton3);
+            this.ClientSize = new System.Drawing.Size(1165, 666);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.p);
-            this.Controls.Add(this.lblNuevoDisponible);
-            this.Controls.Add(this.btnCompra);
-            this.Controls.Add(this.txtTotal);
-            this.Controls.Add(this.txtImpuesto);
-            this.Controls.Add(this.lblTotal);
-            this.Controls.Add(this.lblImpuesto);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.dgvProductos);
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -575,8 +491,6 @@
         private System.Windows.Forms.Label lblPrecio;
         private System.Windows.Forms.Label lblCantidadDeseada;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label lblImpuesto;
-        private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label lblFechaCompra;
         private System.Windows.Forms.TextBox txtCodigoCliente;
         private System.Windows.Forms.TextBox txtNombreCliente;
@@ -584,12 +498,7 @@
         private System.Windows.Forms.TextBox txtTipo;
         private System.Windows.Forms.TextBox txtDisponible;
         private System.Windows.Forms.TextBox txtPrecio;
-        private System.Windows.Forms.TextBox txtImpuesto;
-        private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.DateTimePicker dtpFechaCompra;
-        private System.Windows.Forms.Button btnCompra;
-        private System.Windows.Forms.Label lblNuevoDisponible;
-        private System.Windows.Forms.TextBox p;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCodigo;

@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClaseClienteBD.cs" />
+    <Compile Include="ClaseFacturaCompra.cs" />
     <Compile Include="ClaseFacturas.cs" />
     <Compile Include="ClaseLeeVerMas.cs" />
     <Compile Include="ClaseLoginWEB.cs" />

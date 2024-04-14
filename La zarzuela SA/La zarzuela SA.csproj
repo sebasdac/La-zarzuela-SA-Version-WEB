@@ -143,6 +143,12 @@
     <Compile Include="frmVerMas.Designer.cs">
       <DependentUpon>frmVerMas.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmVerProveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVerProveedores.Designer.cs">
+      <DependentUpon>frmVerProveedores.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmVerUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -195,6 +201,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmVerMas.resx">
       <DependentUpon>frmVerMas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVerProveedores.resx">
+      <DependentUpon>frmVerProveedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmVerUsuarios.resx">
       <DependentUpon>frmVerUsuarios.cs</DependentUpon>
