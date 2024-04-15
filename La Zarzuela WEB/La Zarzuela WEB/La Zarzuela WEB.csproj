@@ -72,6 +72,8 @@
     <Content Include="Login.aspx" />
     <Content Include="Paginas\Clientes.aspx" />
     <Content Include="Paginas\Accesodenegado.aspx" />
+    <Content Include="Paginas\Proveedores.aspx" />
+    <Content Include="Paginas\Productos2.aspx" />
     <Content Include="Paginas\Usuarios.aspx" />
     <Content Include="Paginas\PaginaPrincipal.aspx" />
     <Content Include="Paginas\Productos.aspx" />
@@ -99,6 +101,20 @@
     </Compile>
     <Compile Include="Paginas\Accesodenegado.aspx.designer.cs">
       <DependentUpon>Accesodenegado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Paginas\Proveedores.aspx.cs">
+      <DependentUpon>Proveedores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\Proveedores.aspx.designer.cs">
+      <DependentUpon>Proveedores.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Paginas\Productos2.aspx.cs">
+      <DependentUpon>Productos2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\Productos2.aspx.designer.cs">
+      <DependentUpon>Productos2.aspx</DependentUpon>
     </Compile>
     <Compile Include="Paginas\Usuarios.aspx.cs">
       <DependentUpon>Usuarios.aspx</DependentUpon>
