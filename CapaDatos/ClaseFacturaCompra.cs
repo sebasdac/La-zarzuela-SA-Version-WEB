@@ -67,44 +67,11 @@ namespace CapaDatos
                 }
             }
         }
-
-
-
-
-
-
-
-
-
-        public void LeerFactura(string codigo)
-        {
-            using (SqlConnection conexion = new SqlConnection(String_Conexion))
-            {
-                SqlCommand instruccionSQL = new SqlCommand("select*from Factura WHERE FacturaID=@FacturaID", conexion);
-                instruccionSQL.Parameters.AddWithValue("@FacturaID", codigo);
-
-                ds_resultados.Clear(); // Limpia el dataset antes de llenarlo.
-
-                try
-                {
-                    conexion.Open();
-                    using (SqlDataAdapter sqlDA = new SqlDataAdapter(instruccionSQL))
-                    {
-                        sqlDA.Fill(ds_resultados);
-                    }
-                }
-                catch (SqlException ex)
-                {
-                    throw new SystemException("Error de SQL al cargar los datos: " + ex.Message);
-                }
-            } // La conexión se cerrará automáticamente al salir del bloque using.
-        }
-
         public void LeerDetalles(string codigo)
         {
             using (SqlConnection conexion = new SqlConnection(String_Conexion))
             {
-                SqlCommand instruccionSQL = new SqlCommand("select*from DetallesFactura WHERE FacturaID=@FacturaID", conexion);
+                SqlCommand instruccionSQL = new SqlCommand("select*from DetallesFacturaCompra WHERE FacturaID=@FacturaID", conexion);
                 instruccionSQL.Parameters.AddWithValue("@FacturaID", codigo);
 
                 ds_detalles.Clear(); // Limpia el dataset antes de llenarlo.
@@ -124,5 +91,39 @@ namespace CapaDatos
             }
 
         }
+       
+
+
+
+
+
+
+
+
+
+        public void LeerFactura(string codigo)
+        {
+            using (SqlConnection conexion = new SqlConnection(String_Conexion))
+            {
+                SqlCommand instruccionSQL = new SqlCommand("select*from FacturaCompra WHERE FacturaID=@FacturaID", conexion);
+                instruccionSQL.Parameters.AddWithValue("@FacturaID", codigo);
+
+                ds_resultados.Clear(); // Limpia el dataset antes de llenarlo.
+
+                try
+                {
+                    conexion.Open();
+                    using (SqlDataAdapter sqlDA = new SqlDataAdapter(instruccionSQL))
+                    {
+                        sqlDA.Fill(ds_resultados);
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    throw new SystemException("Error de SQL al cargar los datos: " + ex.Message);
+                }
+            } // La conexión se cerrará automáticamente al salir del bloque using.
+        }
+
     }
 }

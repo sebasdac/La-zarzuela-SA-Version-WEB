@@ -20,9 +20,11 @@ namespace CapaNegocio
         int _Cantidad;
         double _Precio;
         double _Total;
+        int facturaID;
         ClaseFacturaCompra facturaDAL = new ClaseFacturaCompra(); // Instancia de la capa de datos
-        
-       
+
+        public DataTable Tabla_Facturas { get => facturaDAL.TablaFacturas; }
+        public DataTable Tabla_Detalles { get => facturaDAL.TablaDetalles; }
 
 
 
@@ -41,6 +43,7 @@ namespace CapaNegocio
         public int Cantidad { get => _Cantidad; set => _Cantidad = value; }
         public double Precio { get => _Precio; set => _Precio = value; }
         public double Total { get => _Total; set => _Total = value; }
+        public int FacturaID { get => facturaID; set => facturaID = value; }
         #endregion
 
         #region "Metodos"
@@ -66,6 +69,18 @@ namespace CapaNegocio
             {
                 throw new ArgumentException("El nombre del proveedor no puede estar vacio");
             }
+        }
+
+
+        public void LeerFactura()
+        {
+            facturaDAL.LeerFactura(facturaID.ToString());
+
+        }
+
+        public void LeerDetalles()
+        {
+            facturaDAL.LeerDetalles(facturaID.ToString());
         }
 
 

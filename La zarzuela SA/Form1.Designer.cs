@@ -29,24 +29,24 @@
         private void InitializeComponent()
         {
             this.menu = new System.Windows.Forms.MenuStrip();
-            this.menutitulo = new System.Windows.Forms.MenuStrip();
-            this.lblIstsema = new System.Windows.Forms.Label();
-            this.panelContenedor = new System.Windows.Forms.Panel();
-            this.btnVentaProducto = new FontAwesome.Sharp.IconMenuItem();
             this.btnSalir = new FontAwesome.Sharp.IconMenuItem();
             this.btnAgregarUsuario = new FontAwesome.Sharp.IconMenuItem();
-            this.btnCambiarPin = new FontAwesome.Sharp.IconMenuItem();
-            this.btnVerMas = new FontAwesome.Sharp.IconMenuItem();
+            this.iconMenuItem3 = new FontAwesome.Sharp.IconMenuItem();
+            this.iconMenuItem4 = new FontAwesome.Sharp.IconMenuItem();
             this.btnProductos = new FontAwesome.Sharp.IconMenuItem();
-            this.btnClientes = new FontAwesome.Sharp.IconMenuItem();
             this.iconMenuItem1 = new FontAwesome.Sharp.IconMenuItem();
+            this.btnCambiarPin = new FontAwesome.Sharp.IconMenuItem();
+            this.btnClientes = new FontAwesome.Sharp.IconMenuItem();
+            this.btnVentaProducto = new FontAwesome.Sharp.IconMenuItem();
             this.iconMenuItem2 = new FontAwesome.Sharp.IconMenuItem();
             this.btnFacutras = new FontAwesome.Sharp.IconMenuItem();
             this.bbtnReciboVenta = new FontAwesome.Sharp.IconMenuItem();
             this.btnReciboCOmpra = new FontAwesome.Sharp.IconMenuItem();
             this.btnImpuestos = new FontAwesome.Sharp.IconMenuItem();
-            this.iconMenuItem3 = new FontAwesome.Sharp.IconMenuItem();
-            this.iconMenuItem4 = new FontAwesome.Sharp.IconMenuItem();
+            this.btnVerMas = new FontAwesome.Sharp.IconMenuItem();
+            this.menutitulo = new System.Windows.Forms.MenuStrip();
+            this.lblIstsema = new System.Windows.Forms.Label();
+            this.panelContenedor = new System.Windows.Forms.Panel();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,55 +67,10 @@
             this.btnVerMas});
             this.menu.Location = new System.Drawing.Point(0, 88);
             this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(1205, 76);
+            this.menu.Size = new System.Drawing.Size(1360, 76);
             this.menu.TabIndex = 0;
             this.menu.Text = "menuStrip1";
             this.menu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
-            // 
-            // menutitulo
-            // 
-            this.menutitulo.AutoSize = false;
-            this.menutitulo.BackColor = System.Drawing.Color.DarkSlateBlue;
-            this.menutitulo.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menutitulo.Location = new System.Drawing.Point(0, 0);
-            this.menutitulo.Name = "menutitulo";
-            this.menutitulo.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.menutitulo.Size = new System.Drawing.Size(1205, 88);
-            this.menutitulo.TabIndex = 1;
-            this.menutitulo.Text = "menuStrip2";
-            // 
-            // lblIstsema
-            // 
-            this.lblIstsema.AutoSize = true;
-            this.lblIstsema.BackColor = System.Drawing.Color.DarkSlateBlue;
-            this.lblIstsema.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIstsema.ForeColor = System.Drawing.Color.White;
-            this.lblIstsema.Location = new System.Drawing.Point(26, 28);
-            this.lblIstsema.Name = "lblIstsema";
-            this.lblIstsema.Size = new System.Drawing.Size(264, 32);
-            this.lblIstsema.TabIndex = 2;
-            this.lblIstsema.Text = "Sistema de ventas";
-            // 
-            // panelContenedor
-            // 
-            this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContenedor.Location = new System.Drawing.Point(0, 164);
-            this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(1205, 732);
-            this.panelContenedor.TabIndex = 3;
-            // 
-            // btnVentaProducto
-            // 
-            this.btnVentaProducto.IconChar = FontAwesome.Sharp.IconChar.ShoppingCart;
-            this.btnVentaProducto.IconColor = System.Drawing.Color.Black;
-            this.btnVentaProducto.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnVentaProducto.IconSize = 45;
-            this.btnVentaProducto.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.btnVentaProducto.Name = "btnVentaProducto";
-            this.btnVentaProducto.Size = new System.Drawing.Size(125, 72);
-            this.btnVentaProducto.Text = "Venta producto";
-            this.btnVentaProducto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnVentaProducto.Click += new System.EventHandler(this.btnVentaProducto_Click);
             // 
             // btnSalir
             // 
@@ -144,28 +99,25 @@
             this.btnAgregarUsuario.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnAgregarUsuario.Click += new System.EventHandler(this.btnAgregarUsuario_Click);
             // 
-            // btnCambiarPin
+            // iconMenuItem3
             // 
-            this.btnCambiarPin.IconChar = FontAwesome.Sharp.IconChar.Key;
-            this.btnCambiarPin.IconColor = System.Drawing.Color.Black;
-            this.btnCambiarPin.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnCambiarPin.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.btnCambiarPin.Name = "btnCambiarPin";
-            this.btnCambiarPin.Size = new System.Drawing.Size(104, 72);
-            this.btnCambiarPin.Text = "Cambiar pin";
-            this.btnCambiarPin.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnCambiarPin.Click += new System.EventHandler(this.btnCambiarPin_Click);
+            this.iconMenuItem3.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconMenuItem3.IconColor = System.Drawing.Color.Black;
+            this.iconMenuItem3.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconMenuItem3.Name = "iconMenuItem3";
+            this.iconMenuItem3.Size = new System.Drawing.Size(198, 26);
+            this.iconMenuItem3.Text = "Ver usuarios";
+            this.iconMenuItem3.Click += new System.EventHandler(this.iconMenuItem3_Click);
             // 
-            // btnVerMas
+            // iconMenuItem4
             // 
-            this.btnVerMas.IconChar = FontAwesome.Sharp.IconChar.Info;
-            this.btnVerMas.IconColor = System.Drawing.Color.Black;
-            this.btnVerMas.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnVerMas.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.btnVerMas.Name = "btnVerMas";
-            this.btnVerMas.Size = new System.Drawing.Size(75, 72);
-            this.btnVerMas.Text = "Ver mas";
-            this.btnVerMas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.iconMenuItem4.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconMenuItem4.IconColor = System.Drawing.Color.Black;
+            this.iconMenuItem4.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconMenuItem4.Name = "iconMenuItem4";
+            this.iconMenuItem4.Size = new System.Drawing.Size(198, 26);
+            this.iconMenuItem4.Text = "Agregar usuario";
+            this.iconMenuItem4.Click += new System.EventHandler(this.iconMenuItem4_Click);
             // 
             // btnProductos
             // 
@@ -180,6 +132,30 @@
             this.btnProductos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnProductos.Click += new System.EventHandler(this.btnProductos_Click);
             // 
+            // iconMenuItem1
+            // 
+            this.iconMenuItem1.IconChar = FontAwesome.Sharp.IconChar.Car;
+            this.iconMenuItem1.IconColor = System.Drawing.Color.Black;
+            this.iconMenuItem1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.iconMenuItem1.Name = "iconMenuItem1";
+            this.iconMenuItem1.Size = new System.Drawing.Size(105, 72);
+            this.iconMenuItem1.Text = "Proveedores";
+            this.iconMenuItem1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.iconMenuItem1.Click += new System.EventHandler(this.iconMenuItem1_Click);
+            // 
+            // btnCambiarPin
+            // 
+            this.btnCambiarPin.IconChar = FontAwesome.Sharp.IconChar.Key;
+            this.btnCambiarPin.IconColor = System.Drawing.Color.Black;
+            this.btnCambiarPin.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnCambiarPin.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btnCambiarPin.Name = "btnCambiarPin";
+            this.btnCambiarPin.Size = new System.Drawing.Size(104, 72);
+            this.btnCambiarPin.Text = "Cambiar pin";
+            this.btnCambiarPin.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnCambiarPin.Click += new System.EventHandler(this.btnCambiarPin_Click);
+            // 
             // btnClientes
             // 
             this.btnClientes.IconChar = FontAwesome.Sharp.IconChar.User;
@@ -192,17 +168,18 @@
             this.btnClientes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
             // 
-            // iconMenuItem1
+            // btnVentaProducto
             // 
-            this.iconMenuItem1.IconChar = FontAwesome.Sharp.IconChar.Car;
-            this.iconMenuItem1.IconColor = System.Drawing.Color.Black;
-            this.iconMenuItem1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.iconMenuItem1.Name = "iconMenuItem1";
-            this.iconMenuItem1.Size = new System.Drawing.Size(105, 72);
-            this.iconMenuItem1.Text = "Proveedores";
-            this.iconMenuItem1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.iconMenuItem1.Click += new System.EventHandler(this.iconMenuItem1_Click);
+            this.btnVentaProducto.IconChar = FontAwesome.Sharp.IconChar.ShoppingCart;
+            this.btnVentaProducto.IconColor = System.Drawing.Color.Black;
+            this.btnVentaProducto.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnVentaProducto.IconSize = 45;
+            this.btnVentaProducto.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btnVentaProducto.Name = "btnVentaProducto";
+            this.btnVentaProducto.Size = new System.Drawing.Size(125, 72);
+            this.btnVentaProducto.Text = "Venta producto";
+            this.btnVentaProducto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnVentaProducto.Click += new System.EventHandler(this.btnVentaProducto_Click);
             // 
             // iconMenuItem2
             // 
@@ -237,7 +214,7 @@
             this.bbtnReciboVenta.IconColor = System.Drawing.Color.Black;
             this.bbtnReciboVenta.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.bbtnReciboVenta.Name = "bbtnReciboVenta";
-            this.bbtnReciboVenta.Size = new System.Drawing.Size(224, 26);
+            this.bbtnReciboVenta.Size = new System.Drawing.Size(220, 26);
             this.bbtnReciboVenta.Text = "Recibos de venta";
             this.bbtnReciboVenta.Click += new System.EventHandler(this.bbtnReciboVenta_Click);
             // 
@@ -249,6 +226,7 @@
             this.btnReciboCOmpra.Name = "btnReciboCOmpra";
             this.btnReciboCOmpra.Size = new System.Drawing.Size(224, 26);
             this.btnReciboCOmpra.Text = "Recibos de compra";
+            this.btnReciboCOmpra.Click += new System.EventHandler(this.btnReciboCOmpra_Click);
             // 
             // btnImpuestos
             // 
@@ -262,31 +240,54 @@
             this.btnImpuestos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnImpuestos.Click += new System.EventHandler(this.btnImpuestos_Click);
             // 
-            // iconMenuItem3
+            // btnVerMas
             // 
-            this.iconMenuItem3.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconMenuItem3.IconColor = System.Drawing.Color.Black;
-            this.iconMenuItem3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconMenuItem3.Name = "iconMenuItem3";
-            this.iconMenuItem3.Size = new System.Drawing.Size(224, 26);
-            this.iconMenuItem3.Text = "Ver usuarios";
-            this.iconMenuItem3.Click += new System.EventHandler(this.iconMenuItem3_Click);
+            this.btnVerMas.IconChar = FontAwesome.Sharp.IconChar.Info;
+            this.btnVerMas.IconColor = System.Drawing.Color.Black;
+            this.btnVerMas.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnVerMas.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btnVerMas.Name = "btnVerMas";
+            this.btnVerMas.Size = new System.Drawing.Size(75, 72);
+            this.btnVerMas.Text = "Ver mas";
+            this.btnVerMas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
-            // iconMenuItem4
+            // menutitulo
             // 
-            this.iconMenuItem4.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconMenuItem4.IconColor = System.Drawing.Color.Black;
-            this.iconMenuItem4.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconMenuItem4.Name = "iconMenuItem4";
-            this.iconMenuItem4.Size = new System.Drawing.Size(224, 26);
-            this.iconMenuItem4.Text = "Agregar usuario";
-            this.iconMenuItem4.Click += new System.EventHandler(this.iconMenuItem4_Click);
+            this.menutitulo.AutoSize = false;
+            this.menutitulo.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.menutitulo.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menutitulo.Location = new System.Drawing.Point(0, 0);
+            this.menutitulo.Name = "menutitulo";
+            this.menutitulo.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.menutitulo.Size = new System.Drawing.Size(1360, 88);
+            this.menutitulo.TabIndex = 1;
+            this.menutitulo.Text = "menuStrip2";
+            // 
+            // lblIstsema
+            // 
+            this.lblIstsema.AutoSize = true;
+            this.lblIstsema.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.lblIstsema.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIstsema.ForeColor = System.Drawing.Color.White;
+            this.lblIstsema.Location = new System.Drawing.Point(26, 28);
+            this.lblIstsema.Name = "lblIstsema";
+            this.lblIstsema.Size = new System.Drawing.Size(264, 32);
+            this.lblIstsema.TabIndex = 2;
+            this.lblIstsema.Text = "Sistema de ventas";
+            // 
+            // panelContenedor
+            // 
+            this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContenedor.Location = new System.Drawing.Point(0, 164);
+            this.panelContenedor.Name = "panelContenedor";
+            this.panelContenedor.Size = new System.Drawing.Size(1360, 732);
+            this.panelContenedor.TabIndex = 3;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1205, 896);
+            this.ClientSize = new System.Drawing.Size(1360, 896);
             this.Controls.Add(this.panelContenedor);
             this.Controls.Add(this.lblIstsema);
             this.Controls.Add(this.menu);

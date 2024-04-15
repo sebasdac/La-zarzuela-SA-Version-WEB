@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CapaDatos;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace CapaNegocio
 {
@@ -152,25 +153,39 @@ namespace CapaNegocio
         {
             ClaseProductos_BD Bd_productos = new ClaseProductos_BD();
 
-            Bd_productos.InsertaProductoBD(_codigo, _nombre, _precio,
+            Bd_productos.EscribeProductoBD(_codigo, _nombre, _precio,
                                     _cantidad, _impuesto, _totalImpuesto);
         } //fin EscribeProductoDT
-        
 
-        public void InsertarProducto( int[] productoIDs, int[] cantidades, decimal[] precios, decimal[] impuestos,  decimal[] totalesProductos, string[] nombreproducto)
+
+
+
+        public void InsertarProducto(int[] productoIDs, int[] cantidades, decimal[] precios, decimal[] impuestos, decimal[] totalesProductos, string[] nombreproducto)
         {
-            
+            // Insertar la factura
 
             // Insertar los detalles de la factura
             for (int i = 0; i < productoIDs.Length; i++)
             {
-                obj_productosBD.InsertaProductoBD(productoIDs[i], nombreproducto[i], int.Parse(precios[i].ToString()),cantidades[1],double.Parse(impuestos[i].ToString()), double.Parse(totalesProductos[i].ToString()));
+                
+                    obj_productosBD.EscribeProductoBD(productoIDs[i], nombreproducto[i], int.Parse(precios[i].ToString()), cantidades[i], double.Parse(impuestos[i].ToString()), double.Parse(totalesProductos[i].ToString()));
+                
+               
             }
-
+        }
+        public void ValidarCodigoRepetido()
+        {
+            try
+            {
+                obj_productosBD.ValidarCodigoRepetido(_codigo);
+            }
+            catch (SqlException ex)
+            {
+                throw new ArgumentException("Error: " + ex.Message);
+            }
             
         }
         
-
-        #endregion
+       #endregion
     }
 }

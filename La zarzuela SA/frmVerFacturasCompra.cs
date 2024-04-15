@@ -48,5 +48,17 @@ namespace La_zarzuela_SA
                 }//fin catch
             }
         }
+
+        private void btnBuscarporFactura_Click(object sender, EventArgs e)
+        {
+            obj_factura.FacturaID = Convert.ToInt32(txtNumeroFactura.Text);
+            obj_factura.LeerFactura();
+            dgvFacturaCompra.DataSource = obj_factura.Tabla_Facturas;
+            obj_factura.FacturaID = Convert.ToInt32(txtNumeroFactura.Text);
+            obj_factura.LeerDetalles();
+
+            dgvDetalles.DataSource = obj_factura.Tabla_Detalles;
+            txtNumeroFactura.Text = "";
+        }
     }
 }

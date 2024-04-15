@@ -30,8 +30,33 @@ namespace La_zarzuela_SA
         {
             InitializeComponent();
 
+            dgvProductos.RowsAdded += dgvProductos_RowsAdded;
 
+        }
+        private void dgvProductos_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            // Índice de la fila recién agregada
+            int newRowIdx = e.RowIndex;
 
+            // Obtener el valor de la celda en la columna "Codigo" de la fila recién agregada
+            var newValue = dgvProductos.Rows[newRowIdx].Cells["colCodigo"].Value;
+
+            // Verificar si el valor ya está presente en otra fila
+            foreach (DataGridViewRow row in dgvProductos.Rows)
+            {
+                if (row.Index != newRowIdx) // Saltar la fila recién agregada
+                {
+                    var existingValue = row.Cells["colCodigo"].Value;
+
+                    // Si el valor ya existe, mostrar un mensaje de error y eliminar la fila recién agregada
+                    if (newValue != null && existingValue != null && newValue.ToString() == existingValue.ToString())
+                    {
+                        MessageBox.Show("El número de código ya existe en otra fila.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        dgvProductos.Rows.RemoveAt(newRowIdx);
+                        return;
+                    }
+                }
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -117,6 +142,10 @@ namespace La_zarzuela_SA
 
 
         }//fin frmVentaProducto_Load
+
+
+
+        
 
         public void RecibirDatos(string codigo, string nombre, string cantidad, string precio)
         {

@@ -29,6 +29,33 @@ namespace La_zarzuela_SA
         public frmAgregarProducto()
         {
             InitializeComponent();
+            dgvProductos.RowsAdded += dgvProductos_RowsAdded;
+
+        }
+        private void dgvProductos_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            // Índice de la fila recién agregada
+            int newRowIdx = e.RowIndex;
+
+            // Obtener el valor de la celda en la columna "Codigo" de la fila recién agregada
+            var newValue = dgvProductos.Rows[newRowIdx].Cells["colCodigo"].Value;
+
+            // Verificar si el valor ya está presente en otra fila
+            foreach (DataGridViewRow row in dgvProductos.Rows)
+            {
+                if (row.Index != newRowIdx) // Saltar la fila recién agregada
+                {
+                    var existingValue = row.Cells["colCodigo"].Value;
+
+                    // Si el valor ya existe, mostrar un mensaje de error y eliminar la fila recién agregada
+                    if (newValue != null && existingValue != null && newValue.ToString() == existingValue.ToString())
+                    {
+                        MessageBox.Show("El número de código ya existe en otra fila.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        dgvProductos.Rows.RemoveAt(newRowIdx);
+                        return;
+                    }
+                }
+            }
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -303,6 +330,17 @@ namespace La_zarzuela_SA
         {
             try
             {
+                obj_productos.CodigoProveedor = int.Parse(txtCodigoProveedor.Text);
+                obj_productos.Cantidad = int.Parse(txtCantidad.Text);
+                obj_productos.Precio = int.Parse(txtPrecio.Text);
+                obj_productos.Nombre = txtNombre.Text;
+                obj_productos.Codigo = int.Parse(txtCodigoProducto.Text);
+                
+                obj_productos.ValidarProducto();
+                
+                obj_productos.ValidarCodigoRepetido(); // Verifica si el código del producto ya existe en la base de datos
+
+
                 obj_productos.Precio = int.Parse(txtPrecio.Text);
                 obj_productos.Cantidad = int.Parse(txtCantidad.Text);
                 obj_productos.CalcularTotal();
@@ -335,7 +373,10 @@ namespace La_zarzuela_SA
                     throw new Exception("No se han agregado productos a la factura");
                 }
 
+               
 
+
+                
                 obj_facturacompra.NombreProveedor = txtProveedor.Text;
                 obj_facturacompra.ValidarProveedor();
 
@@ -358,15 +399,20 @@ namespace La_zarzuela_SA
                 decimal[] subtotales = ObtenerSubtotalesDesdeDataGridView();
                 decimal[] totalesProductos = ObtenerTotalesProductosDesdeDataGridView();
 
+                obj_productos.InsertarProducto(productoIDs, cantidades, precios, impuestos, totalesProductos, NombreProductos);
+
                 // Llamar al método de la capa de negocio para registrar la factura
                 int facturaID = obj_facturacompra.RegistrarFactura(clienteID, nombre, cedula, tipo, fecha, total, productoIDs, cantidades, precios, impuestos, subtotales, totalesProductos, NombreProductos);
-                obj_productos.InsertarProducto(productoIDs, cantidades, precios, impuestos, totalesProductos, NombreProductos);
+
+
+                
 
                 dgvProductos.Rows.Clear();
                 txtCodigoProveedor.Text = "";
                 txtNombre.Text = "";
                 txtCedula.Text = "";
                 txtTipo.Text = "";
+                txtProveedor.Text = "";
 
 
                 MessageBox.Show("La factura se registró con éxito con el ID: " + facturaID);
@@ -511,6 +557,40 @@ namespace La_zarzuela_SA
 
             return total;
         }
+
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow selectedRow = dgvProductos.CurrentRow;
+            DialogResult result = MessageBox.Show("¿Seguro que quieres eliminar esta fila?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    if (filaSeleccionada >= 0)
+                    {
+
+                        dgvProductos.Rows.Remove(selectedRow);
+                        obj_productos.EscribeTablaalXML();
+                        txtCantidad.Text = "";
+                        
+                        txtNombre.Text = "";
+                        txtCodigoProducto.Text = "";
+                        txtPrecio.Text = "";
+
+                    }//fin if
+                }//fin try
+                catch
+                {
+                    MessageBox.Show("No se ha seleccionado ninguna fila");
+                }//fin catch
+            }
+        }
+
+        private void dgvProductos_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+        
 
 
 

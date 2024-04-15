@@ -61,7 +61,7 @@ namespace CapaDatos
             conexion.Close();
         }//fin cerrar conexion
 
-        public void InsertaProductoBD(int codigo, string nombre, int precio, int cantidad, double impuesto, double total)
+        public void EscribeProductoBD(int codigo, string nombre, int precio, int cantidad, double impuesto, double total)
         {
             SqlCommand instruccionSQL;
             AbrirConexion();
@@ -79,27 +79,50 @@ namespace CapaDatos
             CerrarConexion();
         }//fin InsertaProducto
 
-        public void InsertarProducto(int facturaID, int productoID, int cantidad, decimal precio, decimal impuesto, decimal totalProducto, string nombreproducto)
+        public void InsertarProductoBD(int productoID, string nombreproducto, decimal precio, int cantidad, decimal impuesto, decimal totalProducto)
         {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(String_Conexion))
+                {
+                    connection.Open();
+
+                    string query = "INSERT INTO Productos (Codigo,Nombre, Cantidad, Precio, Impuesto, TotalProducto) VALUES (@ProductoID, @NombreProducto @Cantidad, @Precio, @Impuesto, @TotalProducto);";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+
+                        command.Parameters.AddWithValue("@ProductoID", productoID);
+                        command.Parameters.AddWithValue("@Cantidad", cantidad);
+                        command.Parameters.AddWithValue("@Precio", precio);
+                        command.Parameters.AddWithValue("@Impuesto", impuesto);
+
+                        command.Parameters.AddWithValue("@TotalProducto", totalProducto);
+                        command.Parameters.AddWithValue("@NombreProducto", nombreproducto);
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException("Error: " + ex.Message);
+            }
+        }
+        public void ValidarCodigoRepetido(int codigo)
+        {
+
             using (SqlConnection connection = new SqlConnection(String_Conexion))
             {
                 connection.Open();
-
-                string query = "INSERT INTO Productos (Codigo,Nombre, Cantidad, Precio, Impuesto, TotalProducto) VALUES (@FacturaID, @NombreProducto @Cantidad, @Precio, @Impuesto, @TotalProducto);";
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    
-                    command.Parameters.AddWithValue("@ProductoID", productoID);
-                    command.Parameters.AddWithValue("@Cantidad", cantidad);
-                    command.Parameters.AddWithValue("@Precio", precio);
-                    command.Parameters.AddWithValue("@Impuesto", impuesto);
-                    
-                    command.Parameters.AddWithValue("@TotalProducto", totalProducto);
-                    command.Parameters.AddWithValue("@NombreProducto", nombreproducto);
-                    command.ExecuteNonQuery();
+                SqlCommand command = new SqlCommand("SELECT COUNT(*) FROM Productos WHERE Codigo = @Codigo", connection);
+                command.Parameters.AddWithValue("@Codigo", codigo);
+                int count = (int)command.ExecuteScalar();
+                if( count > 0)
+                {                  
+                    throw new ArgumentException("El código ya existe");
                 }
             }
         }
+        
 
 
 
