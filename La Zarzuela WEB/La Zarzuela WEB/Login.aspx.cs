@@ -82,6 +82,7 @@ namespace La_Zarzuela_WEB
                 authCookie.Path = FormsAuthentication.FormsCookiePath;
                 //
                 //
+
                     
             }
             catch (Exception ex)
