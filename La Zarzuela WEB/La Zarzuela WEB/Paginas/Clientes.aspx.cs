@@ -96,27 +96,36 @@ namespace La_Zarzuela_WEB.Paginas
 
         protected void btnEditar_Click(object sender, EventArgs e)
         {
-            obj_clientes.Codigo = int.Parse(txtCodigo.Text);
-            obj_clientes.Nombre = txtNombre.Text;
-            if (cbTipo.SelectedIndex != -1)
+            try
             {
-                obj_clientes.Tipo = cbTipo.Text;
-            }
+                obj_clientes.Codigo = int.Parse(txtCodigo.Text);
+                obj_clientes.Nombre = txtNombre.Text;
+                if (cbTipo.SelectedIndex != -1)
+                {
+                    obj_clientes.Tipo = cbTipo.Text;
+                }
 
-            obj_clientes.Telefono = txtTelefono.Text;
-            obj_clientes.Correo = txtCorreo.Text;
-            if (cbProvincia.SelectedIndex != -1)
-            {
-                obj_clientes.Provincia = cbProvincia.Text;
+                obj_clientes.Telefono = txtTelefono.Text;
+                obj_clientes.Correo = txtCorreo.Text;
+                if (cbProvincia.SelectedIndex != -1)
+                {
+                    obj_clientes.Provincia = cbProvincia.Text;
+                }
+                obj_clientes.Cedula = txtCedula.Text;
+                obj_clientes.Direccion = txtDireccion.Text;
+                obj_clientes.Contrasena = txtContrasena.Text;
+                obj_clientes.VerificarCliente();
+                obj_clientes.ActualizarCliente();
+                obj_clientes.LeerClientes();
+                dgvClientes.DataSource = obj_clientes.TablaClientes;
+                dgvClientes.DataBind();
+                lblError.Text = "";
             }
-            obj_clientes.Cedula = txtCedula.Text;
-            obj_clientes.Direccion = txtDireccion.Text;
-            obj_clientes.Contrasena = txtContrasena.Text;
-            obj_clientes.VerificarCliente();
-            obj_clientes.ActualizarCliente();
-            obj_clientes.LeerClientes();
-            dgvClientes.DataSource = obj_clientes.TablaClientes;
-            dgvClientes.DataBind();
+            catch (Exception ex)
+            {
+                lblError.Text = ex.Message;
+                lblError.Visible = true;
+            }
         }
     }
 }
