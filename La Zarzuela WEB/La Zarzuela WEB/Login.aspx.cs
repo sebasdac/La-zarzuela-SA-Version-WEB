@@ -80,6 +80,7 @@ namespace La_Zarzuela_WEB
                 eticket = FormsAuthentication.Encrypt(authTicket);
                 authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, eticket);
                 authCookie.Path = FormsAuthentication.FormsCookiePath;
+                //
                     
             }
             catch (Exception ex)
