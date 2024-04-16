@@ -57,13 +57,13 @@ namespace La_Zarzuela_WEB
             {
                 obj_loginweb.Usuario = LoginUsuario.UserName;
                 obj_loginweb.Contrasena = LoginUsuario.Password;
-                obj_usuarios.ValidarUsuario();
                 obj_loginweb.AutenticarUsuario();
                 
                 // En el código detrás de tu página ASPX (archivo .aspx.cs)
                 if (obj_loginweb.Esusuario)
                 {
                     
+                    obj_usuarios.ValidarUsuario();
                     Session["Usuario"] = "usuario";
 
                 }
@@ -80,6 +80,9 @@ namespace La_Zarzuela_WEB
                 eticket = FormsAuthentication.Encrypt(authTicket);
                 authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, eticket);
                 authCookie.Path = FormsAuthentication.FormsCookiePath;
+                //
+                //
+                //
                     
             }
             catch (Exception ex)
