@@ -65,10 +65,12 @@
 
         <div class="form-group" style="display: inline-block; width: 50%;">
             <asp:Button ID="Button1" runat="server" Text="Aceptar" OnClick="Button1_Click" />
+            <asp:Button ID="btnUsuarios" runat="server" Text="Eliminar" OnClick="btnUsuarios_Click" />
+            <asp:Button ID="btnEditar" runat="server" OnClick="btnEditar_Click" Text="Editar" />
         </div>
 
         <div  id="contenedorGridView" class="form-group" style="display: inline-block; width: 100%;">
-            <asp:GridView ID="dgvClientes" runat="server" CssClass="styled-gridview">
+            <asp:GridView ID="dgvClientes" runat="server" CssClass="styled-gridview" AutoGenerateSelectButton="true" OnSelectedIndexChanged="dgvClientes_SelectedIndexChanged">
             </asp:GridView>
         </div>
     </div>

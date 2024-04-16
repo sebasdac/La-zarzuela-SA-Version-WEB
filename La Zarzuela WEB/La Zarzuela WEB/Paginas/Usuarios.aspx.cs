@@ -33,13 +33,16 @@ namespace La_Zarzuela_WEB.Paginas
                 obj_usuarios.ValidarEstado();
                 obj_usuarios.EscribeUsuarioBD();
                 mensaje.Text = "Usuario ingresado correctamente";
+                mensaje.Visible = true;
                 obj_usuarios.LeerUsuarios();
                 dgvUsuarios.DataSource = obj_usuarios.TablaUsuarios;
                 dgvUsuarios.DataBind();
+                lblError.Text = "";
             }
             catch (Exception ex)
             {
                 lblError.Text = ex.Message;
+                lblError.Visible = true;
             }
             
         }
@@ -77,6 +80,7 @@ namespace La_Zarzuela_WEB.Paginas
             catch (Exception ex)
             {
                 lblError.Text = ex.Message;
+                lblError.Visible = true;
             }
 
         }

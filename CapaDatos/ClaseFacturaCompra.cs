@@ -11,8 +11,11 @@ namespace CapaDatos
     public class ClaseFacturaCompra
     {
 
-        private string connectionString = "Data Source=LAPTOP-M50THNEO;Initial Catalog=\"Proyecto II\";Integrated Security=True;";
-        private string String_Conexion = "Data Source=LAPTOP-M50THNEO;Initial Catalog=\"Proyecto II\";Integrated Security=True;";
+
+        //private string String_Conexion = "Data Source=LAPTOP-M50THNEO;Initial Catalog=\"Proyecto II\";Integrated Security=True;";
+        private String String_Conexion = "Data Source=SebasDAC_PC;Initial Catalog=\"Proyecto II\";Integrated Security=True;";
+
+
         private SqlConnection conexion;
         DataSet ds_resultados = new DataSet();
         public DataTable TablaFacturas { get => ds_resultados.Tables[0]; }
@@ -24,7 +27,7 @@ namespace CapaDatos
         {
             int facturaID = 0;
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(String_Conexion))
             {
                 connection.Open();
 
@@ -48,7 +51,7 @@ namespace CapaDatos
 
         public void InsertarDetalleFactura(int facturaID, int productoID, int cantidad, decimal precio, decimal impuesto, decimal subtotal, decimal totalProducto, string nombreproducto)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(String_Conexion))
             {
                 connection.Open();
 

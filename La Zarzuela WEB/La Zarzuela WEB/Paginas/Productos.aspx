@@ -39,7 +39,7 @@
         </div>
 
         <div class="form-group" style="display: inline-block; width: 50%;">
-            <asp:Button ID="Button1" runat="server" Text="Aceptar" OnClick="Button1_Click" />
+            <asp:Button ID="Button1" runat="server" Text="Aceptar" OnClick="Button1_Click" style="height: 26px" />
         </div>
 
         <div  id="contenedorGridView" class="form-group" style="display: inline-block; width: 100%;">

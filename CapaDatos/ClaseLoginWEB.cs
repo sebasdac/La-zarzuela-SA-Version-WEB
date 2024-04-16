@@ -15,24 +15,28 @@ namespace CapaDatos
         public bool Esproveedor1 { get => Esproveedor; set => Esproveedor = value; }
         public bool Esusuario1 { get => Esusuario; set => Esusuario = value; }
 
+        private String String_Conexion = "Data Source=SebasDAC_PC;Initial Catalog=\"Proyecto II\";Integrated Security=True;";
+
+       // string String_Conexion = "Data Source=LAPTOP-M50THNEO;Initial Catalog=\"Proyecto II\";Integrated Security=True;";
+
         public void AutenticarUsuario(string usuario, string contrasena)
         { 
             string username = usuario;
             string password = contrasena;
 
             // Realizar la autenticación en la tabla de Usuarios
-            // string userConnectionString = "Data Source=SebasDAC_PC;Initial Catalog=\"Proyecto II\";Integrated Security=True;";
-               string userConnectionString = "Data Source=LAPTOP-M50THNEO;Initial Catalog=\"Proyecto II\";Integrated Security=True;";
+            
+               
 
 
             string userQuery = "SELECT * FROM Usuarios WHERE Usuario = @Username AND Contrasena = @Password";
 
             // Realizar la autenticación en la tabla de Proveedores
             //string providerConnectionString = "Data Source=SebasDAC_PC;Initial Catalog=\"Proyecto II\";Integrated Security=True;";
-            string providerConnectionString = "Data Source=LAPTOP-M50THNEO;Initial Catalog=\"Proyecto II\";Integrated Security=True;";
+           
             string providerQuery = "SELECT * FROM Proveedores WHERE Correo = @Username AND Contrasena = @Password";
 
-            using (SqlConnection userConnection = new SqlConnection(userConnectionString))
+            using (SqlConnection userConnection = new SqlConnection(String_Conexion))
             {
                 SqlCommand userCommand = new SqlCommand(userQuery, userConnection);
                 userCommand.Parameters.AddWithValue("@Username", username);
@@ -49,7 +53,7 @@ namespace CapaDatos
                 }
             }
 
-            using (SqlConnection providerConnection = new SqlConnection(providerConnectionString))
+            using (SqlConnection providerConnection = new SqlConnection(String_Conexion))
             {
                 SqlCommand providerCommand = new SqlCommand(providerQuery, providerConnection);
                 providerCommand.Parameters.AddWithValue("@Username", username);

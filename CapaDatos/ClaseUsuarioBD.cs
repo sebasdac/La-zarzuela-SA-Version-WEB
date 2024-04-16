@@ -10,8 +10,8 @@ namespace CapaDatos
 {
     public class ClaseUsuarioBD
     {
-        private String String_Conexion = "Data Source=LAPTOP-M50THNEO;Initial Catalog=\"Proyecto II\";Integrated Security=True;";
-        //private String String_Conexion = "Data Source=SebasDAC_PC;Initial Catalog=\"Proyecto II\";Integrated Security=True;";
+       // private String String_Conexion = "Data Source=LAPTOP-M50THNEO;Initial Catalog=\"Proyecto II\";Integrated Security=True;";
+        private String String_Conexion = "Data Source=SebasDAC_PC;Initial Catalog=\"Proyecto II\";Integrated Security=True;";
 
         DataSet ds_resultados = new DataSet();
         bool credencialesValidas = false;
@@ -149,19 +149,7 @@ namespace CapaDatos
             return CredencialesValidas;
         }
 
-        //public void CambiarEstado(string nuevoestado, string usuario)
-        //{
-        //    SqlCommand instruccionSQL;
-        //    AbrirConexion();
-
-        //    instruccionSQL = new SqlCommand("UPDATE Usuarios SET Estado = @NuevoEstado WHERE Usuario = @Usuario", conexion);
-        //    instruccionSQL.Parameters.AddWithValue("@NuevoEstado", nuevoestado);
-        //    instruccionSQL.Parameters.AddWithValue("@Usuario", usuario);
-
-        //    instruccionSQL.ExecuteNonQuery();
-
-        //    CerrarConexion();
-        //}
+      
         public void ActualizarUsuario(string cedula, string nombre, string usuario, string ccontrasena, string estado)
         {
             SqlCommand instruccionSQL;

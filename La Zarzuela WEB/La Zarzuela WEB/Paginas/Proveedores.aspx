@@ -59,13 +59,13 @@
         <asp:TextBox ID="txtContrasena" CssClass="centro" runat="server" ></asp:TextBox>
     </div>
 
-    <div class="form-group" style="display: inline-block; width: 50%;">
+    <div>
         <asp:Label ID ="lblError" runat="server" CssClass="error" Text="error" Visible="False"></asp:Label>
     </div>
 
     <div class="form-group" style="display: inline-block; width: 50%;">
         
-        <asp:Button ID="btnAceptar" runat="server" Text="Aceptar" />
+        <asp:Button ID="btnAceptar" runat="server" Text="Aceptar" OnClick="btnAceptar_Click" />
         
     </div>
 
