@@ -396,6 +396,7 @@ namespace La_zarzuela_SA
             {
                 MessageBox.Show("Error al registrar la factura: " + ex.Message);
             }
+
         }
         // Métodos para obtener los datos de la factura desde el DataGridView
         private int[] ObtenerProductoIDsDesdeDataGridView()
