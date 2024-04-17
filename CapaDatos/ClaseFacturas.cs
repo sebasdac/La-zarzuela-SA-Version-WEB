@@ -157,6 +157,21 @@ namespace CapaDatos
             }
         }
 
+        public void EliminarFactura()
+        {
+            using (SqlConnection connection = new SqlConnection(String_Conexion))
+            {
+                connection.Open();
+
+                string query = "DELETE FROM Factura WHERE FacturaID = @FacturaID";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@FacturaID", facturaID);
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
 
 
     }

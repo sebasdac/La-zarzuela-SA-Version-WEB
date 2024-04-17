@@ -386,6 +386,11 @@ namespace La_zarzuela_SA
         {
             try
             {
+                if (dgvProductos.Rows.Count == 0)
+                {
+                    // El DataGridView está vacío
+                    throw new Exception("No se han agregado productos a la factura");
+                }
                 ActualizarInventarioDesdeUI();
                 txtCodigoProducto.Text = "";
                 txtNombreProducto.Text = "";
@@ -422,6 +427,39 @@ namespace La_zarzuela_SA
         private void btnBorrarFactura_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void lblBorrarFactura_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("¿Seguro que quieres borrar la factura?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+
+
+                    obj_facturaventa.EliminarFactura();
+                    MessageBox.Show("Factura eliminada", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtCodigoCliente.Text = "";
+                    txtNombreCliente.Text = "";
+                    txtTipo.Text = "";
+                    txtCedula.Text = "";
+                    txtCodigoProducto.Text = "";
+                    txtNombreProducto.Text = "";
+                    txtDisponible.Text = "";
+                    txtPrecio.Text = "";
+                    txtCantidadDeseada.Text = "";
+                    dgvProductos.DataSource = null;
+
+
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("La factura contiene productos, eliminelos y vuelvalo a intentar: "+ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
         }
     }
 }

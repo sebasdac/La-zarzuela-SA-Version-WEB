@@ -112,6 +112,10 @@ namespace CapaNegocio
         {
             obj_facturas.EliminarProducto(FacturaID);
         }
+        public void EliminarFactura()
+        {
+            obj_facturas.EliminarFactura();
+        }
 
 
         #endregion

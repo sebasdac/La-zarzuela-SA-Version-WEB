@@ -57,13 +57,6 @@
             this.btnBorrar = new FontAwesome.Sharp.IconButton();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
-            this.colCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colImpuesto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbProveedor.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
@@ -393,14 +386,6 @@
             // 
             this.dgvProductos.AllowUserToAddRows = false;
             this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colCodigo,
-            this.colProducto,
-            this.colCantidad,
-            this.colPrecio,
-            this.colImpuesto,
-            this.colSubTotal,
-            this.colTotal});
             this.dgvProductos.Location = new System.Drawing.Point(93, 243);
             this.dgvProductos.Margin = new System.Windows.Forms.Padding(4);
             this.dgvProductos.Name = "dgvProductos";
@@ -408,62 +393,6 @@
             this.dgvProductos.Size = new System.Drawing.Size(930, 302);
             this.dgvProductos.TabIndex = 23;
             this.dgvProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellContentClick_1);
-            // 
-            // colCodigo
-            // 
-            this.colCodigo.HeaderText = "Codigo";
-            this.colCodigo.MinimumWidth = 6;
-            this.colCodigo.Name = "colCodigo";
-            this.colCodigo.ReadOnly = true;
-            this.colCodigo.Width = 125;
-            // 
-            // colProducto
-            // 
-            this.colProducto.HeaderText = "Producto";
-            this.colProducto.MinimumWidth = 6;
-            this.colProducto.Name = "colProducto";
-            this.colProducto.ReadOnly = true;
-            this.colProducto.Width = 125;
-            // 
-            // colCantidad
-            // 
-            this.colCantidad.HeaderText = "Cantidad";
-            this.colCantidad.MinimumWidth = 6;
-            this.colCantidad.Name = "colCantidad";
-            this.colCantidad.ReadOnly = true;
-            this.colCantidad.Width = 125;
-            // 
-            // colPrecio
-            // 
-            this.colPrecio.HeaderText = "Precio";
-            this.colPrecio.MinimumWidth = 6;
-            this.colPrecio.Name = "colPrecio";
-            this.colPrecio.ReadOnly = true;
-            this.colPrecio.Width = 125;
-            // 
-            // colImpuesto
-            // 
-            this.colImpuesto.HeaderText = "Impuesto";
-            this.colImpuesto.MinimumWidth = 6;
-            this.colImpuesto.Name = "colImpuesto";
-            this.colImpuesto.ReadOnly = true;
-            this.colImpuesto.Width = 125;
-            // 
-            // colSubTotal
-            // 
-            this.colSubTotal.HeaderText = "Subtotal";
-            this.colSubTotal.MinimumWidth = 6;
-            this.colSubTotal.Name = "colSubTotal";
-            this.colSubTotal.ReadOnly = true;
-            this.colSubTotal.Width = 125;
-            // 
-            // colTotal
-            // 
-            this.colTotal.HeaderText = "Total";
-            this.colTotal.MinimumWidth = 6;
-            this.colTotal.Name = "colTotal";
-            this.colTotal.ReadOnly = true;
-            this.colTotal.Width = 125;
             // 
             // frmAgregarProducto
             // 
@@ -516,13 +445,6 @@
         private System.Windows.Forms.TextBox txtTipo;
         private System.Windows.Forms.Label lblTipo;
         private System.Windows.Forms.DataGridView dgvProductos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCodigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colProducto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPrecio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colImpuesto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSubTotal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTotal;
         private FontAwesome.Sharp.IconButton iconButton3;
         private FontAwesome.Sharp.IconButton btnBorrar;
         private FontAwesome.Sharp.IconButton iconButton2;

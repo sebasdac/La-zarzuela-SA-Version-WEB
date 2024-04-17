@@ -57,6 +57,7 @@
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.dtpFechaCompra = new System.Windows.Forms.DateTimePicker();
             this.lblFechaCompra = new System.Windows.Forms.Label();
+            this.lblBorrarFactura = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -232,6 +233,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblBorrarFactura);
             this.groupBox1.Controls.Add(this.dtpFechaCompra);
             this.groupBox1.Controls.Add(this.lblFechaCompra);
             this.groupBox1.Controls.Add(this.btnBuscar);
@@ -313,9 +315,9 @@
             this.btnBorrar.IconChar = FontAwesome.Sharp.IconChar.Trash;
             this.btnBorrar.IconColor = System.Drawing.Color.Black;
             this.btnBorrar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnBorrar.Location = new System.Drawing.Point(431, 109);
+            this.btnBorrar.Location = new System.Drawing.Point(415, 110);
             this.btnBorrar.Name = "btnBorrar";
-            this.btnBorrar.Size = new System.Drawing.Size(71, 88);
+            this.btnBorrar.Size = new System.Drawing.Size(71, 82);
             this.btnBorrar.TabIndex = 40;
             this.btnBorrar.Text = "Borrar";
             this.btnBorrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -327,9 +329,9 @@
             this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Add;
             this.iconButton2.IconColor = System.Drawing.Color.Black;
             this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.Location = new System.Drawing.Point(521, 106);
+            this.iconButton2.Location = new System.Drawing.Point(494, 110);
             this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(66, 91);
+            this.iconButton2.Size = new System.Drawing.Size(66, 82);
             this.iconButton2.TabIndex = 39;
             this.iconButton2.Text = "Agregar";
             this.iconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -382,6 +384,20 @@
             this.lblFechaCompra.Size = new System.Drawing.Size(116, 16);
             this.lblFechaCompra.TabIndex = 44;
             this.lblFechaCompra.Text = "Fecha de compra:";
+            // 
+            // lblBorrarFactura
+            // 
+            this.lblBorrarFactura.IconChar = FontAwesome.Sharp.IconChar.Trash;
+            this.lblBorrarFactura.IconColor = System.Drawing.Color.Black;
+            this.lblBorrarFactura.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.lblBorrarFactura.Location = new System.Drawing.Point(328, 86);
+            this.lblBorrarFactura.Name = "lblBorrarFactura";
+            this.lblBorrarFactura.Size = new System.Drawing.Size(71, 88);
+            this.lblBorrarFactura.TabIndex = 44;
+            this.lblBorrarFactura.Text = "Borrar factura";
+            this.lblBorrarFactura.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.lblBorrarFactura.UseVisualStyleBackColor = true;
+            this.lblBorrarFactura.Click += new System.EventHandler(this.lblBorrarFactura_Click);
             // 
             // frmVentaProducto
             // 
@@ -438,5 +454,6 @@
         private System.Windows.Forms.NumericUpDown txtCantidadDeseada;
         private System.Windows.Forms.DateTimePicker dtpFechaCompra;
         private System.Windows.Forms.Label lblFechaCompra;
+        private FontAwesome.Sharp.IconButton lblBorrarFactura;
     }
 }
