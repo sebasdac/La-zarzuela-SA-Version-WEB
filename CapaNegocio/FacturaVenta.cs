@@ -27,6 +27,8 @@ namespace CapaNegocio
         double _impuesto;
         double _total;
         double _totalImpuesto;
+        double _subtotal;
+
 
         ClaseFacturas obj_facturas = new ClaseFacturas();
         public DataTable Tabla_Facturas { get => obj_facturas.TablaFacturas; }
@@ -51,24 +53,29 @@ namespace CapaNegocio
         public double Total { get => _total; set => _total = value; }
         public double TotalImpuesto { get => _totalImpuesto; set => _totalImpuesto = value; }
         public int FacturaID1 { get => FacturaID; set => FacturaID = value; }
+        public double Subtotal { get => _subtotal; set => _subtotal = value; }
         #endregion
 
         #region "Metodos"
         private ClaseFacturas facturaDAL = new ClaseFacturas(); // Instancia de la capa de datos
 
-        public int RegistrarFactura(int clienteID, string nombre, string cedula, string tipo, DateTime fecha, decimal total, int[] productoIDs, int[] cantidades, decimal[] precios, decimal[] impuestos, decimal[] subtotales, decimal[] totalesProductos, string[] nombreproducto)
+        public void RegistrarFactura(int clienteID, string nombre, string cedula, string tipo, string fecha)
         {
-            // Insertar la factura
-            int facturaID = facturaDAL.InsertarFactura(clienteID, nombre,cedula,tipo, fecha,total);
-
-            // Insertar los detalles de la factura
-            for (int i = 0; i < productoIDs.Length; i++)
-            {
-                facturaDAL.InsertarDetalleFactura(facturaID, productoIDs[i], cantidades[i], precios[i], impuestos[i], subtotales[i], totalesProductos[i], nombreproducto[i]);
-            }
-
-            return facturaID;
+            
+            obj_facturas.InsertarFactura(clienteID, nombre, cedula, tipo, fecha);
+            
         }
+
+
+        public void InsertarDetallesFactura()
+        {
+            obj_facturas.InsertarDetalleFactura(_codigoproducto,_cantidad, _precio,_impuesto,_subtotal,_total, _nombreprodcuto);
+        }
+
+
+
+
+
         public void ActualizarInventario(string codigoProducto, int cantidad)
         {
             ClaseProductos_BD productoDAL = new ClaseProductos_BD(); // Instancia de la capa de datos
@@ -84,14 +91,7 @@ namespace CapaNegocio
             }
             
         }
-        public void ValidarProducto()
-        {
-          
-            if (_cantidad <= 0)
-            {
-                throw new ArgumentException("La cantidad no puede ser 0");
-            }
-        }
+       
       
         public void LeerFactura()
         {
@@ -104,6 +104,14 @@ namespace CapaNegocio
             obj_facturas.LeerDetalles(FacturaID.ToString());
         }
 
+        public void LeerDetallesGridView()
+        {
+            obj_facturas.LeerDetallesalDataGridView();
+        }
+        public void EliminarProducto()
+        {
+            obj_facturas.EliminarProducto(FacturaID);
+        }
 
 
         #endregion

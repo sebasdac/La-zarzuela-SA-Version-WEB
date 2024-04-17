@@ -35,27 +35,39 @@ namespace La_zarzuela_SA
         }
         private void dgvProductos_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
-            // Índice de la fila recién agregada
-            int newRowIdx = e.RowIndex;
-
-            // Obtener el valor de la celda en la columna "Codigo" de la fila recién agregada
-            var newValue = dgvProductos.Rows[newRowIdx].Cells["colCodigo"].Value;
-
-            // Verificar si el valor ya está presente en otra fila
-            foreach (DataGridViewRow row in dgvProductos.Rows)
+            try
             {
-                if (row.Index != newRowIdx) // Saltar la fila recién agregada
-                {
-                    var existingValue = row.Cells["colCodigo"].Value;
+                // Índice de la fila recién agregada
+                int newRowIdx = e.RowIndex;
 
-                    // Si el valor ya existe, mostrar un mensaje de error y eliminar la fila recién agregada
-                    if (newValue != null && existingValue != null && newValue.ToString() == existingValue.ToString())
+                // Obtener el valor de la celda en la columna "Codigo" de la fila recién agregada
+                var newValue = dgvProductos.Rows[newRowIdx].Cells["ProductoID"].Value;
+
+                // Verificar si el valor ya está presente en otra fila
+                foreach (DataGridViewRow row in dgvProductos.Rows)
+                {
+                    if (row.Index != newRowIdx) // Saltar la fila recién agregada
                     {
-                        MessageBox.Show("El número de código ya existe en otra fila.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        dgvProductos.Rows.RemoveAt(newRowIdx);
-                        return;
+                        var existingValue = row.Cells["ProductoID"].Value;
+
+                        // Si el valor ya existe, mostrar un mensaje de error y eliminar la fila recién agregada
+                        if (newValue != null && existingValue != null && newValue.ToString() == existingValue.ToString())
+                        {
+                            obj_facturaventa.FacturaID1 = int.Parse(txtCodigoProducto.Text);
+                            obj_facturaventa.EliminarProducto();
+                            obj_facturaventa.LeerDetallesGridView();
+                            dgvProductos.DataSource = obj_facturaventa.Tabla_Detalles;
+                            throw new ArgumentException("El número de código ya existe en otra fila.");
+                            
+
+                            
+                        }
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -169,7 +181,7 @@ namespace La_zarzuela_SA
             txtCodigoCliente.Text = codigo;
             txtTipo.Text = tipo;
             txtCedula.Text = cedula;
-
+            obj_facturaventa.RegistrarFactura(int.Parse(codigo), nombre,tipo,cedula, dtpFechaCompra.Value.ToString("yyyy-MM-dd HH:mm:ss"));
 
 
 
@@ -268,17 +280,35 @@ namespace La_zarzuela_SA
         {
             try
             {
+                obj_productos.Codigo = int.Parse(txtCodigoProducto.Text);
+                obj_productos.Precio = int.Parse(txtPrecio.Text);
+                obj_productos.Nombre = txtNombreProducto.Text;
                 obj_productos.Cantidad = int.Parse(txtDisponible.Text);
                 obj_productos.CantidadDeseada = int.Parse(txtCantidadDeseada.Text);
-                obj_facturaventa.Cantidad = int.Parse(txtCantidadDeseada.Text);
-                obj_facturaventa.ValidarProducto();
                 obj_productos.ValidarStock();
 
-                obj_productos.Precio = int.Parse(txtPrecio.Text);
                 obj_productos.Cantidad = int.Parse(txtCantidadDeseada.Text);
-                obj_productos.CalcularTotal();
+                obj_productos.ValidarProducto();
+                
+               
 
-                dgvProductos.Rows.Add(txtCodigoProducto.Text, txtNombreProducto.Text, txtCantidadDeseada.Text, txtPrecio.Text, obj_productos.Impuesto.ToString(), obj_productos.Total.ToString(), obj_productos.TotalImpuesto.ToString());
+                obj_facturaventa.Codigoproducto = int.Parse(txtCodigoProducto.Text);
+                obj_facturaventa.Cantidad = int.Parse(txtCantidadDeseada.Text);
+                obj_facturaventa.Precio = int.Parse(txtPrecio.Text);
+                obj_facturaventa.Nombreprodcuto = txtNombreProducto.Text;
+                
+                obj_productos.CalcularTotal();
+                obj_facturaventa.Subtotal = obj_productos.Total;
+                obj_facturaventa.Impuesto=obj_productos.Impuesto;
+                obj_facturaventa.Total = obj_productos.TotalImpuesto;
+                
+
+               obj_facturaventa.InsertarDetallesFactura();
+
+                obj_facturaventa.LeerDetallesGridView();
+                dgvProductos.DataSource = obj_facturaventa.Tabla_Detalles;
+
+
                 txtDisponible.Text = "";
                 txtCantidadDeseada.Text = "";
                 txtNombreProducto.Text = "";
@@ -305,29 +335,34 @@ namespace La_zarzuela_SA
 
         private void btnBorrar_Click(object sender, EventArgs e)
         {
-            DataGridViewRow selectedRow = dgvProductos.CurrentRow;
+            
             DialogResult result = MessageBox.Show("¿Seguro que quieres eliminar esta fila?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                try
+                // Verificar si hay una fila seleccionada
+                if (dgvProductos.SelectedRows.Count > 0)
                 {
-                    if (filaSeleccionada >= 0)
-                    {
+                    // Obtener la primera fila seleccionada
+                    DataGridViewRow selectedRow = dgvProductos.SelectedRows[0];
 
-                        dgvProductos.Rows.Remove(selectedRow);
-                        obj_productos.EscribeTablaalXML();
-                        txtCantidadDeseada.Text = "";
-                        txtDisponible.Text = "";
-                        txtNombreProducto.Text = "";
-                        txtCodigoProducto.Text = "";
-                        txtPrecio.Text = "";
+                    // Obtener el valor de una celda específica por índice de columna
+                    int codigproducto = int.Parse(selectedRow.Cells["ProductoID"].Value.ToString());
+                    obj_facturaventa.FacturaID1 = codigproducto;
+                    
+                    obj_facturaventa.EliminarProducto();
+                    obj_facturaventa.LeerDetallesGridView();
+                    dgvProductos.DataSource = obj_facturaventa.Tabla_Detalles;
 
-                    }//fin if
-                }//fin try
-                catch
+                    // O alternativamente, puedes usar el índice de columna
+                    // string cellValue = selectedRow.Cells[0].Value.ToString();
+
+
+                }
+                else
                 {
-                    MessageBox.Show("No se ha seleccionado ninguna fila");
-                }//fin catch
+                    MessageBox.Show("Por favor, seleccione una fila en el DataGridView.");
+                }
+
             }
         }
         public void ActualizarInventarioDesdeUI()
@@ -338,8 +373,8 @@ namespace La_zarzuela_SA
                 if (!row.IsNewRow)
                 {
                     // Obtiene el código y la cantidad de la fila actual
-                    string codigoProducto = row.Cells["ColCodigo"].Value.ToString();
-                    int cantidad = Convert.ToInt32(row.Cells["ColCantidad"].Value);
+                    string codigoProducto = row.Cells["ProductoID"].Value.ToString();
+                    int cantidad = Convert.ToInt32(row.Cells["Cantidad"].Value);
 
                     // Llama al método de la capa de negocio para actualizar el inventario
                     obj_facturaventa.ActualizarInventario(codigoProducto, cantidad);
@@ -351,189 +386,40 @@ namespace La_zarzuela_SA
         {
             try
             {
-                if (dgvProductos.Rows.Count == 0)
-                {
-                    // El DataGridView está vacío
-                   throw new Exception("No se han agregado productos a la factura");
-                }
-
-
-                obj_facturaventa.Nombrecliente = txtNombreCliente.Text;
-                obj_facturaventa.ValidarCliente();
-                
-
-                //Obtener los datos de la factura desde el DataGridView
-                int clienteID = int.Parse(txtCodigoCliente.Text); // Por ejemplo, aquí obtienes el ID del cliente desde el DataGridView
-                DateTime fecha = DateTime.Parse(dtpFechaCompra.Text); // Por ejemplo, aquí obtienes la fecha desde el DataGridView
-                decimal total = ObtenerTotalDesdeDataGridView(); // Por ejemplo, aquí obtienes el total desde el DataGridView
-                string nombre = txtNombreCliente.Text;
-                string cedula = txtCedula.Text;
-                string tipo = txtTipo.Text;
-                
-
-                // Obtener los detalles de la factura desde el DataGridView
-                string[] NombreProductos = ObtenerProductoNombreIDsDesdeDataGridView();
-                int[] productoIDs = ObtenerProductoIDsDesdeDataGridView();
-                int[] cantidades = ObtenerCantidadesDesdeDataGridView();
-                decimal[] precios = ObtenerPreciosDesdeDataGridView();
-                decimal[] impuestos = ObtenerImpuestosDesdeDataGridView();
-                decimal[] subtotales = ObtenerSubtotalesDesdeDataGridView();
-                decimal[] totalesProductos = ObtenerTotalesProductosDesdeDataGridView();
-
-                // Llamar al método de la capa de negocio para registrar la factura
-                int facturaID = obj_facturaventa.RegistrarFactura(clienteID, nombre, cedula, tipo, fecha, total, productoIDs, cantidades, precios, impuestos, subtotales, totalesProductos, NombreProductos);
                 ActualizarInventarioDesdeUI();
-                dgvProductos.Rows.Clear();
+                txtCodigoProducto.Text = "";
+                txtNombreProducto.Text = "";
+                txtDisponible.Text = "";
+                txtPrecio.Text = "";
+                txtCantidadDeseada.Text = "";
                 txtCodigoCliente.Text = "";
                 txtNombreCliente.Text = "";
-                txtCedula.Text = "";
                 txtTipo.Text = "";
+                txtCedula.Text = "";
 
-
-                MessageBox.Show("La factura se registró con éxito con el ID: " + facturaID);
+                dgvProductos.DataSource = null;
+                MessageBox.Show("Venta realizada con éxito", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al registrar la factura: " + ex.Message);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
-        // Métodos para obtener los datos de la factura desde el DataGridView
-        private int[] ObtenerProductoIDsDesdeDataGridView()
-        {
-            List<int> productoIDs = new List<int>();
-
-            // Recorre todas las filas del DataGridView
-            foreach (DataGridViewRow fila in dgvProductos.Rows)
-            {
-                // Obtén el ID del producto de la columna correspondiente
-                int productoID = Convert.ToInt32(fila.Cells["colCodigo"].Value);
-                // Agrega el ID del producto a la lista
-                productoIDs.Add(productoID);
-            }
-
-            // Convierte la lista de IDs de productos a un array y retórnala
-            return productoIDs.ToArray();
-        }
-
-        private string[] ObtenerProductoNombreIDsDesdeDataGridView()
-        {
-            List<string> productoNombres = new List<string>();
-
-            // Recorre todas las filas del DataGridView
-            foreach (DataGridViewRow fila in dgvProductos.Rows)
-            {
-                // Obtén el ID del producto de la columna correspondiente
-                string productonombre = fila.Cells["colProducto"].Value.ToString();
-                // Agrega el ID del producto a la lista
-                productoNombres.Add(productonombre);
-            }
-
-            // Convierte la lista de IDs de productos a un array y retórnala
-            return productoNombres.ToArray();
-        }
-
-        private int[] ObtenerCantidadesDesdeDataGridView()
-        {
-            List<int> cantidades = new List<int>();
-
-            // Recorre todas las filas del DataGridView
-            foreach (DataGridViewRow fila in dgvProductos.Rows)
-            {
-                // Obtén la cantidad del producto de la columna correspondiente
-                int cantidad = Convert.ToInt32(fila.Cells["colCantidad"].Value);
-                // Agrega la cantidad a la lista
-                cantidades.Add(cantidad);
-            }
-
-            // Convierte la lista de cantidades a un array y retórnala
-            return cantidades.ToArray();
-        }
-
-        private decimal[] ObtenerPreciosDesdeDataGridView()
-        {
-            List<decimal> precios = new List<decimal>();
-
-            // Recorre todas las filas del DataGridView
-            foreach (DataGridViewRow fila in dgvProductos.Rows)
-            {
-                // Obtén el precio del producto de la columna correspondiente
-                decimal precio = Convert.ToDecimal(fila.Cells["colPrecio"].Value);
-                // Agrega el precio a la lista
-                precios.Add(precio);
-            }
-
-            // Convierte la lista de precios a un array y retórnala
-            return precios.ToArray();
-        }
-
-        private decimal[] ObtenerImpuestosDesdeDataGridView()
-        {
-            List<decimal> impuestos = new List<decimal>();
-
-            // Recorre todas las filas del DataGridView
-            foreach (DataGridViewRow fila in dgvProductos.Rows)
-            {
-                // Obtén el impuesto del producto de la columna correspondiente
-                decimal impuesto = Convert.ToDecimal(fila.Cells["colImpuesto"].Value);
-                // Agrega el impuesto a la lista
-                impuestos.Add(impuesto);
-            }
-
-            // Convierte la lista de impuestos a un array y retórnala
-            return impuestos.ToArray();
-        }
-
-        private decimal[] ObtenerSubtotalesDesdeDataGridView()
-        {
-            List<decimal> subtotales = new List<decimal>();
-
-            // Recorre todas las filas del DataGridView
-            foreach (DataGridViewRow fila in dgvProductos.Rows)
-            {
-                // Obtén el subtotal del producto de la columna correspondiente
-                decimal subtotal = Convert.ToDecimal(fila.Cells["colSubtotal"].Value);
-                // Agrega el subtotal a la lista
-                subtotales.Add(subtotal);
-            }
-
-            // Convierte la lista de subtotales a un array y retórnala
-            return subtotales.ToArray();
-        }
-
-        private decimal[] ObtenerTotalesProductosDesdeDataGridView()
-        {
-            List<decimal> totalesProductos = new List<decimal>();
-
-            // Recorre todas las filas del DataGridView
-            foreach (DataGridViewRow fila in dgvProductos.Rows)
-            {
-                // Obtén el total del producto de la columna correspondiente
-                decimal totalProducto = Convert.ToDecimal(fila.Cells["colTotal"].Value);
-                // Agrega el total del producto a la lista
-                totalesProductos.Add(totalProducto);
-            }
-
-            // Convierte la lista de totales de productos a un array y retórnala
-            return totalesProductos.ToArray();
-        }
-        private decimal ObtenerTotalDesdeDataGridView()
-        {
-            decimal total = 0;
-
-            // Recorre todas las filas del DataGridView
-            foreach (DataGridViewRow fila in dgvProductos.Rows)
-            {
-                // Obtén el total de la fila actual
-                decimal totalFila = Convert.ToDecimal(fila.Cells["colTotal"].Value);
-                // Suma el total de la fila al total general
-                total += totalFila;
-            }
-
-            return total;
-        }
+       
+        
 
         private void domainUpDown1_SelectedItemChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBorrarFactura_Click(object sender, EventArgs e)
         {
 
         }
