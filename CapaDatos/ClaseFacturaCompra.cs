@@ -21,41 +21,40 @@ namespace CapaDatos
         public DataTable TablaFacturas { get => ds_resultados.Tables[0]; }
         DataSet ds_detalles = new DataSet();
         public DataTable TablaDetalles { get => ds_detalles.Tables[0]; }
+        int facturaID;
 
-
-        public int InsertarFactura(int clienteID, string nombre, string cedula, string tipo, DateTime fecha, decimal total)
+        public void InsertarFactura(int ProveedorID, string nombre, string cedula, string tipo, string fecha)
         {
-            int facturaID = 0;
+
 
             using (SqlConnection connection = new SqlConnection(String_Conexion))
             {
                 connection.Open();
 
-                string query = "INSERT INTO FacturaCompra (ProveedorID, NombreProveedor, CedulaProveedor, Tipo, Fecha, Total) VALUES (@ProveedorID," +
-                    " @NombreProveedor, @CedulaProveedor,@Tipo, @Fecha, @Total); SELECT SCOPE_IDENTITY();";
+                string query = "INSERT INTO Factura (ProveedorID, NombreProveedor, CedulaProveedor, Tipo, Fecha) VALUES (@ClienteID, @Nombre, @Cedula,@Tipo, @Fecha); SELECT SCOPE_IDENTITY();";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@ProveedorID", clienteID);
-                    command.Parameters.AddWithValue("@NombreProveedor", nombre);
-                    command.Parameters.AddWithValue("@CedulaProveedor", cedula);
+                    command.Parameters.AddWithValue("@ClienteID", ProveedorID);
+                    command.Parameters.AddWithValue("@Nombre", nombre);
+                    command.Parameters.AddWithValue("@Cedula", cedula);
                     command.Parameters.AddWithValue("@Tipo", tipo);
                     command.Parameters.AddWithValue("@Fecha", fecha);
-                    command.Parameters.AddWithValue("@Total", total);
+
 
                     facturaID = Convert.ToInt32(command.ExecuteScalar());
                 }
             }
 
-            return facturaID;
+
         }
 
-        public void InsertarDetalleFactura(int facturaID, int productoID, int cantidad, decimal precio, decimal impuesto, decimal subtotal, decimal totalProducto, string nombreproducto)
+        public void InsertarDetalleFactura(int productoID, int cantidad, decimal precio, double impuesto, double subtotal, double totalProducto, string nombreproducto)
         {
             using (SqlConnection connection = new SqlConnection(String_Conexion))
             {
                 connection.Open();
 
-                string query = "INSERT INTO DetallesFacturaCompra (FacturaID, ProductoID, Cantidad, Precio, Impuesto, Subtotal, TotalProducto, ProductoNombre) VALUES (@FacturaID, @ProductoID, @Cantidad, @Precio, @Impuesto, @Subtotal, @TotalProducto,@NombreProducto);";
+                string query = "INSERT INTO DetallesFactura (FacturaID, ProductoID, Cantidad, Precio, Impuesto, Subtotal, TotalProducto, ProductoNombre) VALUES (@FacturaID, @ProductoID, @Cantidad, @Precio, @Impuesto, @Subtotal, @TotalProducto,@NombreProducto);";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@FacturaID", facturaID);
@@ -70,11 +69,36 @@ namespace CapaDatos
                 }
             }
         }
+
+        public void LeerFactura(string codigo)
+        {
+            using (SqlConnection conexion = new SqlConnection(String_Conexion))
+            {
+                SqlCommand instruccionSQL = new SqlCommand("select*from Factura WHERE FacturaID=@FacturaID", conexion);
+                instruccionSQL.Parameters.AddWithValue("@FacturaID", codigo);
+
+                ds_resultados.Clear(); // Limpia el dataset antes de llenarlo.
+
+                try
+                {
+                    conexion.Open();
+                    using (SqlDataAdapter sqlDA = new SqlDataAdapter(instruccionSQL))
+                    {
+                        sqlDA.Fill(ds_resultados);
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    throw new SystemException("Error de SQL al cargar los datos: " + ex.Message);
+                }
+            } // La conexión se cerrará automáticamente al salir del bloque using.
+        }
+
         public void LeerDetalles(string codigo)
         {
             using (SqlConnection conexion = new SqlConnection(String_Conexion))
             {
-                SqlCommand instruccionSQL = new SqlCommand("select*from DetallesFacturaCompra WHERE FacturaID=@FacturaID", conexion);
+                SqlCommand instruccionSQL = new SqlCommand("select*from DetallesFactura WHERE FacturaID=@FacturaID", conexion);
                 instruccionSQL.Parameters.AddWithValue("@FacturaID", codigo);
 
                 ds_detalles.Clear(); // Limpia el dataset antes de llenarlo.
@@ -94,38 +118,60 @@ namespace CapaDatos
             }
 
         }
-       
 
-
-
-
-
-
-
-
-
-        public void LeerFactura(string codigo)
+        public void LeerDetallesalDataGridView()
         {
             using (SqlConnection conexion = new SqlConnection(String_Conexion))
             {
-                SqlCommand instruccionSQL = new SqlCommand("select*from FacturaCompra WHERE FacturaID=@FacturaID", conexion);
-                instruccionSQL.Parameters.AddWithValue("@FacturaID", codigo);
+                SqlCommand instruccionSQL = new SqlCommand("select*from DetallesFactura WHERE FacturaID=@FacturaID", conexion);
+                instruccionSQL.Parameters.AddWithValue("@FacturaID", facturaID);
 
-                ds_resultados.Clear(); // Limpia el dataset antes de llenarlo.
+                ds_detalles.Clear(); // Limpia el dataset antes de llenarlo.
 
                 try
                 {
                     conexion.Open();
                     using (SqlDataAdapter sqlDA = new SqlDataAdapter(instruccionSQL))
                     {
-                        sqlDA.Fill(ds_resultados);
+                        sqlDA.Fill(ds_detalles);
                     }
                 }
                 catch (SqlException ex)
                 {
                     throw new SystemException("Error de SQL al cargar los datos: " + ex.Message);
                 }
-            } // La conexión se cerrará automáticamente al salir del bloque using.
+            }
+
+        }
+
+        public void EliminarProducto(int productoID)
+        {
+            using (SqlConnection connection = new SqlConnection(String_Conexion))
+            {
+                connection.Open();
+
+                string query = "DELETE FROM DetallesFactura WHERE ProductoID = @ProductoID";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@ProductoID", productoID);
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void EliminarFactura()
+        {
+            using (SqlConnection connection = new SqlConnection(String_Conexion))
+            {
+                connection.Open();
+
+                string query = "DELETE FROM Factura WHERE FacturaID = @FacturaID";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@FacturaID", facturaID);
+                    command.ExecuteNonQuery();
+                }
+            }
         }
 
     }
