@@ -47,12 +47,18 @@ namespace La_zarzuela_SA
 
                 // Obtener referencia a la instancia existente de frmVentaProducto
                 frmVentaProducto ventaProducto = (frmVentaProducto)Application.OpenForms["frmVentaProducto"];
+                Agregar_inventario productos = (Agregar_inventario)Application.OpenForms["Agregar_inventario"];
 
                 // Verificar si la instancia existe
                 if (ventaProducto != null)
                 {
                     // Actualizar los datos en frmVentaProducto
                     ventaProducto.RecibirDatos(valorColumna1, valorColumna2, valorColumna3, valorColumna4);
+                    this.Close();
+                }
+                if(productos!= null)
+                {
+                    productos.RecibirDatosProductos(valorColumna1, valorColumna2);
                     this.Close();
                 }
 

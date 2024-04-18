@@ -47,6 +47,9 @@
             this.menutitulo = new System.Windows.Forms.MenuStrip();
             this.lblIstsema = new System.Windows.Forms.Label();
             this.panelContenedor = new System.Windows.Forms.Panel();
+            this.btnAgregarProducto = new FontAwesome.Sharp.IconMenuItem();
+            this.btnVerProductos = new FontAwesome.Sharp.IconMenuItem();
+            this.btnAgregarInventario = new FontAwesome.Sharp.IconMenuItem();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -121,6 +124,10 @@
             // 
             // btnProductos
             // 
+            this.btnProductos.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnAgregarProducto,
+            this.btnVerProductos,
+            this.btnAgregarInventario});
             this.btnProductos.IconChar = FontAwesome.Sharp.IconChar.Shop;
             this.btnProductos.IconColor = System.Drawing.Color.Black;
             this.btnProductos.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -224,7 +231,7 @@
             this.btnReciboCOmpra.IconColor = System.Drawing.Color.Black;
             this.btnReciboCOmpra.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnReciboCOmpra.Name = "btnReciboCOmpra";
-            this.btnReciboCOmpra.Size = new System.Drawing.Size(224, 26);
+            this.btnReciboCOmpra.Size = new System.Drawing.Size(220, 26);
             this.btnReciboCOmpra.Text = "Recibos de compra";
             this.btnReciboCOmpra.Click += new System.EventHandler(this.btnReciboCOmpra_Click);
             // 
@@ -283,6 +290,36 @@
             this.panelContenedor.Size = new System.Drawing.Size(1360, 732);
             this.panelContenedor.TabIndex = 3;
             // 
+            // btnAgregarProducto
+            // 
+            this.btnAgregarProducto.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btnAgregarProducto.IconColor = System.Drawing.Color.Black;
+            this.btnAgregarProducto.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnAgregarProducto.Name = "btnAgregarProducto";
+            this.btnAgregarProducto.Size = new System.Drawing.Size(224, 26);
+            this.btnAgregarProducto.Text = "Agregar producto";
+            this.btnAgregarProducto.Click += new System.EventHandler(this.btnAgregarProducto_Click);
+            // 
+            // btnVerProductos
+            // 
+            this.btnVerProductos.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btnVerProductos.IconColor = System.Drawing.Color.Black;
+            this.btnVerProductos.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnVerProductos.Name = "btnVerProductos";
+            this.btnVerProductos.Size = new System.Drawing.Size(224, 26);
+            this.btnVerProductos.Text = "Ver productos";
+            this.btnVerProductos.Click += new System.EventHandler(this.btnVerProductos_Click);
+            // 
+            // btnAgregarInventario
+            // 
+            this.btnAgregarInventario.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btnAgregarInventario.IconColor = System.Drawing.Color.Black;
+            this.btnAgregarInventario.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnAgregarInventario.Name = "btnAgregarInventario";
+            this.btnAgregarInventario.Size = new System.Drawing.Size(224, 26);
+            this.btnAgregarInventario.Text = "Agregar inventario";
+            this.btnAgregarInventario.Click += new System.EventHandler(this.btnAgregarInventario_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -327,6 +364,9 @@
         private FontAwesome.Sharp.IconMenuItem btnImpuestos;
         private FontAwesome.Sharp.IconMenuItem iconMenuItem3;
         private FontAwesome.Sharp.IconMenuItem iconMenuItem4;
+        private FontAwesome.Sharp.IconMenuItem btnAgregarProducto;
+        private FontAwesome.Sharp.IconMenuItem btnVerProductos;
+        private FontAwesome.Sharp.IconMenuItem btnAgregarInventario;
     }
 }
 

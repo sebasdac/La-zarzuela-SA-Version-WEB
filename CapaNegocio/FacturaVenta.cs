@@ -80,7 +80,7 @@ namespace CapaNegocio
         {
             ClaseProductos_BD productoDAL = new ClaseProductos_BD(); // Instancia de la capa de datos
             // Llama al método de la capa de datos para actualizar el inventario
-            productoDAL.ActualizarInventario(codigoProducto, cantidad);
+            productoDAL.ActualizarInventarioResta(codigoProducto, cantidad);
         }
 
         public void ValidarCliente()

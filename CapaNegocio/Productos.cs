@@ -90,20 +90,14 @@ namespace CapaNegocio
             _totalImpuesto = _total + _impuesto;
         }//fin CalcularTotal
 
+        public void ActualizarInventario(int _codigo, int cantidad)
+        {
+            obj_productosBD.ActualizarInventarioSuma(_codigo.ToString(), cantidad);
+        }
       
-        public void EscribeProductoDT()
-        {
-            //Datos_Productos.AgregarProducto(_codigo, _nombre, _cantidad, _precio, _impuesto, _totalImpuesto);
 
 
-        }//fin EscribeProdutoDT
-
-
-        public void EscribeTablaalXML()
-        {
-
-            //Datos_Productos.EscribeTabla_en_XML();
-        }//fin EscribeTablaXML
+      
 
         public void LeeTablaProducto()
         {
@@ -117,75 +111,47 @@ namespace CapaNegocio
 
         public void ValidarStock()
         {
-            if(_cantidad<_cantidadDeseada)
+            if (_cantidad < _cantidadDeseada)
             {
                 throw new ArgumentException("No hay suficiente stock");
             }
         }
-       
 
 
 
-       
-       
-
-        public void ValidarCantidad()
-        {
-
-            if (_cantidad <= 0)
-            {
-                throw new ArgumentException("La cantidad no puede ser 0");
-            }//fin if
-            
-            
-        }//fin validar cantidad
-
-        public void ValidarBoton()
-        {
-            if (!string.IsNullOrEmpty(_nombre)) //verifica que se haya seleccionado un usuario
-            {
-                Clickboton = true;
-            }//fin if
-        }//fin validar boton
 
 
         public void EscribeProductoBD()
         {
-            ClaseProductos_BD Bd_productos = new ClaseProductos_BD();
-
-            Bd_productos.EscribeProductoBD(_codigo, _nombre, _precio,
-                                    _cantidad, _impuesto, _totalImpuesto);
-        } //fin EscribeProductoDT
-
-
-
-
-        public void InsertarProducto(int[] productoIDs, int[] cantidades, decimal[] precios, decimal[] impuestos, decimal[] totalesProductos, string[] nombreproducto)
-        {
-            // Insertar la factura
-
-            // Insertar los detalles de la factura
-            for (int i = 0; i < productoIDs.Length; i++)
-            {
-                
-                    obj_productosBD.EscribeProductoBD(productoIDs[i], nombreproducto[i], int.Parse(precios[i].ToString()), cantidades[i], double.Parse(impuestos[i].ToString()), double.Parse(totalesProductos[i].ToString()));
-                
-               
-            }
-        }
-        public void ValidarCodigoRepetido()
-        {
             try
             {
-                obj_productosBD.ValidarCodigoRepetido(_codigo);
+                ClaseProductos_BD Bd_productos = new ClaseProductos_BD();
+
+                Bd_productos.EscribeProductoBD(_codigo, _nombre, _precio,
+                                        _cantidad, _impuesto, _totalImpuesto);
             }
-            catch (SqlException ex)
+            catch(SqlException ex)
             {
-                throw new ArgumentException("Error: " + ex.Message);
+                if(ex.Number== 2627)
+                {
+                    throw new ArgumentException("El codigo de producto ya existe");
+                }
+                else
+                {
+                    throw new ArgumentException(ex.Message);
+                }
+
             }
-            
+        } //fin EscribeProductoDT
+        public void EliminarProducto()
+        {
+            obj_productosBD.EliminarProducto(_codigo);
         }
         
-       #endregion
+
+
+
+        #endregion
+
     }
 }

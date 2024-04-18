@@ -107,20 +107,18 @@ namespace CapaDatos
                 throw new ArgumentException("Error: " + ex.Message);
             }
         }
-        public void ValidarCodigoRepetido(int codigo)
+      
+        public void EliminarProducto(int codigo)
         {
+            SqlCommand instruccionSQL;
+            AbrirConexion();
+            instruccionSQL = new SqlCommand("delete from Productos where Codigo = @Codigo", conexion);
+            instruccionSQL.Parameters.AddWithValue("@Codigo", codigo);
+            instruccionSQL.ExecuteNonQuery();
 
-            using (SqlConnection connection = new SqlConnection(String_Conexion))
-            {
-                connection.Open();
-                SqlCommand command = new SqlCommand("SELECT COUNT(*) FROM Productos WHERE Codigo = @Codigo", connection);
-                command.Parameters.AddWithValue("@Codigo", codigo);
-                int count = (int)command.ExecuteScalar();
-                if( count > 0)
-                {                  
-                    throw new ArgumentException("El código ya existe");
-                }
-            }
+
+
+            CerrarConexion();
         }
         
 
@@ -152,7 +150,7 @@ namespace CapaDatos
             CerrarConexion();
         }
 
-        public void ActualizarInventario(string codigoProducto, int cantidad)
+        public void ActualizarInventarioResta(string codigoProducto, int cantidad)
         {
             // Conexión a la base de datos
             using (SqlConnection connection = new SqlConnection(String_Conexion))
@@ -166,6 +164,23 @@ namespace CapaDatos
                 command.ExecuteNonQuery();
             }
         }
+
+        public void ActualizarInventarioSuma(string codigoProducto, int cantidad)
+        {
+            // Conexión a la base de datos
+            using (SqlConnection connection = new SqlConnection(String_Conexion))
+            {
+                connection.Open();
+                // Consulta SQL para actualizar el inventario
+                string query = "UPDATE Productos SET Cantidad = Cantidad + @cantidad WHERE Codigo = @codigo";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@cantidad", cantidad);
+                command.Parameters.AddWithValue("@codigo", codigoProducto);
+                command.ExecuteNonQuery();
+            }
+        }
+
+       
 
 
 

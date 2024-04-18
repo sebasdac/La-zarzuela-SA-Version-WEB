@@ -194,7 +194,7 @@ namespace La_zarzuela_SA
 
         private void btnProductos_Click(object sender, EventArgs e)
         {
-            AbrirFormulario((IconMenuItem)sender, new frmAgregarProducto());
+            
         }
 
         private void iconMenuItem1_Click(object sender, EventArgs e)
@@ -250,6 +250,21 @@ namespace La_zarzuela_SA
         private void btnReciboCOmpra_Click(object sender, EventArgs e)
         {
             AbrirFormulario((IconMenuItem)sender, new frmVerFacturasCompra());
+        }
+
+        private void btnAgregarProducto_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario((IconMenuItem)sender, new frmAgregarProducto());
+        }
+
+        private void btnAgregarInventario_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario((IconMenuItem)sender, new Agregar_inventario());
+        }
+
+        private void btnVerProductos_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -21,6 +21,14 @@ namespace CapaNegocio
         double _Precio;
         double _Total;
         int facturaID;
+        string _tipo;
+        string _cedulaproveedor;
+        string _fecha;
+
+
+        double _subtotal;
+        double _impuesto;
+        double _totalImpuesto;
         ClaseFacturaCompra facturaDAL = new ClaseFacturaCompra(); // Instancia de la capa de datos
 
         public DataTable Tabla_Facturas { get => facturaDAL.TablaFacturas; }
@@ -44,23 +52,39 @@ namespace CapaNegocio
         public double Precio { get => _Precio; set => _Precio = value; }
         public double Total { get => _Total; set => _Total = value; }
         public int FacturaID { get => facturaID; set => facturaID = value; }
+        public string Cedulaproveedor { get => _cedulaproveedor; set => _cedulaproveedor = value; }
+        public string Tipo { get => _tipo; set => _tipo = value; }
+        public string Fecha1 { get => _fecha; set => _fecha = value; }
+        public double SubTotal { get => SubTotal; set => SubTotal = value; }
+        public double Impuesto { get => _impuesto; set => _impuesto = value; }
+        public double TotalImpuesto { get => _totalImpuesto; set => _totalImpuesto = value; }
         #endregion
 
         #region "Metodos"
 
-        public int RegistrarFactura(int clienteID, string nombre, string cedula, string tipo, DateTime fecha, decimal total, int[] productoIDs, int[] cantidades, decimal[] precios, decimal[] impuestos, decimal[] subtotales, decimal[] totalesProductos, string[] nombreproducto)
+
+        public void CalcularTotal()
         {
-            // Insertar la factura
-            int facturaID = facturaDAL.InsertarFactura(clienteID, nombre, cedula, tipo, fecha, total);
+            _subtotal = _Precio * _Cantidad;
+            Impuesto = _subtotal * 0.13;
+            TotalImpuesto = _subtotal + Impuesto;
+        }//fin CalcularTotal
 
-            // Insertar los detalles de la factura
-            for (int i = 0; i < productoIDs.Length; i++)
-            {
-                facturaDAL.InsertarDetalleFactura(facturaID, productoIDs[i], cantidades[i], precios[i], impuestos[i], subtotales[i], totalesProductos[i], nombreproducto[i]);
-            }
-
-            return facturaID;
+        public void InsertarFactura()
+        {
+           
+            facturaDAL.InsertarFactura(_CodigoProveedor, _NombreProveedor,
+                _cedulaproveedor, _tipo, Fecha1);
         }
+
+        public void InsertarDetalleFactura()
+        {
+            facturaDAL.InsertarDetalleFactura(_CodigoProducto,_NombreProducto,
+                _Cantidad,_Precio,_subtotal,Impuesto,TotalImpuesto);
+        }
+
+
+
 
         public void ValidarProveedor()
         {
@@ -83,9 +107,27 @@ namespace CapaNegocio
             facturaDAL.LeerDetalles(facturaID.ToString());
         }
 
+        public void LeerFacturaDGV()
+        {
+            facturaDAL.LeerDetallesalDataGridView();
+        }
 
+        public void EliminarProductoFactura()
+        {
+            facturaDAL.EliminarProducto(_CodigoProducto);
+        }
+        public void EliminarFactura()
+        {
 
+            facturaDAL.EliminarFactura();
+        }
 
+        public void RestaInventario (string codigoProducto, int cantidad)
+        {
+            ClaseProductos_BD obj_productos = new ClaseProductos_BD();
+
+            obj_productos.ActualizarInventarioResta(codigoProducto, cantidad);
+        }
 
 
 

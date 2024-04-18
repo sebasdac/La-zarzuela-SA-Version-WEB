@@ -31,10 +31,11 @@ namespace CapaDatos
             {
                 connection.Open();
 
-                string query = "INSERT INTO Factura (ProveedorID, NombreProveedor, CedulaProveedor, Tipo, Fecha) VALUES (@ClienteID, @Nombre, @Cedula,@Tipo, @Fecha); SELECT SCOPE_IDENTITY();";
+                string query = "INSERT INTO FacturaCompra (ProveedorID, NombreProveedor, CedulaProveedor, Tipo, Fecha) VALUES " +
+                    "(@ProveedorID, @Nombre, @Cedula,@Tipo, @Fecha); SELECT SCOPE_IDENTITY();";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@ClienteID", ProveedorID);
+                    command.Parameters.AddWithValue("@ProveedorID", ProveedorID);
                     command.Parameters.AddWithValue("@Nombre", nombre);
                     command.Parameters.AddWithValue("@Cedula", cedula);
                     command.Parameters.AddWithValue("@Tipo", tipo);
@@ -48,13 +49,14 @@ namespace CapaDatos
 
         }
 
-        public void InsertarDetalleFactura(int productoID, int cantidad, decimal precio, double impuesto, double subtotal, double totalProducto, string nombreproducto)
+        public void InsertarDetalleFactura(int productoID, string nombreproducto, int cantidad, double precio, double subtotal, double impuesto, double totalProducto)
         {
             using (SqlConnection connection = new SqlConnection(String_Conexion))
             {
                 connection.Open();
 
-                string query = "INSERT INTO DetallesFactura (FacturaID, ProductoID, Cantidad, Precio, Impuesto, Subtotal, TotalProducto, ProductoNombre) VALUES (@FacturaID, @ProductoID, @Cantidad, @Precio, @Impuesto, @Subtotal, @TotalProducto,@NombreProducto);";
+                string query = "INSERT INTO DetallesFacturaCompra (FacturaID, ProductoID, ProductoNombre, Cantidad, Precio, Subtotal, Impuesto, TotalProducto) VALUES" +
+                    " (@FacturaID, @ProductoID,@NombreProducto, @Cantidad, @Precio, @Subtotal, @Impuesto, @TotalProducto);";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@FacturaID", facturaID);
@@ -123,7 +125,7 @@ namespace CapaDatos
         {
             using (SqlConnection conexion = new SqlConnection(String_Conexion))
             {
-                SqlCommand instruccionSQL = new SqlCommand("select*from DetallesFactura WHERE FacturaID=@FacturaID", conexion);
+                SqlCommand instruccionSQL = new SqlCommand("select*from DetallesFacturaCompra WHERE FacturaID=@FacturaID", conexion);
                 instruccionSQL.Parameters.AddWithValue("@FacturaID", facturaID);
 
                 ds_detalles.Clear(); // Limpia el dataset antes de llenarlo.
@@ -150,7 +152,7 @@ namespace CapaDatos
             {
                 connection.Open();
 
-                string query = "DELETE FROM DetallesFactura WHERE ProductoID = @ProductoID";
+                string query = "DELETE FROM DetallesFacturaCompra WHERE ProductoID = @ProductoID";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@ProductoID", productoID);
@@ -165,7 +167,7 @@ namespace CapaDatos
             {
                 connection.Open();
 
-                string query = "DELETE FROM Factura WHERE FacturaID = @FacturaID";
+                string query = "DELETE FROM FacturaCompra WHERE FacturaID = @FacturaID";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@FacturaID", facturaID);

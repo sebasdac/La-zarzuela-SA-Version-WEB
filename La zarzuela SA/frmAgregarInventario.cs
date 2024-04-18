@@ -13,14 +13,9 @@ namespace La_zarzuela_SA
 {
     public partial class Agregar_inventario : Form
     {
-        //objeto
-        Productos obj_productos = new Productos();
-        Proveedor obj_proveedor = new Proveedor();
+     
         FacturaCompra obj_facturacompra = new FacturaCompra();
-        //verificar click boton
-        bool proveedor;
-        bool productos;
-        ImpuestoMensual obj_impuestos = new ImpuestoMensual();
+        Productos obj_productos = new Productos();
         public Agregar_inventario()
         {
             InitializeComponent();
@@ -32,27 +27,156 @@ namespace La_zarzuela_SA
 
 
         }
-
-        private void dgvProveedor_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        public void RecibirDatos(string codigo, string nombre, string tipo, string cedula)
         {
-            // Verifica si se hizo clic en la fila del proveedor
-            if (e.RowIndex >= 0 && dgvProveedor.Rows[e.RowIndex].Cells["Codigo"].Value != null)
-            {
-                // Aquí puedes agregar lógica específica para cuando se hace clic en la fila del proveedor
-                proveedor = true;
-            }
+            Console.WriteLine("Nombre: " + nombre + " Codigo: " + codigo);
 
-            // Verifica si ambos productos y proveedores están seleccionados para habilitar el botón Agregar
-            btnVerificar.Enabled =  proveedor;
+            txtCodigoProveedor.Text = codigo;
+            txtProveedor.Text = nombre;
+            txtTipo.Text = tipo;
+            txtCedula.Text = cedula;
+
+            obj_facturacompra.CodigoProveedor = int.Parse(codigo);
+            obj_facturacompra.NombreProveedor = nombre;
+            obj_facturacompra.Cedulaproveedor = cedula;
+            obj_facturacompra.Tipo = tipo;
+            obj_facturacompra.Fecha1 = dtpFechaCompra.Value.ToString("yyyy-MM-dd HH:mm:ss");
+            obj_facturacompra.InsertarFactura();
+
         }
-
-        private void dgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        public void RecibirDatosProductos(string codigo, string nombre)
         {
+            txtNombre.Text = nombre;
+            txtCodigoProducto.Text = codigo;
             
-        }
-        
+            
 
-       
+        }
+
+
+
+
+
+        private void btnBuscarporFactura_Click(object sender, EventArgs e)
+        {
+            frmVerProveedores frmVerProveedores = new frmVerProveedores();
+            frmVerProveedores.Show();
+        }
+
+        private void btnBorrarFactura_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("¿Seguro que quieres borrar la factura?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+
+
+                    obj_facturacompra.EliminarFactura();
+                    MessageBox.Show("Factura eliminada", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtCodigoProveedor.Text = "";
+                    txtNombre.Text = "";
+                    txtTipo.Text = "";
+                    txtCedula.Text = "";
+                    txtCodigoProducto.Text = "";
+                    txtProveedor.Text = "";
+                    txtCantidad.Text = "";
+                    txtPrecio.Text = "";
+                    txtTipo.Text = "";
+
+
+                    dgvProductos.DataSource = null;
+
+
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("La factura contiene productos, eliminelos y vuelvalo a intentar: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
+        }
+
+        private void gbProveedor_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCompraRealizada_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            frmBuscarProducto frm = new frmBuscarProducto();
+            frm.Show();
+        }
+
+        private void iconButton2_Click(object sender, EventArgs e)
+        {
+
+            obj_productos.Codigo = int.Parse(txtCodigoProducto.Text);
+            obj_productos.Nombre = txtNombre.Text;
+            obj_productos.Cantidad = int.Parse(txtCantidad.Text);
+            obj_productos.Precio = int.Parse(txtPrecio.Text);
+            obj_productos.ValidarProducto();
+            obj_productos.ActualizarInventario(int.Parse(txtCodigoProducto.Text), int.Parse(txtCantidad.Text));
+            
+
+
+
+
+            obj_facturacompra.CodigoProducto = int.Parse(txtCodigoProducto.Text);
+            obj_facturacompra.NombreProducto = txtNombre.Text;
+            obj_facturacompra.Cantidad = int.Parse(txtCantidad.Text);
+            obj_facturacompra.Precio = double.Parse(txtPrecio.Text);
+            obj_facturacompra.CalcularTotal();
+            obj_facturacompra.InsertarDetalleFactura();
+            obj_facturacompra.LeerFacturaDGV();
+
+
+
+
+            dgvProductos.DataSource = obj_facturacompra.Tabla_Detalles;
+            txtCantidad.Text = "";
+            txtPrecio.Text = "";
+            txtCodigoProducto.Text = "";
+            txtNombre.Text = "";
+        }
+        int filaSeleccionada;
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow selectedRow = dgvProductos.CurrentRow;
+            DialogResult result = MessageBox.Show("¿Seguro que quieres eliminar esta fila?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    if (filaSeleccionada >= 0)
+                    {
+
+                        obj_facturacompra.RestaInventario(txtCodigoProducto.Text, int.Parse(txtCantidad.Text));
+                        obj_facturacompra.CodigoProducto = int.Parse(txtCodigoProducto.Text);
+                        obj_facturacompra.EliminarProductoFactura();
+                        obj_facturacompra.LeerFacturaDGV();
+                        dgvProductos.DataSource = obj_facturacompra.Tabla_Detalles;
+
+                        txtCantidad.Text = "";
+
+                        txtNombre.Text = "";
+                        txtCodigoProducto.Text = "";
+                        txtPrecio.Text = "";
+
+                    }//fin if
+                }//fin try
+                catch
+                {
+                    MessageBox.Show("No se ha seleccionado ninguna fila");
+                }//fin catch
+            }
+        }
 
         private void dgvProductos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -60,158 +184,13 @@ namespace La_zarzuela_SA
             {
                 DataGridViewRow row = dgvProductos.Rows[e.RowIndex];
 
-                txtCodigoProducto.Text = row.Cells[0].Value.ToString(); // Asignar el valor de la primera columna al textBoxNombre
-                txtNombre.Text = row.Cells[1].Value.ToString(); // Asignar el valor de la segunda columna al textBoxEdad
-                 // Asignar el valor de la tercera columna al textBoxCorreo
-                txtPrecio.Text = row.Cells[3].Value.ToString();
-                
-            }
-        }
+                txtCodigoProducto.Text = row.Cells[2].Value.ToString(); // Asignar el valor de la primera columna al 
+                txtNombre.Text = row.Cells[3].Value.ToString(); // Asignar el valor de la segunda columna al 
+                txtCantidad.Text = row.Cells[4].Value.ToString(); // Asignar el valor de la tercera columna al
+                txtPrecio.Text = row.Cells[5].Value.ToString(); // Asignar el valor de la cuarta columna al   
 
-        private void btnVerificar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                int CantidadTotal = 0;
-                int CantidadActual;
-                int CantidadAgregada = 0;
-
-                double ImpuestoActual = 0;
-                double ImpuestoAgregado = 0;
-                double ImpuestoNuevo = 0;
-
-                double TotalActual = 0;
-                double TotalAgregado = 0;
-                double TotalNuevo = 0;
-
-
-                obj_productos.Cantidad = int.Parse(txtCantidadAgregada.Text);
-
-                obj_productos.ValidarCantidad();
-                if (dgvProductos.SelectedRows.Count > 0)
-                {
-                    DataGridViewRow selectedRow = dgvProductos.SelectedRows[0];
-                    // Obtener el valor de la primera celda de la fila seleccionada
-                    CantidadActual = int.Parse(selectedRow.Cells[2].Value.ToString());
-
-
-                    Console.WriteLine("Cantidad actual: " + CantidadActual);
-                    CantidadAgregada = int.Parse(txtCantidadAgregada.Text);
-                    CantidadTotal = CantidadAgregada + CantidadActual;
-                    // Hacer algo con el valor obtenido
-                    selectedRow.Cells[2].Value = CantidadTotal.ToString();
-                    obj_productos.Precio = int.Parse(txtPrecio.Text);
-                    obj_productos.Cantidad = int.Parse(txtCantidadAgregada.Text);
-
-                    obj_productos.CalcularTotal();
-
-                    obj_productos.Nombre = txtNombre.Text; //para validar boton
-
-                    lblImpuestoMostrar.Text = obj_productos.Impuesto.ToString();//  mostrar impuesto
-                    lblTotalMostrar.Text = obj_productos.TotalImpuesto.ToString();//mostrar total
-                    //impuesto despues que se ponga en el lbl
-                    ImpuestoActual = double.Parse(selectedRow.Cells[4].Value.ToString());//impuesto actual
-                    ImpuestoAgregado = double.Parse(lblImpuestoMostrar.Text);//impuesto agregado
-                    ImpuestoNuevo = ImpuestoActual + ImpuestoAgregado;//impuesto nuevo
-                    selectedRow.Cells[4].Value = ImpuestoNuevo.ToString();//asignar el impuesto nuevo
-
-                    //total
-
-                    TotalActual = double.Parse(selectedRow.Cells[5].Value.ToString());//total actual
-                    TotalAgregado = double.Parse(lblTotalMostrar.Text);//total agregado
-                    TotalNuevo = TotalActual + TotalAgregado;//total nuevo
-                    selectedRow.Cells[5].Value = TotalNuevo.ToString();//asignar el total nuevo
-                    obj_productos.ValidarBoton();//validar boton
-                    if (obj_productos.Clickboton)
-                    {
-                        btnAgregar.Enabled = true;
-
-                    }//fin if
-
-
-                }//fin if
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: la cantidad no puede estar vacia o seleccione el proveedor"+ex.Message  , "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void dgvProveedor_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow row = dgvProveedor.Rows[e.RowIndex];
-
-                txtCodigoProveedor.Text = row.Cells[0].Value.ToString(); // Asignar el valor de la primera columna al 
-                txtProveedor.Text = row.Cells[1].Value.ToString(); // Asignar el valor de la segunda columna al 
 
             }
-            
-        }
-
-        private void dgvProveedor_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                obj_productos.Codigo = int.Parse(txtCodigoProducto.Text);
-                obj_productos.Nombre = txtNombre.Text;
-                obj_productos.Cantidad = int.Parse(txtCantidadAgregada.Text);
-                obj_productos.Precio = int.Parse(txtPrecio.Text);
-                obj_productos.CodigoProveedor = int.Parse(txtCodigoProveedor.Text);
-                obj_productos.NombreProveedor = txtProveedor.Text;
-                obj_productos.Fechacompra = DateTime.Parse(dtpFechaCompra.Text);
-                
-              
-                
-                lblImpuestoMostrar.Text = obj_productos.Impuesto.ToString();
-                lblTotalMostrar.Text = obj_productos.TotalImpuesto.ToString();
-                
-                
-                
-                obj_productos.EscribeTablaalXML();
-
-                obj_impuestos.Impuestocontra = double.Parse(lblImpuestoMostrar.Text);
-                obj_impuestos.Mes = DateTime.Parse(dtpFechaCompra.Text).Month;
-               
-                MessageBox.Show("Compra realizada", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                //factura
-
-                obj_facturacompra.CodigoProducto = int.Parse(txtCodigoProducto.Text);
-                obj_facturacompra.NombreProducto = txtNombre.Text;
-                obj_facturacompra.Cantidad = int.Parse(txtCantidadAgregada.Text);
-                obj_facturacompra.Precio = double.Parse(txtPrecio.Text);
-                obj_facturacompra.Total = obj_productos.TotalImpuesto;
-                obj_facturacompra.CodigoProveedor = int.Parse(txtCodigoProveedor.Text);
-                obj_facturacompra.NombreProveedor = txtProveedor.Text;
-                obj_facturacompra.Fecha = dtpFechaCompra.Text;
-             
-
-
-
-
-
-
-
-
-            }//fin try
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-
-            }// fin catch
-            txtCodigoProducto.Text = "";
-            txtNombre.Text = "";
-            
-            txtPrecio.Text = "";
-            btnAgregar.Enabled = false;
-
         }
     }
 }
