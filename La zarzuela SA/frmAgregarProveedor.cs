@@ -45,6 +45,8 @@ namespace La_zarzuela_SA
 
                 obj_proveedor.ValidarProveedor();
                 obj_proveedor.EscribeProveedorBD();
+                obj_proveedor.LeerProveedoresBD();
+                dgvProveedor.DataSource = obj_proveedor.TablaProveedor;
 
                 //obj_proveedor.CodigoRepetido();
 
@@ -62,6 +64,9 @@ namespace La_zarzuela_SA
             txtCorreo.Text = "";
             txtDireccion.Text = "";
             cbProvincia.Text = "";
+            txtContrasena.Text = "";
+            cbTipo.Text = "";
+
 
         }
 
@@ -78,12 +83,13 @@ namespace La_zarzuela_SA
             {
                 try
                 {
-                    if (filaSeleccionada >= 0)
-                    {
+                   
+                    obj_proveedor.Codigo = int.Parse(txtCodigo.Text);
+                    obj_proveedor.EliminarProveedor();
+                    obj_proveedor.LeerProveedoresBD();
+                    dgvProveedor.DataSource = obj_proveedor.TablaProveedor;
 
-                        dgvProveedor.Rows.Remove(selectedRow);
-                        
-                    }//fin if
+
                 }//fin try
                 catch
                 {
@@ -102,10 +108,7 @@ namespace La_zarzuela_SA
 
         private void dgvProveedor_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
-            {
-                filaSeleccionada = e.RowIndex;
-            }
+           
         }
 
         private void dgvProveedor_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -115,14 +118,17 @@ namespace La_zarzuela_SA
                 DataGridViewRow row = dgvProveedor.Rows[e.RowIndex];
 
                 txtCodigo.Text = row.Cells[0].Value.ToString(); // Asignar el valor de la primera columna al 
-                txtNombre.Text = row.Cells[1].Value.ToString(); // Asignar el valor de la segunda columna al 
-                txtCedula.Text = row.Cells[2].Value.ToString(); // Asignar el valor de la tercera columna al
-                cbProvincia.Text = row.Cells[3].Value.ToString(); // Asignar el valor de la cuarta columna al   
-                txtTelefono.Text = row.Cells[4].Value.ToString(); // Asignar el valor de la quinta columna al
-                txtCorreo.Text = row.Cells[5].Value.ToString(); // Asignar el valor de la sexta columna al
-                txtDireccion.Text = row.Cells[6].Value.ToString(); // Asignar el valor de la septima columna al
-
+                txtNombre.Text = row.Cells[1].Value.ToString();
+                cbTipo.Text = row.Cells[2].Value.ToString();// Asignar el valor de la segunda columna al 
+                txtCedula.Text = row.Cells[3].Value.ToString();
+                txtDireccion.Text = row.Cells[4].Value.ToString();
+                cbProvincia.Text = row.Cells[5].Value.ToString();
+                txtTelefono.Text = row.Cells[6].Value.ToString();
+                txtCorreo.Text = row.Cells[7].Value.ToString();
+                txtContrasena.Text = row.Cells[8].Value.ToString();
                 
+
+
             }
         }
 
@@ -130,43 +136,35 @@ namespace La_zarzuela_SA
         {
             try
             {
-                DataGridViewRow selectedRow = dgvProveedor.CurrentRow;
+                obj_proveedor.Codigo = int.Parse(txtCodigo.Text);
+                obj_proveedor.Nombre = txtNombre.Text;
+                obj_proveedor.Cedula = txtCedula.Text;
+                obj_proveedor.Telefono = txtTelefono.Text;
+                obj_proveedor.Correo = txtCorreo.Text;
+                obj_proveedor.Direccion = txtDireccion.Text;
+                obj_proveedor.Provincia = cbProvincia.Text;
+                obj_proveedor.Tipo = cbTipo.Text;
+                obj_proveedor.Contrasena = txtContrasena.Text;
 
-                if (selectedRow != null)
-                {
-                    obj_proveedor.Codigo = int.Parse(txtCodigo.Text);
-                    obj_proveedor.Nombre = txtNombre.Text;
-                    obj_proveedor.Cedula = txtCedula.Text;
-                    obj_proveedor.Telefono = txtTelefono.Text;
-                    obj_proveedor.Correo = txtCorreo.Text;
-                    obj_proveedor.Direccion = txtDireccion.Text;
-                    obj_proveedor.Provincia = cbProvincia.Text;
-                    
-
-                    
-
-                    obj_proveedor.ValidarProveedor();
-                    
-
-                    
+                obj_proveedor.ValidarProveedor();
+                obj_proveedor.EditarProveedor();
+                obj_proveedor.LeerProveedoresBD();
+                dgvProveedor.DataSource = obj_proveedor.TablaProveedor;
 
 
-                    if (txtCodigo.Text != selectedRow.Cells[0].Value.ToString())
-                    {
-                       
-                    }
-                    // Actualizar los valores de las celdas con los valores de los TextBox
-                    selectedRow.Cells[0].Value = txtCodigo.Text;
-                    selectedRow.Cells[1].Value = txtNombre.Text;
-                    selectedRow.Cells[2].Value = txtCedula.Text;
-                    selectedRow.Cells[3].Value = cbProvincia.Text;
-                    selectedRow.Cells[4].Value = txtTelefono.Text;
-                    selectedRow.Cells[5].Value = txtCorreo.Text;
-                    selectedRow.Cells[6].Value = txtDireccion.Text;
+
+                MessageBox.Show("El proveedor se actualizo con exito");
+                txtCedula.Text = "";
+                txtCodigo.Text = "";
+                txtNombre.Text = "";
+                txtTelefono.Text = "";
+                txtCorreo.Text = "";
+                txtDireccion.Text = "";
+                cbProvincia.Text = "";
+                cbTipo.Text = "";
+                txtContrasena.Text = "";
 
 
-                    
-                }
             }
             catch (Exception ex)
             {

@@ -86,6 +86,7 @@
             this.dgvFacturaCompra.RowHeadersWidth = 51;
             this.dgvFacturaCompra.Size = new System.Drawing.Size(861, 254);
             this.dgvFacturaCompra.TabIndex = 3;
+            this.dgvFacturaCompra.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFacturaCompra_CellContentClick);
             // 
             // groupBox1
             // 

@@ -384,6 +384,11 @@ namespace La_zarzuela_SA
                 MessageBox.Show("Error al registrar la factura: " + ex.Message);
             }
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

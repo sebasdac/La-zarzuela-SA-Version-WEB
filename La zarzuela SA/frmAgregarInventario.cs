@@ -105,7 +105,28 @@ namespace La_zarzuela_SA
 
         private void btnCompraRealizada_Click(object sender, EventArgs e)
         {
+            if (dgvProductos.Rows.Count == 0)
+            {
+                // El DataGridView está vacío
+                throw new Exception("No se han agregado productos a la factura");
+            }
 
+
+
+
+            txtTipo.Text = "";
+            txtCodigoProducto.Text = "";
+            txtProveedor.Text = "";
+            txtCantidad.Text = "";
+            txtPrecio.Text = "";
+            txtNombre.Text = "";
+            txtCodigoProveedor.Text = "";
+            txtCedula.Text = "";
+            txtTipo.Text = "";
+            txtProveedor.Text = "";
+            txtCantidad.Text = "";
+            dgvProductos.DataSource = null;
+            MessageBox.Show("La factura se registró con éxito");
         }
 
         private void iconButton1_Click(object sender, EventArgs e)
@@ -122,7 +143,7 @@ namespace La_zarzuela_SA
             obj_productos.Cantidad = int.Parse(txtCantidad.Text);
             obj_productos.Precio = int.Parse(txtPrecio.Text);
             obj_productos.ValidarProducto();
-            obj_productos.ActualizarInventario(int.Parse(txtCodigoProducto.Text), int.Parse(txtCantidad.Text));
+            obj_productos.ActualizarInventarioSuma(int.Parse(txtCodigoProducto.Text), int.Parse(txtCantidad.Text));
             
 
 

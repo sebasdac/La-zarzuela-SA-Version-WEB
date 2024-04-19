@@ -90,23 +90,19 @@ namespace CapaNegocio
             _totalImpuesto = _total + _impuesto;
         }//fin CalcularTotal
 
-        public void ActualizarInventario(int _codigo, int cantidad)
+        public void ActualizarInventarioSuma(int _codigo, int cantidad)
         {
             obj_productosBD.ActualizarInventarioSuma(_codigo.ToString(), cantidad);
         }
-      
-
-
-      
+        public void ActualizarInventario()
+        {
+            obj_productosBD.ActualizarInventario(_codigo, _nombre, _precio);
+        }
 
         public void LeeTablaProducto()
         {
             // Datos_Productos.LeeXML_a_TablaProductos();
             obj_productosBD.LeerProducto();
-
-
-
-
         }//fin LeeTablaProducto
 
         public void ValidarStock()
@@ -116,9 +112,6 @@ namespace CapaNegocio
                 throw new ArgumentException("No hay suficiente stock");
             }
         }
-
-
-
 
 
         public void EscribeProductoBD()
@@ -147,9 +140,6 @@ namespace CapaNegocio
         {
             obj_productosBD.EliminarProducto(_codigo);
         }
-        
-
-
 
         #endregion
 

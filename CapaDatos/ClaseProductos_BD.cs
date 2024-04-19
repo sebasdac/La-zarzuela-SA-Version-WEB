@@ -120,8 +120,23 @@ namespace CapaDatos
 
             CerrarConexion();
         }
-        
 
+        public void ActualizarInventario(int codigoProducto, string nombre, double precio)
+        {
+            // Conexión a la base de datos
+            using (SqlConnection connection = new SqlConnection(String_Conexion))
+            {
+                connection.Open();
+                // Consulta SQL para actualizar el inventario
+                string query = "UPDATE Productos SET Nombre = @nombre, Precio=@precio WHERE Codigo = @Codigo";
+                SqlCommand command = new SqlCommand(query, connection);
+               
+                command.Parameters.AddWithValue("@nombre", nombre);
+                command.Parameters.AddWithValue("@precio", precio);
+                command.Parameters.AddWithValue("@codigo", codigoProducto);
+                command.ExecuteNonQuery();
+            }
+        }
 
 
 
@@ -136,7 +151,7 @@ namespace CapaDatos
 
             AbrirConexion();
 
-            instruccionSQL = new SqlCommand("select*from productos" , conexion);
+            instruccionSQL = new SqlCommand("select Codigo, Nombre, Cantidad, Precio  from productos" , conexion);
             ds_resultados.Clear();//limpia el dataset
             try
             {

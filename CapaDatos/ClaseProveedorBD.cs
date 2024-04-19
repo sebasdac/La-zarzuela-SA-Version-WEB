@@ -90,7 +90,42 @@ namespace CapaDatos
             CerrarConexion();
         }
 
-        
+        public void ActualizarProveedor(int codigo, string proveedor, string tipo, string cedula, string direccion, string provincia, string telefono, string correo, string contrasena)
+        {
+            SqlCommand instruccionSQL;
+            AbrirConexion();
+
+            instruccionSQL = new SqlCommand("UPDATE Proveedores SET Proveedor = @Proveedor, Tipo = @Tipo, Cedula = @Cedula, Direccion = @Direccion, Provincia = @Provincia, Telefono = @Telefono, Correo = @Correo, Contrasena = @Contrasena WHERE Codigo = @Codigo", conexion);
+
+            instruccionSQL.Parameters.AddWithValue("@Codigo", codigo);
+            instruccionSQL.Parameters.AddWithValue("@Proveedor", proveedor);
+            instruccionSQL.Parameters.AddWithValue("@Tipo", tipo);
+            instruccionSQL.Parameters.AddWithValue("@Cedula", cedula);
+            instruccionSQL.Parameters.AddWithValue("@Direccion", direccion);
+            instruccionSQL.Parameters.AddWithValue("@Provincia", provincia);
+            instruccionSQL.Parameters.AddWithValue("@Telefono", telefono);
+            instruccionSQL.Parameters.AddWithValue("@Correo", correo);
+            instruccionSQL.Parameters.AddWithValue("@Contrasena", contrasena);
+
+
+            instruccionSQL.ExecuteNonQuery();
+
+            CerrarConexion();
+        }
+        public void EliminarProveedor(int codigo)
+        {
+
+            SqlCommand instruccionSQL;
+            AbrirConexion();
+            instruccionSQL = new SqlCommand("Delete from Proveedores WHERE Codigo = @codigo", conexion);
+            instruccionSQL.Parameters.AddWithValue("@Codigo", codigo);
+
+            instruccionSQL.ExecuteNonQuery();
+            CerrarConexion();
+
+        }
+
+
     }
     #endregion
 }

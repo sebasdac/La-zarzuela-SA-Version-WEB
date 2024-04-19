@@ -31,10 +31,7 @@ namespace La_zarzuela_SA
 
         private void dgvUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
-            {
-                filaSeleccionada = e.RowIndex;
-            }
+           
         }
 
         private void dgvUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -44,7 +41,9 @@ namespace La_zarzuela_SA
                 DataGridViewRow row = dgvUsuarios.Rows[e.RowIndex];
 
                 txtUsuario.Text = row.Cells[0].Value.ToString(); // Asignar el valor de la primera columna al 
-                txtContrasena.Text = row.Cells[1].Value.ToString(); // Asignar el valor de la segunda columna al 
+                txtContrasena.Text = row.Cells[1].Value.ToString(); // Asignar el valor de la segunda columna al
+                txtCedula.Text = row.Cells[2].Value.ToString();
+                txtNombre.Text = row.Cells[3].Value.ToString();
                 cbEstado.Text = row.Cells[4].Value.ToString();
             }
         }
@@ -85,34 +84,33 @@ namespace La_zarzuela_SA
         {
             try
             {
-                DataGridViewRow selectedRow = dgvUsuarios.CurrentRow;
-
-                if (selectedRow != null)
-                {
-                    
-                    obj_usuario.Estado = cbEstado.Text;
-                    obj_usuario.Usuario = txtUsuario.Text;
-
-
-                    obj_usuario.ValidarEstado();
-
-                    obj_usuario.ActualizarEstado();
+                obj_usuario.Usuario = txtUsuario.Text;
+                obj_usuario.Contrasena = txtContrasena.Text;
+                obj_usuario.Cedula = txtCedula.Text;
+                obj_usuario.Nombre = txtNombre.Text;
+                obj_usuario.Estado = cbEstado.Text;
+                obj_usuario.ValidarUsuarioRegistro();
+                obj_usuario.ActualizarEstado();
+                obj_usuario.LeerUsuarios();
+                dgvUsuarios.DataSource = obj_usuario.TablaUsuarios;
 
 
 
-                    
-                    // Actualizar los valores de las celdas con los valores de los TextBox
-                    selectedRow.Cells[4].Value = cbEstado.Text;
-                    MessageBox.Show("Cambio realizado", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Cambio realizado", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-
-
-                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            txtCedula.Text = "";
+            txtContrasena.Text = "";
+            txtNombre.Text = "";
+            txtUsuario.Text = "";
+            cbEstado.Text = "";
+
+
+           
         }
 
         private void txtContrasena_TextChanged(object sender, EventArgs e)

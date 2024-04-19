@@ -109,10 +109,6 @@ namespace CapaNegocio
             }
 
 
-
-
-
-
         }//fin ValidarProducto
        public void LeerProveedoresBD()
         {
@@ -125,6 +121,16 @@ namespace CapaNegocio
 
            obj_proveedor.InsertaProveedorBD(_codigo, _nombre, _tipo, _cedula, _direccion, Provincia, _telefono, _correo, _contrasena);
         } //fin EscribeProductoDT
+
+        public void EditarProveedor()
+        {
+            obj_proveedor.ActualizarProveedor(_codigo, _nombre, _tipo, _cedula, _direccion, _provincia, _telefono, _correo, _contrasena);
+
+        }
+        public void EliminarProveedor()
+        {
+            obj_proveedor.EliminarProveedor(_codigo);
+        }
 
 
 

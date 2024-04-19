@@ -264,7 +264,7 @@ namespace La_zarzuela_SA
 
         private void btnVerProductos_Click(object sender, EventArgs e)
         {
-
+            AbrirFormulario((IconMenuItem)sender, new frmVerProductos());
         }
     }
 }

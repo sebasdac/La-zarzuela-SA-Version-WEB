@@ -56,7 +56,7 @@
             // lblProveedor
             // 
             this.lblProveedor.AutoSize = true;
-            this.lblProveedor.Location = new System.Drawing.Point(35, 94);
+            this.lblProveedor.Location = new System.Drawing.Point(35, 93);
             this.lblProveedor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblProveedor.Name = "lblProveedor";
             this.lblProveedor.Size = new System.Drawing.Size(74, 16);
@@ -75,7 +75,7 @@
             // 
             // txtCodigo
             // 
-            this.txtCodigo.Location = new System.Drawing.Point(120, 39);
+            this.txtCodigo.Location = new System.Drawing.Point(123, 42);
             this.txtCodigo.Margin = new System.Windows.Forms.Padding(4);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(132, 22);
@@ -83,7 +83,7 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(123, 91);
+            this.txtNombre.Location = new System.Drawing.Point(123, 90);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(132, 22);
@@ -92,18 +92,18 @@
             // dgvProveedor
             // 
             this.dgvProveedor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProveedor.Location = new System.Drawing.Point(13, 534);
+            this.dgvProveedor.Location = new System.Drawing.Point(331, 99);
             this.dgvProveedor.Margin = new System.Windows.Forms.Padding(4);
             this.dgvProveedor.Name = "dgvProveedor";
             this.dgvProveedor.RowHeadersWidth = 51;
-            this.dgvProveedor.Size = new System.Drawing.Size(695, 262);
+            this.dgvProveedor.Size = new System.Drawing.Size(695, 370);
             this.dgvProveedor.TabIndex = 4;
             this.dgvProveedor.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProveedor_CellClick);
             this.dgvProveedor.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProveedor_CellContentClick);
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(297, 31);
+            this.btnAgregar.Location = new System.Drawing.Point(335, 31);
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(101, 41);
@@ -114,7 +114,7 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(297, 89);
+            this.btnEliminar.Location = new System.Drawing.Point(445, 31);
             this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(101, 41);
@@ -125,7 +125,7 @@
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(407, 89);
+            this.btnEditar.Location = new System.Drawing.Point(554, 31);
             this.btnEditar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(101, 41);
@@ -136,17 +136,17 @@
             // 
             // txtDireccion
             // 
-            this.txtDireccion.Location = new System.Drawing.Point(151, 429);
+            this.txtDireccion.Location = new System.Drawing.Point(123, 236);
             this.txtDireccion.Margin = new System.Windows.Forms.Padding(4);
             this.txtDireccion.Multiline = true;
             this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(357, 78);
+            this.txtDireccion.Size = new System.Drawing.Size(132, 27);
             this.txtDireccion.TabIndex = 34;
             // 
             // lbldire
             // 
             this.lbldire.AutoSize = true;
-            this.lbldire.Location = new System.Drawing.Point(37, 454);
+            this.lbldire.Location = new System.Drawing.Point(35, 243);
             this.lbldire.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbldire.Name = "lbldire";
             this.lbldire.Size = new System.Drawing.Size(64, 16);
@@ -165,7 +165,7 @@
             "Limón",
             "Puntarenas",
             "Guanacaste"});
-            this.cbProvincia.Location = new System.Drawing.Point(123, 190);
+            this.cbProvincia.Location = new System.Drawing.Point(123, 289);
             this.cbProvincia.Margin = new System.Windows.Forms.Padding(4);
             this.cbProvincia.Name = "cbProvincia";
             this.cbProvincia.Size = new System.Drawing.Size(132, 24);
@@ -173,7 +173,7 @@
             // 
             // txtCedula
             // 
-            this.txtCedula.Location = new System.Drawing.Point(123, 139);
+            this.txtCedula.Location = new System.Drawing.Point(123, 188);
             this.txtCedula.Margin = new System.Windows.Forms.Padding(4);
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(132, 22);
@@ -182,7 +182,7 @@
             // lblCedula
             // 
             this.lblCedula.AutoSize = true;
-            this.lblCedula.Location = new System.Drawing.Point(35, 144);
+            this.lblCedula.Location = new System.Drawing.Point(35, 193);
             this.lblCedula.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCedula.Name = "lblCedula";
             this.lblCedula.Size = new System.Drawing.Size(50, 16);
@@ -191,7 +191,7 @@
             // 
             // txtCorreo
             // 
-            this.txtCorreo.Location = new System.Drawing.Point(171, 327);
+            this.txtCorreo.Location = new System.Drawing.Point(169, 391);
             this.txtCorreo.Margin = new System.Windows.Forms.Padding(4);
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(132, 22);
@@ -199,7 +199,7 @@
             // 
             // txtTelefono
             // 
-            this.txtTelefono.Location = new System.Drawing.Point(123, 276);
+            this.txtTelefono.Location = new System.Drawing.Point(123, 339);
             this.txtTelefono.Margin = new System.Windows.Forms.Padding(4);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(132, 22);
@@ -208,7 +208,7 @@
             // lblCorreo
             // 
             this.lblCorreo.AutoSize = true;
-            this.lblCorreo.Location = new System.Drawing.Point(35, 332);
+            this.lblCorreo.Location = new System.Drawing.Point(33, 396);
             this.lblCorreo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCorreo.Name = "lblCorreo";
             this.lblCorreo.Size = new System.Drawing.Size(120, 16);
@@ -218,7 +218,7 @@
             // lblTelefono
             // 
             this.lblTelefono.AutoSize = true;
-            this.lblTelefono.Location = new System.Drawing.Point(35, 282);
+            this.lblTelefono.Location = new System.Drawing.Point(35, 343);
             this.lblTelefono.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTelefono.Name = "lblTelefono";
             this.lblTelefono.Size = new System.Drawing.Size(61, 16);
@@ -228,7 +228,7 @@
             // lblDireccion
             // 
             this.lblDireccion.AutoSize = true;
-            this.lblDireccion.Location = new System.Drawing.Point(35, 194);
+            this.lblDireccion.Location = new System.Drawing.Point(35, 293);
             this.lblDireccion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDireccion.Name = "lblDireccion";
             this.lblDireccion.Size = new System.Drawing.Size(63, 16);
@@ -242,7 +242,7 @@
             this.cbTipo.Items.AddRange(new object[] {
             "Fisico ",
             "Juridico"});
-            this.cbTipo.Location = new System.Drawing.Point(123, 234);
+            this.cbTipo.Location = new System.Drawing.Point(123, 138);
             this.cbTipo.Margin = new System.Windows.Forms.Padding(4);
             this.cbTipo.Name = "cbTipo";
             this.cbTipo.Size = new System.Drawing.Size(132, 24);
@@ -251,7 +251,7 @@
             // lblTipo
             // 
             this.lblTipo.AutoSize = true;
-            this.lblTipo.Location = new System.Drawing.Point(35, 238);
+            this.lblTipo.Location = new System.Drawing.Point(35, 143);
             this.lblTipo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTipo.Name = "lblTipo";
             this.lblTipo.Size = new System.Drawing.Size(35, 16);
@@ -260,7 +260,7 @@
             // 
             // txtContrasena
             // 
-            this.txtContrasena.Location = new System.Drawing.Point(171, 384);
+            this.txtContrasena.Location = new System.Drawing.Point(169, 448);
             this.txtContrasena.Margin = new System.Windows.Forms.Padding(4);
             this.txtContrasena.Name = "txtContrasena";
             this.txtContrasena.Size = new System.Drawing.Size(132, 22);
@@ -269,7 +269,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(35, 389);
+            this.label1.Location = new System.Drawing.Point(33, 453);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 16);
@@ -280,7 +280,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(728, 809);
+            this.ClientSize = new System.Drawing.Size(1055, 514);
             this.Controls.Add(this.txtContrasena);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbTipo);

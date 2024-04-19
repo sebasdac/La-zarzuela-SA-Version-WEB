@@ -47,13 +47,13 @@
             this.lblCedula = new System.Windows.Forms.Label();
             this.txtTipo = new System.Windows.Forms.TextBox();
             this.lblTipo = new System.Windows.Forms.Label();
-            this.btnBuscarporFactura = new FontAwesome.Sharp.IconButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dgvProductos = new System.Windows.Forms.DataGridView();
+            this.btnCompraRealizada = new FontAwesome.Sharp.IconButton();
             this.btnBorrar = new FontAwesome.Sharp.IconButton();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
-            this.dgvProductos = new System.Windows.Forms.DataGridView();
             this.btnBorrarFactura = new FontAwesome.Sharp.IconButton();
-            this.btnCompraRealizada = new FontAwesome.Sharp.IconButton();
+            this.btnBuscarporFactura = new FontAwesome.Sharp.IconButton();
             this.gbProveedor.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
@@ -257,19 +257,6 @@
             this.lblTipo.TabIndex = 26;
             this.lblTipo.Text = "Tipo:";
             // 
-            // btnBuscarporFactura
-            // 
-            this.btnBuscarporFactura.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
-            this.btnBuscarporFactura.IconColor = System.Drawing.Color.Black;
-            this.btnBuscarporFactura.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnBuscarporFactura.IconSize = 30;
-            this.btnBuscarporFactura.Location = new System.Drawing.Point(236, 19);
-            this.btnBuscarporFactura.Name = "btnBuscarporFactura";
-            this.btnBuscarporFactura.Size = new System.Drawing.Size(45, 39);
-            this.btnBuscarporFactura.TabIndex = 25;
-            this.btnBuscarporFactura.UseVisualStyleBackColor = true;
-            this.btnBuscarporFactura.Click += new System.EventHandler(this.btnBuscarporFactura_Click);
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnCompraRealizada);
@@ -289,6 +276,34 @@
             this.groupBox1.TabIndex = 24;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Producto";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // dgvProductos
+            // 
+            this.dgvProductos.AllowUserToAddRows = false;
+            this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProductos.Location = new System.Drawing.Point(93, 243);
+            this.dgvProductos.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvProductos.Name = "dgvProductos";
+            this.dgvProductos.RowHeadersWidth = 51;
+            this.dgvProductos.Size = new System.Drawing.Size(930, 302);
+            this.dgvProductos.TabIndex = 23;
+            this.dgvProductos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellClick_1);
+            this.dgvProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellContentClick_1);
+            // 
+            // btnCompraRealizada
+            // 
+            this.btnCompraRealizada.IconChar = FontAwesome.Sharp.IconChar.ShoppingBag;
+            this.btnCompraRealizada.IconColor = System.Drawing.Color.Black;
+            this.btnCompraRealizada.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnCompraRealizada.Location = new System.Drawing.Point(58, 114);
+            this.btnCompraRealizada.Name = "btnCompraRealizada";
+            this.btnCompraRealizada.Size = new System.Drawing.Size(139, 88);
+            this.btnCompraRealizada.TabIndex = 47;
+            this.btnCompraRealizada.Text = "Generar compra";
+            this.btnCompraRealizada.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnCompraRealizada.UseVisualStyleBackColor = true;
+            this.btnCompraRealizada.Click += new System.EventHandler(this.btnCompraRealizada_Click);
             // 
             // btnBorrar
             // 
@@ -318,19 +333,6 @@
             this.iconButton2.UseVisualStyleBackColor = true;
             this.iconButton2.Click += new System.EventHandler(this.iconButton2_Click);
             // 
-            // dgvProductos
-            // 
-            this.dgvProductos.AllowUserToAddRows = false;
-            this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProductos.Location = new System.Drawing.Point(93, 243);
-            this.dgvProductos.Margin = new System.Windows.Forms.Padding(4);
-            this.dgvProductos.Name = "dgvProductos";
-            this.dgvProductos.RowHeadersWidth = 51;
-            this.dgvProductos.Size = new System.Drawing.Size(930, 302);
-            this.dgvProductos.TabIndex = 23;
-            this.dgvProductos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellClick_1);
-            this.dgvProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellContentClick_1);
-            // 
             // btnBorrarFactura
             // 
             this.btnBorrarFactura.IconChar = FontAwesome.Sharp.IconChar.Trash;
@@ -345,19 +347,18 @@
             this.btnBorrarFactura.UseVisualStyleBackColor = true;
             this.btnBorrarFactura.Click += new System.EventHandler(this.btnBorrarFactura_Click);
             // 
-            // btnCompraRealizada
+            // btnBuscarporFactura
             // 
-            this.btnCompraRealizada.IconChar = FontAwesome.Sharp.IconChar.ShoppingBag;
-            this.btnCompraRealizada.IconColor = System.Drawing.Color.Black;
-            this.btnCompraRealizada.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnCompraRealizada.Location = new System.Drawing.Point(58, 114);
-            this.btnCompraRealizada.Name = "btnCompraRealizada";
-            this.btnCompraRealizada.Size = new System.Drawing.Size(139, 88);
-            this.btnCompraRealizada.TabIndex = 47;
-            this.btnCompraRealizada.Text = "Generar compra";
-            this.btnCompraRealizada.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnCompraRealizada.UseVisualStyleBackColor = true;
-            this.btnCompraRealizada.Click += new System.EventHandler(this.btnCompraRealizada_Click);
+            this.btnBuscarporFactura.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
+            this.btnBuscarporFactura.IconColor = System.Drawing.Color.Black;
+            this.btnBuscarporFactura.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnBuscarporFactura.IconSize = 30;
+            this.btnBuscarporFactura.Location = new System.Drawing.Point(236, 19);
+            this.btnBuscarporFactura.Name = "btnBuscarporFactura";
+            this.btnBuscarporFactura.Size = new System.Drawing.Size(45, 39);
+            this.btnBuscarporFactura.TabIndex = 25;
+            this.btnBuscarporFactura.UseVisualStyleBackColor = true;
+            this.btnBuscarporFactura.Click += new System.EventHandler(this.btnBuscarporFactura_Click);
             // 
             // frmAgregarProducto
             // 

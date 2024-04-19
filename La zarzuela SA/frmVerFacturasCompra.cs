@@ -60,5 +60,10 @@ namespace La_zarzuela_SA
             dgvDetalles.DataSource = obj_factura.Tabla_Detalles;
             txtNumeroFactura.Text = "";
         }
+
+        private void dgvFacturaCompra_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

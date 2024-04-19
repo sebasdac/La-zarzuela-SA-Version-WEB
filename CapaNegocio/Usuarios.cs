@@ -134,6 +134,10 @@ namespace CapaNegocio
                 throw new ArgumentException("Escriba el nombre");
 
             }
+            if(string.IsNullOrEmpty(_contrasena))
+            {
+                throw new ArgumentException("Escriba la contraseña");
+            }
         }//fin validar usuario registro
 
 
