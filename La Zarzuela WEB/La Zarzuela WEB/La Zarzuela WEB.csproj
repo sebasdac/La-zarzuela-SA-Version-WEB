@@ -81,6 +81,7 @@
     <Content Include="Global.asax" />
     <Content Include="Paginas\VentaProducto.aspx" />
     <Content Include="Paginas\AgregarProductos.aspx" />
+    <Content Include="Paginas\AgregarInventario.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -156,6 +157,13 @@
     </Compile>
     <Compile Include="Paginas\AgregarProductos.aspx.designer.cs">
       <DependentUpon>AgregarProductos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Paginas\AgregarInventario.aspx.cs">
+      <DependentUpon>AgregarInventario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\AgregarInventario.aspx.designer.cs">
+      <DependentUpon>AgregarInventario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

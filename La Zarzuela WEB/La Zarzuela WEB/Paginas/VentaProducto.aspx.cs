@@ -146,44 +146,65 @@ namespace La_Zarzuela_WEB.Paginas
 
         protected void btnGenerarFactura_Click(object sender, EventArgs e)
         {
-            
-           
-           
-           
-            lblCodigoMostrar.Text = "";
-            lblNombreMostrar.Text = "";
-            lblCantidadMostrar.Text = "";
-            lblPrecioMostrar.Text = "";
-            txtCantidadDeseada.Text = "";
-            
-            lblMensaje.Text = "Compra realizada exitosamente";
-            lblMensaje.Visible = true;
-            lblCodigoMostrarCliente.Text = "";
-            lblNombreMostrarCliente.Text = "";
-            lblMostrarCedula.Text = "";
-            lblMostrarTipo.Text = "";
-            dgvProductos.DataSource = null;
-            dgvProductos.DataBind();
+            try
+            {
+                if (dgvProductos.Rows.Count == 0)
+                {
+                    // El DataGridView está vacío
+                    throw new Exception("No se han agregado productos a la factura");
+                }
+
+
+                lblCodigoMostrar.Text = "";
+                lblNombreMostrar.Text = "";
+                lblCantidadMostrar.Text = "";
+                lblPrecioMostrar.Text = "";
+                txtCantidadDeseada.Text = "";
+
+                lblMensaje.Text = "Compra realizada exitosamente";
+                lblMensaje.Visible = true;
+                lblCodigoMostrarCliente.Text = "";
+                lblNombreMostrarCliente.Text = "";
+                lblMostrarCedula.Text = "";
+                lblMostrarTipo.Text = "";
+                dgvProductos.DataSource = null;
+                dgvProductos.DataBind();
+            }
+            catch (Exception ex)
+            {
+                lblMensaje.Text = ex.Message;
+                lblMensaje.Visible = true;
+            }
 
         }
 
         protected void btnEliminar_Click(object sender, EventArgs e)
         {
-            obj_facturaventa.Codigoproducto = int.Parse(lblCodigoMostrar.Text);
-            obj_facturaventa.EliminarProducto();
-            int facturaid = (int)Session["FacturaID"];
-            obj_facturaventa.LeerDetallesGridViewWEb(facturaid);
-            dgvProductos.DataSource = obj_facturaventa.Tabla_Detalles;
-            dgvProductos.DataBind();
-            obj_productos.ActualizarInventarioSuma(int.Parse(lblCodigoMostrar.Text), int.Parse(txtCantidadDeseada.Text));
+            try
+            {
+                
+                obj_facturaventa.Codigoproducto = int.Parse(lblCodigoMostrar.Text);
+                obj_facturaventa.EliminarProducto();
+                int facturaid = (int)Session["FacturaID"];
+                obj_facturaventa.LeerDetallesGridViewWEb(facturaid);
+                dgvProductos.DataSource = obj_facturaventa.Tabla_Detalles;
+                dgvProductos.DataBind();
+                obj_productos.ActualizarInventarioSuma(int.Parse(lblCodigoMostrar.Text), int.Parse(txtCantidadDeseada.Text));
 
 
 
-            lblCantidadMostrar.Text = "";
-            lblPrecioMostrar.Text = "";
-            lblNombreMostrar.Text = "";
-            lblCodigoMostrar.Text = "";
-            txtCantidadDeseada.Text = "";
+                lblCantidadMostrar.Text = "";
+                lblPrecioMostrar.Text = "";
+                lblNombreMostrar.Text = "";
+                lblCodigoMostrar.Text = "";
+                txtCantidadDeseada.Text = "";
+                lblMensaje.Text = "";
+            }
+            catch (Exception ex)
+            {
+                lblMensaje.Text = ex.Message;
+                lblMensaje.Visible = true;
+            }
 
 
 

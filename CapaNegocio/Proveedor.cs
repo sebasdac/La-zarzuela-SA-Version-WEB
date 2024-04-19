@@ -24,6 +24,8 @@ namespace CapaNegocio
         string _tipo;
         string _estado;
         string _contrasena;
+        public string CedulaWEB { get => obj_proveedor.Cedula; }
+        public string TipoWEB { get => obj_proveedor.Tipo; }
         ClaseProveedorBD obj_proveedor = new ClaseProveedorBD();
 
 
@@ -133,7 +135,7 @@ namespace CapaNegocio
         }
         public void LeerProveedorWEB()
         {
-            obj_clientes.LeerClienteWEB(_codigo);
+            obj_proveedor.LeerProveedorWEB(_codigo);
         }//fin LeerClienteWEB
 
 

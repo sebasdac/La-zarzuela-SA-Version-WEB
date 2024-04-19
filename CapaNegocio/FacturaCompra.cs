@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,6 +30,9 @@ namespace CapaNegocio
         double _subtotal;
         double _impuesto;
         double _totalImpuesto;
+
+
+        public int FacturaIDWEB { get => facturaDAL.FacturaID;}
         ClaseFacturaCompra facturaDAL = new ClaseFacturaCompra(); // Instancia de la capa de datos
 
         public DataTable Tabla_Facturas { get => facturaDAL.TablaFacturas; }
@@ -82,6 +86,11 @@ namespace CapaNegocio
             facturaDAL.InsertarDetalleFactura(_CodigoProducto,_NombreProducto,
                 _Cantidad,_Precio,_subtotal,Impuesto,TotalImpuesto);
         }
+        public void InsertarDetalleFacturaWEB(int facturaid)
+        {
+            facturaDAL.InsertarDetalleFacturaWEB(facturaid,_CodigoProducto, _NombreProducto,
+                _Cantidad, _Precio, _subtotal, Impuesto, TotalImpuesto);
+        }
 
 
 
@@ -101,6 +110,11 @@ namespace CapaNegocio
             facturaDAL.LeerFactura(facturaID.ToString());
 
         }
+        public void LeerDetallesWEB(int facturaid)
+        {
+            facturaDAL.LeerDetallesWEB(facturaid);
+
+        }
 
         public void LeerDetalles()
         {
@@ -116,11 +130,52 @@ namespace CapaNegocio
         {
             facturaDAL.EliminarProducto(_CodigoProducto);
         }
+
+
         public void EliminarFactura()
         {
+               try
+               {
 
-            facturaDAL.EliminarFactura();
+                  facturaDAL.EliminarFactura();
+                }
+            
+               catch(SqlException ex)
+               {
+
+                    if (ex.Number == 547)
+                    {
+                        throw new ArgumentException("No se puede eliminar la factura porque tiene detalles asociados");
+                    }
+                    else
+                    {
+                        throw new ArgumentException(ex.Message);
+                    }
+               }
         }
+
+        public void EliminarFacturaWEB()
+        {
+            try
+            {
+                facturaDAL.EliminarFacturaWEB(FacturaID);
+            }
+                
+             catch(SqlException ex)
+            {
+
+                if (ex.Number == 547)
+                {
+                    throw new ArgumentException("No se puede eliminar la factura porque tiene detalles asociados");
+                }
+                else
+                {
+                    throw new ArgumentException(ex.Message);
+                }
+            }
+        }
+
+
 
         public void RestaInventario (string codigoProducto, int cantidad)
         {

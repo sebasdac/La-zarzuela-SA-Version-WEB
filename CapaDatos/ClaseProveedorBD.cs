@@ -135,7 +135,7 @@ namespace CapaDatos
             {
                 connection.Open();
                 // Consulta SQL para obtener el precio y la cantidad del producto
-                string query = "SELECT Cedula, Tipo FROM Proovedores WHERE Codigo = @Codigo";
+                string query = "SELECT Cedula, Tipo FROM Proveedores WHERE Codigo = @Codigo";
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@Codigo", codigo);
 
