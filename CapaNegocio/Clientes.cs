@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using CapaDatos;
 using System.Data;
 using System.Text.RegularExpressions;
+using System.Data.SqlClient;
 
 
 namespace CapaNegocio
@@ -108,9 +109,23 @@ namespace CapaNegocio
         }
         public void EscribeClienteBD()
         {
-            ClaseClienteBD Bd_productos = new ClaseClienteBD();
+            try
+            {
+                ClaseClienteBD Bd_productos = new ClaseClienteBD();
 
-            Bd_productos.InsertaClienteBD(_codigo, _nombre, _tipo, _cedula, _direccion, Provincia, _telefono, _correo, _contrasena);
+                Bd_productos.InsertaClienteBD(_codigo, _nombre, _tipo, _cedula, _direccion, Provincia, _telefono, _correo, _contrasena);
+            }
+            catch (SqlException ex)
+            {
+                if (ex.Number == 2627)
+                {
+                    throw new ArgumentException("El codigo de cliente ya existe");
+                }
+                else
+                {
+                    throw new ArgumentException("Error al insertar cliente: " + ex.Message);
+                }
+            }
         } //fin EscribeProductoDT
         public void ActualizarCliente()
         {
