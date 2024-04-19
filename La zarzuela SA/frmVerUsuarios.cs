@@ -51,15 +51,18 @@ namespace La_zarzuela_SA
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             DataGridViewRow selectedRow = dgvUsuarios.CurrentRow;
-            DialogResult result = MessageBox.Show("¿Seguro que quieres eliminar esta fila?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show("¿Seguro que quieres eliminar el usuario "+txtUsuario.Text+" ?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 try
                 {
                     if (filaSeleccionada >= 0)
                     {
-
-                        dgvUsuarios.Rows.Remove(selectedRow);
+                        obj_usuario.Usuario = txtUsuario.Text;
+                        obj_usuario.EliminarUsuario();
+                        obj_usuario.LeerUsuarios();
+                        dgvUsuarios.DataSource = obj_usuario.TablaUsuarios;
+                        
                         
                     }
                 }

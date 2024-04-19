@@ -107,6 +107,12 @@ namespace CapaNegocio
 
         }
 
+        public void EliminarUsuario()
+        {
+
+            obj_usuarios.EliminarUsuario(_usuario);
+        }
+
 
 
 

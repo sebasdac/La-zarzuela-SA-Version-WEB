@@ -10,8 +10,8 @@ namespace CapaDatos
 {
     public class ClaseUsuarioBD
     {
-        private String String_Conexion = "Data Source=LAPTOP-M50THNEO;Initial Catalog=\"Proyecto II\";Integrated Security=True;";
-        //private String String_Conexion = "Data Source=SebasDAC_PC;Initial Catalog=\"Proyecto II\";Integrated Security=True;";
+        //private String String_Conexion = "Data Source=LAPTOP-M50THNEO;Initial Catalog=\"Proyecto II\";Integrated Security=True;";
+        private String String_Conexion = "Data Source=SebasDAC_PC;Initial Catalog=\"Proyecto II\";Integrated Security=True;";
 
         DataSet ds_resultados = new DataSet();
         bool credencialesValidas = false;
@@ -162,6 +162,18 @@ namespace CapaDatos
             instruccionSQL.Parameters.AddWithValue("@Contrasena", ccontrasena);
             instruccionSQL.Parameters.AddWithValue("@Estado", estado);
             
+
+            instruccionSQL.ExecuteNonQuery();
+
+            CerrarConexion();
+        }
+        public void EliminarUsuario(string usuario)
+        {
+            SqlCommand instruccionSQL;
+            AbrirConexion();
+
+            instruccionSQL = new SqlCommand("DELETE FROM Usuarios WHERE Usuario = @Usuario", conexion);
+            instruccionSQL.Parameters.AddWithValue("@Usuario", usuario);
 
             instruccionSQL.ExecuteNonQuery();
 

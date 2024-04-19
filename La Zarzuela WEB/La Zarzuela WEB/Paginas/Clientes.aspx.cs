@@ -77,20 +77,28 @@ namespace La_Zarzuela_WEB.Paginas
 
         protected void btnUsuarios_Click(object sender, EventArgs e)
         {
-            obj_clientes.Codigo = Convert.ToInt16(txtCodigo.Text);
-            obj_clientes.EliminarCliente();
-            obj_clientes.LeerClientes();
-            dgvClientes.DataSource = obj_clientes.TablaClientes;
-            dgvClientes.DataBind();
-            txtCodigo.Text = "";
-            txtNombre.Text = "";
-            cbTipo.Text = "";
-            txtCedula.Text = "";
-            txtDireccion.Text = "";
-            cbProvincia.Text = "";
-            txtTelefono.Text = "";
-            txtCorreo.Text = "";
-            txtContrasena.Text = "";
+            try
+            {
+                obj_clientes.Codigo = Convert.ToInt16(txtCodigo.Text);
+                obj_clientes.EliminarCliente();
+                obj_clientes.LeerClientes();
+                dgvClientes.DataSource = obj_clientes.TablaClientes;
+                dgvClientes.DataBind();
+                txtCodigo.Text = "";
+                txtNombre.Text = "";
+                cbTipo.Text = "";
+                txtCedula.Text = "";
+                txtDireccion.Text = "";
+                cbProvincia.Text = "";
+                txtTelefono.Text = "";
+                txtCorreo.Text = "";
+                txtContrasena.Text = "";
+            }
+            catch (Exception ex)
+            {
+                lblError.Text = ex.Message;
+                lblError.Visible = true;
+            }
 
         }
 

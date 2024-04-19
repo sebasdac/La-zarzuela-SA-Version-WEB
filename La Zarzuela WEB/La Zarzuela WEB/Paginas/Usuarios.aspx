@@ -45,6 +45,7 @@
         <div class="form-group" style="display: inline-block; width: 50%;">
             <asp:Button ID="Button1" runat="server" Text="Aceptar" OnClick="Button1_Click" style="height: 26px" />
             <asp:Button ID="btnEditar" runat="server" OnClick="btnEditar_Click" Text="Editar" />
+            <asp:Button ID="btnEliminar" runat="server" OnClick="btnEliminar_Click" Text="Eliminar" />
         </div>
 
         <div  id="contenedorGridView" class="form-group" style="display: inline-block; width: 100%;">
