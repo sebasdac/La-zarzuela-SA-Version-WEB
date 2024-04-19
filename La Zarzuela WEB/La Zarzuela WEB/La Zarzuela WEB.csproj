@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Css\EstiloLogin.css" />
     <Content Include="Css\Estilos1.css" />
     <Content Include="Css\Estilos2.css" />
     <Content Include="Login.aspx" />
@@ -77,6 +78,7 @@
     <Content Include="Paginas\PaginaPrincipal.aspx" />
     <Content Include="Paginas\Productos.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Paginas\AgregarProducto.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -138,6 +140,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Paginas\AgregarProducto.aspx.cs">
+      <DependentUpon>AgregarProducto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\AgregarProducto.aspx.designer.cs">
+      <DependentUpon>AgregarProducto.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
