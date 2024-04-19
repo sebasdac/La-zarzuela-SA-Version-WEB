@@ -272,7 +272,7 @@ namespace La_zarzuela_SA
 
                     // Obtener el valor de una celda específica por índice de columna
                     int codigproducto = int.Parse(selectedRow.Cells["ProductoID"].Value.ToString());
-                    obj_facturaventa.FacturaID1 = codigproducto;
+                    obj_facturaventa.Codigoproducto = codigproducto;
                     
                     obj_facturaventa.EliminarProducto();
                     obj_facturaventa.LeerDetallesGridView();

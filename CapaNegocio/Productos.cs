@@ -56,6 +56,11 @@ namespace CapaNegocio
         public bool Clickboton { get => _clickboton; set => _clickboton = value; }
         public int CantidadDeseada { get => _cantidadDeseada; set => _cantidadDeseada = value; }
 
+
+        public int CantidadWEB { get => obj_productosBD.Cantidad; }
+        public double PrecioWEB { get => obj_productosBD.Precio; }
+
+
         #endregion
 
         #region "Metodos"
@@ -140,6 +145,12 @@ namespace CapaNegocio
         {
             obj_productosBD.EliminarProducto(_codigo);
         }
+
+        public void LeerProductoWEB()
+        {
+            obj_productosBD.LeerProductoWEB(_codigo);
+        }
+
 
         #endregion
 

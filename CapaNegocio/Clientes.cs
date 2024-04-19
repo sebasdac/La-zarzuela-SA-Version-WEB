@@ -41,6 +41,8 @@ namespace CapaNegocio
         public DataTable TablaClientes { get => obj_clientes.TablaClientes; }
         public string Contrasena { get => _contrasena; set => _contrasena = value; }
 
+        public string CedulaWEB { get => obj_clientes.Cedula; }
+        public string TipoWEB { get => obj_clientes.Tipo; }
 
 
 
@@ -137,6 +139,11 @@ namespace CapaNegocio
         {
             obj_clientes.EliminarPersona(_codigo);
         }//fin EliminarCliente
+
+        public void LeerClienteWEB()
+        {
+            obj_clientes.LeerClienteWEB(_codigo);
+        }//fin LeerClienteWEB
 
 
 

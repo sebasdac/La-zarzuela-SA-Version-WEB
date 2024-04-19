@@ -28,8 +28,14 @@ namespace CapaDatos
 
         DataSet ds_resultados = new DataSet();
 
+
+        double precio;
+        int cantidad;
+
         #region "Propiedades"
         public DataTable TablaProductos { get => ds_resultados.Tables[0]; }
+        public double Precio { get => precio; set => precio = value; }
+        public int Cantidad { get => cantidad; set => cantidad = value; }
 
         #endregion
 
@@ -195,7 +201,40 @@ namespace CapaDatos
             }
         }
 
-       
+        public void LeerProductoWEB(int codigo)
+        {
+            // Conexión a la base de datos
+            using (SqlConnection connection = new SqlConnection(String_Conexion))
+            {
+                connection.Open();
+                // Consulta SQL para obtener el precio y la cantidad del producto
+                string query = "SELECT Precio, Cantidad FROM Productos WHERE Codigo = @Codigo";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Codigo", codigo);
+
+                // Usar un DataReader para leer los resultados de la consulta
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    // Verificar si hay filas devueltas por la consulta
+                    if (reader.Read())
+                    {
+                        // Asignar los valores de las columnas a las variables cantidad y precio
+                        Precio = Convert.ToDouble(reader["Precio"]);
+                        Cantidad = Convert.ToInt32(reader["Cantidad"]);
+
+                        
+                        Console.WriteLine($"Precio del producto: {Precio}");
+                        Console.WriteLine($"Cantidad disponible: {Cantidad}");
+                    }
+                    else
+                    {
+                        // Manejar el caso en el que no se encuentre ningún producto con el código dado
+                        Console.WriteLine("No se encontró ningún producto con el código proporcionado.");
+                    }
+                }
+            }
+        }
+
 
 
 
