@@ -15,7 +15,7 @@
 
             <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="Proveedor" DataValueField="Codigo">
             </asp:DropDownList>
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Proyecto IIConnectionString %>" SelectCommand="SELECT [Codigo], [Proveedor] FROM [Proveedores]"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Proyecto IIConnectionString %>" SelectCommand="SELECT [Codigo], [Proveedor] FROM [Proveedores]" ProviderName="<%$ ConnectionStrings:Proyecto IIConnectionString.ProviderName %>"></asp:SqlDataSource>
 
             <asp:Button ID="btnSeleccionarProveedor" runat="server" Text="Seleccionar" OnClick="btnSeleccionarProveedor_Click" />
             <asp:Button ID="btnEliminarFactura" runat="server" Text="Eliminar factura" OnClick="btnEliminarFactura_Click" />

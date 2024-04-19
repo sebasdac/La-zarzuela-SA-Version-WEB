@@ -15,9 +15,9 @@ namespace CapaDatos
         public bool Esproveedor1 { get => Esproveedor; set => Esproveedor = value; }
         public bool Esusuario1 { get => Esusuario; set => Esusuario = value; }
 
-        private String String_Conexion = "Data Source=SebasDAC_PC;Initial Catalog=\"Proyecto II\";Integrated Security=True;";
+        //private String String_Conexion = "Data Source=SebasDAC_PC;Initial Catalog=\"Proyecto II\";Integrated Security=True;";
 
-        //string String_Conexion = "Data Source=LAPTOP-M50THNEO;Initial Catalog=\"Proyecto II\";Integrated Security=True;";
+        string String_Conexion = "Data Source=LAPTOP-M50THNEO;Initial Catalog=\"Proyecto II\";Integrated Security=True;";
 
         public void AutenticarUsuario(string usuario, string contrasena)
         { 
