@@ -6,7 +6,7 @@
                <div class="form-container">
         <div class="form-group" style="display: inline-block; width: 50%;">
             <asp:Label ID="Label8" runat="server" Text="Codigo:"></asp:Label>
-            <asp:TextBox ID="txtCodigo" runat="server" CssClass="centro"></asp:TextBox>
+            <asp:TextBox ID="txtCodigo" runat="server" CssClass="centro" ReadOnly="True"></asp:TextBox>
         </div>
 
         <div class="form-group" style="display: inline-block; width: 50%;">
@@ -21,7 +21,7 @@
 
         <div class="form-group" style="display: inline-block; width: 50%;">
             <asp:Label ID="Label6" runat="server" Text="Cantidad:"></asp:Label>
-            <asp:TextBox ID="txtCantidad" CssClass="centro" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtCantidad" CssClass="centro" runat="server" ReadOnly="True"></asp:TextBox>
         </div>
 
         <div class="form-group" style="display: inline-block; width: 50%;">
@@ -40,6 +40,8 @@
 
         <div class="form-group" style="display: inline-block; width: 50%;">
             <asp:Button ID="Button1" runat="server" Text="Aceptar" OnClick="Button1_Click" style="height: 26px" />
+            <asp:Button ID="btEditar" runat="server" Text="Editar" OnClick="btEditar_Click" />
+            <asp:Button ID="btnEliminar" runat="server" OnClick="btnEliminar_Click" Text="Eliminar" />
         </div>
 
         <div  id="contenedorGridView" class="form-group" style="display: inline-block; width: 100%;">

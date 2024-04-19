@@ -141,6 +141,24 @@ namespace La_Zarzuela_WEB.Paginas
         protected global::System.Web.UI.WebControls.Button Button1;
 
         /// <summary>
+        /// btEditar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btEditar;
+
+        /// <summary>
+        /// btnEliminar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEliminar;
+
+        /// <summary>
         /// dgvProductos control.
         /// </summary>
         /// <remarks>

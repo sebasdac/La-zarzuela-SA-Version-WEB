@@ -28,7 +28,7 @@
                 <Items>
                     <asp:MenuItem Text="Clientes" Value="Clientes" NavigateUrl="~/Paginas/Clientes.aspx"></asp:MenuItem>
                     <asp:MenuItem Text="Usuarios" Value="Usuarios" NavigateUrl="~/Paginas/Usuarios.aspx"></asp:MenuItem>
-                    <asp:MenuItem NavigateUrl="~/Paginas/Productos2.aspx" Text="Productos" Value="Productos"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/Paginas/Productos.aspx" Text="Productos" Value="Productos"></asp:MenuItem>
                     <asp:MenuItem NavigateUrl="~/Paginas/Proveedores.aspx" Text="Proveedores" Value="Proveedores"></asp:MenuItem>
                 </Items>
             </asp:Menu>

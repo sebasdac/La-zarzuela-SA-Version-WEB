@@ -71,7 +71,7 @@ namespace La_Zarzuela_WEB.Paginas
                 obj_usuarios.Cedula = txtCedula.Text;
                 obj_usuarios.Nombre = txtNombre.Text;
                 obj_usuarios.Contrasena = txtContrasena.Text;
-
+                obj_usuarios.ValidarUsuarioRegistro();
                 obj_usuarios.ActualizarEstado();
                 obj_usuarios.LeerUsuarios();
                 dgvUsuarios.DataSource = obj_usuarios.TablaUsuarios;

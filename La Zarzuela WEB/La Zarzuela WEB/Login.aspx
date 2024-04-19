@@ -9,11 +9,15 @@
     <title></title>
 </head>
 <body>
-        <form id="form1" runat="server">
-        <div>
-          <asp:Login ID="LoginUsuario" runat="server" OnAuthenticate="Login1_Authenticate">
-          </asp:Login>
+    <form id="form1" runat="server">
+        <div class="login-header">
+            <h2>Iniciar sesión</h2>
         </div>
-      </form>
+        <div>
+            <asp:Login ID="LoginUsuario" runat="server" OnAuthenticate="Login1_Authenticate">
+            </asp:Login>
+        </div>
+        <button type="submit" class="login-button">Iniciar sesión</button>
+    </form>
 </body>
 </html>
