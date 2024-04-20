@@ -18,19 +18,28 @@ namespace La_Zarzuela_WEB.Paginas
 
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
-            obj_factura.FacturaID = Convert.ToInt32(txtNumeroFactura.Text);
-            obj_factura.LeerFactura();
-            dgvFacturaCompra.DataSource = obj_factura.Tabla_Facturas;
-            dgvFacturaCompra.DataBind();
+            try
+            {
+                obj_factura.FacturaID = Convert.ToInt32(txtNumeroFactura.Text);
+                obj_factura.LeerFactura();
+                dgvFacturaCompra.DataSource = obj_factura.Tabla_Facturas;
+                dgvFacturaCompra.DataBind();
 
 
-            obj_factura.FacturaID = Convert.ToInt32(txtNumeroFactura.Text);
-            obj_factura.LeerDetalles();
-            dgvDetalles.DataSource = obj_factura.Tabla_Detalles;
-            dgvDetalles.DataBind();
+                obj_factura.FacturaID = Convert.ToInt32(txtNumeroFactura.Text);
+                obj_factura.LeerDetalles();
+                dgvDetalles.DataSource = obj_factura.Tabla_Detalles;
+                dgvDetalles.DataBind();
 
-           
-            txtNumeroFactura.Text = "";
+
+                txtNumeroFactura.Text = "";
+                lblError.Text = "";
+            }
+            catch (Exception ex)
+            {
+                lblError.Text = ex.Message;
+                lblError.Visible = true;
+            }
         }
     }
 }

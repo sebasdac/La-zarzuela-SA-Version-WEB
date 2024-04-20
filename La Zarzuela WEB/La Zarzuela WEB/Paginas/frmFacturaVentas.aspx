@@ -13,6 +13,11 @@
         <asp:Button ID="btnBuscar" runat="server" OnClick="btnBuscar_Click" Text="Buscar" />
     </div>
     <div>
+
+        <asp:Label ID="lblError" runat="server" Text="lblError" Visible="False"></asp:Label>
+
+    </div>
+    <div>
         <asp:Label ID="lblFactura" runat="server" CssClass="h3" Text="Factura"></asp:Label>
     </div>
     <div>

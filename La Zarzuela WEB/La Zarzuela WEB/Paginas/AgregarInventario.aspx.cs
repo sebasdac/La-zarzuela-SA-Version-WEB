@@ -197,5 +197,63 @@ namespace La_Zarzuela_WEB.Paginas
                 lblMensaje.Visible = true;
             }
         }
+
+        protected void btnEliminar_Click1(object sender, EventArgs e)
+        {
+            try
+            {
+                obj_facturacompra.RestaInventario(lblCodigoMostrar.Text, int.Parse(txtCantidadDeseada.Text));
+                obj_facturacompra.CodigoProducto = int.Parse(lblCodigoMostrar.Text);
+                obj_facturacompra.EliminarProductoFactura();
+                obj_facturacompra.LeerDetallesWEB((int)Session["FacturaID"]);
+                dgvProductos.DataSource = obj_facturacompra.Tabla_Detalles;
+                dgvProductos.DataBind();
+                txtPrecio.Text = "";
+                txtCantidadDeseada.Text = "";
+                lblCodigoMostrar.Text = "";
+                lblNombreMostrar.Text = "";
+                lblCantidadMostrar.Text = "";
+                lblMensaje.Text = "";
+            }
+            catch (Exception ex)
+            {
+                lblMensaje.Text = ex.Message;
+                lblMensaje.Visible = true;
+            }
+        }
+
+        protected void btnRealizarCompra_Click1(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvProductos.Rows.Count == 0)
+                {
+                    // El DataGridView está vacío
+                    throw new Exception("No se han agregado productos a la factura");
+                }
+
+
+                lblCodigoMostrar.Text = "";
+                lblNombreMostrar.Text = "";
+                lblCantidadMostrar.Text = "";
+                txtPrecio.Text = "";
+                txtCantidadDeseada.Text = "";
+
+                lblMensaje.Text = "Compra realizada exitosamente";
+                lblMensaje.Visible = true;
+                lblCodigoMostrarCliente.Text = "";
+                lblNombreMostrarCliente.Text = "";
+                lblMostrarCedula.Text = "";
+                lblMostrarTipo.Text = "";
+                
+                dgvProductos.DataSource = null;
+                dgvProductos.DataBind();
+            }
+            catch (Exception ex)
+            {
+                lblMensaje.Text = ex.Message;
+                lblMensaje.Visible = true;
+            }
+        }
     }
 }

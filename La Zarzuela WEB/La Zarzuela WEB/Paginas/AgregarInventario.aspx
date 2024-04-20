@@ -120,8 +120,8 @@
           </div>
       <div>
           <asp:Button ID="btnAgregar" runat="server" Text="Agregar" OnClick="btnAgregar_Click" />
-          <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" />
-          <asp:Button ID="btnRealizarCompra" runat="server" Text="Realizar compra" />
+          <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" OnClick="btnEliminar_Click1" />
+          <asp:Button ID="btnRealizarCompra" runat="server" Text="Realizar compra" OnClick="btnRealizarCompra_Click1" />
       </div>
       <div>
           <asp:Label ID="lblMensaje" runat="server" Text="Label" CssClass="error" Visible="False"></asp:Label>

@@ -26,6 +26,11 @@
             <asp:HyperLink ID="lblOlvidecontrasena" runat="server" NavigateUrl="~/frmRecuperacionContrasena.aspx">Olvido su contraseña?</asp:HyperLink>
 
         </div>
+        <div>
+
+            <asp:HyperLink ID="lblCreeUnaCuenta" runat="server">Cree una cuenta</asp:HyperLink>
+
+        </div>
         
     </form>
 </body>
