@@ -21,6 +21,11 @@
                 <TitleTextStyle BackColor="#507CD1" Font-Bold="True" Font-Size="0.9em" ForeColor="White" />
             </asp:Login>
         </div>
+        <div>
+
+            <asp:HyperLink ID="lblOlvidecontrasena" runat="server" NavigateUrl="~/frmRecuperacionContrasena.aspx">Olvido su contraseña?</asp:HyperLink>
+
+        </div>
         
     </form>
 </body>

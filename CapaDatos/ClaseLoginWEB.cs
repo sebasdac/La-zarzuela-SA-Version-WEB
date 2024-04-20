@@ -74,7 +74,84 @@ namespace CapaDatos
             throw new Exception("Usuario no encontrado o contraseña incorrecta");
         }
 
+        public void CambioContrasenaa(string usuario, string contrasena)
+        {
+            string username = usuario;
+            string password = contrasena;
 
+            // Realizar la autenticación en la tabla de Usuarios
+
+
+
+
+            string userQuery = "SELECT * FROM Usuarios WHERE Usuario = @Username";
+
+            // Realizar la autenticación en la tabla de Proveedores
+            //string providerConnectionString = "Data Source=SebasDAC_PC;Initial Catalog=\"Proyecto II\";Integrated Security=True;";
+
+            string providerQuery = "SELECT * FROM Proveedores WHERE Correo = @Username";
+
+            using (SqlConnection userConnection = new SqlConnection(String_Conexion))
+            {
+                SqlCommand userCommand = new SqlCommand(userQuery, userConnection);
+                userCommand.Parameters.AddWithValue("@Username", username);
+                userCommand.Parameters.AddWithValue("@Password", password);
+
+                userConnection.Open();
+                SqlDataReader userReader = userCommand.ExecuteReader();
+
+                if (userReader.Read())
+                {
+                    // Close the reader before updating the password
+                    userReader.Close();
+
+                    // Update the password in the Usuarios table
+                    string updateQuery = "UPDATE Usuarios SET Contrasena = @NewPassword WHERE Usuario = @Username";
+                    SqlCommand updateCommand = new SqlCommand(updateQuery, userConnection);
+                    updateCommand.Parameters.AddWithValue("@NewPassword", password); // Assuming you have a variable `newPassword` with the new password
+                    updateCommand.Parameters.AddWithValue("@Username", username);
+                    updateCommand.ExecuteNonQuery();
+
+                    // Set the flag to indicate the user exists
+                    Esusuario1 = true;
+
+                    // Return or perform any necessary actions
+                    
+                    return; // Terminar la función para evitar procesar la consulta de Proveedores
+                }
+            }
+
+            using (SqlConnection providerConnection = new SqlConnection(String_Conexion))
+            {
+                SqlCommand providerCommand = new SqlCommand(providerQuery, providerConnection);
+                providerCommand.Parameters.AddWithValue("@Username", username);
+                providerCommand.Parameters.AddWithValue("@Password", password);
+
+                providerConnection.Open();
+                SqlDataReader providerReader = providerCommand.ExecuteReader();
+
+                if (providerReader.Read())
+                {
+                    providerReader.Close();
+
+                    // Update the password in the Proveedores table
+                    string updateQuery = "UPDATE Proveedores SET Contrasena = @NewPassword WHERE Correo = @Username";
+                    SqlCommand updateCommand = new SqlCommand(updateQuery, providerConnection);
+                    updateCommand.Parameters.AddWithValue("@NewPassword", password); // Assuming you have a variable `newPassword` with the new password
+                    updateCommand.Parameters.AddWithValue("@Username", username);
+                    updateCommand.ExecuteNonQuery();
+
+                    // Set the flag to indicate the user is a provider
+                    Esproveedor1 = true;
+
+                    // Return or perform any necessary actions
+                    return;
+                }
+            }
+
+            // Usuario no encontrado en ninguna tabla o contraseña incorrecta
+            throw new Exception("Usuario no encontrado o contraseña incorrecta");
+        }
 
 
 
