@@ -145,7 +145,19 @@ namespace CapaNegocio
             obj_clientes.LeerClienteWEB(_codigo);
         }//fin LeerClienteWEB
 
+        public void LeerUNSoloCliente()
+        {
 
+            obj_clientes.LeerDetallesPorCorreo(_correo);
+        }
+        public void ValidarContrasena()
+        {
+            string pattern = @"(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$";
+            if (!Regex.IsMatch(_contrasena, pattern))
+            {
+                throw new ArgumentException("La contraseña debe de contener al menos una letra mayuscula, una minuscula, un numero y un caracter especial, no puede contener espacion en blanco y debe tener una longitud de 8-16 caracteres");
+            }
+        }
 
 
 

@@ -21,7 +21,7 @@
         <div>
             <asp:Menu ID="MenuProveedor" runat="server" Orientation="Horizontal" Visible="False">
             <Items>
-            <asp:MenuItem Text="Proveedor" Value="Productos"></asp:MenuItem>
+            <asp:MenuItem Text="Proveedor" Value="Productos" NavigateUrl="~/Paginas/VerProveedor.aspx"></asp:MenuItem>
             </Items>
             </asp:Menu>
             <asp:Menu ID="MenuUsuario" runat="server" OnMenuItemClick="MenuUsuario_MenuItemClick" Orientation="Horizontal" Visible="False">
@@ -37,6 +37,15 @@
                     <asp:MenuItem NavigateUrl="~/Paginas/frmFacturaVentas.aspx" Text="Factura ventas" Value="Factura ventas"></asp:MenuItem>
                 </Items>
             </asp:Menu>
+        </div>
+        <div>
+
+            <asp:Menu ID="menuCliente" runat="server" OnMenuItemClick="Menu1_MenuItemClick" Orientation="Horizontal" Visible="False">
+                <Items>
+                    <asp:MenuItem NavigateUrl="~/Paginas/VerCliente.aspx" Text="Cliente" Value="Cliente"></asp:MenuItem>
+                </Items>
+            </asp:Menu>
+
         </div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>

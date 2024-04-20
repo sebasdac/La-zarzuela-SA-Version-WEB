@@ -30,6 +30,7 @@ namespace La_Zarzuela_WEB.Paginas
                 obj_loginweb.ValidarContrasena();
                 obj_loginweb.CambioContrasena();
                 lblMensaje.Text = "Contraseña actualizada correctamente";
+                lblMensaje.Visible = true;
             }
             catch (Exception ex)
             {

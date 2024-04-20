@@ -23,6 +23,10 @@ namespace La_Zarzuela_WEB
             {
                 MenuUsuario.Visible = true;
             }
+            if (Session["Usuario"] != null && Session["Usuario"].ToString() == "cliente")
+            {
+                menuCliente.Visible = true;
+            }
 
 
         }
@@ -33,6 +37,11 @@ namespace La_Zarzuela_WEB
         }
 
         protected void MenuUsuario_MenuItemClick(object sender, MenuEventArgs e)
+        {
+
+        }
+
+        protected void Menu1_MenuItemClick(object sender, MenuEventArgs e)
         {
 
         }

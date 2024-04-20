@@ -173,6 +173,32 @@ namespace CapaDatos
             }
         }
 
+        public void LeerDetallesPorCorreo(string correo)
+        {
+            SqlDataAdapter sqlDA;
+            SqlCommand instruccionSQL;
+
+            AbrirConexion();
+
+            instruccionSQL = new SqlCommand("SELECT * FROM Clientes WHERE Correo = @Correo", conexion);
+            instruccionSQL.Parameters.AddWithValue("@Correo", correo);
+
+            ds_resultados.Clear(); // limpia el dataset
+
+            try
+            {
+                sqlDA = new SqlDataAdapter(instruccionSQL);
+                sqlDA.Fill(ds_resultados);
+            }
+            catch (Exception ex)
+            {
+                throw new SystemException("Error cargando los datos: " + ex.Message);
+            }
+
+            CerrarConexion();
+        }
+
+
 
         #endregion
 

@@ -57,6 +57,8 @@ namespace La_Zarzuela_WEB
             {
                 obj_loginweb.Usuario = LoginUsuario.UserName;
                 obj_loginweb.Contrasena = LoginUsuario.Password;
+                
+
                 obj_loginweb.AutenticarUsuario();
                 
                 // En el código detrás de tu página ASPX (archivo .aspx.cs)
@@ -71,6 +73,13 @@ namespace La_Zarzuela_WEB
                 {
 
                     Session["Usuario"] = "proveedor";
+                    Session["Correo"] = LoginUsuario.UserName;
+
+                }
+                if(obj_loginweb.Escliente)
+                {
+                    Session["Usuario"] = "cliente";
+                    Session["Correo"] = LoginUsuario.UserName;
 
                 }
 

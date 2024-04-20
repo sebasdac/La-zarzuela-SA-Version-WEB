@@ -137,6 +137,10 @@ namespace CapaNegocio
         {
             obj_proveedor.LeerProveedorWEB(_codigo);
         }//fin LeerClienteWEB
+        public void LeerProveedorPorCorreo()
+        {
+            obj_proveedor.LeerDetallesPorCorreo(_correo);
+        }
 
 
 

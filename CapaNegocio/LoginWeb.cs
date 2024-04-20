@@ -14,6 +14,7 @@ namespace CapaNegocio
         string contrasena;
         bool esproveedorweb;
         bool esusuarioweb;
+        bool esclienteweb;
 
 
 
@@ -26,10 +27,13 @@ namespace CapaNegocio
         public bool Esproveedorweb { get => esproveedorweb; set => esproveedorweb = value; }
         public bool Esusuarioweb { get => esusuarioweb; set => esusuarioweb = value; }
 
+        public bool Escliente { get => obj_login.Escliente1; }
+      
+
         public void AutenticarUsuario()
         {
             obj_login.AutenticarUsuario(Usuario, Contrasena);
-            if(!obj_login.Esproveedor1&&!obj_login.Esusuario1)
+            if(!obj_login.Esproveedor1&&!obj_login.Esusuario1 &&!obj_login.Escliente1)
             {
                 throw new ArgumentException("Usuario no encontrado");
             }
@@ -40,6 +44,10 @@ namespace CapaNegocio
             if (obj_login.Esusuario1)
             {
                 esusuarioweb = true;
+            }
+            if (obj_login.Escliente1)
+            {
+                esclienteweb = true;
             }
 
 

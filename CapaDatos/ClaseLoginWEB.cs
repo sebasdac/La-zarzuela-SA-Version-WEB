@@ -11,9 +11,11 @@ namespace CapaDatos
     {
         bool Esproveedor;
         bool Esusuario;
+        bool Escliente;
 
         public bool Esproveedor1 { get => Esproveedor; set => Esproveedor = value; }
         public bool Esusuario1 { get => Esusuario; set => Esusuario = value; }
+        public bool Escliente1 { get => Escliente; set => Escliente = value; }
 
         private String String_Conexion = "Data Source=SebasDAC_PC;Initial Catalog=\"Proyecto II\";Integrated Security=True;";
 
@@ -35,6 +37,8 @@ namespace CapaDatos
             //string providerConnectionString = "Data Source=SebasDAC_PC;Initial Catalog=\"Proyecto II\";Integrated Security=True;";
            
             string providerQuery = "SELECT * FROM Proveedores WHERE Correo = @Username AND Contrasena = @Password";
+
+            string clientQuery = "SELECT * FROM Clientes WHERE Correo = @Username AND Contrasena = @Password";
 
             using (SqlConnection userConnection = new SqlConnection(String_Conexion))
             {
@@ -69,6 +73,22 @@ namespace CapaDatos
                     return; // Terminar la función
                 }
             }
+            using (SqlConnection clientConnection = new SqlConnection(String_Conexion))
+            {
+                SqlCommand clientCommand = new SqlCommand(clientQuery, clientConnection);
+                clientCommand.Parameters.AddWithValue("@Username", username);
+                clientCommand.Parameters.AddWithValue("@Password", password);
+
+                clientConnection.Open();
+                SqlDataReader clientReader = clientCommand.ExecuteReader();
+
+                if (clientReader.Read())
+                {
+                    // Usuario encontrado en la tabla de Clientes
+                    Escliente1 = true;
+                    return; // Terminar la función
+                }
+            }
 
             // Usuario no encontrado en ninguna tabla o contraseña incorrecta
             throw new Exception("Usuario no encontrado o contraseña incorrecta");
@@ -90,6 +110,8 @@ namespace CapaDatos
             //string providerConnectionString = "Data Source=SebasDAC_PC;Initial Catalog=\"Proyecto II\";Integrated Security=True;";
 
             string providerQuery = "SELECT * FROM Proveedores WHERE Correo = @Username";
+
+            string clientQuery = "SELECT * FROM Clientes WHERE Correo = @Username";
 
             using (SqlConnection userConnection = new SqlConnection(String_Conexion))
             {
@@ -123,7 +145,7 @@ namespace CapaDatos
 
             using (SqlConnection providerConnection = new SqlConnection(String_Conexion))
             {
-                SqlCommand providerCommand = new SqlCommand(providerQuery, providerConnection);
+                SqlCommand providerCommand = new SqlCommand(clientQuery, providerConnection);
                 providerCommand.Parameters.AddWithValue("@Username", username);
                 providerCommand.Parameters.AddWithValue("@Password", password);
 
@@ -135,7 +157,7 @@ namespace CapaDatos
                     providerReader.Close();
 
                     // Update the password in the Proveedores table
-                    string updateQuery = "UPDATE Proveedores SET Contrasena = @NewPassword WHERE Correo = @Username";
+                    string updateQuery = "UPDATE Clientes SET Contrasena = @NewPassword WHERE Correo = @Username";
                     SqlCommand updateCommand = new SqlCommand(updateQuery, providerConnection);
                     updateCommand.Parameters.AddWithValue("@NewPassword", password); // Assuming you have a variable `newPassword` with the new password
                     updateCommand.Parameters.AddWithValue("@Username", username);
