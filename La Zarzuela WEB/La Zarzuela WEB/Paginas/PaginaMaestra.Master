@@ -33,6 +33,8 @@
                     <asp:MenuItem NavigateUrl="~/Paginas/VentaProducto.aspx" Text="Venta productos" Value="Agregar productos"></asp:MenuItem>
                     <asp:MenuItem NavigateUrl="~/Paginas/AgregarProductos.aspx" Text="Agregar productos" Value="Agregar productos"></asp:MenuItem>
                     <asp:MenuItem NavigateUrl="~/Paginas/AgregarInventario.aspx" Text="Agregar inventario" Value="Agregar inventario"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/Paginas/frmVerFacturaCompra.aspx" Text="Factura compra" Value="Factura compra"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/Paginas/frmFacturaVentas.aspx" Text="Factura ventas" Value="Factura ventas"></asp:MenuItem>
                 </Items>
             </asp:Menu>
         </div>

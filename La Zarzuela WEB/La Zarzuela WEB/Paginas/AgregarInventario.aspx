@@ -2,11 +2,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-      <link href="../Css/Contenedores.css" rel="stylesheet" />
+      
+    <link href="../Css/Estilos1.css" rel="stylesheet" />
 
 
-
-    <div id="contenedor-clientes">
+    <div id="form-container">
 
     <div>
         <asp:Label ID="Label3" runat="server" Text="Seleccione el proveedor:" CssClass="h1"></asp:Label>
@@ -120,8 +120,8 @@
           </div>
       <div>
           <asp:Button ID="btnAgregar" runat="server" Text="Agregar" OnClick="btnAgregar_Click" />
-          <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" OnClick="btnEliminar_Click" />
-          <asp:Button ID="btnRealizarCompra" runat="server" Text="Realizar compra" OnClick="btnRealizarCompra_Click" />
+          <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" />
+          <asp:Button ID="btnRealizarCompra" runat="server" Text="Realizar compra" />
       </div>
       <div>
           <asp:Label ID="lblMensaje" runat="server" Text="Label" CssClass="error" Visible="False"></asp:Label>
@@ -133,7 +133,7 @@
   <div id="contenedor-detalles">
 
 
-      <asp:GridView ID="dgvProductos" runat="server" AutoGenerateSelectButton="True" OnSelectedIndexChanged="dgvProductos_SelectedIndexChanged">
+      <asp:GridView ID="dgvProductos" runat="server" AutoGenerateSelectButton="True" OnSelectedIndexChanged="dgvProductos_SelectedIndexChanged" CssClass="styled-gridview">
       </asp:GridView>
 
 

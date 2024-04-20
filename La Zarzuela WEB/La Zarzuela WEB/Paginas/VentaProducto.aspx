@@ -3,20 +3,20 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <link href="../Css/Contenedores.css" rel="stylesheet" />
+    <link href="../Css/Estilos1.css" rel="stylesheet" />
 
 
 
-      <div id="contenedor-clientes">
+      <div id="form-container">
 
       <div>
           <asp:Label ID="Label3" runat="server" Text="Seleccione el cliente:" CssClass="h1"></asp:Label>
-      </div>
+      </div >
 
           <asp:DropDownList ID="DropDownList2" runat="server" DataSourceID="SqlDataSource3" DataTextField="Nombre" DataValueField="Codigo" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
       </asp:DropDownList>
       <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:Proyecto IIConnectionString %>" SelectCommand="SELECT [Codigo], [Nombre] FROM [Clientes]"></asp:SqlDataSource>
-          <div>
+          <div id= "form-group">
 
               <asp:Button ID="btnSeleccionarCliente" runat="server" OnClick="btnSeleccionarCliente_Click" Text="Seleccionar" style="height: 26px" />
               <asp:Button ID="btnEliminarFactura" runat="server" OnClick="btnEliminarFactura_Click" Text="Eliminar factura" />
@@ -25,7 +25,7 @@
           <asp:Label ID="lblCodigoCliente" runat="server" Text="Codigo:"></asp:Label>
           <asp:Label ID="lblCodigoMostrarCliente" runat="server" Text="______"></asp:Label>
       </div>
-      <div>
+      <div id="form-group">
           <asp:Label ID="lblNombreCliente" runat="server" Text="Nombre:"></asp:Label>
           <asp:Label ID="lblNombreMostrarCliente" runat="server" Text="______"></asp:Label>
       </div>

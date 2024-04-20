@@ -82,6 +82,8 @@
     <Content Include="Paginas\VentaProducto.aspx" />
     <Content Include="Paginas\AgregarProductos.aspx" />
     <Content Include="Paginas\AgregarInventario.aspx" />
+    <Content Include="Paginas\frmVerFacturaCompra.aspx" />
+    <Content Include="Paginas\frmFacturaVentas.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -164,6 +166,20 @@
     </Compile>
     <Compile Include="Paginas\AgregarInventario.aspx.designer.cs">
       <DependentUpon>AgregarInventario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Paginas\frmVerFacturaCompra.aspx.cs">
+      <DependentUpon>frmVerFacturaCompra.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\frmVerFacturaCompra.aspx.designer.cs">
+      <DependentUpon>frmVerFacturaCompra.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Paginas\frmFacturaVentas.aspx.cs">
+      <DependentUpon>frmFacturaVentas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\frmFacturaVentas.aspx.designer.cs">
+      <DependentUpon>frmFacturaVentas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
