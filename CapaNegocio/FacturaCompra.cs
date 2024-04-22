@@ -24,7 +24,7 @@ namespace CapaNegocio
         int facturaID;
         string _tipo;
         string _cedulaproveedor;
-        string _fecha;
+        DateTime _fecha;
 
 
         double _subtotal;
@@ -58,7 +58,7 @@ namespace CapaNegocio
         public int FacturaID { get => facturaID; set => facturaID = value; }
         public string Cedulaproveedor { get => _cedulaproveedor; set => _cedulaproveedor = value; }
         public string Tipo { get => _tipo; set => _tipo = value; }
-        public string Fecha1 { get => _fecha; set => _fecha = value; }
+        public DateTime Fecha1 { get => _fecha; set => _fecha = value; }
         public double SubTotal { get => SubTotal; set => SubTotal = value; }
         public double Impuesto { get => _impuesto; set => _impuesto = value; }
         public double TotalImpuesto { get => _totalImpuesto; set => _totalImpuesto = value; }

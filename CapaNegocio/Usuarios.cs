@@ -17,8 +17,13 @@ namespace CapaNegocio
         string _contrasena;
         string _estado;
         int _pin;
+
+
+        int _pinverificar;
         int piningresado;
+        int _pinnuevo;
         ClaseUsuarioBD obj_usuarios = new ClaseUsuarioBD();
+        CambioPin obj_pin = new CambioPin();
 
 
         #region "Constructores"
@@ -43,6 +48,10 @@ namespace CapaNegocio
         public string Cedula { get => _cedula; set => _cedula = value; }
         public string Nombre { get => _nombre; set => _nombre = value; }
         public int PinIngresado { get => piningresado; set => piningresado = value; }
+        public int Pinverificar { get => _pinverificar; set => _pinverificar = value; }
+
+        public int PinBaseDatos { get => obj_pin.Pin; }
+        public int Pinnuevo { get => _pinnuevo; set => _pinnuevo = value; }
 
         #endregion
 
@@ -156,6 +165,26 @@ namespace CapaNegocio
 
             }
 
+        }
+
+        public void ValidarNuevoPin()
+        {
+            
+           
+           
+            obj_pin.VerificarPin(_pinverificar);
+            if (Pinverificar != PinBaseDatos)
+            {
+                throw new ArgumentException("Pin incorrecto");
+
+            }
+
+
+        }
+
+        public void ActualizarPIN()
+        {
+            obj_pin.ActualizarPIN(_pinnuevo);
         }
 
 

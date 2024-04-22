@@ -106,7 +106,7 @@ namespace La_zarzuela_SA
             txtCodigoCliente.Text = codigo;
             txtTipo.Text = tipo;
             txtCedula.Text = cedula;
-            obj_facturaventa.RegistrarFactura(int.Parse(codigo), nombre,tipo,cedula, dtpFechaCompra.Value.ToString("yyyy-MM-dd HH:mm:ss"));
+            obj_facturaventa.RegistrarFactura(int.Parse(codigo), nombre,tipo,cedula, dtpFechaCompra.Value);
 
 
 

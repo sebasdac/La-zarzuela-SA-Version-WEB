@@ -43,9 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CambioPin.cs" />
     <Compile Include="ClaseClienteBD.cs" />
     <Compile Include="ClaseFacturaCompra.cs" />
     <Compile Include="ClaseFacturas.cs" />
+    <Compile Include="ClaseImpuestos.cs" />
+    <Compile Include="ClaseImpuestosContra.cs" />
     <Compile Include="ClaseLeeVerMas.cs" />
     <Compile Include="ClaseLoginWEB.cs" />
     <Compile Include="ClaseProductos_BD.cs" />

@@ -62,7 +62,7 @@ namespace CapaNegocio
         #region "Metodos"
         private ClaseFacturas facturaDAL = new ClaseFacturas(); // Instancia de la capa de datos
 
-        public void RegistrarFactura(int clienteID, string nombre, string cedula, string tipo, string fecha)
+        public void RegistrarFactura(int clienteID, string nombre, string cedula, string tipo, DateTime fecha)
         {
             
             obj_facturas.InsertarFactura(clienteID, nombre, cedula, tipo, fecha);

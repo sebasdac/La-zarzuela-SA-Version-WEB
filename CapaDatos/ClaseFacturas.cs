@@ -21,7 +21,7 @@ namespace CapaDatos
         public DataTable TablaDetalles { get => ds_detalles.Tables[0]; }
         public int FacturaID { get => facturaID; set => facturaID = value; }
 
-        public void InsertarFactura(int clienteID, string nombre, string cedula, string tipo, string fecha)
+        public void InsertarFactura(int clienteID, string nombre, string cedula, string tipo, DateTime fecha)
         {
             
 

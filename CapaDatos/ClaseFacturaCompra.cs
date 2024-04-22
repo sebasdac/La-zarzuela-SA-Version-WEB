@@ -25,7 +25,7 @@ namespace CapaDatos
 
         int facturaID;
 
-        public void InsertarFactura(int ProveedorID, string nombre, string cedula, string tipo, string fecha)
+        public void InsertarFactura(int ProveedorID, string nombre, string cedula, string tipo, DateTime fecha)
         {
 
 

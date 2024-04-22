@@ -40,7 +40,7 @@ namespace La_zarzuela_SA
             obj_facturacompra.NombreProveedor = nombre;
             obj_facturacompra.Cedulaproveedor = cedula;
             obj_facturacompra.Tipo = tipo;
-            obj_facturacompra.Fecha1 = dtpFechaCompra.Value.ToString("yyyy-MM-dd HH:mm:ss");
+            obj_facturacompra.Fecha1 = dtpFechaCompra.Value;
             obj_facturacompra.InsertarFactura();
 
         }

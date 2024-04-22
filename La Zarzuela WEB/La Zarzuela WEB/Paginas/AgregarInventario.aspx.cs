@@ -42,7 +42,7 @@ namespace La_Zarzuela_WEB.Paginas
             obj_facturacompra.NombreProveedor = lblNombreMostrarCliente.Text;
             obj_facturacompra.Cedulaproveedor = lblMostrarCedula.Text;
             obj_facturacompra.Tipo = lblMostrarTipo.Text;
-            obj_facturacompra.Fecha1 = diaSeleccionado.ToString();
+            obj_facturacompra.Fecha1 = diaSeleccionado;
             obj_facturacompra.InsertarFactura();
 
             Session["FacturaID"] = obj_facturacompra.FacturaIDWEB;

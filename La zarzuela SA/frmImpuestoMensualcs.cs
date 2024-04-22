@@ -37,6 +37,10 @@ namespace La_zarzuela_SA
             try
             {
                 obj_impuesto.Mes = int.Parse(txtNumeroMes.Text);
+                obj_impuesto.VerificarMes();
+                obj_impuesto.ImpuestoVentas();
+                obj_impuesto.ImpuestoCompras();
+                obj_impuesto.CalculoImpuestos();
                 
                 txtImpuestos.Text = obj_impuesto.Impuestosmensuales.ToString();
             }

@@ -56,7 +56,7 @@ namespace La_Zarzuela_WEB.Paginas
 
 
 
-            obj_facturaventa.RegistrarFactura(int.Parse(lblCodigoMostrarCliente.Text), lblNombreMostrarCliente.Text.ToString(), lblMostrarTipo.Text.ToString(), lblMostrarCedula.Text.ToString(), diaSeleccionado.ToString());
+            obj_facturaventa.RegistrarFactura(int.Parse(lblCodigoMostrarCliente.Text), lblNombreMostrarCliente.Text.ToString(), lblMostrarTipo.Text.ToString(), lblMostrarCedula.Text.ToString(), diaSeleccionado);
             Session["FacturaID"] = obj_facturaventa.FacturaIDWEB;
 
             

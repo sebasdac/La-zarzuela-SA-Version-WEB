@@ -19,6 +19,7 @@ namespace CapaDatos
         public DataTable TablaProductos { get => ds_resultados.Tables[0]; }
         public int PIN1 { get => PIN; set => PIN = value; }
         public bool CredencialesValidas { get => credencialesValidas; set => credencialesValidas = value; }
+        
 
 
         #endregion

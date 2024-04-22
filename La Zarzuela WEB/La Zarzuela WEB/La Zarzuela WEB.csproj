@@ -76,6 +76,7 @@
     <Content Include="Paginas\Clientes.aspx" />
     <Content Include="Paginas\Accesodenegado.aspx" />
     <Content Include="frmRecuperacionContrasena.aspx" />
+    <Content Include="Paginas\frmImpuestos.aspx" />
     <Content Include="Paginas\Proveedores.aspx" />
     <Content Include="Paginas\Usuarios.aspx" />
     <Content Include="Paginas\PaginaPrincipal.aspx" />
@@ -125,6 +126,13 @@
     </Compile>
     <Compile Include="frmRecuperacionContrasena.aspx.designer.cs">
       <DependentUpon>frmRecuperacionContrasena.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Paginas\frmImpuestos.aspx.cs">
+      <DependentUpon>frmImpuestos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\frmImpuestos.aspx.designer.cs">
+      <DependentUpon>frmImpuestos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Paginas\Proveedores.aspx.cs">
       <DependentUpon>Proveedores.aspx</DependentUpon>

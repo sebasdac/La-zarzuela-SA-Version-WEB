@@ -29,7 +29,10 @@ namespace La_zarzuela_SA
         {
             try
             { 
-              //obj_usuario.Pin = int.Parse(txtActual.Text);
+              obj_usuario.Pinverificar = int.Parse(txtActual.Text);
+                obj_usuario.Pinnuevo = int.Parse(txtNuevo.Text);
+                obj_usuario.ValidarNuevoPin();
+                obj_usuario.ActualizarPIN();
               
               //obj_usuario.Pin = int.Parse(txtNuevo.Text);
 

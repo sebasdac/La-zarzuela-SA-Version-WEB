@@ -35,6 +35,7 @@
                     <asp:MenuItem NavigateUrl="~/Paginas/AgregarInventario.aspx" Text="Agregar inventario" Value="Agregar inventario"></asp:MenuItem>
                     <asp:MenuItem NavigateUrl="~/Paginas/frmVerFacturaCompra.aspx" Text="Factura compra" Value="Factura compra"></asp:MenuItem>
                     <asp:MenuItem NavigateUrl="~/Paginas/frmFacturaVentas.aspx" Text="Factura ventas" Value="Factura ventas"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/Paginas/frmImpuestos.aspx" Text="Impuestos" Value="Impuestos"></asp:MenuItem>
                 </Items>
             </asp:Menu>
         </div>
