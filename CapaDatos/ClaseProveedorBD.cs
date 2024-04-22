@@ -11,8 +11,8 @@ namespace CapaDatos
     public class ClaseProveedorBD
     {
         DataSet ds_resultados = new DataSet();
-        //private String String_Conexion = "Data Source=LAPTOP-M50THNEO;Initial Catalog=\"Proyecto II\";Integrated Security=True;";
-        private String String_Conexion = "Data Source=SebasDAC_PC;Initial Catalog=\"Proyecto II\";Integrated Security=True;";
+        private String String_Conexion = "Data Source=LAPTOP-M50THNEO;Initial Catalog=\"Proyecto II\";Integrated Security=True;";
+        //private String String_Conexion = "Data Source=SebasDAC_PC;Initial Catalog=\"Proyecto II\";Integrated Security=True;";
 
         #region "Propiedades"
         public DataTable TablaProveedor { get => ds_resultados.Tables[0]; }
