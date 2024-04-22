@@ -87,16 +87,24 @@ namespace La_Zarzuela_WEB.Paginas
 
         protected void btnEliminar_Click(object sender, EventArgs e)
         {
-            obj_usuarios.Usuario = txtUsuario.Text;
-            obj_usuarios.EliminarUsuario();
-            obj_usuarios.LeerUsuarios();
-            dgvUsuarios.DataSource = obj_usuarios.TablaUsuarios;
-            dgvUsuarios.DataBind();
-            txtUsuario.Text = "";
-            txtContrasena.Text = "";
-            cbEstado.Text = "";
-            txtCedula.Text = "";
-            txtNombre.Text = "";
+            try
+            {
+                obj_usuarios.Usuario = txtUsuario.Text;
+                obj_usuarios.EliminarUsuario();
+                obj_usuarios.LeerUsuarios();
+                dgvUsuarios.DataSource = obj_usuarios.TablaUsuarios;
+                dgvUsuarios.DataBind();
+                txtUsuario.Text = "";
+                txtContrasena.Text = "";
+                cbEstado.Text = "";
+                txtCedula.Text = "";
+                txtNombre.Text = "";
+            }//fin try
+            catch (Exception ex)
+            {
+                lblError.Text = ex.Message;
+                lblError.Visible = true;
+            }//fin catch
 
         }
     }

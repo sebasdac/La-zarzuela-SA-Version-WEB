@@ -28,8 +28,6 @@
         </div>
         <div>
 
-            <asp:HyperLink ID="lblCreeUnaCuenta" runat="server">Cree una cuenta</asp:HyperLink>
-
         </div>
         
     </form>

@@ -22,29 +22,37 @@ namespace La_Zarzuela_WEB.Paginas
 
         protected void btnSeleccionarProveedor_Click(object sender, EventArgs e)
         {
-            lblCodigoMostrarCliente.Text = DropDownList1.SelectedValue;
-            lblNombreMostrarCliente.Text = DropDownList1.SelectedItem.Text;
-            obj_proveedor.Codigo = Convert.ToInt32(lblCodigoMostrarCliente.Text);
-            obj_proveedor.LeerProveedorWEB();
-            lblMostrarCedula.Text = obj_proveedor.CedulaWEB;
-            lblMostrarTipo.Text = obj_proveedor.TipoWEB;
+            try
+            {
+                lblCodigoMostrarCliente.Text = DropDownList1.SelectedValue;
+                lblNombreMostrarCliente.Text = DropDownList1.SelectedItem.Text;
+                obj_proveedor.Codigo = Convert.ToInt32(lblCodigoMostrarCliente.Text);
+                obj_proveedor.LeerProveedorWEB();
+                lblMostrarCedula.Text = obj_proveedor.CedulaWEB;
+                lblMostrarTipo.Text = obj_proveedor.TipoWEB;
 
-            DateTime diaSeleccionado;
-            diaSeleccionado = calFecha.SelectedDate;
+                DateTime diaSeleccionado;
+                diaSeleccionado = calFecha.SelectedDate;
 
-            Console.WriteLine("Fecha seleccionada: " + diaSeleccionado.ToString());
+                Console.WriteLine("Fecha seleccionada: " + diaSeleccionado.ToString());
 
-            //_CodigoProveedor, _NombreProveedor,
-            //    _cedulaproveedor, _tipo, Fecha1
-            
-            obj_facturacompra.CodigoProveedor = int.Parse(lblCodigoMostrarCliente.Text);
-            obj_facturacompra.NombreProveedor = lblNombreMostrarCliente.Text;
-            obj_facturacompra.Cedulaproveedor = lblMostrarCedula.Text;
-            obj_facturacompra.Tipo = lblMostrarTipo.Text;
-            obj_facturacompra.Fecha1 = diaSeleccionado;
-            obj_facturacompra.InsertarFactura();
+                //_CodigoProveedor, _NombreProveedor,
+                //    _cedulaproveedor, _tipo, Fecha1
 
-            Session["FacturaID"] = obj_facturacompra.FacturaIDWEB;
+                obj_facturacompra.CodigoProveedor = int.Parse(lblCodigoMostrarCliente.Text);
+                obj_facturacompra.NombreProveedor = lblNombreMostrarCliente.Text;
+                obj_facturacompra.Cedulaproveedor = lblMostrarCedula.Text;
+                obj_facturacompra.Tipo = lblMostrarTipo.Text;
+                obj_facturacompra.Fecha1 = diaSeleccionado;
+                obj_facturacompra.InsertarFactura();
+
+                Session["FacturaID"] = obj_facturacompra.FacturaIDWEB;
+            }
+            catch (Exception ex)
+            {
+                lblMensaje.Text = ex.Message;
+                lblMensaje.Visible = true;
+            }
         }
 
         protected void btnEliminarFactura_Click(object sender, EventArgs e)

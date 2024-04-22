@@ -11,6 +11,7 @@ namespace CapaNegocio
 {
     public class Usuarios
     {
+        #region "Variables de trabajo"
         string _cedula;
         string _nombre;
         string _usuario;
@@ -24,14 +25,15 @@ namespace CapaNegocio
         int _pinnuevo;
         ClaseUsuarioBD obj_usuarios = new ClaseUsuarioBD();
         CambioPin obj_pin = new CambioPin();
+        #endregion
 
 
         #region "Constructores"
         //objeto
-       
 
-        
-        
+
+
+
         #endregion
 
 
@@ -77,14 +79,11 @@ namespace CapaNegocio
             if (string.IsNullOrWhiteSpace(_contrasena))
             {
                 throw new ArgumentException("Escriba la contraseña");
-            }
+            }//fin if
 
-        }
+        }//fin validar login
 
-        public void UsuarioIncorrecto()
-        {
-
-        }
+      
 
         public void EscribeUsuarioBD()
         {
@@ -97,7 +96,7 @@ namespace CapaNegocio
         {
             obj_usuarios.LeerUsuario();
 
-        }
+        }//fin leer productos
         public void ValidarUsuario()
         {
           
@@ -105,31 +104,22 @@ namespace CapaNegocio
             if (!obj_usuarios.CredencialesValidas)
             {
                 throw new ArgumentException("Usuario, contraseña incorrectos o usuario inactivo");
-            }
+            }//fin if
 
 
-        }
+        }//fin validar usuario
 
         public void ActualizarEstado()
         {
             obj_usuarios.ActualizarUsuario(_cedula,_nombre,_usuario,_contrasena,_estado);
 
-        }
+        }//fin actualizar estado
 
         public void EliminarUsuario()
         {
 
             obj_usuarios.EliminarUsuario(_usuario);
-        }
-
-
-
-
-
-
-
-
-
+        }// fin eliminar usuario
 
 
         public void ValidarUsuarioRegistro()
@@ -139,20 +129,20 @@ namespace CapaNegocio
             if (_cedula.Trim().Length != 9)
             {
                 throw new ArgumentException("La cedula debe de contener 9 digitos");
-            }
+            }//fin if
             if (!int.TryParse(_cedula, out i))   //"!" es si no es numerico
             {
                 throw new System.Exception("La cedula debe de ser numerico");
-            }
+            }//fin if
             if (string.IsNullOrEmpty(_nombre))
             {
                 throw new ArgumentException("Escriba el nombre");
 
-            }
+            }//fin if
             if(string.IsNullOrEmpty(_contrasena))
             {
                 throw new ArgumentException("Escriba la contraseña");
-            }
+            }//fin if
         }//fin validar usuario registro
 
 
@@ -163,9 +153,9 @@ namespace CapaNegocio
             {
                 throw new ArgumentException("Pin incorrecto");
 
-            }
+            }//fin if
 
-        }
+        }//fin validar pin
 
         public void ValidarNuevoPin()
         {
@@ -180,12 +170,12 @@ namespace CapaNegocio
             }
 
 
-        }
+        }//fin validar nuevo pin
 
         public void ActualizarPIN()
         {
             obj_pin.ActualizarPIN(_pinnuevo);
-        }
+        }// fin actualizar pin
 
 
         #endregion

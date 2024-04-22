@@ -13,7 +13,7 @@ namespace CapaNegocio
 {
     public class Proveedor
     {
-
+        #region "Variables"
         int _codigo;
         string _nombre;
         string _cedula;
@@ -24,12 +24,15 @@ namespace CapaNegocio
         string _tipo;
         string _estado;
         string _contrasena;
-        public string CedulaWEB { get => obj_proveedor.Cedula; }
-        public string TipoWEB { get => obj_proveedor.Tipo; }
+        
         ClaseProveedorBD obj_proveedor = new ClaseProveedorBD();
+        #endregion
+
 
 
         #region "Propiedades"
+        public string CedulaWEB { get => obj_proveedor.Cedula; }
+        public string TipoWEB { get => obj_proveedor.Tipo; }
         public int Codigo { get => _codigo; set => _codigo = value; }
         public string Nombre { get => _nombre; set => _nombre = value; }
         public string Cedula { get => _cedula; set => _cedula = value; }
@@ -116,7 +119,7 @@ namespace CapaNegocio
         {
             obj_proveedor.LeerProveedor();
 
-        }
+        }//fin LeerProductoBD
         public void EscribeProveedorBD()
         {
            
@@ -128,11 +131,11 @@ namespace CapaNegocio
         {
             obj_proveedor.ActualizarProveedor(_codigo, _nombre, _tipo, _cedula, _direccion, _provincia, _telefono, _correo, _contrasena);
 
-        }
+        }//fin EditarProveedor
         public void EliminarProveedor()
         {
             obj_proveedor.EliminarProveedor(_codigo);
-        }
+        }//fin EliminarProveedor
         public void LeerProveedorWEB()
         {
             obj_proveedor.LeerProveedorWEB(_codigo);
@@ -140,7 +143,7 @@ namespace CapaNegocio
         public void LeerProveedorPorCorreo()
         {
             obj_proveedor.LeerDetallesPorCorreo(_correo);
-        }
+        }//fin LeerClienteWEB
 
 
 

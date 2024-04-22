@@ -10,6 +10,7 @@ namespace CapaNegocio
 {
     public class LoginWeb
     {
+        #region "Variables"
         string usuario;
         string contrasena;
         bool esproveedorweb;
@@ -20,6 +21,8 @@ namespace CapaNegocio
 
 
         ClaseLoginWEB obj_login = new ClaseLoginWEB();
+        #endregion
+        #region "Propiedades"
         public bool Esproveedor { get => obj_login.Esproveedor1; }
         public bool Esusuario{ get => obj_login.Esusuario1; }
         public string Contrasena { get => contrasena; set => contrasena = value; }
@@ -28,8 +31,9 @@ namespace CapaNegocio
         public bool Esusuarioweb { get => esusuarioweb; set => esusuarioweb = value; }
 
         public bool Escliente { get => obj_login.Escliente1; }
-      
+        #endregion
 
+        #region "Metodos"
         public void AutenticarUsuario()
         {
             obj_login.AutenticarUsuario(Usuario, Contrasena);
@@ -51,12 +55,12 @@ namespace CapaNegocio
             }
 
 
-        }
+        }//fin autenticar usuario
 
         public void CambioContrasena()
         {
             obj_login.CambioContrasenaa(Usuario, Contrasena);
-        }
+        }//fin cambio contraseña
         public void ValidarContrasena()
         {
             string pattern = @"(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$";
@@ -64,10 +68,10 @@ namespace CapaNegocio
             {
                 throw new ArgumentException("La contraseña debe de contener al menos una letra mayuscula, una minuscula, un numero y un caracter especial, no puede contener espacion en blanco y debe tener una longitud de 8-16 caracteres");
             }
-        }
-        
+        }//fin validar contraseña
 
 
+        #endregion
 
     }
 }

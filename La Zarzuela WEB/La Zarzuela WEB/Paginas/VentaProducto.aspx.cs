@@ -31,33 +31,50 @@ namespace La_Zarzuela_WEB.Paginas
 
         protected void btnSeleccionar_Click(object sender, EventArgs e)
         {
-            lblCodigoMostrar.Text = DropDownList1.SelectedValue;
-            lblNombreMostrar.Text = DropDownList1.SelectedItem.Text;
-           
-            obj_productos.Codigo = Convert.ToInt32(lblCodigoMostrar.Text);
-            obj_productos.LeerProductoWEB();
-            lblCantidadMostrar.Text = obj_productos.CantidadWEB.ToString();
-            lblPrecioMostrar.Text = obj_productos.PrecioWEB.ToString();
+            try
+            {
+                lblCodigoMostrar.Text = DropDownList1.SelectedValue;
+                lblNombreMostrar.Text = DropDownList1.SelectedItem.Text;
+
+                obj_productos.Codigo = Convert.ToInt32(lblCodigoMostrar.Text);
+                obj_productos.LeerProductoWEB();
+                lblCantidadMostrar.Text = obj_productos.CantidadWEB.ToString();
+                lblPrecioMostrar.Text = obj_productos.PrecioWEB.ToString();
+            }//fin try
+            catch (Exception ex)
+            {
+            lblMensaje.Text = ex.Message;
+            lblMensaje.Visible = true;
+            }//fin catch
             
         }
 
         protected void btnSeleccionarCliente_Click(object sender, EventArgs e)
         {
-            lblCodigoMostrarCliente.Text = DropDownList2.SelectedValue;
-            lblNombreMostrarCliente.Text = DropDownList2.SelectedItem.Text;
-            obj_clientes.Codigo = Convert.ToInt32(lblCodigoMostrarCliente.Text);
-            obj_clientes.LeerClienteWEB();
-            lblMostrarCedula.Text = obj_clientes.CedulaWEB;
-            lblMostrarTipo.Text = obj_clientes.TipoWEB;
-            DateTime diaSeleccionado;
-            diaSeleccionado = calFecha.SelectedDate;
+            try
+            {
+                lblCodigoMostrarCliente.Text = DropDownList2.SelectedValue;
+                lblNombreMostrarCliente.Text = DropDownList2.SelectedItem.Text;
+                obj_clientes.Codigo = Convert.ToInt32(lblCodigoMostrarCliente.Text);
+                obj_clientes.LeerClienteWEB();
+                lblMostrarCedula.Text = obj_clientes.CedulaWEB;
+                lblMostrarTipo.Text = obj_clientes.TipoWEB;
+                DateTime diaSeleccionado;
+                diaSeleccionado = calFecha.SelectedDate;
 
-            Console.WriteLine("Fecha seleccionada: " + diaSeleccionado.ToString());
+                Console.WriteLine("Fecha seleccionada: " + diaSeleccionado.ToString());
 
 
 
-            obj_facturaventa.RegistrarFactura(int.Parse(lblCodigoMostrarCliente.Text), lblNombreMostrarCliente.Text.ToString(), lblMostrarTipo.Text.ToString(), lblMostrarCedula.Text.ToString(), diaSeleccionado);
-            Session["FacturaID"] = obj_facturaventa.FacturaIDWEB;
+                obj_facturaventa.RegistrarFactura(int.Parse(lblCodigoMostrarCliente.Text), lblNombreMostrarCliente.Text.ToString(), lblMostrarTipo.Text.ToString(), lblMostrarCedula.Text.ToString(), diaSeleccionado);
+                Session["FacturaID"] = obj_facturaventa.FacturaIDWEB;
+                lblMensaje.Text = "Factura creada";
+            }
+            catch (Exception ex)
+            {
+                lblMensaje.Text = ex.Message;
+                lblMensaje.Visible = true;
+            }
 
             
         }
@@ -112,12 +129,12 @@ namespace La_Zarzuela_WEB.Paginas
                 txtCantidadDeseada.Text = "";
                 lblMensaje.Visible = true;
                 lblMensaje.Text = "Producto agregado";
-            }
+            }//fin try
             catch (Exception ex)
             {
                 lblMensaje.Text = ex.Message;
                 lblMensaje.Visible = true;
-            }
+            }//fin catch
 
         }
 
@@ -199,12 +216,12 @@ namespace La_Zarzuela_WEB.Paginas
                 lblCodigoMostrar.Text = "";
                 txtCantidadDeseada.Text = "";
                 lblMensaje.Text = "";
-            }
+            }//fin try
             catch (Exception ex)
             {
                 lblMensaje.Text = ex.Message;
                 lblMensaje.Visible = true;
-            }
+            }//fin catch
 
 
 

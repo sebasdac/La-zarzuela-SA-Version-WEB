@@ -13,18 +13,14 @@ namespace La_zarzuela_SA
 {
     public partial class frmVentaProducto : Form
     {
-        int filaSeleccionadaClientes;
-        int filaSeleccionadaProductos;
-        int totalProductos;
-        int filaSeleccionada;
+      
 
         FacturaVenta obj_facturaventa = new FacturaVenta();
-        //objetos
+    
 
-        Clientes obj_cliente = new Clientes();
         Productos obj_productos = new Productos();
-        VentaProducto obj_ventaproducto = new VentaProducto();
-        ImpuestoMensual obj_impuestos = new ImpuestoMensual();
+        
+        
 
         public frmVentaProducto()
         {

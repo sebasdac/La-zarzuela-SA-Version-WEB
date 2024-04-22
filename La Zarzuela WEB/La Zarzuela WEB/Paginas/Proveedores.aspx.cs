@@ -73,49 +73,65 @@ namespace La_Zarzuela_WEB.Paginas
 
         protected void btnEditar_Click(object sender, EventArgs e)
         {
-            obj_proveedor.Codigo = int.Parse(txtCodigo.Text);
-            obj_proveedor.Nombre = txtNombre.Text;
-            obj_proveedor.Cedula = txtCedula.Text;
-            obj_proveedor.Telefono = txtTelefono.Text;
-            obj_proveedor.Correo = txtCorreo.Text;
-            obj_proveedor.Direccion = txtDireccion.Text;
-            obj_proveedor.Provincia = cbProvincia.Text;
-            obj_proveedor.Tipo = cbTipo.Text;
-            obj_proveedor.Contrasena = txtContrasena.Text;
+            try
+            {
+                obj_proveedor.Codigo = int.Parse(txtCodigo.Text);
+                obj_proveedor.Nombre = txtNombre.Text;
+                obj_proveedor.Cedula = txtCedula.Text;
+                obj_proveedor.Telefono = txtTelefono.Text;
+                obj_proveedor.Correo = txtCorreo.Text;
+                obj_proveedor.Direccion = txtDireccion.Text;
+                obj_proveedor.Provincia = cbProvincia.Text;
+                obj_proveedor.Tipo = cbTipo.Text;
+                obj_proveedor.Contrasena = txtContrasena.Text;
 
-            obj_proveedor.ValidarProveedor();
-            obj_proveedor.EditarProveedor();
-            obj_proveedor.LeerProveedoresBD();
-            dgvProveedores.DataSource = obj_proveedor.TablaProveedor;
-            dgvProveedores.DataBind();
+                obj_proveedor.ValidarProveedor();
+                obj_proveedor.EditarProveedor();
+                obj_proveedor.LeerProveedoresBD();
+                dgvProveedores.DataSource = obj_proveedor.TablaProveedor;
+                dgvProveedores.DataBind();
 
-            
-            txtCedula.Text = "";
-            txtCodigo.Text = "";
-            txtNombre.Text = "";
-            txtTelefono.Text = "";
-            txtCorreo.Text = "";
-            txtDireccion.Text = "";
-            cbProvincia.Text = "";
-            cbTipo.Text = "";
-            txtContrasena.Text = "";
+
+                txtCedula.Text = "";
+                txtCodigo.Text = "";
+                txtNombre.Text = "";
+                txtTelefono.Text = "";
+                txtCorreo.Text = "";
+                txtDireccion.Text = "";
+                cbProvincia.Text = "";
+                cbTipo.Text = "";
+                txtContrasena.Text = "";
+            }
+            catch (Exception ex)
+            {
+                lblError.Text = "Error: " + ex.Message;
+                lblError.Visible = true;
+            }
         }
 
         protected void btnBorrar_Click(object sender, EventArgs e)
         {
-            obj_proveedor.Codigo = int.Parse(txtCodigo.Text);
-            obj_proveedor.EliminarProveedor();
-            obj_proveedor.LeerProveedoresBD();
-            dgvProveedores.DataSource = obj_proveedor.TablaProveedor;
-            dgvProveedores.DataBind();
-            txtCodigo.Text = "";
-            txtNombre.Text = "";
-            txtCedula.Text = "";
-            txtTelefono.Text = "";
-            txtCorreo.Text = "";
-            txtDireccion.Text = "";
-            cbProvincia.Text = "";
-            txtContrasena.Text = "";
+            try
+            {
+                obj_proveedor.Codigo = int.Parse(txtCodigo.Text);
+                obj_proveedor.EliminarProveedor();
+                obj_proveedor.LeerProveedoresBD();
+                dgvProveedores.DataSource = obj_proveedor.TablaProveedor;
+                dgvProveedores.DataBind();
+                txtCodigo.Text = "";
+                txtNombre.Text = "";
+                txtCedula.Text = "";
+                txtTelefono.Text = "";
+                txtCorreo.Text = "";
+                txtDireccion.Text = "";
+                cbProvincia.Text = "";
+                txtContrasena.Text = "";
+            }
+            catch (Exception ex)
+            {
+                lblError.Text = "Error: " + ex.Message;
+                lblError.Visible = true;
+            }
 
 
         }//fin try

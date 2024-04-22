@@ -11,7 +11,7 @@ namespace CapaNegocio
 {
     public class FacturaCompra
     {
-
+        #region "Variables"
         int _CodigoProveedor;
         string _NombreProveedor;
         string _Fecha;
@@ -32,12 +32,10 @@ namespace CapaNegocio
         double _totalImpuesto;
 
 
-        public int FacturaIDWEB { get => facturaDAL.FacturaID;}
+        
         ClaseFacturaCompra facturaDAL = new ClaseFacturaCompra(); // Instancia de la capa de datos
 
-        public DataTable Tabla_Facturas { get => facturaDAL.TablaFacturas; }
-        public DataTable Tabla_Detalles { get => facturaDAL.TablaDetalles; }
-
+        #endregion
 
 
 
@@ -46,6 +44,9 @@ namespace CapaNegocio
 
 
         #region "Propiedades"
+        public DataTable Tabla_Facturas { get => facturaDAL.TablaFacturas; }
+        public DataTable Tabla_Detalles { get => facturaDAL.TablaDetalles; }
+        public int FacturaIDWEB { get => facturaDAL.FacturaID; }
         public int CodigoProveedor { get => _CodigoProveedor; set => _CodigoProveedor = value; }
         public string NombreProveedor { get => _NombreProveedor; set => _NombreProveedor = value; }
         public string Fecha { get => _Fecha; set => _Fecha = value; }
@@ -79,57 +80,50 @@ namespace CapaNegocio
            
             facturaDAL.InsertarFactura(_CodigoProveedor, _NombreProveedor,
                 _cedulaproveedor, _tipo, Fecha1);
-        }
+        }//fin InsertarFactura
 
         public void InsertarDetalleFactura()
         {
             facturaDAL.InsertarDetalleFactura(_CodigoProducto,_NombreProducto,
                 _Cantidad,_Precio,_subtotal,Impuesto,TotalImpuesto);
-        }
+        }//fin InsertarDetalleFactura
         public void InsertarDetalleFacturaWEB(int facturaid)
         {
             facturaDAL.InsertarDetalleFacturaWEB(facturaid,_CodigoProducto, _NombreProducto,
                 _Cantidad, _Precio, _subtotal, Impuesto, TotalImpuesto);
-        }
+        }//fin InsertarDetalleFacturaWEB
 
 
 
 
-        public void ValidarProveedor()
-        {
-
-            if(string.IsNullOrEmpty(_NombreProveedor))
-            {
-                throw new ArgumentException("El nombre del proveedor no puede estar vacio");
-            }
-        }
+      
 
 
         public void LeerFactura()
         {
             facturaDAL.LeerFactura(facturaID.ToString());
 
-        }
+        }//fin LeerFactura
         public void LeerDetallesWEB(int facturaid)
         {
             facturaDAL.LeerDetallesWEB(facturaid);
 
-        }
+        }//fin LeerFactura
 
         public void LeerDetalles()
         {
             facturaDAL.LeerDetalles(facturaID.ToString());
-        }
+        }//fin LeerDetalles
 
         public void LeerFacturaDGV()
         {
             facturaDAL.LeerDetallesalDataGridView();
-        }
+        }//fin LeerFacturaDGV
 
         public void EliminarProductoFactura()
         {
             facturaDAL.EliminarProducto(_CodigoProducto);
-        }
+        }// fin EliminarProductoFactura
 
 
         public void EliminarFactura()
@@ -152,7 +146,7 @@ namespace CapaNegocio
                         throw new ArgumentException(ex.Message);
                     }
                }
-        }
+        }//fin EliminarFactura
 
         public void EliminarFacturaWEB()
         {
@@ -173,7 +167,7 @@ namespace CapaNegocio
                     throw new ArgumentException(ex.Message);
                 }
             }
-        }
+        }//fin EliminarFacturaWEB
 
 
 
@@ -182,7 +176,7 @@ namespace CapaNegocio
             ClaseProductos_BD obj_productos = new ClaseProductos_BD();
 
             obj_productos.ActualizarInventarioResta(codigoProducto, cantidad);
-        }
+        }//fin RestaInventario
 
 
 

@@ -11,6 +11,7 @@ namespace CapaNegocio
 {
     public class FacturaVenta
     {
+        #region "Variables"
         int _codigocliente;
         string _nombrecliente;
         string _cedula;
@@ -32,14 +33,16 @@ namespace CapaNegocio
 
 
         ClaseFacturas obj_facturas = new ClaseFacturas();
+        #endregion
+
+
+
+        #region "Propiedades"
+        private ClaseFacturas facturaDAL = new ClaseFacturas(); // Instancia de la capa de datos
         public DataTable Tabla_Facturas { get => obj_facturas.TablaFacturas; }
         public DataTable Tabla_Detalles { get => obj_facturas.TablaDetalles; }
 
         public int FacturaIDWEB { get => obj_facturas.FacturaID; }
-
-
-        #region "Propiedades"
-
         public string Cedula { get => _cedula; set => _cedula = value; }
         public string Tipo { get => _tipo; set => _tipo = value; }
         public string Provincia { get => _provincia; set => _provincia = value; }
@@ -60,25 +63,25 @@ namespace CapaNegocio
         #endregion
 
         #region "Metodos"
-        private ClaseFacturas facturaDAL = new ClaseFacturas(); // Instancia de la capa de datos
+        
 
         public void RegistrarFactura(int clienteID, string nombre, string cedula, string tipo, DateTime fecha)
         {
             
             obj_facturas.InsertarFactura(clienteID, nombre, cedula, tipo, fecha);
             
-        }
+        }//fin RegistrarFactura
 
 
         public void InsertarDetallesFactura()
         {
             obj_facturas.InsertarDetalleFactura(_codigoproducto,_cantidad, _precio,_impuesto,_subtotal,_total, _nombreprodcuto);
-        }
+        }//fin InsertarDetallesFactura
 
         public void InsertarDetallesFacturaWEB(int facturaid)
         {
             obj_facturas.InsertarDetalleFacturaWEB(facturaid,_codigoproducto, _cantidad, _precio, _impuesto, _subtotal, _total, _nombreprodcuto);
-        }
+        }//fin InsertarDetallesFacturaWEB
 
 
 
@@ -89,7 +92,7 @@ namespace CapaNegocio
             ClaseProductos_BD productoDAL = new ClaseProductos_BD(); // Instancia de la capa de datos
             // Llama al método de la capa de datos para actualizar el inventario
             productoDAL.ActualizarInventarioResta(codigoProducto, cantidad);
-        }
+        }//fin ActualizarInventario
 
         public void ValidarCliente()
         {
@@ -98,28 +101,28 @@ namespace CapaNegocio
                 throw new ArgumentException("El nombre del cliente es requerido");
             }
             
-        }
+        }//fin ValidarCliente
        
       
         public void LeerFactura()
         {
             obj_facturas.LeerFactura(FacturaID.ToString());
             
-        }
+        }//fin LeerFactura
 
         public void LeerDetalles()
         {
             obj_facturas.LeerDetalles(FacturaID.ToString());
-        }
+        }//fin LeerDetalles
 
         public void LeerDetallesGridView()
         {
             obj_facturas.LeerDetallesalDataGridView();
-        }
+        }//fin LeerDetallesGridView
         public void EliminarProducto()
         {
             obj_facturas.EliminarProducto(_codigoproducto);
-        }
+        }//fin EliminarProducto
         public void EliminarFactura()
         {
             try
@@ -138,11 +141,11 @@ namespace CapaNegocio
                     throw new ArgumentException(ex.Message);
                 }
             }
-        }
+        }//fin EliminarFactura
         public void LeerDetallesGridViewWEb(int codigo)
         {
             obj_facturas.LeerDetallesalDataGridViewWEB(codigo);
-        }
+        }//fin LeerDetallesGridViewWEb
         public void EliminarFacturaWEB()
         {
             try
@@ -161,7 +164,7 @@ namespace CapaNegocio
                  }
             }
 
-        }
+        }//fin EliminarFacturaWEB
 
 
         #endregion

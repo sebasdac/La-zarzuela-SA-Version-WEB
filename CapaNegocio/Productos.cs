@@ -98,11 +98,11 @@ namespace CapaNegocio
         public void ActualizarInventarioSuma(int _codigo, int cantidad)
         {
             obj_productosBD.ActualizarInventarioSuma(_codigo.ToString(), cantidad);
-        }
+        }// fin ActualizarInventarioSuma
         public void ActualizarInventario()
         {
             obj_productosBD.ActualizarInventario(_codigo, _nombre, _precio);
-        }
+        }//fin ActualizarInventario
 
         public void LeeTablaProducto()
         {
@@ -116,7 +116,7 @@ namespace CapaNegocio
             {
                 throw new ArgumentException("No hay suficiente stock");
             }
-        }
+        }//fin ValidarStock
 
 
         public void EscribeProductoBD()
@@ -127,7 +127,7 @@ namespace CapaNegocio
 
                 Bd_productos.EscribeProductoBD(_codigo, _nombre, _precio,
                                         _cantidad, _impuesto, _totalImpuesto);
-            }
+            }//fin try
             catch(SqlException ex)
             {
                 if(ex.Number== 2627)
@@ -139,17 +139,17 @@ namespace CapaNegocio
                     throw new ArgumentException(ex.Message);
                 }
 
-            }
+            }//fin catch
         } //fin EscribeProductoDT
         public void EliminarProducto()
         {
             obj_productosBD.EliminarProducto(_codigo);
-        }
+        }//fin EliminarProducto
 
         public void LeerProductoWEB()
         {
             obj_productosBD.LeerProductoWEB(_codigo);
-        }
+        }//fin LeerProductoWEB
 
 
         #endregion

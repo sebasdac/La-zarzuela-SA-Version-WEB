@@ -9,6 +9,7 @@ namespace CapaNegocio
 {
     public class ImpuestoMensual
     {
+        #region "Variables"
         decimal _impuestofavor;
         decimal _impuestocontra;
         double _impuestosmensuales;
@@ -16,6 +17,7 @@ namespace CapaNegocio
 
         ClaseImpuestosContra obj_impuestoscontrarios = new ClaseImpuestosContra();
         ClaseImpuestos obj_impuestos  = new ClaseImpuestos();
+        #endregion
 
         #region "Propiedades"
         public decimal Impuestofavor { get => obj_impuestos.TotalImpuestos; }
@@ -34,12 +36,12 @@ namespace CapaNegocio
         {
             obj_impuestos.CalcularImpuestosVenta(_mes);
 
-        }
+        }//metodo para calcular impuestos de ventas
 
         public void ImpuestoCompras()
         {
             obj_impuestoscontrarios.CalcularImpuestosCompra(_mes);
-        }
+        }//fin ImpuestoCompras
 
         public void CalculoImpuestos()
         {
@@ -48,7 +50,7 @@ namespace CapaNegocio
 
             _impuestosmensuales = (double)(_impuestofavor - _impuestocontra);
 
-        }
+        }//fin CalculoImpuestos
         public void VerificarMes()
         {
             if(_mes < 1 || _mes > 12)
@@ -56,7 +58,7 @@ namespace CapaNegocio
                 throw new ArgumentException("Mes no valido");
             }
 
-        }
+        }// fin VerificarMes
         #endregion
 
 

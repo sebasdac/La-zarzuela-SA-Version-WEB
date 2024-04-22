@@ -137,34 +137,40 @@ namespace La_zarzuela_SA
 
         private void iconButton2_Click(object sender, EventArgs e)
         {
-
-            obj_productos.Codigo = int.Parse(txtCodigoProducto.Text);
-            obj_productos.Nombre = txtNombre.Text;
-            obj_productos.Cantidad = int.Parse(txtCantidad.Text);
-            obj_productos.Precio = int.Parse(txtPrecio.Text);
-            obj_productos.ValidarProducto();
-            obj_productos.ActualizarInventarioSuma(int.Parse(txtCodigoProducto.Text), int.Parse(txtCantidad.Text));
-            
-
-
-
-
-            obj_facturacompra.CodigoProducto = int.Parse(txtCodigoProducto.Text);
-            obj_facturacompra.NombreProducto = txtNombre.Text;
-            obj_facturacompra.Cantidad = int.Parse(txtCantidad.Text);
-            obj_facturacompra.Precio = double.Parse(txtPrecio.Text);
-            obj_facturacompra.CalcularTotal();
-            obj_facturacompra.InsertarDetalleFactura();
-            obj_facturacompra.LeerFacturaDGV();
+            try
+            {
+                obj_productos.Codigo = int.Parse(txtCodigoProducto.Text);
+                obj_productos.Nombre = txtNombre.Text;
+                obj_productos.Cantidad = int.Parse(txtCantidad.Text);
+                obj_productos.Precio = int.Parse(txtPrecio.Text);
+                obj_productos.ValidarProducto();
+                obj_productos.ActualizarInventarioSuma(int.Parse(txtCodigoProducto.Text), int.Parse(txtCantidad.Text));
 
 
 
 
-            dgvProductos.DataSource = obj_facturacompra.Tabla_Detalles;
-            txtCantidad.Text = "";
-            txtPrecio.Text = "";
-            txtCodigoProducto.Text = "";
-            txtNombre.Text = "";
+
+                obj_facturacompra.CodigoProducto = int.Parse(txtCodigoProducto.Text);
+                obj_facturacompra.NombreProducto = txtNombre.Text;
+                obj_facturacompra.Cantidad = int.Parse(txtCantidad.Text);
+                obj_facturacompra.Precio = double.Parse(txtPrecio.Text);
+                obj_facturacompra.CalcularTotal();
+                obj_facturacompra.InsertarDetalleFactura();
+                obj_facturacompra.LeerFacturaDGV();
+
+
+
+
+                dgvProductos.DataSource = obj_facturacompra.Tabla_Detalles;
+                txtCantidad.Text = "";
+                txtPrecio.Text = "";
+                txtCodigoProducto.Text = "";
+                txtNombre.Text = "";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
         int filaSeleccionada;
         private void btnBorrar_Click(object sender, EventArgs e)

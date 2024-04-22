@@ -60,48 +60,7 @@ namespace CapaNegocio
         #region "Metodos"
         //metodos
 
-        public void ValidarDisponiblidad()
-        {
-            try
-            {
-                if (_disponible > _cantidadDeseada)
-                {
-                    _totalProductos = _totalProductos + _disponible;
-                    _totalProductos = _totalProductos - _cantidadDeseada;
-                    
-                    
-                }//fin if
-               
-                if (_disponible < _cantidadDeseada)
-                {
-
-                    throw new ArgumentException("No hay productos disponibles"); 
-                }//fin if
-            }//fin try
-            catch (Exception ex) 
-            {
-                throw new ArgumentException(ex.Message); 
-
-            }//fin catch
-        }//fin validar disponibilidad
-
-        public void CalcularPrecio()
-        {
-            
-            _total = (_cantidadDeseada * _precio);
-            _impuesto = (_total * 0.13);
-            Totalimpuesto = (_total + _impuesto);
-
-
-        }//fin calcular precio
-
-        public void ValidarBoton()
-        {
-            if (!string.IsNullOrEmpty(_nombreUsuario)) //verifica que se haya seleccionado un usuario
-            {
-                _clickboton = true;
-            }//fin if
-        }//fin validar boton
+      
 
        
         #endregion

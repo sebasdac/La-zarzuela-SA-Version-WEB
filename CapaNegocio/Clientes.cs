@@ -15,6 +15,7 @@ namespace CapaNegocio
 {
     public class Clientes
     {
+        #region "Variables"
         // variables
         int _codigo;
         string _nombre;
@@ -26,6 +27,7 @@ namespace CapaNegocio
         string _direccion;
         string _contrasena;
         ClaseClienteBD obj_clientes = new ClaseClienteBD();
+        #endregion
 
 
         #region "Propiedades"
@@ -108,7 +110,7 @@ namespace CapaNegocio
             obj_clientes.LeerCliente();
 
 
-        }
+        }//fin LeerClientes
         public void EscribeClienteBD()
         {
             try
@@ -149,7 +151,7 @@ namespace CapaNegocio
         {
 
             obj_clientes.LeerDetallesPorCorreo(_correo);
-        }
+        }//fin LeerUNSoloCliente
         public void ValidarContrasena()
         {
             string pattern = @"(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$";
@@ -157,7 +159,7 @@ namespace CapaNegocio
             {
                 throw new ArgumentException("La contraseña debe de contener al menos una letra mayuscula, una minuscula, un numero y un caracter especial, no puede contener espacion en blanco y debe tener una longitud de 8-16 caracteres");
             }
-        }
+        }//fin ValidarContrasena
 
 
 

@@ -89,19 +89,27 @@ namespace La_Zarzuela_WEB.Paginas
 
         protected void btEditar_Click(object sender, EventArgs e)
         {
-            obj_productos.Codigo = int.Parse(txtCodigo.Text);
-            obj_productos.Nombre = txtNombre.Text;
-            obj_productos.Cantidad = int.Parse(txtCantidad.Text);
-            obj_productos.Precio = int.Parse(txtPrecio.Text);
-            obj_productos.ValidarProducto();
-            obj_productos.ActualizarInventario();
-            obj_productos.LeeTablaProducto();
-            dgvProductos.DataSource = obj_productos.Tabla_Productos;
-            dgvProductos.DataBind();
-            txtNombre.Text = "";
-            txtCantidad.Text = "";
-            txtPrecio.Text = "";
-            txtCodigo.Text = "";
+            try
+            {
+                obj_productos.Codigo = int.Parse(txtCodigo.Text);
+                obj_productos.Nombre = txtNombre.Text;
+                obj_productos.Cantidad = int.Parse(txtCantidad.Text);
+                obj_productos.Precio = int.Parse(txtPrecio.Text);
+                obj_productos.ValidarProducto();
+                obj_productos.ActualizarInventario();
+                obj_productos.LeeTablaProducto();
+                dgvProductos.DataSource = obj_productos.Tabla_Productos;
+                dgvProductos.DataBind();
+                txtNombre.Text = "";
+                txtCantidad.Text = "";
+                txtPrecio.Text = "";
+                txtCodigo.Text = "";
+            }
+            catch (Exception ex)
+            {
+                lblError.Text = ex.Message;
+                lblError.Visible = true;
+            }
         }
     }
 }
