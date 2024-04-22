@@ -35,19 +35,22 @@
             // 
             this.txtVermas.Enabled = false;
             this.txtVermas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtVermas.Location = new System.Drawing.Point(25, 12);
+            this.txtVermas.Location = new System.Drawing.Point(33, 15);
+            this.txtVermas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtVermas.Name = "txtVermas";
             this.txtVermas.ReadOnly = true;
-            this.txtVermas.Size = new System.Drawing.Size(734, 411);
+            this.txtVermas.Size = new System.Drawing.Size(977, 505);
             this.txtVermas.TabIndex = 0;
             this.txtVermas.Text = "";
+            this.txtVermas.TextChanged += new System.EventHandler(this.txtVermas_TextChanged);
             // 
             // frmVerMas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.txtVermas);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmVerMas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ver mas";

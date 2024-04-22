@@ -143,7 +143,7 @@
             this.btnAgregarProducto.IconColor = System.Drawing.Color.Black;
             this.btnAgregarProducto.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAgregarProducto.Name = "btnAgregarProducto";
-            this.btnAgregarProducto.Size = new System.Drawing.Size(224, 26);
+            this.btnAgregarProducto.Size = new System.Drawing.Size(211, 26);
             this.btnAgregarProducto.Text = "Agregar producto";
             this.btnAgregarProducto.Click += new System.EventHandler(this.btnAgregarProducto_Click);
             // 
@@ -153,7 +153,7 @@
             this.btnVerProductos.IconColor = System.Drawing.Color.Black;
             this.btnVerProductos.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnVerProductos.Name = "btnVerProductos";
-            this.btnVerProductos.Size = new System.Drawing.Size(224, 26);
+            this.btnVerProductos.Size = new System.Drawing.Size(211, 26);
             this.btnVerProductos.Text = "Ver productos";
             this.btnVerProductos.Click += new System.EventHandler(this.btnVerProductos_Click);
             // 
@@ -275,6 +275,7 @@
             this.btnVerMas.Size = new System.Drawing.Size(75, 72);
             this.btnVerMas.Text = "Ver mas";
             this.btnVerMas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnVerMas.Click += new System.EventHandler(this.btnVerMas_Click);
             // 
             // menutitulo
             // 

@@ -31,5 +31,10 @@ namespace La_zarzuela_SA
             obj_vermas.LeerMasTXT();
             txtVermas.Text = obj_vermas.VerMas2;
         }
+
+        private void txtVermas_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

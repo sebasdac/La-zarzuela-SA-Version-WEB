@@ -1,4 +1,5 @@
-﻿using FontAwesome.Sharp;
+﻿using CapaNegocio;
+using FontAwesome.Sharp;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -265,6 +266,11 @@ namespace La_zarzuela_SA
         private void btnVerProductos_Click(object sender, EventArgs e)
         {
             AbrirFormulario((IconMenuItem)sender, new frmVerProductos());
+        }
+
+        private void btnVerMas_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario((IconMenuItem)sender, new frmVerMas());
         }
     }
 }
